@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+
+type Props = CollectionEntry<'blog'>['data']
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+        <style>
+            .cover {
+                display: flex;
+                flex-direction: column;
+
+                min-block-size: 100vh;
+
+                * {
+                    margin-block: 1rem;
+                }
+                > .main {
+                    margin-block: auto;
+                }
+                > :first-child:not(.main) {
+                    margin-block-start: 0;
+                }
+                > :last-child:not(.main) {
+                    margin-block-end: 0;
+                }
+                background-color: pink;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="cover">
+            <h2 class="wrapper">Lorem ipsum dolor</h2>
+            <div class="main">
+                <slot />
+            </div>
+
+            <h2 class="wrapper">Lorem ipsum dolor</h2>
+        </div>
+    </body>
+</html>

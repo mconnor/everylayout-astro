@@ -10,6 +10,7 @@ import { SITE_TITLE } from '../consts'
             <HeaderLink href="/">Home</HeaderLink>
             <HeaderLink href="/blog">Blog</HeaderLink>
             <HeaderLink href="/about">About</HeaderLink>
+            <HeaderLink href="/test">Test</HeaderLink>
         </div>
         <div class="social-links">
             <a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -64,27 +65,28 @@ import { SITE_TITLE } from '../consts'
     h2 {
         margin: 0;
         font-size: 1em;
+        a,
+        a.active {
+            text-decoration: none;
+        }
     }
 
-    h2 a,
-    h2 a.active {
-        text-decoration: none;
-    }
     nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        a {
+            padding: 1em 0.5em;
+            color: var(--black);
+            border-bottom: 4px solid transparent;
+            text-decoration: none;
+            &.active {
+                text-decoration: none;
+                border-bottom-color: var(--accent);
+            }
+        }
     }
-    nav a {
-        padding: 1em 0.5em;
-        color: var(--black);
-        border-bottom: 4px solid transparent;
-        text-decoration: none;
-    }
-    nav a.active {
-        text-decoration: none;
-        border-bottom-color: var(--accent);
-    }
+
     .social-links,
     .social-links a {
         display: flex;
