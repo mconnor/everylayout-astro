@@ -1,21 +1,25 @@
 {
-  "name": "every-layout-1",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write . --plugin=prettier-plugin-astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/mdx": "^2.0.6",
-    "@astrojs/rss": "^4.0.3",
-    "@astrojs/sitemap": "^3.0.5",
-    "astro": "^4.2.3",
-    "typescript": "^5.3.3"
-  }
+    "name": "every-layout-1",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "format": "prettier --write . --plugin=prettier-plugin-astro"
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.4.1",
+        "@astrojs/mdx": "^2.0.6",
+        "@astrojs/rss": "^4.0.3",
+        "@astrojs/sitemap": "^3.0.5",
+        "astro": "^4.2.3",
+        "typescript": "^5.3.3"
+    },
+    "devDependencies": {
+        "prettier": "^3.2.4",
+        "prettier-plugin-astro": "^0.13.0"
+    }
 }

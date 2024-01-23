@@ -13,7 +13,6 @@
     // add support for autocomplete in JS or JS like files
     "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
 
-  
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
 }
