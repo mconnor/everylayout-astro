@@ -20,6 +20,9 @@ dependencies:
   astro:
     specifier: ^4.2.3
     version: 4.2.3(typescript@5.3.3)
+  open-props:
+    specifier: ^1.6.17
+    version: 1.6.17
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -2987,6 +2990,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       mimic-fn: 4.0.0
+    dev: false
+
+  /open-props@1.6.17:
+    resolution: {integrity: sha512-6mp/gpLQz/ZwrGLz+i7tSJ3eWNLE1KxLXHO+b6xxRyZ1Alp4TgTcvHiQ89rC2IkvsU3/IRhpIJuxl7rRCwUzLA==}
     dev: false
 
   /ora@7.0.1:

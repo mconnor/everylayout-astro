@@ -4,17 +4,110 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-@layer legacy, mychanges;
+@import 'https://unpkg.com/open-props';
+@layer legacy, reset, mychanges, layout, utilities;
 
-@layer mychanges {
+@layer reset {
+    :root {
+        --measure: 60ch;
+    }
     * {
         box-sizing: border-box;
+        max-inline-size: 60ch;
 
         /* other global styles */
     }
+
+    html,
+    body,
+    div,
+    header,
+    nav,
+    main,
+    footer {
+        max-inline-size: none;
+    }
+}
+
+@layer utilities {
     .wrapper {
         border: 1px solid red;
     }
+}
+
+@layer layout {
+    /* .cover {
+        display: flex;
+        flex-direction: column;
+
+        min-block-size: 100vh;
+        padding: var(--size-3);
+
+        * {
+            margin-block: 1rem;
+        }
+        > .main {
+            margin-block: auto;
+        }
+        > :first-child:not(.main) {
+            margin-block-start: 0;
+        }
+        > :last-child:not(.main) {
+            margin-block-end: 0;
+        }
+
+        background-color: pink;
+    } */
+    /* https://every-layout.dev/layouts/stack/#the-component */
+    .stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* .stack > * + * {
+        margin-block-start: var(--space, 1.5rem);
+    } */
+
+    .stack > :nth-child(2) {
+        margin-block-end: auto;
+    }
+}
+
+@layer mychanges {
+    @import 'https://unpkg.com/open-props';
+
+    .max-inline-size\:measure {
+        max-inline-size: var(--measure);
+    }
+
+    .max-inline-size\:measure\/2 {
+        max-inline-size: calc(var(--measure) / 2);
+    }
+
+    h1 {
+        font-size: var(--font-size-5);
+    }
+    h2 {
+        font-size: var(--font-size-4);
+    }
+    h3 {
+        font-size: var(--font-size-3);
+    }
+    h4 {
+        font-size: var(--font-size-2);
+    }
+    h5 {
+        font-size: var(--font-size-1);
+    }
+    strong,
+    b {
+        font-weight: var(--font-weight-7);
+    }
+
+    /* p {
+        font-weight: var(--font-weight-9);
+    } */
 }
 
 @layer legacy {

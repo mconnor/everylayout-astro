@@ -13,38 +13,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props
 <html lang="en">
     <head>
         <BaseHead title={title} description={description} />
-        <style>
-            .cover {
-                display: flex;
-                flex-direction: column;
-
-                min-block-size: 100vh;
-
-                * {
-                    margin-block: 1rem;
-                }
-                > .main {
-                    margin-block: auto;
-                }
-                > :first-child:not(.main) {
-                    margin-block-start: 0;
-                }
-                > :last-child:not(.main) {
-                    margin-block-end: 0;
-                }
-                background-color: pink;
-            }
-        </style>
+        <style></style>
     </head>
 
     <body>
-        <div class="cover">
+        <div class="stack">
             <h2 class="wrapper">Lorem ipsum dolor</h2>
-            <div class="main">
-                <slot />
-            </div>
+            <div class="main"><slot /></div>
 
-            <h2 class="wrapper">Lorem ipsum dolor</h2>
+            <h2 class="wrapper">Viverra suspendisse potenti nullam</h2>
         </div>
     </body>
 </html>
