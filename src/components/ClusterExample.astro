@@ -1,0 +1,46 @@
+---
+function generateRandomString() {
+    const length = Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
+    let result = ''
+    const characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(
+            Math.floor(Math.random() * characters.length),
+        )
+    }
+    return result
+}
+---
+
+<div class="box">
+    <div class="cluster" role="list">
+        <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag1">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag2">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag1">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag2">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
+        <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>
+    </div>
+</div>
+
+<style>
+    .wrapper {
+        display: block;
+        border: 1px solid black;
+    }
+
+    a {
+        border: 1px solid black;
+        background-color: brown;
+    }
+    .demobox {
+        background-color: red;
+        width: 100px;
+        height: 50px;
+    }
+</style>

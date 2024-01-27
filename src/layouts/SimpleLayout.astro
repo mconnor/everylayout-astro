@@ -1,27 +1,24 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import FormattedDate from '../components/FormattedDate.astro'
+import GlobalStyles from '@styles/GlobalStyles.astro'
 
 type Props = CollectionEntry<'blog'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const {
+    title,
+    description,
+    // pubDate, updatedDate, heroImage
+} = Astro.props
 ---
 
 <html lang="en">
     <head>
         <BaseHead title={title} description={description} />
-        <style></style>
+        <GlobalStyles />
     </head>
 
-    <body>
-        <div class="stack">
-            <h2 class="wrapper">Lorem ipsum dolor</h2>
-            <div class="main"><slot /></div>
-
-            <h2 class="wrapper">Viverra suspendisse potenti nullam</h2>
-        </div>
+    <body data-color-scheme="dark">
+        <slot />
     </body>
 </html>

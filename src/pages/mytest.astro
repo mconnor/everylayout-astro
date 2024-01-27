@@ -1,0 +1,15 @@
+---
+import Layout from '@layouts/SimpleLayout.astro'
+import SideBarDemo from '@components/SideBarDemo.astro'
+---
+
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout
+    title="test Me"
+    description="Lorem ipsum dolor sit amet"
+    pubDate={new Date('August 08 2021')}
+>
+    <!-- <Cluster /> -->
+    <div class="box"><h1>Side Bar Demo</h1></div>
+    <SideBarDemo />
+</Layout>

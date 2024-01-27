@@ -1,0 +1,32 @@
+---
+
+---
+
+<style>
+    .with-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sidebar {
+        flex-basis: 20rem;
+        flex-grow: 1;
+    }
+
+    .not-sidebar {
+        flex-basis: 0;
+        flex-grow: 999;
+    }
+</style>
+<div class:list={['with-sidebar', 'box']}>
+    <div class:list={['sidebar', 'box']}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem odit
+        officia odio tenetur
+    </div>
+    <div class:list={['not-sidebar', 'box']}>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem odit
+        officia odio tenetur perferendis cum sapiente exercitationem minima sint
+        voluptatibus. Consectetur fugiat nesciunt numquam quae et rem corporis
+        eum aspernatur!
+    </div>
+</div>
