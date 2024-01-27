@@ -1,0 +1,29 @@
+<div class="switcher">
+    <div class="box">5</div>
+    <div class="box">4</div>
+    <div class="box">3</div>
+    <div class="box">2</div>
+    <div class="box">1</div>
+</div>
+
+<style>
+    .switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        --threshold: 30rem;
+
+        /* optional */
+        > * {
+            flex-grow: 1;
+            flex-basis: calc((var(--threshold) - 100%) * 999);
+        }
+
+        /* we are applying a flex-basis of 100% to each element, only where there are five or more elements in total.  */
+        > :nth-last-child(n + 5),
+        > :nth-last-child(n + 5) ~ * {
+            flex-basis: 100%;
+            background-color: red;
+        }
+    }
+</style>

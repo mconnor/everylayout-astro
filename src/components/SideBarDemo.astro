@@ -20,13 +20,17 @@
 </style>
 <div class:list={['with-sidebar', 'box']}>
     <div class:list={['sidebar', 'box']}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem odit
-        officia odio tenetur
+        <div class="stack">
+            <div class="box">stacks make margins</div>
+            <div class="box">boxes fix padding</div>
+            <div class="box">Lorem, ipsum dolor sit</div>
+        </div>
     </div>
     <div class:list={['not-sidebar', 'box']}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem odit
-        officia odio tenetur perferendis cum sapiente exercitationem minima sint
-        voluptatibus. Consectetur fugiat nesciunt numquam quae et rem corporis
-        eum aspernatur!
+        <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
+        20rem as an ideal or “target” width. It is then free to calculate just how
+        closely the 20rem target can be resembled given the content and available
+        space. You empower the browser to make the right decision for the content,
+        and the user, reading that content, given their circumstances.
     </div>
 </div>

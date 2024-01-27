@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/SimpleLayout.astro'
+import ClusterExample from '@components/ClusterExample.astro'
+
+const classstring = `.cluster {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: var(--size-fluid-2);
+        row-gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+    }
+`
+---
+
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout
+    title="About Me"
+    description="Lorem ipsum dolor sit amet"
+    pubDate={new Date('August 08 2021')}
+>
+    <div class="box border">
+        <pre><code>{classstring}</code></pre>
+    </div>
+    <div class="box"><ClusterExample /></div>
+</Layout>

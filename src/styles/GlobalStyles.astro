@@ -236,11 +236,12 @@ import 'open-props/postcss/buttons'
         background-color: var(--gray-12); */
         outline: 0.125rem solid transparent;
         outline-offset: -0.125rem;
+        background-color: var(--gray-1);
+        border: var(--size-1) solid var(--gray-12);
     }
     /* BOX */
     .box * {
         color: inherit;
-        border: 1px solid black;
     }
 
     .box.invert {
@@ -296,6 +297,11 @@ import 'open-props/postcss/buttons'
         &:active:not(:focus-visible) {
             position: relative;
             /*     inset-block-start: 2px; */
+        }
+
+        .switcher {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 </style>
