@@ -1,0 +1,301 @@
+---
+import 'open-props/postcss/style'
+import 'open-props/postcss/buttons'
+---
+
+<style is:global>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: var(--font-sans);
+        line-height: 1.5;
+
+        /* light */
+        --brand-light: var(--orange-18);
+
+        /* open-props light theme as defaults but these are better */
+        --text-1-light: var(--gray-8);
+        --text-2-light: var(--gray-7);
+        --surface-1-light: var(--gray-0);
+        --surface-2-light: var(--gray-1);
+        --surface-3-light: var(--gray-2);
+        --surface-4-light: var(--gray-3);
+
+        --surface-shadow-light: var(--gray-8-hsl);
+        --shadow-strength-light: 2%;
+
+        /* dark */
+        --brand-dark: var(--orange-3);
+
+        /* open-props dark theme as defaults but these are better */
+        --text-1-dark: var(--gray-3);
+        --text-2-dark: var(--gray-5);
+        --surface-1-dark: var(--gray-12);
+        --surface-2-dark: var(--gray-11);
+        --surface-3-dark: var(--gray-10);
+        --surface-4-dark: var(--gray-9);
+
+        --surface-shadow-dark: var(--gray-12-hsl);
+        --shadow-strength-dark: 80%;
+
+        /* dim */
+        --brand-dim: var(--orange-4);
+        --text-1-dim: var(--gray-3);
+        --text-2-dim: var(--gray-4);
+        --surface-1-dim: var(--gray-8);
+        --surface-2-dim: var(--gray-7);
+        --surface-3-dim: var(--gray-6);
+        --surface-4-dim: var(--gray-5);
+        --surface-shadow-dim: var(--gray-9-hsl);
+        --shadow-strength-dim: 20%;
+
+        /* grape */
+        --brand-grape: var(--purple-5);
+        --text-1-grape: var(--purple-9);
+        --text-2-grape: var(--purple-7);
+        --surface-1-grape: var(--purple-0);
+        --surface-2-grape: var(--purple-1);
+        --surface-3-grape: var(--purple-2);
+        --surface-4-grape: var(--purple-3);
+        --surface-shadow-grape: var(--purple-12-hsl);
+        --shadow-strength-grape: 2%;
+
+        /* choco */
+        --brand-choco: var(--choco-5);
+        --text-1-choco: var(--choco-1);
+        --text-2-choco: var(--choco-2);
+        --surface-1-choco: var(--choco-12);
+        --surface-2-choco: var(--choco-11);
+        --surface-3-choco: var(--choco-10);
+        --surface-4-choco: var(--choco-9);
+        --surface-shadow-choco: 25deg 65% 11%;
+        --shadow-strength-choco: 50%;
+
+        /* --lime-green: #a2c551;
+    --deep-plumb: #41293a;
+    --rustic-red: #5e2e28;
+    --light-blue: #696fa4;
+    --yellow: #fde001; */
+    }
+
+    :root {
+        --ratio: 1.5;
+        --s-5: calc(var(--s-4) / var(--ratio));
+        --s-4: calc(var(--s-3) / var(--ratio));
+        --s-3: calc(var(--s-2) / var(--ratio));
+        --s-2: calc(var(--s-1) / var(--ratio));
+        --s-1: calc(var(--s0) / var(--ratio));
+        --s0: 1rem;
+        --s1: calc(var(--s0) * var(--ratio));
+        --s2: calc(var(--s1) * var(--ratio));
+        --s3: calc(var(--s2) * var(--ratio));
+        --s4: calc(var(--s3) * var(--ratio));
+        --s5: calc(var(--s4) * var(--ratio));
+
+        --brand-light: var(--orange-18);
+
+        /* open-props light theme as defaults but these are better */
+        --text-1-light: var(--gray-8);
+        --text-2-light: var(--gray-7);
+        --surface-1-light: var(--gray-0);
+        --surface-2-light: var(--gray-1);
+        --surface-3-light: var(--gray-2);
+        --surface-4-light: var(--gray-3);
+
+        --surface-shadow-light: var(--gray-8-hsl);
+        --shadow-strength-light: 2%;
+    }
+
+    [color-scheme='light'] {
+        color-scheme: light;
+
+        --brand: var(--brand-light);
+        --text-1: var(--text-1-light);
+        --text-2: var(--text-2-light);
+        --surface-1: var(--surface-1-light);
+        --surface-2: var(--surface-2-light);
+        --surface-3: var(--surface-3-light);
+        --surface-4: var(--surface-4-light);
+        --surface-shadow: var(--surface-shadow-light);
+        --shadow-strength: var(--shadow-strength-light);
+    }
+
+    [color-scheme='dark'] {
+        color-scheme: dark;
+
+        --brand-dark: var(--orange-3);
+        --text-1: var(--text-1-dark);
+        --text-2: var(--text-2-dark);
+        --surface-1: var(--surface-1-dark);
+        --surface-2: var(--surface-2-dark);
+        --surface-3: var(--surface-3-dark);
+        --surface-4: var(--surface-4-dark);
+        --surface-shadow: var(--surface-shadow-dark);
+        --shadow-strength: var(--shadow-strength-dark);
+
+        --brand-dark: var(--orange-3);
+
+        /* open-props dark theme as defaults but these are better */
+    }
+
+    [color-scheme='dim'] {
+        color-scheme: dark;
+
+        --brand: var(--brand-dim);
+        --text-1: var(--text-1-dim);
+        --text-2: var(--text-2-dim);
+        --surface-1: var(--surface-1-dim);
+        --surface-2: var(--surface-2-dim);
+        --surface-3: var(--surface-3-dim);
+        --surface-4: var(--surface-4-dim);
+        --surface-shadow: var(--surface-shadow-dim);
+        --shadow-strength: var(--shadow-strength-dim);
+    }
+
+    [color-scheme='grape'] {
+        color-scheme: light;
+
+        --brand: var(--brand-grape);
+        --text-1: var(--text-1-grape);
+        --text-2: var(--text-2-grape);
+        --surface-1: var(--surface-1-grape);
+        --surface-2: var(--surface-2-grape);
+        --surface-3: var(--surface-3-grape);
+        --surface-4: var(--surface-4-grape);
+        --surface-shadow: var(--surface-shadow-grape);
+        --shadow-strength: var(--shadow-strength-grape);
+    }
+
+    [color-scheme='choco'] {
+        color-scheme: light;
+
+        --brand: var(--brand-choco);
+        --text-1: var(--text-1-choco);
+        --text-2: var(--text-2-choco);
+        --surface-1: var(--surface-1-choco);
+        --surface-2: var(--surface-2-choco);
+        --surface-3: var(--surface-3-choco);
+        --surface-4: var(--surface-4-choco);
+        --surface-shadow: var(--surface-shadow-choco);
+        --shadow-strength: var(--shadow-strength-choco);
+    }
+
+    code {
+        font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            slotspace;
+    }
+
+    .fill {
+        background-image: var(--gradient-27);
+    }
+
+    /* LAYOUTS ***************************/
+
+    /* Stack sets margin-top on its children */
+
+    .stack > * + * {
+        margin-block-start: var(--size-5);
+    }
+
+    .stack-large > * + * {
+        margin-block-start: var(--size-10);
+    }
+
+    .stack-small > * + * {
+        margin-block-start: 0.5rem;
+    }
+    [class^='stack'] > * {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* top and bottom margins in horizontal-tb writing mode */
+        margin-block: 0;
+    }
+
+    /* .stack > * + * {
+    margin-block-start: var(--space, 1.5rem);
+} */
+
+    .stack > :nth-child(2) {
+        margin-block-end: auto;
+    }
+
+    .box {
+        padding: var(--size-3);
+
+        /* color: var(--gray-1);
+        background-color: var(--gray-12); */
+        outline: 0.125rem solid transparent;
+        outline-offset: -0.125rem;
+    }
+    /* BOX */
+    .box * {
+        color: inherit;
+        border: 1px solid black;
+    }
+
+    .box.invert {
+        filter: invert(100%);
+    }
+
+    /* CENTER  Intrinsic centering*/
+
+    .center-l {
+        box-sizing: content-box;
+        max-inline-size: 60ch;
+        margin-inline: auto;
+        padding-inline-start: var(--s1);
+        padding-inline-end: var(--s1);
+    }
+
+    .cluster {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: var(--size-fluid-2);
+        row-gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    /* 
+    ui */
+    .button {
+        display: inline-flex;
+        white-space: nowrap;
+
+        font-size: var(--font-size-fluid-1);
+        font-weight: var(--font-weight-7);
+
+        padding-inline: var(--size-6);
+        padding-block: var(--size-3);
+
+        color: var(--blue-9);
+        border: var(--border-size-2) solid var(--blue-5);
+        background-color: transparent;
+        border-radius: var(--radius-2);
+
+        &:is(:hover, :focus) {
+            cursor: pointer;
+            color: var(--blue-0);
+            background-color: var(--blue-5);
+
+            &.light & {
+                text-shadow: 0 1px 0 var(--blue-8);
+            }
+        }
+
+        &:active:not(:focus-visible) {
+            position: relative;
+            /*     inset-block-start: 2px; */
+        }
+    }
+</style>

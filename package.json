@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
+        "check": "astro check",
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
@@ -20,6 +21,10 @@
         "typescript": "^5.3.3"
     },
     "devDependencies": {
+        "autoprefixer": "^10.4.17",
+        "postcss-html": "^1.6.0",
+        "postcss-jit-props": "^1.0.14",
+        "postcss-nesting": "^12.0.2",
         "prettier": "^3.2.4",
         "prettier-plugin-astro": "^0.13.0"
     }
