@@ -26,6 +26,7 @@
         "postcss-html": "^1.6.0",
         "postcss-jit-props": "^1.0.14",
         "postcss-nesting": "^12.0.2",
+        "postcss-pow": "^1.0.1",
         "prettier": "^3.2.4",
         "prettier-plugin-astro": "^0.13.0"
     }

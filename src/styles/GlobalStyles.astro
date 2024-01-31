@@ -109,7 +109,8 @@ import 'open-props/postcss/buttons'
         --measure: 60ch;
 
         --ratio: 1.5;
-        --s-5: calc(var(--s-4) / var(--ratio));
+
+        /* --s-5: calc(var(--s-4) / var(--ratio));
         --s-4: calc(var(--s-3) / var(--ratio));
         --s-3: calc(var(--s-2) / var(--ratio));
         --s-2: calc(var(--s-1) / var(--ratio));
@@ -119,7 +120,13 @@ import 'open-props/postcss/buttons'
         --s2: calc(var(--s1) * var(--ratio));
         --s3: calc(var(--s2) * var(--ratio));
         --s4: calc(var(--s3) * var(--ratio));
-        --s5: calc(var(--s4) * var(--ratio));
+        --s5: calc(var(--s4) * var(--ratio)); */
+
+        --s0: 1rem;
+        --s2: calc(var(--s0) * pow(var(--ratio), 2));
+        --s3: calc(var(--s0) * pow(var(--ratio), 3));
+        --s4: calc(var(--s0) * pow(var(--ratio), 4));
+        --s5: calc(var(--s0) * pow(var(--ratio), 5));
 
         --brand-light: var(--orange-18);
 
@@ -133,6 +140,10 @@ import 'open-props/postcss/buttons'
 
         --surface-shadow-light: var(--gray-8-hsl);
         --shadow-strength-light: 2%;
+
+        color-scheme: light dark;
+
+        --brand: var(--brand-light);
     }
 
     [color-scheme='light'] {
@@ -167,46 +178,12 @@ import 'open-props/postcss/buttons'
         /* open-props dark theme as defaults but these are better */
     }
 
-    [color-scheme='dim'] {
-        color-scheme: dark;
-
-        --brand: var(--brand-dim);
-        --text-1: var(--text-1-dim);
-        --text-2: var(--text-2-dim);
-        --surface-1: var(--surface-1-dim);
-        --surface-2: var(--surface-2-dim);
-        --surface-3: var(--surface-3-dim);
-        --surface-4: var(--surface-4-dim);
-        --surface-shadow: var(--surface-shadow-dim);
-        --shadow-strength: var(--shadow-strength-dim);
-    }
-
-    [color-scheme='grape'] {
-        color-scheme: light;
-
-        --brand: var(--brand-grape);
-        --text-1: var(--text-1-grape);
-        --text-2: var(--text-2-grape);
-        --surface-1: var(--surface-1-grape);
-        --surface-2: var(--surface-2-grape);
-        --surface-3: var(--surface-3-grape);
-        --surface-4: var(--surface-4-grape);
-        --surface-shadow: var(--surface-shadow-grape);
-        --shadow-strength: var(--shadow-strength-grape);
-    }
-
-    [color-scheme='choco'] {
-        color-scheme: light;
-
-        --brand: var(--brand-choco);
-        --text-1: var(--text-1-choco);
-        --text-2: var(--text-2-choco);
-        --surface-1: var(--surface-1-choco);
-        --surface-2: var(--surface-2-choco);
-        --surface-3: var(--surface-3-choco);
-        --surface-4: var(--surface-4-choco);
-        --surface-shadow: var(--surface-shadow-choco);
-        --shadow-strength: var(--shadow-strength-choco);
+    a {
+        color: var(--brand);
+        text-decoration: none;
+        &:is(:hover, :focus) {
+            text-decoration: underline;
+        }
     }
 
     code {
@@ -221,6 +198,14 @@ import 'open-props/postcss/buttons'
             slotspace;
     }
 
+    .light-theme {
+        color-scheme: light;
+    }
+
+    .dark-theme {
+        color-scheme: dark;
+    }
+
     .fill {
         background-image: var(--gradient-27);
     }
@@ -229,6 +214,13 @@ import 'open-props/postcss/buttons'
 
     /* Stack sets margin-top on its children */
 
+    [class^='stack'] > * {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        /* top and bottom margins in horizontal-tb writing mode */
+        margin-block: 0;
+    }
     .stack > * + * {
         margin-block-start: var(--size-5);
     }
@@ -238,19 +230,8 @@ import 'open-props/postcss/buttons'
     }
 
     .stack-small > * + * {
-        margin-block-start: 0.5rem;
+        margin-block-start: var(--size-2);
     }
-    [class^='stack'] > * {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* top and bottom margins in horizontal-tb writing mode */
-        margin-block: 0;
-    }
-
-    /* .stack > * + * {
-    margin-block-start: var(--space, 1.5rem);
-} */
 
     .stack > :nth-child(2) {
         margin-block-end: auto;
@@ -272,15 +253,14 @@ import 'open-props/postcss/buttons'
         padding: 0;
 
         color: var(--text-1);
-        /* border-width: var(--border-size-1);
-        border-color: var(--color-dark); */
+        background-color: var(--surface-1);
+        border-width: var(--border-size-1);
+        border-color: var(--color-dark);
 
         background-color: var(--surface-4);
 
-        /* color: var(--gray-1);
-        background-color: var(--gray-12); */
-        outline: 0.125rem solid transparent;
-        outline-offset: -0.125rem;
+        /* outline: 0.125rem solid transparent;
+        outline-offset: -0.125rem; */
     }
     /* BOX */
     .box * {
@@ -412,5 +392,24 @@ import 'open-props/postcss/buttons'
         clip: rect(0, 0, 0, 0);
         white-space: nowrap;
         border-width: 0;
+    }
+
+    h1 {
+        font-size: var(--s5);
+    }
+    h2 {
+        font-size: var(--s4);
+    }
+    h3 {
+        font-size: var(--s3);
+    }
+    h4 {
+        font-size: var(--s2);
+    }
+    h5 {
+        font-size: var(--s1);
+    }
+    p {
+        font-size: var(--s0);
     }
 </style>
