@@ -271,18 +271,16 @@ import 'open-props/postcss/buttons'
     .box {
         padding: 0;
 
-        --color-light: hsl(0, 0%, 80%);
-        --color-dark: hsl(0, 0%, 20%);
-        color: var(--color-dark);
+        color: var(--text-1);
         /* border-width: var(--border-size-1);
         border-color: var(--color-dark); */
 
-        background-color: var(--color-light);
+        background-color: var(--surface-4);
 
         /* color: var(--gray-1);
         background-color: var(--gray-12); */
-        outline: 0.125rem solid;
-        outline-offset: -0.125rem transparent;
+        outline: 0.125rem solid transparent;
+        outline-offset: -0.125rem;
     }
     /* BOX */
     .box * {
