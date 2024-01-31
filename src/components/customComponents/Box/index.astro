@@ -1,16 +1,22 @@
 ---
-export type Props = {
+import type { HTMLAttributes } from 'astro/types'
+interface Props extends HTMLAttributes<'div'> {
     padding?: string
     borderWidth?: string
-    invert?: boolean
+    invert?: 'true' | 'false'
 }
+// export type Props = {
+//     padding?: string
+//     borderWidth?: string
+//     invert?: boolean
+// }
 
-const { padding = '1px', borderWidth = '1px', invert = false } = Astro.props
+const { padding = '1px', borderWidth = '1px', invert = 'false' } = Astro.props
 ---
 
 <astro-box
     data-padding={padding}
-    data-borderWidth={borderWidth}
+    data-border-width={borderWidth}
     data-invert={invert}
 >
     <slot />
@@ -18,7 +24,7 @@ const { padding = '1px', borderWidth = '1px', invert = false } = Astro.props
 
 <script>
     export default class Box extends HTMLElement {
-        constructor() {
+        public constructor() {
             super()
             this.render = () => {
                 this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`

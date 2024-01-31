@@ -1,22 +1,44 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import BaseHead from '../components/BaseHead.astro'
-import GlobalStyles from '@styles/GlobalStyles.astro'
+
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
+
+import Center from '@components/customComponents/Center/index.astro'
+import GlobalStyle from '@styles/GlobalStyles.astro'
+
+type Props = {
+    title?: string
+    description?: string
+}
 
 const {
-    title,
-    description,
+    title = 'I NEED A TITLE',
+    description = 'no description provided',
     // pubDate, updatedDate, heroImage
 } = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <html lang="en">
     <head>
         <BaseHead title={title} description={description} />
-        <GlobalStyles />
+        <link rel="canonical" href={canonicalURL} />
+        <GlobalStyle />
     </head>
 
-    <body data-color-scheme="dark">
-        <slot />
+    <body class="center">
+        <div class="cover">
+            <Header />
+            <main><slot /></main>
+            <Footer />
+        </div>
+
+        <style>
+            .mybg {
+                background-color: yellow;
+            }
+        </style>
     </body>
 </html>

@@ -3,24 +3,22 @@ import Layout from '@layouts/SimpleLayout.astro'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
-<Layout
-    title="test Me"
-    description="Lorem ipsum dolor sit amet"
-    pubDate={new Date('August 08 2021')}
->
+<Layout title="test Me" description="Lorem ipsum dolor sit amet">
     <div class="stack">
         <div class="box">
-            <h4>stack box</h4>
+            <div class="box"><h4>stack box</h4></div>
 
-            <p>
-                STACK 1 ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae ultricies leo integer malesuada nunc vel risus commodo
-                viverra.
-            </p>
+            <div class="box">
+                <p>
+                    STACK 1 ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Vitae ultricies leo integer malesuada nunc vel risus
+                    commodo viverra.
+                </p>
+            </div>
         </div>
 
-        <div class="box center-l">
+        <div class="box">
             <h4>box level2</h4>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
@@ -29,10 +27,10 @@ import Layout from '@layouts/SimpleLayout.astro'
                 distinctio dolores repudiandae modi?
             </p>
 
-            <buton type="button" class="button">button</buton>
+            <buton type="button" class="button center">button</buton>
         </div>
 
-        <div class="box center-l">
+        <div class="box">
             <h4>box level2</h4>
             <ul>
                 <li>Item 1</li>

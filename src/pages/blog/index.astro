@@ -1,116 +1,61 @@
 ---
-import BaseHead from '@components/BaseHead.astro'
-import Header from '@components/Header.astro'
-import Footer from '@components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 import { getCollection } from 'astro:content'
 import FormattedDate from '@components/FormattedDate.astro'
+import Layout from '@layouts/SimpleLayout.astro'
 
 const posts = (await getCollection('blog')).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 )
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-        <style>
-            main {
-                width: 960px;
-            }
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 2rem;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            ul li {
-                width: calc(50% - 1rem);
-            }
-            ul li * {
-                text-decoration: none;
-                transition: 0.2s ease;
-            }
-            ul li:first-child {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            ul li:first-child img {
-                width: 100%;
-            }
-            ul li:first-child .title {
-                font-size: 2.369rem;
-            }
-            ul li img {
-                margin-bottom: 0.5rem;
-                border-radius: 12px;
-            }
-            ul li a {
-                display: block;
-            }
-            .title {
-                margin: 0;
-                color: rgb(var(--black));
-                line-height: 1;
-            }
-            .date {
-                margin: 0;
-                color: rgb(var(--gray));
-            }
-            ul li a:hover h4,
-            ul li a:hover .date {
-                color: rgb(var(--accent));
-            }
-            ul a:hover img {
-                box-shadow: var(--box-shadow);
-            }
-            @media (max-width: 720px) {
-                ul {
-                    gap: 0.5em;
+<Layout title="test Me" description="Lorem ipsum dolor sit amet">
+    <div class="stack">
+        <div class="my-box"><h4>blog post</h4></div>
+        <div class="my-box">
+            <div class="my-switcher">
+                {
+                    posts.map((post) => (
+                        <div class="box">
+                            <a href={`/blog/${post.slug}/`}>
+                                <h4 class="title">{post.data.title}</h4>
+                                <p class="date">
+                                    <FormattedDate date={post.data.pubDate} />
+                                </p>
+                            </a>
+                        </div>
+                    ))
                 }
-                ul li {
-                    width: 100%;
-                }
-                ul li:first-child {
-                    margin-bottom: 0;
-                }
-                ul li:first-child .title {
-                    font-size: 1.563em;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
-        <main>
-            <section>
-                <ul>
-                    {
-                        posts.map((post) => (
-                            <li>
-                                <a href={`/blog/${post.slug}/`}>
-                                    <img
-                                        width={720}
-                                        height={360}
-                                        src={post.data.heroImage}
-                                        alt=""
-                                    />
-                                    <h4 class="title">{post.data.title}</h4>
-                                    <p class="date">
-                                        <FormattedDate
-                                            date={post.data.pubDate}
-                                        />
-                                    </p>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-        </main>
-        <Footer />
-    </body>
-</html>
+            </div>
+        </div>
+    </div>
+</Layout>
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    .my-box {
+        padding: var(--size-1);
+
+        --color-light: hsl(0, 0%, 80%);
+        --color-dark: hsl(0, 0%, 20%);
+        color: var(--color-dark);
+
+        background-color: var(--color-light);
+
+        /* color: var(--gray-1);
+        background-color: var(--gray-12); */
+        outline: 0.125rem solid transparent;
+        outline-offset: -0.125rem;
+    }
+
+    .my-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--size-5);
+    }
+
+    .my-switcher > * {
+        flex-basis: 100%;
+    }
+</style>
