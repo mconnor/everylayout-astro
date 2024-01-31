@@ -2,6 +2,7 @@ const postcssJitProps = require('postcss-jit-props')
 const path = require('path')
 const autoprefixer = require('autoprefixer')
 const postcssNesting = require('postcss-nesting')
+const postcssPow = require('postcss-pow')
 
 module.exports = {
     plugins: [
@@ -15,5 +16,6 @@ module.exports = {
         }),
         autoprefixer,
         postcssNesting,
+        postcssPow,
     ],
 }

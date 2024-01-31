@@ -19,6 +19,16 @@ const {
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+function capitalizeWords(str) {
+    return str
+        .split(' ')
+        .map(
+            (word) =>
+                word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+        )
+        .join(' ')
+}
 ---
 
 <html lang="en">
@@ -28,17 +38,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <GlobalStyle />
     </head>
 
-    <body class="center">
+    <body class:list={['box', 'center']} color-scheme="light">
         <div class="cover">
             <Header />
-            <main><slot /></main>
+            <main>
+                <div class="box"><h3>{capitalizeWords(title)}</h3></div>
+                <slot />
+            </main>
             <Footer />
         </div>
-
-        <style>
-            .mybg {
-                background-color: yellow;
-            }
-        </style>
     </body>
 </html>
