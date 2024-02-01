@@ -1,0 +1,16 @@
+---
+import './Box.css'
+
+type Props = {
+    threshold?: string
+    space?: string
+    limit?: number
+}
+const { threshold = '60ch', space = '3rem', limit = 5 } = Astro.props
+---
+
+<box-l threshold={threshold} space={space} limit={limit}>
+    <slot />
+</box-l>
+
+<script src="./Box.ts"></script>

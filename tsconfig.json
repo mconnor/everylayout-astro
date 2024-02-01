@@ -11,6 +11,7 @@
         "strictNullChecks": true,
         "paths": {
             "@components/*": ["src/components/*"],
+            "@cc/*": ["src/customComponents/*"],
             "@layouts/*": ["src/layouts/*"],
             "@content/*": ["src/content/*"],
             "@assets/*": ["src/assets/*"],
