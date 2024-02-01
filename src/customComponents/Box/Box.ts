@@ -7,6 +7,8 @@
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 export default class Box extends HTMLElement {
+    render: () => void
+    i: string | undefined
     constructor() {
         super()
         this.render = () => {
@@ -22,7 +24,7 @@ export default class Box extends HTMLElement {
             ${
                 this.invert
                     ? `background-color: var(--color-light);
-              filter: invert(100%);`
+                      filter: invert(100%);`
                     : ''
             }
           }
@@ -43,7 +45,7 @@ export default class Box extends HTMLElement {
     }
 
     set padding(val) {
-        return this.setAttribute('padding', val)
+        this.setAttribute('padding', val)
     }
 
     get borderWidth() {
@@ -51,7 +53,7 @@ export default class Box extends HTMLElement {
     }
 
     set borderWidth(val) {
-        return this.setAttribute('borderWidth', val)
+        this.setAttribute('borderWidth', val)
     }
 
     static get observedAttributes() {

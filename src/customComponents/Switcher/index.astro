@@ -6,16 +6,11 @@ type Props = {
     space?: string
     limit?: number
 }
-const { threshold='60ch', space='3rem', limit =5} = Astro.props;
+const { threshold = '60ch', space = '3rem', limit = 5 } = Astro.props
 ---
-
 
 <switcher-l threshold={threshold} space={space} limit={limit}>
     <slot />
- </switcher-l>
+</switcher-l>
 
- 
-
-<script src='./Switcher.ts'>
-</script>
-
+<script src="./Switcher.ts"></script>

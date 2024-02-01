@@ -2,14 +2,14 @@
 import './Box.css'
 
 type Props = {
-    threshold?: string
-    space?: string
-    limit?: number
+    padding?: string
+    borderWidth?: string
+    invert?: boolean
 }
-const { threshold = '60ch', space = '3rem', limit = 5 } = Astro.props
+const { padding = '0', borderWidth = '.25rem', invert = false } = Astro.props
 ---
 
-<box-l threshold={threshold} space={space} limit={limit}>
+<box-l padding={padding} borderWidth={borderWidth} invert={invert}>
     <slot />
 </box-l>
 

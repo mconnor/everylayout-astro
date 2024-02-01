@@ -5,6 +5,7 @@ import 'open-props/postcss/buttons'
 
 <style is:global>
     * {
+        max-inline-size: var(--measure);
         box-sizing: border-box;
         margin: 0;
         padding: auto;
@@ -12,14 +13,14 @@ import 'open-props/postcss/buttons'
         border: 0 solid;
     }
 
-    html,
-    body,
-    div,
-    header,
-    nav,
-    main,
-    footer {
-        max-inline-size: none;
+    .font-size\:base {
+        font-size: 1rem;
+    }
+    .font-size\:biggish {
+        font-size: 1.75rem;
+    }
+    .font-size\:big {
+        font-size: 2.25rem;
     }
 
     .max-inline-size\:measure {
@@ -107,15 +108,18 @@ import 'open-props/postcss/buttons'
 
     :root {
         --measure: 60ch;
-
         --ratio: 1.5;
 
-        --s0: 1rem;
+        --s0: var(--font-size-base);
         --s1: calc(var(--s0) * pow(var(--ratio), 1));
         --s2: calc(var(--s0) * pow(var(--ratio), 2));
         --s3: calc(var(--s0) * pow(var(--ratio), 3));
         --s4: calc(var(--s0) * pow(var(--ratio), 4));
         --s5: calc(var(--s0) * pow(var(--ratio), 5));
+
+        --font-size-base: var(--s0);
+        --font-size-biggish: var(--s1);
+        --font-size-big: var(--s2);
 
         /* open-props light theme as defaults but these are better */
         /* --text-1-light: var(--gray-8);
@@ -394,6 +398,17 @@ import 'open-props/postcss/buttons'
         white-space: nowrap;
         border-width: 0;
     }
+    /* elements */
+
+    html,
+    body,
+    div,
+    header,
+    nav,
+    main,
+    footer {
+        max-inline-size: none;
+    }
 
     h1 {
         font-size: var(--s4);
@@ -413,4 +428,6 @@ import 'open-props/postcss/buttons'
     p {
         font-size: var(--s0);
     }
+
+    /* flow text  elements */
 </style>
