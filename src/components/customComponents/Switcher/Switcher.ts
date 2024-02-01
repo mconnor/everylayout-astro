@@ -41,7 +41,7 @@ export default class Switcher extends HTMLElement {
     }
 
     set threshold(val) {
-        return this.setAttribute('threshold', val)
+        this.setAttribute('threshold', val)
     }
 
     get space() {
@@ -49,7 +49,7 @@ export default class Switcher extends HTMLElement {
     }
 
     set space(val) {
-        return this.setAttribute('space', val)
+        this.setAttribute('space', val)
     }
 
     get limit() {
@@ -57,7 +57,7 @@ export default class Switcher extends HTMLElement {
     }
 
     set limit(val) {
-        return this.setAttribute('limit', val)
+        this.setAttribute('limit', val)
     }
 
     static get observedAttributes() {
