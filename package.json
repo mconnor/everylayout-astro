@@ -17,7 +17,7 @@
         "@astrojs/rss": "^4.0.4",
         "@astrojs/sitemap": "^3.0.5",
         "@astrojs/ts-plugin": "^1.4.0",
-        "astro": "^4.2.7",
+        "astro": "^4.3.0",
         "open-props": "^1.6.18",
         "typescript": "^5.3.3"
     },
