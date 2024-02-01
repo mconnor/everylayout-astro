@@ -9,21 +9,19 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
-    <div class="my-box">
-        <div class="my-switcher">
-            {
-                posts.map((post) => (
-                    <div class="box">
-                        <a href={`/blog/${post.slug}/`}>
-                            <h4 class="title">{post.data.title}</h4>
-                            <p class="date">
-                                <FormattedDate date={post.data.pubDate} />
-                            </p>
-                        </a>
-                    </div>
-                ))
-            }
-        </div>
+    <div class="my-switcher">
+        {
+            posts.map((post) => (
+                <div class="box">
+                    <a href={`/blog/${post.slug}/`}>
+                        <h4 class="title">{post.data.title}</h4>
+                        <p class="date">
+                            <FormattedDate date={post.data.pubDate} />
+                        </p>
+                    </a>
+                </div>
+            ))
+        }
     </div>
 </Layout>
 <style>

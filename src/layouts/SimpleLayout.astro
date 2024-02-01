@@ -20,7 +20,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-function capitalizeWords(str) {
+function capitalizeWords(str: string) {
     return str
         .split(' ')
         .map(
@@ -38,11 +38,13 @@ function capitalizeWords(str) {
         <GlobalStyle />
     </head>
 
-    <body class:list={['box', 'center']} color-scheme="light">
+    <body class:list={['box-no-border', 'center']} color-scheme="dark">
         <div class="cover">
             <Header />
             <main>
-                <div class="box"><h3>{capitalizeWords(title)}</h3></div>
+                <div class="box-no-border">
+                    <h2>{capitalizeWords(title)}</h2>
+                </div>
                 <slot />
             </main>
             <Footer />

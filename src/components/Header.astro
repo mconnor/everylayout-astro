@@ -1,16 +1,15 @@
 ---
 import HeaderLink from './HeaderLink.astro'
 import { SITE_TITLE } from '../consts'
+
+const { pathname } = Astro.url
 ---
 
 <header class="box">
-    <div class="center">
-        <div class="box">
-            <h2>
-                <a href="/">{SITE_TITLE}</a>
-            </h2>
+    <div class="">
+        <div class="box-with-no-border mybg">
+            <h2>{SITE_TITLE}</h2>
         </div>
-
         <div class="switcher">
             <HeaderLink href="/">Home</HeaderLink>
             <HeaderLink href="/blog">Blog</HeaderLink>
@@ -19,10 +18,22 @@ import { SITE_TITLE } from '../consts'
             <HeaderLink href="/mytest">mytest</HeaderLink>
         </div>
     </div>
+
+    <!-- <div class="switcher mybg">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/test">Test</HeaderLink>
+        <HeaderLink href="/mytest">mytest</HeaderLink>
+    </div> -->
 </header>
+
 <style>
     .switcher {
         --threshold: 30rem;
         --space: 1rem;
+    }
+    .mybg {
+        background-color: red;
     }
 </style>

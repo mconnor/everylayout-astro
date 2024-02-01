@@ -9,33 +9,35 @@ const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
-<div class="my-box">
-    <a href={href} class:list={[{ active: isActive }]} {...props}>
-        <slot />
-    </a>
+<div class="box my-size">
+    <span class="center"><slot /></span>
 </div>
+
+<!-- <div class="box-with-no-border mysize">
+    <a href={href} class:list={[{ active: isActive }]} {...props}>
+        <div class="box w100"><slot /></div>
+    </a>
+</div> -->
+
 <style>
+    .my-size {
+        inline-size: 5rem;
+        background-color: blue;
+        justify-content: center;
+    }
     a {
         display: inline-block;
         text-decoration: none;
     }
-    a.active {
-        font-weight: bolder;
-        text-decoration: underline;
+    div.mysize {
+        /* min-inline-size: 26rem; */
     }
 
-    .my-box {
-        padding: 0;
-
-        --color-light: hsl(0, 0%, 80%);
-        --color-dark: hsl(0, 0%, 20%);
-        color: var(--color-dark);
-
-        background-color: var(--color-light);
-
-        /* color: var(--gray-1);
-        background-color: var(--gray-12); */
-        outline: 0.125rem solid transparent;
-        outline-offset: -0.125rem;
+    a.active {
+        font-weight: bolder;
+        text-decoration: none;
+        .box {
+            border-width: var(--border-size-3);
+        }
     }
 </style>
