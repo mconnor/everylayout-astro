@@ -1,50 +1,40 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import Box from '@cc/Box/index.astro'
+type Props = HTMLAttributes<'a'> & {
+    slug?: string
+}
 
-type Props = HTMLAttributes<'a'>
-
-const { href, class: className, ...props } = Astro.props
+const { href } = Astro.props
 
 const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
-<div class:list={['box', 'my-size', { active: isActive }]}>
-    <a href={href} {...props}
-        ><div class="box-with-no-border">
-            <slot />
-        </div>
-    </a>
+<a href={href} class:list={[{ active: isActive }]}>
+    <slot />
+</a>
 
-    <style>
-        .my-size {
-            inline-size: 10rem;
-
-            justify-content: center;
-        }
-        a {
-            display: inline-block;
-            text-align: center;
-
-            &:hover {
-                text-decoration: none;
-                color: var(--brand);
-            }
-        }
-        div.mysize {
-            /* min-inline-size: 26rem; */
-        }
-
-        .active {
-            font-weight: bolder;
+<style>
+    a {
+        display: inline-block;
+        text-align: center;
+        font-size: var(--font-size-0);
+        flex-basis: auto;
+        &:hover {
             text-decoration: none;
-            border-width: var(--border-size-3);
+            color: var(--brand);
         }
-        .center {
-            box-sizing: content-box;
-            margin-inline: auto;
-            text-align: center;
-            max-inline-size: var(--measure);
-        }
-    </style>
-</div>
+    }
+
+    .active {
+        font-weight: bolder;
+        text-decoration: none;
+    }
+    .center {
+        box-sizing: content-box;
+        margin-inline: auto;
+        text-align: center;
+        max-inline-size: var(--measure);
+    }
+</style>

@@ -23,8 +23,9 @@ export default class Box extends HTMLElement {
             border: ${this.borderWidth} solid;
             ${
                 this.invert
-                    ? `background-color: var(--color-light);
-                      filter: invert(100%);`
+                    ? // ? `background-color: var(--color-light);
+                      //   filter: invert(100%);`
+                      `filter: invert(100%);`
                     : ''
             }
           }

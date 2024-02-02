@@ -1,0 +1,18 @@
+---
+import './Center.css'
+
+type Props = {
+    max?: string
+    andText?: boolean
+    gutters?: boolean
+    intrinsic?: boolean
+    
+}
+const { max = "var(--measure)", andText = false, gutters= 0, intrinsic=false} = Astro.props
+---
+
+<center-l max={max} andText={andText} gutters={gutters} intrinsic={intrinsic}>
+    <slot />
+</center-l>
+
+<script src="./Center.ts"></script>

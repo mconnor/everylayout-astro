@@ -7,7 +7,7 @@
  */
 export default class Switcher extends HTMLElement {
     render: () => void
-    i!: string
+    i: string | undefined
     constructor() {
         super()
         this.render = () => {

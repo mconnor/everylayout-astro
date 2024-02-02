@@ -9,6 +9,8 @@
  * @property {boolean} intrinsic=false Center child elements based on their content width
  */
 export default class Center extends HTMLElement {
+  render: () => void;
+  i: string | undefined;
   constructor() {
     super();
     this.render = () => {
@@ -42,7 +44,7 @@ export default class Center extends HTMLElement {
   }
 
   set max(val) {
-    return this.setAttribute('max', val);
+     this.setAttribute('max', val);
   }
 
   get andText() {
@@ -51,9 +53,9 @@ export default class Center extends HTMLElement {
 
   set andText(val) {
     if (val) {
-      return this.setAttribute('andText', '');
+       this.setAttribute('andText', '');
     } else {
-      return this.removeAttribute('andText');
+       this.removeAttribute('andText');
     }
   }
 
@@ -62,7 +64,7 @@ export default class Center extends HTMLElement {
   }
 
   set gutters(val) {
-    return this.setAttribute('gutters', val);
+     this.setAttribute('gutters', val);
   }
 
   get intrinsic() {
@@ -71,9 +73,9 @@ export default class Center extends HTMLElement {
 
   set intrinsic(val) {
     if (val) {
-      return this.setAttribute('intrinsic', '');
+       this.setAttribute('intrinsic', '');
     } else {
-      return this.removeAttribute('intrinsic');
+       this.removeAttribute('intrinsic');
     }
   }
 

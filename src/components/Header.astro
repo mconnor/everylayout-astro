@@ -1,38 +1,40 @@
 ---
 import HeaderLink from './HeaderLink.astro'
 import { SITE_TITLE } from '../consts'
-
-const { pathname } = Astro.url
+import Switcher from '@cc/Switcher/index.astro'
+import Box from '@cc/Box/index.astro'
 ---
 
 <header class="box invert">
     <div class="center">
-        <h2>{SITE_TITLE}</h2>
-
-        <div class="switcher">
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/blog">Blog</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
-            <HeaderLink href="/test">Test</HeaderLink>
-            <HeaderLink href="/mytest">mytest</HeaderLink>
+        <div class="stack-small">
+            <Box borderWidth="0"><h1>{SITE_TITLE}</h1> </Box>
+            <Box borderWidth="0">
+                <div class="cluster">
+                    <HeaderLink href="/">Home</HeaderLink>
+                    <HeaderLink href="/blog">Blog</HeaderLink>
+                    <HeaderLink href="/about">About</HeaderLink>
+                    <HeaderLink href="/test">Test</HeaderLink>
+                    <HeaderLink href="/mytest">mytest</HeaderLink>
+                </div>
+            </Box>
         </div>
     </div>
 </header>
 <style>
-    .switcher {
-        --threshold: 30rem;
-        --space: 1rem;
-    }
-
+    /* .mysize {
+        min-inline-size: 20rem;
+    } */
     .center {
         box-sizing: content-box;
-        margin-inline: auto;
-        text-align: center;
+        /* margin-inline: auto; */
+        /* text-align: center; */
+
         max-inline-size: var(--measure);
-        padding-inline-start: 2rem;
-        padding-inline-end: 2rem;
+        /* padding-inline-start: 2rem; */
+        /* padding-inline-end: 2rem; */
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
 </style>

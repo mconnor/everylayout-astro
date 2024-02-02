@@ -3,20 +3,22 @@ import Layout from '@layouts/SimpleLayout.astro'
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Dialogbox from '@components/Dialouge.astro'
-import Switcher from '@cc/Switcher/index.astro'
+
 import Box from '@cc/Box/index.astro'
 ---
 
 <Layout title="home" description="testing css">
-    <Box invert={true}>
-        <h4>switcher</h4>
-        <Switcher threshold="60ch" space="1rem" limit={6}>
-            <Box><p>hello</p></Box>
-            <Box><p>hello</p></Box>
-            <Box><p>hello</p></Box>
-            <Box><p>hello</p></Box>
-        </Switcher>
+    <Box>
+        <Dialogbox />
     </Box>
 
-    <Dialogbox />
+    <!-- <Dialogbox /> -->
 </Layout>
+
+<style>
+    .mybg {
+        min-height: 5vh;
+        min-width: 10vw;
+        background-color: var(--surface1);
+    }
+</style>
