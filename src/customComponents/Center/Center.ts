@@ -10,7 +10,7 @@
  */
 export default class Center extends HTMLElement {
   render: () => void;
-  i: string | undefined;
+  i: string;
   constructor() {
     super();
     this.render = () => {

@@ -1,0 +1,35 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import GlobalStyle from '@styles/GlobalStyles.astro'
+import BaseHead from '../components/BaseHead.astro'
+
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
+
+type Props = {
+    title?: string
+    description?: string
+}
+
+const {
+    title = 'I NEED A TITLE',
+    description = 'no description provided',
+    // pubDate, updatedDate, heroImage
+} = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+        <link rel="canonical" href={canonicalURL} />
+        <ViewTransitions />
+        <GlobalStyle />
+    </head>
+
+    <body color-scheme="light">
+        <slot></slot>
+    </body>
+</html>

@@ -8,6 +8,8 @@
  * @property {number} splitAfter=null The element after which to _split_ the stack with an auto margin
  */
 export default class Stack extends HTMLElement {
+  render: () => void;
+  i: string;
   constructor() {
     super();
     this.render = () => {
@@ -49,7 +51,7 @@ export default class Stack extends HTMLElement {
   }
 
   set recursive(val) {
-    return this.setAttribute(val ? 'recursive' : '');
+    this.setAttribute(val ? 'recursive' : '');
   }
 
   get splitAfter() {
@@ -57,7 +59,7 @@ export default class Stack extends HTMLElement {
   }
 
   set splitAfter(val) {
-    return this.setAttribute('splitAfter', val);
+    this.setAttribute('splitAfter', val);
   }
 
   static get observedAttributes() {

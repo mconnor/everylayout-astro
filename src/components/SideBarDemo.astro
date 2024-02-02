@@ -1,8 +1,10 @@
 ---
-
+import Sidebar from '@cc/Sidebar/index.astro'
+import Box from '@cc/Box/index.astro'
+import { Image } from 'astro:assets'
 ---
 
-<style>
+<!-- <style>
     .with-sidebar {
         display: flex;
         flex-wrap: wrap;
@@ -17,9 +19,34 @@
         flex-basis: 0;
         flex-grow: 999;
     }
-</style>
-<div class:list={['with-sidebar', 'box']}>
-    <div class:list={['sidebar', 'box']}>
+</style> -->
+
+<Sidebar space="var(--s2)" sideWidth="400px" contentMin="30%"  noStretch sideWidth="30ch">
+
+
+        <Image
+        class="box-with-corner-cuts"
+        width="200"
+        height="100"
+        quality="max"
+        src="https://picsum.photos/200/100?random=2"
+        alt="Image alt text"
+    />
+       
+ 
+
+    <Box>
+        <p><em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
+            20rem as an ideal or “target” width. It is then free to calculate just how
+            closely the 20rem target can be resembled given the content and available
+            space. You empower the browser to make the right decision for the content,
+            and the user, reading that content, given their circumstances.</p>
+    </Box>
+
+</Sidebar>
+
+<!-- <div class:list={['with-sidebar']}>
+    <div class:list={['sidebar']}>
         <div class="stack">
             <div class="box">stacks make margins</div>
             <div class="box">boxes fix padding</div>
@@ -33,4 +60,4 @@
         space. You empower the browser to make the right decision for the content,
         and the user, reading that content, given their circumstances.
     </div>
-</div>
+</div> -->

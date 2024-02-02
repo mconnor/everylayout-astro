@@ -2,11 +2,12 @@
 import HeaderLink from './HeaderLink.astro'
 import { SITE_TITLE } from '../consts'
 import Switcher from '@cc/Switcher/index.astro'
+import Center from '@cc/Center/index.astro';
 import Box from '@cc/Box/index.astro'
 ---
 
 <header class="box invert">
-    <div class="center">
+    <Center andText={true} intrinsic={true}>
         <div class="stack-small">
             <Box borderWidth="0"><h1>{SITE_TITLE}</h1> </Box>
             <Box borderWidth="0">
@@ -19,7 +20,7 @@ import Box from '@cc/Box/index.astro'
                 </div>
             </Box>
         </div>
-    </div>
+    </Center>
 </header>
 <style>
     /* .mysize {

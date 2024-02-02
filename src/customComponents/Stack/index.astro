@@ -1,0 +1,16 @@
+---
+import './Stack.css'
+
+type Props = {
+    space?: string //"var(--s1)"
+    recursive ?: boolean  //false
+    splitAfter?: number // no default
+}
+const props = Astro.props
+---
+
+<stack-l {...props}>
+    <slot />
+</stack-l>
+
+<script src="./Stack.ts"></script>

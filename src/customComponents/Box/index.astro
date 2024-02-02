@@ -2,14 +2,14 @@
 import './Box.css'
 
 type Props = {
-    padding?: string
-    borderWidth?: string
-    invert?: boolean
+    padding?: string //"var(--s1)"
+    borderWidth?: string //"var(--border-thin)"
+    invert?: boolean // false
 }
-const { padding = '0', borderWidth = '.125rem', invert = false } = Astro.props
+const props = Astro.props
 ---
 
-<box-l padding={padding} borderWidth={borderWidth} invert={invert}>
+<box-l {...props}>
     <slot />
 </box-l>
 

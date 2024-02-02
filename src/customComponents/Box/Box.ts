@@ -8,7 +8,7 @@
  */
 export default class Box extends HTMLElement {
     render: () => void
-    i: string | undefined
+    i: string 
     constructor() {
         super()
         this.render = () => {

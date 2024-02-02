@@ -1,22 +1,24 @@
 ---
 import Layout from '@layouts/SimpleLayout.astro'
+import Stack from '@cc/Stack/index.astro'
+import Box from '@cc/Box/index.astro'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-    <div class="stack">
-        <div class="box-no-border-no-border">
-            <div class="box-no-border-no-border"><h4>stack box</h4></div>
+    <Stack>
+        <Box>
+            <Box borderWidth=0 invert><h4>stack box</h4></Box>
 
-            <div class="box-no-border invert">
+            <Box borderWidth=0 >
                 <p>
                     Ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Vitae ultricies leo integer malesuada nunc vel risus commodo
                     viverra.
                 </p>
-            </div>
-        </div>
+            </Box>
+        </Box>
 
         <div class="box-no-border">
             <h4>box level2</h4>
@@ -73,7 +75,7 @@ import Layout from '@layouts/SimpleLayout.astro'
                 <h4>box level2</h4>
                 Sagittis purus sit amet volutpat. Netus et malesuada fames ac
             </div>
-            <div class="box-no-border">
+            <div class="box">
                 <h4>box level2</h4>
                 <ul>
                     <li>Item 1</li>
@@ -86,44 +88,7 @@ import Layout from '@layouts/SimpleLayout.astro'
                 </p>
             </div>
         </div>
-    </div>
+    </Stack>
 
-    <div class="stack-large">
-        <div class="box-no-border">
-            <h4>stack-large box</h4>
-            <p>
-                STACK 1 ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae ultricies leo integer malesuada nunc vel risus commodo
-                viverra.
-            </p>
-            <p>
-                Sagittis purus sit amet volutpat. Netus et malesuada fames ac
-                turpis egestas. Eget magna fermentum iaculis eu non diam
-                phasellus vestibulum lorem. Varius sit amet mattis vulputate
-                enim. Habitasse platea dictumst quisque sagittis. Integer quis
-                auctor elit sed vulputate mi. Dictumst quisque sagittis purus
-                sit amet.
-            </p>
-        </div>
-    </div>
-    <div class="stack-small">
-        <div class="stack-small box">
-            <h4>box</h4>
-            <p>
-                xxx 1 ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Vitae ultricies leo integer malesuada nunc vel risus commodo
-                viverra.
-            </p>
-            <p>
-                Sagittis purus sit amet volutpat. Netus et malesuada fames ac
-                turpis egestas. Eget magna fermentum iaculis eu non diam
-                phasellus vestibulum lorem. Varius sit amet mattis vulputate
-                enim. Habitasse platea dictumst quisque sagittis. Integer quis
-                auctor elit sed vulputate mi. Dictumst quisque sagittis purus
-                sit amet.
-            </p>
-        </div>
-    </div>
+  
 </Layout>
