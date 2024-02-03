@@ -1,18 +1,20 @@
 ---
 import './Cluster.css'
+import type { RmUnitType, JustifyContentTypes, AlignItemsTypes } from '../Types'
 
-type JustifyContentTypes = "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" | "stretch" | "baseline"
-type AlignItemsTypes = "flex-start" |"flex-end"  |"center" | "baseline" | "stretch"
+const LIST = 'list'
+
 type Props = {
     justify?: JustifyContentTypes //"flex-start"
     align?: AlignItemsTypes // "flex-start"
-    space?: string //"var(--s1)" A CSS gap value. The minimum space between the clustered child elements.
+    space?: RmUnitType
+    role?: typeof LIST
 }
 
-const props = Astro.props
+const { role, ...rest } = Astro.props
 ---
 
-<cluster-l {...props}>
+<cluster-l role={role} {...rest}>
     <slot />
 </cluster-l>
 

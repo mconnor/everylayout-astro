@@ -1,6 +1,5 @@
 ---
 import Stack from '@cc/Stack/index.astro'
-import Center from '@cc/Center/index.astro'
 
 type Props = {
     w?: number
@@ -14,12 +13,7 @@ const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
     impedit voluptatibus dignissimos optio eaque consectetur saepe illum sit
     doloremque velit nobis eos?`
 
-const {
-    w = 400,
-    h = 300,
-    headline = 'LOREM IPSUM',
-    description = DUMMY,
-} = Astro.props
+const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props
 ---
 
 <Stack>

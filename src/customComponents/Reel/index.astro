@@ -1,0 +1,20 @@
+---
+import './Reel.css'
+import type { RmUnitType } from '../Types'
+
+interface Props {
+    itemWidth?: 'auto' | RmUnitType //"250px"
+    space?: RmUnitType //"var(--s1)"
+    height?: 'auto' | RmUnitType //"var(--s1)"
+    noBar?: boolean
+    children: any
+}
+
+const props = Astro.props
+---
+
+<reel-l {...props}>
+    <slot />
+</reel-l>
+
+<script src="./Reel.ts"></script>

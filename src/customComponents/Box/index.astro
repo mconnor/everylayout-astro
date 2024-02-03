@@ -1,9 +1,10 @@
 ---
 import './Box.css'
+import type { RmUnitType } from '../Types'
 
 type Props = {
-    padding?: string //"var(--s1)"
-    borderWidth?: string //"var(--border-thin)"
+    padding?: RmUnitType //"var(--s1)"
+    borderWidth?: RmUnitType //"var(--border-thin)"
     invert?: boolean // false
 }
 const props = Astro.props

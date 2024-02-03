@@ -1,15 +1,15 @@
 ---
 import './Sidebar.css'
+import type { Percentage, RmUnitType } from '../Types.ts'
 
 type Props = {
-    side?: string
-    sideWidth?: string
-    contentMin?: string
-    space?: string
+    side?: 'left' | 'right'
+    sideWidth?: RmUnitType //Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
+    contentMin?: Percentage //A CSS percentage value. The minimum width of the content element in the horizontal configuration
+    space?: RmUnitType //"var(--s1)"
     noStretch?: boolean
-    
 }
-const props= Astro.props
+const props = Astro.props
 ---
 
 <sidebar-l {...props}>

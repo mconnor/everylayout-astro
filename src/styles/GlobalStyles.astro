@@ -31,6 +31,10 @@ import 'open-props/postcss/buttons'
         max-inline-size: calc(var(--measure) / 2);
     }
 
+    .min-inline-size\:measure\/3 {
+        min-inline-size: calc(var(--measure) / 3);
+    }
+
     .docsMain {
         flex-basis: 0;
         flex-grow: 999;
@@ -136,6 +140,8 @@ import 'open-props/postcss/buttons'
 
         --surface-shadow-light: var(--gray-8-hsl);
         --shadow-strength-light: 2%; */
+
+        --min: calc(var(--measure) / 3);
 
         color-scheme: light dark;
     }

@@ -1,17 +1,19 @@
 ---
 import './Cover.css'
+import type { RmUnitType } from '../Types.ts'
 
 type Props = {
     centeredElement?: string // h1
-    space?: string //"var(--s1)"
-    minHeight?: string //"100vh"
+    space?: RmUnitType //"var(--s1)"
+    minHeight?: RmUnitType //"100vh"
     noPad?: boolean // false
+    children: any
 }
 
-const {centeredElement: centered , ...rest}= Astro.props
+const { centeredElement: centered, ...rest } = Astro.props
 ---
 
-<cover-l centered={centered}, {...rest}>
+<cover-l centered={centered} , {...rest}>
     <slot />
 </cover-l>
 
