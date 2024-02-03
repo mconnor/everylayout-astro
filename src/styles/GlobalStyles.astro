@@ -407,6 +407,16 @@ import 'open-props/postcss/buttons'
         border-width: 0;
     }
 
+    .imposter {
+        /* ↓ Position the top left corner in the center */
+        position: var(--positioning, absolute);
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
+        /* ↓ Reposition so the center of the element
+  is the center of the positioning container */
+        transform: translate(-50%, -50%);
+    }
+
     /* .frame {
         --n: 16;
         --d: 9;

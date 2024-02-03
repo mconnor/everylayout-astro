@@ -7,6 +7,7 @@ import Switcher from './Switcher/index.astro'
 import Cluster from './Cluster/index.astro'
 import Reel from './Reel/index.astro'
 import AstroGrid from './Grid/index.astro'
+import Imposter from './Imposter/index.astro'
 
 export {
     Box,
@@ -18,4 +19,5 @@ export {
     Cluster,
     Reel,
     AstroGrid,
+    Imposter,
 }

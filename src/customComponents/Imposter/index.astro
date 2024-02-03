@@ -1,0 +1,19 @@
+---
+import './Imposter.css'
+import type { RmUnitType } from '../Types.ts'
+
+interface Props {
+    breakout?: boolean //"250px"
+    space?: RmUnitType //"var(--s1)"
+    fixed?: boolean
+    children: any
+}
+
+const props = Astro.props
+---
+
+<imposter-l {...props}>
+    <slot />
+</imposter-l>
+
+<script src="./Imposter.ts"></script>

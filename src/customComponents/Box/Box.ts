@@ -8,7 +8,7 @@
  */
 export default class Box extends HTMLElement {
     render: () => void
-    i: string 
+    i: string | undefined
     constructor() {
         super()
         this.render = () => {
@@ -67,9 +67,9 @@ export default class Box extends HTMLElement {
 
     set invert(val) {
         if (val) {
-            return this.setAttribute('invert', '')
+            this.setAttribute('invert', '')
         } else {
-            return this.removeAttribute('invert')
+            this.removeAttribute('invert')
         }
     }
 
