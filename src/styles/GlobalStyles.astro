@@ -5,7 +5,7 @@ import 'open-props/postcss/buttons'
 
 <style is:global>
     * {
-        max-inline-size: var(--measure);
+        /* max-inline-size: var(--measure); */
         box-sizing: border-box;
         margin: 0;
         padding: auto;
@@ -400,6 +400,28 @@ import 'open-props/postcss/buttons'
         white-space: nowrap;
         border-width: 0;
     }
+
+    /* .frame {
+        --n: 16;
+        --d: 9;
+        aspect-ratio: var(--n) / var(--d);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > img,
+        > video {
+            inline-size: 100%;
+            block-size: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @media (orientation: portrait) {
+        .frame {
+            aspect-ratio: 1 / 1;
+        }
+    } */
     /* elements */
 
     html,
@@ -411,6 +433,10 @@ import 'open-props/postcss/buttons'
     footer {
         max-inline-size: none;
         background-color: var(--surface-4);
+    }
+
+    img {
+        max-inline-size: 100%;
     }
 
     h1 {

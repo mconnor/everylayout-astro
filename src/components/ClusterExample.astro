@@ -1,6 +1,7 @@
 ---
 function generateRandomString() {
-    const length = Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
+    const length = 8
+    // Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
     let result = ''
     const characters =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -13,7 +14,7 @@ function generateRandomString() {
 }
 ---
 
-<div class="box-with-no-border">
+<div class="box">
     <div class="cluster" role="list">
         <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
         <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>

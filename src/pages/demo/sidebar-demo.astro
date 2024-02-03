@@ -1,0 +1,37 @@
+---
+import Layout from '@layouts/SimpleLayout.astro'
+
+import { Box, Sidebar } from '@cc/index.ts'
+import { Image } from 'astro:assets'
+---
+
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout title="test Me" description="Lorem ipsum dolor sit amet">
+    <Sidebar
+        space="var(--s2)"
+        sideWidth="400px"
+        contentMin="30%"
+        noStretch
+        sideWidth="30ch"
+    >
+        <Image
+            class="box-with-corner-cuts"
+            width="200"
+            height="100"
+            quality="max"
+            src="https://picsum.photos/200/100?random=2"
+            alt="Image alt text"
+        />
+
+        <Box>
+            <p>
+                <em>flex-basis:</em> 20rem is more nuanced. It tells the browser
+                to consider 20rem as an ideal or “target” width. It is then free
+                to calculate just how closely the 20rem target can be resembled given
+                the content and available space. You empower the browser to make
+                the right decision for the content, and the user, reading that content,
+                given their circumstances.
+            </p>
+        </Box>
+    </Sidebar>
+</Layout>

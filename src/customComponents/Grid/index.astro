@@ -1,0 +1,17 @@
+---
+import './Grid.css'
+
+interface Props {
+    min?: string //"250px"
+    space?: string //"var(--s1)"
+    children: any
+}
+
+const props = Astro.props
+---
+
+<grid-l {...props}>
+    <slot />
+</grid-l>
+
+<script src="./Grid.ts"></script>

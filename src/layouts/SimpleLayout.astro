@@ -2,7 +2,8 @@
 import { ViewTransitions } from 'astro:transitions'
 import GlobalStyle from '@styles/GlobalStyles.astro'
 import BaseHead from '../components/BaseHead.astro'
-
+import Cover from '@cc/Cover/index.astro'
+import Box from '@cc/Box/index.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 
@@ -38,15 +39,17 @@ function capitalizeWords(str: string) {
         <GlobalStyle />
     </head>
 
-    <body class:list={['box-no-border']} color-scheme="light">
-        <div class="cover">
-            <Header />
-            <main class="center">
-                <h2>{capitalizeWords(title)}</h2>
+    <body color-scheme="light">
+        <Box borderWidth="0" padding="0">
+            <Cover centeredElement="main" noPad={true} space="0">
+                <Header />
+                <main class="box">
+                    <!-- <h2>{capitalizeWords(title)}</h2> -->
 
-                <slot />
-            </main>
-            <Footer />
-        </div>
+                    <slot />
+                </main>
+                <Footer />
+            </Cover>
+        </Box>
     </body>
 </html>

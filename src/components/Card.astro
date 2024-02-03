@@ -1,0 +1,30 @@
+---
+import Stack from '@cc/Stack/index.astro'
+import Center from '@cc/Center/index.astro'
+
+type Props = {
+    w?: number
+    h?: number
+    headline?: string
+    description?: string
+}
+
+const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
+    aspernatur, veritatis voluptate asperiores blanditiis beatae, modi
+    impedit voluptatibus dignissimos optio eaque consectetur saepe illum sit
+    doloremque velit nobis eos?`
+
+const {
+    w = 400,
+    h = 300,
+    headline = 'LOREM IPSUM',
+    description = DUMMY,
+} = Astro.props
+---
+
+<Stack>
+    <slot name="image-slot" />
+
+    <h4>{headline}</h4>
+    <p>{description}</p>
+</Stack>

@@ -1,26 +1,37 @@
 ---
-import HeaderLink from './HeaderLink.astro'
+// import HeaderLink from './HeaderLink.astro'
 import { SITE_TITLE } from '../consts'
-import Switcher from '@cc/Switcher/index.astro'
-import Center from '@cc/Center/index.astro';
+// import Switcher from '@cc/Switcher/index.astro'
+// import Center from '@cc/Center/index.astro'
+import Stack from '@cc/Stack/index.astro'
 import Box from '@cc/Box/index.astro'
+import Select from '@components/select-component.astro'
 ---
 
 <header class="box invert">
-    <Center andText={true} intrinsic={true}>
-        <div class="stack-small">
-            <Box borderWidth="0"><h1>{SITE_TITLE}</h1> </Box>
-            <Box borderWidth="0">
-                <div class="cluster">
+    <!-- <Center andText={true} intrinsic={true}> -->
+    <Stack>
+        <Box padding="0" borderWidth="0">
+            <a href="../">{SITE_TITLE}</a>
+            <Select />
+        </Box>
+
+        <!-- <Box borderWidth="0">
+               
+
+                <Switcher threshold="50ch" limit={6}></Switcher>
+
+
+
                     <HeaderLink href="/">Home</HeaderLink>
                     <HeaderLink href="/blog">Blog</HeaderLink>
                     <HeaderLink href="/about">About</HeaderLink>
                     <HeaderLink href="/test">Test</HeaderLink>
                     <HeaderLink href="/mytest">mytest</HeaderLink>
-                </div>
-            </Box>
-        </div>
-    </Center>
+                </Switcher>
+            </Box> -->
+    </Stack>
+    <!-- </Center> -->
 </header>
 <style>
     /* .mysize {

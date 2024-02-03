@@ -2,14 +2,14 @@
 import './Switcher.css'
 
 type Props = {
-    threshold?: string
-    space?: string
-    limit?: number
+    threshold?: string //"var(--measure)"
+    space?: string // "var(--s1)"
+    limit?: number //limit = 4
 }
-const { threshold = '60ch', space = '3rem', limit = 5 } = Astro.props
+const props = Astro.props
 ---
 
-<switcher-l threshold={threshold} space={space} limit={limit}>
+<switcher-l {...props}>
     <slot />
 </switcher-l>
 

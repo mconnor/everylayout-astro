@@ -1,0 +1,32 @@
+---
+import Layout from '@layouts/SimpleLayout.astro'
+
+import { Box, Switcher } from '@cc/index.ts'
+---
+
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout title="test Me" description="Lorem ipsum dolor sit amet">
+    <Box>
+        <Box borderWidth="0">
+            <h4>Components</h4>
+            <p>
+                <code>.switcher</code> - especially useful where each element should
+                be considered equal, or part of a continuum.
+            </p>
+
+            <Box borderWidth="0">
+                <Switcher>
+                    <div class="box filled"></div>
+                    <div class="box filled"></div>
+                    <div class="box filled"></div>
+                </Switcher>
+            </Box>
+        </Box>
+    </Box>
+    <style>
+        .filled {
+            inline-size: 10rem;
+            background-color: var(--pink-3);
+        }
+    </style></Layout
+>

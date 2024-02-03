@@ -6,35 +6,14 @@ type Props = HTMLAttributes<'a'> & {
 }
 
 const { href } = Astro.props
-
 const { pathname } = Astro.url
-const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
-<a href={href} class:list={[{ active: isActive }]}>
+<!-- <Box padding='--sizes'><a href={href} class:list={[{ active: isActive }]}>
     <slot />
-</a>
-
-<style>
-    a {
-        display: inline-block;
-        text-align: center;
-        font-size: var(--font-size-0);
-        flex-basis: auto;
-        &:hover {
-            text-decoration: none;
-            color: var(--brand);
-        }
-    }
-
-    .active {
-        font-weight: bolder;
-        text-decoration: none;
-    }
-    .center {
-        box-sizing: content-box;
-        margin-inline: auto;
-        text-align: center;
-        max-inline-size: var(--measure);
-    }
-</style>
+</a></Box> -->
+<div class="btn" :active="{ active: isActive }">
+    <a href={href}>
+        <slot />
+    </a>
+</div>

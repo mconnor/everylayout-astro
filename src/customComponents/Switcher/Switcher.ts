@@ -17,19 +17,19 @@ export default class Switcher extends HTMLElement {
                 let styleEl = document.createElement('style')
                 styleEl.id = this.i
                 styleEl.innerHTML = `
-          [data-i="${this.i}"] {
-            gap: ${this.space};
-          }
-
-          [data-i="${this.i}"] > * {
-            flex-basis: calc((${this.threshold} - 100%) * 999);
-          }
-
-          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}),
-          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}) ~ * {
-            flex-basis: 100%;
-          }
-        `
+            [data-i="${this.i}"] {
+              gap: ${this.space};
+            }
+  
+            [data-i="${this.i}"] > * {
+              flex-basis: calc((${this.threshold} - 100%) * 999);
+            }
+  
+            [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}),
+            [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}) ~ * {
+              flex-basis: 100%;
+            }
+          `
                     .replace(/\s\s+/g, ' ')
                     .trim()
                 document.head.appendChild(styleEl)
