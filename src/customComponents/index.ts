@@ -5,5 +5,6 @@ import Grid from './Grid/index.astro'
 import Sidebar from './Sidebar/index.astro'
 import Stack from './Stack/index.astro'
 import Switcher from './Switcher/index.astro'
+import Cluster from './Cluster/index.astro'
 
-export { Box, Center, Frame, Grid, Sidebar, Stack, Switcher }
+export { Box, Center, Frame, Grid, Sidebar, Stack, Switcher, Cluster }

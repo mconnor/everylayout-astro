@@ -1,4 +1,6 @@
 ---
+import { Box, Cluster } from '@cc/index.ts'
+
 function generateRandomString() {
     const length = 8
     // Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
@@ -14,8 +16,8 @@ function generateRandomString() {
 }
 ---
 
-<div class="box">
-    <div class="cluster" role="list">
+<Box>
+    <Cluster role="list">
         <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
         <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>
         <div role="listitem"><a href="#tag1">{generateRandomString()}</a></div>
@@ -26,8 +28,8 @@ function generateRandomString() {
         <div role="listitem"><a href="#tag2">{generateRandomString()}</a></div>
         <div role="listitem"><a href="#tag3">{generateRandomString()}</a></div>
         <div role="listitem"><a href="#tag4">{generateRandomString()}</a></div>
-    </div>
-</div>
+    </Cluster>
+</Box>
 
 <style>
     .wrapper {

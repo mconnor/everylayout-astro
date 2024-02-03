@@ -1,0 +1,26 @@
+---
+import './Cluster.css'
+
+type JustifyContentTypes = "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" | "stretch" | "baseline"
+type AlignItemsTypes = "flex-start" |"flex-end"  |"center" | "baseline" | "stretch"
+type Props = {
+    justify?: JustifyContentTypes //"flex-start"
+    align?: AlignItemsTypes // "flex-start"
+    space?: string //"var(--s1)" A CSS gap value. The minimum space between the clustered child elements.
+}
+
+const props = Astro.props
+---
+
+<cluster-l {...props}>
+    <slot />
+</cluster-l>
+
+<script src="./Cluster.ts"></script>
+
+<!-- 
+side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")
+sideWidth	string		Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
+contentMin	string	"50%"	A CSS percentage value. The minimum width of the content element in the horizontal configuration
+space	string	"var(--s1)"	A CSS margin value representing the space between the two elements
+noStretch	boolean	false	Make the adjacent elements adopt their natural height -->

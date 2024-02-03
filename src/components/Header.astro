@@ -1,52 +1,51 @@
 ---
 // import HeaderLink from './HeaderLink.astro'
 import { SITE_TITLE } from '../consts'
+import HeaderLink from './HeaderLink.astro'
 // import Switcher from '@cc/Switcher/index.astro'
 // import Center from '@cc/Center/index.astro'
 import Stack from '@cc/Stack/index.astro'
-import Box from '@cc/Box/index.astro'
+import { Box, Cluster } from '@cc/index.ts'
 import Select from '@components/select-component.astro'
 ---
 
 <header class="box invert">
     <!-- <Center andText={true} intrinsic={true}> -->
-    <Stack>
-        <Box padding="0" borderWidth="0">
-            <a href="../">{SITE_TITLE}</a>
-            <Select />
-        </Box>
 
-        <!-- <Box borderWidth="0">
-               
-
-                <Switcher threshold="50ch" limit={6}></Switcher>
-
-
-
-                    <HeaderLink href="/">Home</HeaderLink>
-                    <HeaderLink href="/blog">Blog</HeaderLink>
-                    <HeaderLink href="/about">About</HeaderLink>
-                    <HeaderLink href="/test">Test</HeaderLink>
-                    <HeaderLink href="/mytest">mytest</HeaderLink>
-                </Switcher>
-            </Box> -->
-    </Stack>
+    <Box borderWidth="0">
+        <Cluster>
+            <div>
+                <Box padding="0" borderWidth="var(--border-thin)"
+                    ><a href="../"><h6>{SITE_TITLE}</h6></a></Box
+                >
+                <Select />
+            </div>
+            <Cluster>
+                <HeaderLink href="/">Home</HeaderLink>
+                <HeaderLink href="/blog">Blog</HeaderLink>
+                <HeaderLink href="/about">About</HeaderLink>
+                <HeaderLink href="/test">Test</HeaderLink>
+                <HeaderLink href="/mytest">mytest</HeaderLink>
+            </Cluster>
+        </Cluster>
+    </Box>
     <!-- </Center> -->
-</header>
-<style>
-    /* .mysize {
+
+    <style>
+        /* .mysize {
         min-inline-size: 20rem;
     } */
-    .center {
-        box-sizing: content-box;
-        /* margin-inline: auto; */
-        /* text-align: center; */
+        .center {
+            box-sizing: content-box;
+            /* margin-inline: auto; */
+            /* text-align: center; */
 
-        max-inline-size: var(--measure);
-        /* padding-inline-start: 2rem; */
-        /* padding-inline-end: 2rem; */
-        display: flex;
-        flex-direction: column;
-        /* align-items: center; */
-    }
-</style>
+            max-inline-size: var(--measure);
+            /* padding-inline-start: 2rem; */
+            /* padding-inline-end: 2rem; */
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+    </style>
+</header>
