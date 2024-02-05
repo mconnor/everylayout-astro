@@ -1,0 +1,32 @@
+/* dim */
+--brand-dim: var(--orange-4);
+--text-1-dim: var(--gray-3);
+--text-2-dim: var(--gray-4);
+--surface-1-dim: var(--gray-8);
+--surface-2-dim: var(--gray-7);
+--surface-3-dim: var(--gray-6);
+--surface-4-dim: var(--gray-5);
+--surface-shadow-dim: var(--gray-9-hsl);
+--shadow-strength-dim: 20%;
+
+/* grape */
+--brand-grape: var(--purple-5);
+--text-1-grape: var(--purple-9);
+--text-2-grape: var(--purple-7);
+--surface-1-grape: var(--purple-0);
+--surface-2-grape: var(--purple-1);
+--surface-3-grape: var(--purple-2);
+--surface-4-grape: var(--purple-3);
+--surface-shadow-grape: var(--purple-12-hsl);
+--shadow-strength-grape: 2%;
+
+/* choco */
+--brand-choco: var(--choco-5);
+--text-1-choco: var(--choco-1);
+--text-2-choco: var(--choco-2);
+--surface-1-choco: var(--choco-12);
+--surface-2-choco: var(--choco-11);
+--surface-3-choco: var(--choco-10);
+--surface-4-choco: var(--choco-9);
+--surface-shadow-choco: 25deg 65% 11%;
+--shadow-strength-choco: 50%;

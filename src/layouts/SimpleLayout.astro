@@ -6,6 +6,7 @@ import Cover from '@cc/Cover/index.astro'
 
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
+import * as ModLayout from '@cc/index.ts'
 
 type Props = {
     title?: string
@@ -40,7 +41,7 @@ function capitalizeWords(str: string) {
     </head>
 
     <body color-scheme="light">
-        <box-l borderWidth="0" padding="0">
+        <ModLayout.Box borderWidth="0" padding="0">
             <Cover centeredElement="main" noPad={true} space="0">
                 <Header />
                 <main class="box">
@@ -50,6 +51,6 @@ function capitalizeWords(str: string) {
                 </main>
                 <Footer />
             </Cover>
-        </box-l>
+        </ModLayout.Box>
     </body>
 </html>

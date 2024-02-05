@@ -1,6 +1,7 @@
 ---
 import 'open-props/postcss/style'
 import 'open-props/postcss/buttons'
+import './layouts.css'
 ---
 
 <style is:global>
@@ -13,16 +14,6 @@ import 'open-props/postcss/buttons'
         border: 0 solid;
     }
 
-    .font-size\:base {
-        font-size: 1rem;
-    }
-    .font-size\:biggish {
-        font-size: 1.75rem;
-    }
-    .font-size\:big {
-        font-size: 2.25rem;
-    }
-
     .max-inline-size\:measure {
         max-inline-size: var(--measure);
     }
@@ -33,11 +24,6 @@ import 'open-props/postcss/buttons'
 
     .min-inline-size\:measure\/3 {
         min-inline-size: calc(var(--measure) / 3);
-    }
-
-    .docsMain {
-        flex-basis: 0;
-        flex-grow: 999;
     }
 
     html {
@@ -74,48 +60,12 @@ import 'open-props/postcss/buttons'
 
         --surface-shadow-dark: var(--gray-12-hsl);
         --shadow-strength-dark: 80%;
-
-        /* dim */
-        --brand-dim: var(--orange-4);
-        --text-1-dim: var(--gray-3);
-        --text-2-dim: var(--gray-4);
-        --surface-1-dim: var(--gray-8);
-        --surface-2-dim: var(--gray-7);
-        --surface-3-dim: var(--gray-6);
-        --surface-4-dim: var(--gray-5);
-        --surface-shadow-dim: var(--gray-9-hsl);
-        --shadow-strength-dim: 20%;
-
-        /* grape */
-        --brand-grape: var(--purple-5);
-        --text-1-grape: var(--purple-9);
-        --text-2-grape: var(--purple-7);
-        --surface-1-grape: var(--purple-0);
-        --surface-2-grape: var(--purple-1);
-        --surface-3-grape: var(--purple-2);
-        --surface-4-grape: var(--purple-3);
-        --surface-shadow-grape: var(--purple-12-hsl);
-        --shadow-strength-grape: 2%;
-
-        /* choco */
-        --brand-choco: var(--choco-5);
-        --text-1-choco: var(--choco-1);
-        --text-2-choco: var(--choco-2);
-        --surface-1-choco: var(--choco-12);
-        --surface-2-choco: var(--choco-11);
-        --surface-3-choco: var(--choco-10);
-        --surface-4-choco: var(--choco-9);
-        --surface-shadow-choco: 25deg 65% 11%;
-        --shadow-strength-choco: 50%;
-
-        /* --lime-green: #a2c551;
-    --deep-plumb: #41293a;
-    --rustic-red: #5e2e28;
-    --light-blue: #696fa4;
-    --yellow: #fde001; */
     }
 
     :root {
+        /* 
+        vars from every layout book 
+        */
         --border-thin: var(--border-size-1);
         --measure: 60ch;
         --ratio: 1.5;
@@ -141,7 +91,7 @@ import 'open-props/postcss/buttons'
         --surface-shadow-light: var(--gray-8-hsl);
         --shadow-strength-light: 2%; */
 
-        --min: calc(var(--measure) / 3);
+        /* --min: calc(var(--measure) / 3); */
 
         color-scheme: light dark;
     }
@@ -175,7 +125,7 @@ import 'open-props/postcss/buttons'
         --shadow-strength: var(--shadow-strength-dark);
 
         --brand: var(--brand-dark);
-        --border-color: var(--color-light);
+        --border-color: var(--brand-dark);
 
         /* open-props dark theme as defaults but these are better */
     }
@@ -200,49 +150,9 @@ import 'open-props/postcss/buttons'
             slotspace;
     }
 
-    .light-theme {
-        color-scheme: light;
-    }
-
-    .dark-theme {
-        color-scheme: dark;
-    }
-
-    .fill {
-        background-image: var(--gradient-27);
-    }
-
     /* LAYOUTS ***************************/
 
     /* Stack sets margin-top on its children */
-
-    [class^='stack'] > * {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* top and bottom margins in horizontal-tb writing mode */
-        margin-block: 0;
-    }
-
-    .stack {
-        > * + * {
-            margin-block-start: var(--size-5);
-        }
-        /* p elements after the second element towards the bottom of the space. */
-        /* > :nth-child(2) {
-            margin-block-end: auto;
-        } */
-    }
-
-    .stack-large > * + * {
-        margin-block-start: var(--size-10);
-    }
-
-    .stack-small > * + * {
-        margin-block-start: var(--size-2);
-    }
-
-    /* end stack */
 
     /* 
     The Box element should have padding on all sides, or no sides at all. 

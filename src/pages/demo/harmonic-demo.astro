@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/SimpleLayout.astro'
+import Cluster from '@cc/Cluster/index.astro'
+---
+
+<Layout>
+    <h4>setting height to harmonic scale --s0 to --s5</h4>
+    <!-- <Box paddh4ing="8rem" width="20%" /> -->
+    <Cluster align="flex-end">
+        <div class="fill" style={{ height: 'var(--s0)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s1)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s2)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s3)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s4)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s5)' }}>xxx</div>
+    </Cluster>
+</Layout>
+
+<style>
+    .fill {
+        width: 10%;
+        height: 100%;
+        background-color: red;
+    }
+</style>

@@ -1,3 +1,4 @@
+// import { isSigleDigitString } from '../test'
 /**
  * @module grid-l
  * @description
@@ -6,17 +7,23 @@
  * @property {string} space=var(--s1) The space between grid cells
  */
 export default class AstroGrid extends HTMLElement {
-  render: () => void;
-  i: string | undefined;
-  constructor() {
-    super();
-    this.render = () => {
-      this.i = `Grid-${[this.min, this.space].join('')}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
+    render: () => void
+    i: string | undefined
+    constructor() {
+        super()
+        this.render = () => {
+            // this.space &&
+            //     isSigleDigitString(
+            //         this.space,
+            //         'AstroGrid space setting should be a number representing a point on the modular scale',
+            //     )
+
+            this.i = `Grid-${[this.min, this.space].join('')}`
+            this.dataset.i = this.i
+            if (!document.getElementById(this.i)) {
+                let styleEl = document.createElement('style')
+                styleEl.id = this.i
+                styleEl.innerHTML = `
           [data-i="${this.i}"] {
             grid-gap: ${this.space};
           }
@@ -26,41 +33,43 @@ export default class AstroGrid extends HTMLElement {
               grid-template-columns: repeat(auto-fill, minmax(min(${this.min}, 100%), 1fr));
             }
           }
-        `.replace(/\s\s+/g, ' ').trim();
-        document.head.appendChild(styleEl);
-      }
+        `
+                    .replace(/\s\s+/g, ' ')
+                    .trim()
+                document.head.appendChild(styleEl)
+            }
+        }
     }
-  }
 
-  get min() {
-    return this.getAttribute('min') || '250px';
-  }
+    get min() {
+        return this.getAttribute('min') || '250px'
+    }
 
-  set min(val) {
-     this.setAttribute('min', val);
-  }
+    set min(val) {
+        this.setAttribute('min', val)
+    }
 
-  get space() {
-    return this.getAttribute('space') || 'var(--s1)';
-  }
+    get space() {
+        return this.getAttribute('space') || 'var(--s1)'
+    }
 
-  set space(val) {
-     this.setAttribute('space', val);
-  }
+    set space(val) {
+        this.setAttribute('space', val)
+    }
 
-  static get observedAttributes() {
-    return ['min', 'space'];
-  }
+    static get observedAttributes() {
+        return ['min', 'space']
+    }
 
-  connectedCallback() {
-    this.render();
-  }
+    connectedCallback() {
+        this.render()
+    }
 
-  attributeChangedCallback() {
-    this.render();
-  }
+    attributeChangedCallback() {
+        this.render()
+    }
 }
 
 if ('customElements' in window) {
-  customElements.define('grid-l', AstroGrid);
+    customElements.define('grid-l', AstroGrid)
 }

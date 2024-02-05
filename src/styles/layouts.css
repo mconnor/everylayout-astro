@@ -1,0 +1,27 @@
+[class^='stack'] > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* top and bottom margins in horizontal-tb writing mode */
+    margin-block: 0;
+}
+
+.stack {
+    > * + * {
+        margin-block-start: var(--size-5);
+    }
+    /* p elements after the second element towards the bottom of the space. */
+    /* > :nth-child(2) {
+        margin-block-end: auto;
+    } */
+}
+
+.stack-large > * + * {
+    margin-block-start: var(--size-10);
+}
+
+.stack-small > * + * {
+    margin-block-start: var(--size-2);
+}
+
+/* end stack */

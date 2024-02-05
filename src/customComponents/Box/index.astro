@@ -7,10 +7,10 @@ type Props = {
     borderWidth?: RmUnitType //"var(--border-thin)"
     invert?: boolean // false
 }
-const props = Astro.props
+const { padding, borderWidth, invert, ...rest } = Astro.props
 ---
 
-<box-l {...props}>
+<box-l padding={padding} {borderWidth} invert={invert} width="20px" {...rest}>
     <slot />
 </box-l>
 

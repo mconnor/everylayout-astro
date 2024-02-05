@@ -1,16 +1,17 @@
 ---
 import Layout from '@layouts/SimpleLayout.astro'
+import { Box, Imposter } from '@cc/index.ts'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-    <imposter-l>
-        <box-l style="background-color: var(--color-light)">
+    <Imposter>
+        <Box style="background-color: var(--color-light)">
             <p class="h4">
                 <strong
                     >You can’t see all the content, because of this box.</strong
                 >
             </p>
-        </box-l>
-    </imposter-l>
+        </Box>
+    </Imposter>
 </Layout>

@@ -1,16 +1,15 @@
 ---
 import Layout from '@layouts/SimpleLayout.astro'
-import Stack from '@cc/Stack/index.astro'
-import Box from '@cc/Box/index.astro'
+import { Box, Stack } from '@cc/index.ts'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
     <Stack>
         <Box>
-            <Box borderWidth=0 invert><h4>stack box</h4></Box>
+            <Box borderWidth="0" invert><h4>stack box</h4></Box>
 
-            <Box borderWidth=0 >
+            <Box borderWidth="0">
                 <p>
                     Ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -89,6 +88,4 @@ import Box from '@cc/Box/index.astro'
             </div>
         </div>
     </Stack>
-
-  
 </Layout>

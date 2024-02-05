@@ -2,19 +2,19 @@
 import './Cluster.css'
 import type { RmUnitType, JustifyContentTypes, AlignItemsTypes } from '../Types'
 
-const LIST = 'list'
+// const LIST = 'list'
 
 type Props = {
     justify?: JustifyContentTypes //"flex-start"
     align?: AlignItemsTypes // "flex-start"
     space?: RmUnitType
-    role?: typeof LIST
+    // role?: typeof LIST
 }
 
-const { role, ...rest } = Astro.props
+const props = Astro.props
 ---
 
-<cluster-l role={role} {...rest}>
+<cluster-l {...props}>
     <slot />
 </cluster-l>
 
