@@ -17,7 +17,7 @@
         "@astrojs/rss": "^4.0.4",
         "@astrojs/sitemap": "^3.0.5",
         "@astrojs/ts-plugin": "^1.4.0",
-        "astro": "^4.3.0",
+        "astro": "^4.3.2",
         "open-props": "^1.6.18",
         "typescript": "^5.3.3"
     },
@@ -27,7 +27,7 @@
         "postcss-jit-props": "^1.0.14",
         "postcss-nesting": "^12.0.2",
         "postcss-pow": "^1.0.1",
-        "prettier": "^3.2.4",
+        "prettier": "^3.2.5",
         "prettier-plugin-astro": "^0.13.0"
     }
 }
