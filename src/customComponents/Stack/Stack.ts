@@ -48,7 +48,7 @@ export default class Stack extends HTMLElement {
     }
 
     set space(val) {
-        return this.setAttribute('space', val)
+        this.setAttribute('space', val)
     }
 
     get recursive() {
@@ -56,15 +56,23 @@ export default class Stack extends HTMLElement {
     }
 
     set recursive(val: boolean) {
-        this.setAttribute(val ? 'recursive' : '')
+        if (val) {
+            this.setAttribute('recursive', '')
+        } else {
+            this.removeAttribute('recursive')
+        }
     }
 
     get splitAfter() {
         return this.getAttribute('splitAfter') || null
     }
 
-    set splitAfter(val) {
-        return this.setAttribute('splitAfter', val)
+    set splitAfter(val: string) {
+        if (val) {
+            this.setAttribute('splitAfter', val)
+        } else {
+            this.removeAttribute('splitAfter')
+        }
     }
 
     static get observedAttributes() {
