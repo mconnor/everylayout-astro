@@ -19,23 +19,23 @@ export default class Stack extends HTMLElement {
                 let styleEl = document.createElement('style')
                 styleEl.id = this.i
                 styleEl.innerHTML = `
-          [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
-            margin-block-start: ${this.space};
-          }
-      
-          ${
-              this.splitAfter
-                  ? `
-            [data-i="${this.i}"]:only-child {
-              block-size: 100%;
+            [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
+              margin-block-start: ${this.space};
             }
-      
-            [data-i="${this.i}"] > :nth-child(${this.splitAfter}) {
-              margin-block-end: auto;
-            }`
-                  : ''
-          }
-        `
+        
+            ${
+                this.splitAfter
+                    ? `
+              [data-i="${this.i}"]:only-child {
+                block-size: 100%;
+              }
+        
+              [data-i="${this.i}"] > :nth-child(${this.splitAfter}) {
+                margin-block-end: auto;
+              }`
+                    : ''
+            }
+          `
                     .replace(/\s\s+/g, ' ')
                     .trim()
                 document.head.appendChild(styleEl)
@@ -48,23 +48,23 @@ export default class Stack extends HTMLElement {
     }
 
     set space(val) {
-        this.setAttribute('space', val)
+        return this.setAttribute('space', val)
     }
 
     get recursive() {
         return this.hasAttribute('recursive')
     }
 
-    set recursive(val) {
+    set recursive(val: boolean) {
         this.setAttribute(val ? 'recursive' : '')
     }
 
     get splitAfter() {
-        return this.getAttribute('splitAfter')
+        return this.getAttribute('splitAfter') || null
     }
 
     set splitAfter(val) {
-        this.setAttribute('splitAfter', val)
+        return this.setAttribute('splitAfter', val)
     }
 
     static get observedAttributes() {
