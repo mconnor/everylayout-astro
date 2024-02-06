@@ -1,27 +1,23 @@
 ---
 import Layout from '@layouts/SimpleLayout.astro'
-import { Box, Imposter, Center } from '@cc/index.ts'
+import { Box, Imposter, Cluster } from '@cc/index.ts'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-    <Imposter fixed breakout>
-        <div class="fill">
-            <Center>
-                <p class="h4">
-                    <strong
-                        >You can’t see all the content, because of this box.</strong
-                    >
-                </p>
-            </Center>
-        </div>
-    </Imposter>
+  <Imposter>
+    <Cluster>
+      <p class="h4">
+        <strong>You can’t see all the content, because of this box.</strong>
+      </p>
+    </Cluster>
+  </Imposter>
 </Layout>
 
 <style>
-    .fill {
-        width: 80vw;
-        height: 80vh;
-        background-color: aqua;
-    }
+  .fill {
+    background-color: aqua;
+    height: 100%;
+    width: 100%;
+  }
 </style>

@@ -1,29 +1,24 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "plugins": [
-            {
-                "name": "@astrojs/ts-plugin",
-            },
-        ],
-        "jsx": "preserve",
-        "baseUrl": ".",
-        "strictNullChecks": true,
-        "paths": {
-            "@components/*": ["src/components/*"],
-            "@cc/*": ["src/customComponents/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@content/*": ["src/content/*"],
-            "@assets/*": ["src/assets/*"],
-            "@styles/*": ["src/styles/*"],
-            "@scripts/*": ["src/scripts/*"],
-        },
-    },
-    "include": [
-        "src/**/*.d.ts",
-        "src/**/*.tsx",
-        "src/**/*.ts",
-        "src/**/*.astro",
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
     ],
-    "exclude": ["node_modules"],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@cc/*": ["src/customComponents/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@content/*": ["src/content/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
+      "@scripts/*": ["src/scripts/*"]
+    }
+  },
+  "include": ["src/**/*.d.ts", "src/**/*.tsx", "src/**/*.ts", "src/**/*.astro"],
+  "exclude": ["node_modules"]
 }

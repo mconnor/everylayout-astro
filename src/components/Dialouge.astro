@@ -1,32 +1,37 @@
 ---
-import { Box } from '@cc/index.ts'
+import { Box, Stack, Center, Imposter } from '@cc/index.ts'
+
+import CloseBtn from './CloseBtn.astro'
+import ConfetiBtn from './ConfettiButton.astro'
 ---
 
-<Box padding=".25rem" borderWidth=".125rem">
-    <Box>
-        <div class="cluster">
-            <div class="pushRight"><button type="button">x</button></div>
-            <h4>Dialouge Box</h4>
-            <div class="center" style="{{max-inline-size: 50ch;}}">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem,
-                ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum
-                dolor sit amet consectetur adipisicing elit.
-            </div>
-
-            <div class="pushRight">
-                <button type="button">okay</button>
-                <button type="button">cancel</button>
-            </div>
+<Imposter breakout>
+  <div>
+    <Center>
+      <Stack>
+        <div class="pushRight"><ConfetiBtn /></div>
+        <div class="pushRight"><CloseBtn /></div>
+        <h4>Dialouge Box</h4>
+        <div class="center" style="{{max-inline-size: 50ch;}}">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum
+          dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit
+          amet consectetur adipisicing elit.
         </div>
-    </Box>
-</Box>
 
+        <div class="pushRight">
+          <button type="button">okay</button>
+          <button type="button">cancel</button>
+        </div>
+      </Stack>
+    </Center>
+  </div>
+</Imposter>
 <style>
-    /* .center {
+  /* .center {
         max-inline-size: 50ch;
     } */
 
-    .pushRight {
-        align-self: flex-end;
-    }
+  .pushRight {
+    align-self: flex-end;
+  }
 </style>

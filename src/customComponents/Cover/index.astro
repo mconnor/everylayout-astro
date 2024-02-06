@@ -3,18 +3,18 @@ import './Cover.css'
 import type { RmUnitType } from '../Types'
 
 type Props = {
-    centeredElement?: string // h1
-    space?: RmUnitType //"var(--s1)"
-    minHeight?: RmUnitType //"100vh"
-    noPad?: boolean // false
-    children: any
+  centeredElement?: string // h1
+  space?: RmUnitType //"var(--s1)"
+  minHeight?: RmUnitType //"100vh"
+  noPad?: boolean // false
+  children: any
 }
 
 const { centeredElement: centered, ...rest } = Astro.props
 ---
 
-<cover-l centered={centered} , {...rest}>
-    <slot />
+<cover-l centered={centered} {...rest}>
+  <slot />
 </cover-l>
 
 <script src="./Cover.ts"></script>

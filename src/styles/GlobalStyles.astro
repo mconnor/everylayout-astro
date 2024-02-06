@@ -5,82 +5,82 @@ import './layouts.css'
 ---
 
 <style is:global>
-    * {
-        /* max-inline-size: var(--measure); */
-        box-sizing: border-box;
-        margin: 0;
-        padding: auto;
-        overflow-wrap: break-word;
-        border: 0 solid;
-    }
+  * {
+    /* max-inline-size: var(--measure); */
+    box-sizing: border-box;
+    margin: 0;
+    padding: auto;
+    overflow-wrap: break-word;
+    border: 0 solid;
+  }
 
-    .max-inline-size\:measure {
-        max-inline-size: var(--measure);
-    }
+  .max-inline-size\:measure {
+    max-inline-size: var(--measure);
+  }
 
-    .max-inline-size\:measure\/2 {
-        max-inline-size: calc(var(--measure) / 2);
-    }
+  .max-inline-size\:measure\/2 {
+    max-inline-size: calc(var(--measure) / 2);
+  }
 
-    .min-inline-size\:measure\/3 {
-        min-inline-size: calc(var(--measure) / 3);
-    }
+  .min-inline-size\:measure\/3 {
+    min-inline-size: calc(var(--measure) / 3);
+  }
 
-    html {
-        font-family: var(--font-sans);
+  html {
+    font-family: var(--font-sans);
 
-        --color-light: hsl(0, 0%, 80%);
-        --color-dark: hsl(0, 0%, 20%);
+    --color-light: hsl(0, 0%, 80%);
+    --color-dark: hsl(0, 0%, 20%);
 
-        /* light */
-        --brand-light: var(--orange-12);
+    /* light */
+    --brand-light: var(--orange-12);
 
-        /* open-props light theme as defaults but these are better */
-        --text-1-light: var(--gray-8);
-        --text-2-light: var(--gray-7);
-        --surface-1-light: var(--gray-0);
-        --surface-2-light: var(--gray-1);
-        --surface-3-light: var(--gray-2);
-        --surface-4-light: var(--gray-3);
+    /* open-props light theme as defaults but these are better */
+    --text-1-light: var(--gray-8);
+    --text-2-light: var(--gray-7);
+    --surface-1-light: var(--gray-0);
+    --surface-2-light: var(--gray-1);
+    --surface-3-light: var(--gray-2);
+    --surface-4-light: var(--gray-3);
 
-        --surface-shadow-light: var(--gray-8-hsl);
-        --shadow-strength-light: 2%;
+    --surface-shadow-light: var(--gray-8-hsl);
+    --shadow-strength-light: 2%;
 
-        /* dark */
-        --brand-dark: var(--orange-3);
+    /* dark */
+    --brand-dark: var(--orange-3);
 
-        /* open-props dark theme as defaults but these are better */
-        --text-1-dark: var(--gray-3);
-        --text-2-dark: var(--gray-5);
-        --surface-1-dark: var(--gray-12);
-        --surface-2-dark: var(--gray-11);
-        --surface-3-dark: var(--gray-10);
-        --surface-4-dark: var(--gray-9);
+    /* open-props dark theme as defaults but these are better */
+    --text-1-dark: var(--gray-3);
+    --text-2-dark: var(--gray-5);
+    --surface-1-dark: var(--gray-12);
+    --surface-2-dark: var(--gray-11);
+    --surface-3-dark: var(--gray-10);
+    --surface-4-dark: var(--gray-9);
 
-        --surface-shadow-dark: var(--gray-12-hsl);
-        --shadow-strength-dark: 80%;
-    }
+    --surface-shadow-dark: var(--gray-12-hsl);
+    --shadow-strength-dark: 80%;
+  }
 
-    :root {
-        /* 
+  :root {
+    /* 
         vars from every layout book 
         */
-        --border-thin: var(--border-size-1);
-        --measure: 60ch;
-        --ratio: 1.5;
-        --font-size-base: 1rem;
-        --s0: var(--font-size-base);
-        --s1: calc(var(--s0) * pow(var(--ratio), 1));
-        --s2: calc(var(--s0) * pow(var(--ratio), 2));
-        --s3: calc(var(--s0) * pow(var(--ratio), 3));
-        --s4: calc(var(--s0) * pow(var(--ratio), 4));
-        --s5: calc(var(--s0) * pow(var(--ratio), 5));
-        --line-height: var(--ratio);
-        --font-size-biggish: var(--s1);
-        --font-size-big: var(--s2);
+    --border-thin: var(--border-size-1);
+    --measure: 60ch;
+    --ratio: 1.5;
+    --font-size-base: 1rem;
+    --s0: var(--font-size-base);
+    --s1: calc(var(--s0) * pow(var(--ratio), 1));
+    --s2: calc(var(--s0) * pow(var(--ratio), 2));
+    --s3: calc(var(--s0) * pow(var(--ratio), 3));
+    --s4: calc(var(--s0) * pow(var(--ratio), 4));
+    --s5: calc(var(--s0) * pow(var(--ratio), 5));
+    --line-height: var(--ratio);
+    --font-size-biggish: var(--s1);
+    --font-size-big: var(--s2);
 
-        /* open-props light theme as defaults but these are better */
-        /* --text-1-light: var(--gray-8);
+    /* open-props light theme as defaults but these are better */
+    /* --text-1-light: var(--gray-8);
         --text-2-light: var(--gray-7);
         --surface-1-light: var(--gray-0);
         --surface-2-light: var(--gray-1);
@@ -90,70 +90,70 @@ import './layouts.css'
         --surface-shadow-light: var(--gray-8-hsl);
         --shadow-strength-light: 2%; */
 
-        /* --min: calc(var(--measure) / 3); */
+    /* --min: calc(var(--measure) / 3); */
 
-        color-scheme: light dark;
+    color-scheme: light dark;
+  }
+
+  [color-scheme='light'] {
+    color-scheme: light;
+
+    --text-1: var(--text-1-light);
+    --text-2: var(--text-2-light);
+    --surface-1: var(--surface-1-light);
+    --surface-2: var(--surface-2-light);
+    --surface-3: var(--surface-3-light);
+    --surface-4: var(--surface-4-light);
+    --surface-shadow: var(--surface-shadow-light);
+    --shadow-strength: var(--shadow-strength-light);
+
+    --brand: var(--brand-light);
+    --border-color: var(--brand-light);
+  }
+
+  [color-scheme='dark'] {
+    color-scheme: dark;
+
+    --text-1: var(--text-1-dark);
+    --text-2: var(--text-2-dark);
+    --surface-1: var(--surface-1-dark);
+    --surface-2: var(--surface-2-dark);
+    --surface-3: var(--surface-3-dark);
+    --surface-4: var(--surface-4-dark);
+    --surface-shadow: var(--surface-shadow-dark);
+    --shadow-strength: var(--shadow-strength-dark);
+
+    --brand: var(--brand-dark);
+    --border-color: var(--brand-dark);
+
+    /* open-props dark theme as defaults but these are better */
+  }
+
+  a {
+    color: var(--brand);
+    text-decoration: none;
+    &:is(:hover, :focus) {
+      text-decoration: underline;
     }
+  }
 
-    [color-scheme='light'] {
-        color-scheme: light;
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      slotspace;
+  }
 
-        --text-1: var(--text-1-light);
-        --text-2: var(--text-2-light);
-        --surface-1: var(--surface-1-light);
-        --surface-2: var(--surface-2-light);
-        --surface-3: var(--surface-3-light);
-        --surface-4: var(--surface-4-light);
-        --surface-shadow: var(--surface-shadow-light);
-        --shadow-strength: var(--shadow-strength-light);
+  /* LAYOUTS ***************************/
 
-        --brand: var(--brand-light);
-        --border-color: var(--brand-light);
-    }
+  /* Stack sets margin-top on its children */
 
-    [color-scheme='dark'] {
-        color-scheme: dark;
-
-        --text-1: var(--text-1-dark);
-        --text-2: var(--text-2-dark);
-        --surface-1: var(--surface-1-dark);
-        --surface-2: var(--surface-2-dark);
-        --surface-3: var(--surface-3-dark);
-        --surface-4: var(--surface-4-dark);
-        --surface-shadow: var(--surface-shadow-dark);
-        --shadow-strength: var(--shadow-strength-dark);
-
-        --brand: var(--brand-dark);
-        --border-color: var(--brand-dark);
-
-        /* open-props dark theme as defaults but these are better */
-    }
-
-    a {
-        color: var(--brand);
-        text-decoration: none;
-        &:is(:hover, :focus) {
-            text-decoration: underline;
-        }
-    }
-
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            slotspace;
-    }
-
-    /* LAYOUTS ***************************/
-
-    /* Stack sets margin-top on its children */
-
-    /* 
+  /* 
     The Box element should have padding on all sides, or no sides at all. 
     Why? Because an element with specific (and asymmetrical) padding is not a Box; 
     
@@ -164,149 +164,149 @@ import './layouts.css'
     
     */
 
-    [class^='box'] {
-        color: var(--text-1);
-        background-color: var(--surface-4);
+  [class^='box'] {
+    color: var(--text-1);
+    background-color: var(--surface-4);
 
-        /* outline: 0.125rem solid transparent;
+    /* outline: 0.125rem solid transparent;
         outline-offset: -0.125rem; */
 
-        * {
-            color: inherit;
-            background-color: inherit;
-        }
+    * {
+      color: inherit;
+      background-color: inherit;
     }
+  }
 
-    [class^='box'].invert {
-        filter: invert(100%);
-    }
+  [class^='box'].invert {
+    filter: invert(100%);
+  }
 
-    .box {
-        padding: var(--s0);
-        border-width: var(--border-size-1);
-        border-color: var(--border-color);
-    }
-    .box-no-border {
-        outline: var(--size-0) solid transparent;
-        outline-offset: (calc * var(--size-0));
-    }
+  .box {
+    padding: var(--s0);
+    border-width: var(--border-size-1);
+    border-color: var(--border-color);
+  }
+  .box-no-border {
+    outline: var(--size-0) solid transparent;
+    outline-offset: (calc * var(--size-0));
+  }
 
-    /* BOX */
+  /* BOX */
 
-    /* CENTER  Intrinsic centering*/
+  /* CENTER  Intrinsic centering*/
 
-    .center {
-        /* measurement of the content is critica */
-        box-sizing: content-box;
-        margin-inline: auto;
-        max-inline-size: var(--measure);
-        /* text align center */
-        /* text-align: center;
+  .center {
+    /* measurement of the content is critica */
+    box-sizing: content-box;
+    margin-inline: auto;
+    max-inline-size: var(--measure);
+    /* text align center */
+    /* text-align: center;
         max-inline-size: var(--measure); */
-        /* Intrinsic centering?
+    /* Intrinsic centering?
         Whether to center and child elements narrower than the max value */
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .cluster {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: var(--space, var(--size-2));
-        column-gap: var(--space, var(--size-fluid-5));
-        justify-content: space-between;
-        align-items: center;
-    }
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--space, var(--size-2));
+    column-gap: var(--space, var(--size-fluid-5));
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    /* 
+  /* 
     ui */
 
-    .showcode {
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        font-size: xx-small;
+  .showcode {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    font-size: xx-small;
+  }
+
+  /* COVER */
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100vh;
+
+    > main {
+      margin-block: auto;
     }
-
-    /* COVER */
-
-    .cover {
-        display: flex;
-        flex-direction: column;
-        min-block-size: 100vh;
-
-        > main {
-            margin-block: auto;
-        }
-        > :first-child:not(main) {
-            margin-block-start: 0;
-        }
-        > :last-child:not(main) {
-            margin-block-end: 0;
-        }
+    > :first-child:not(main) {
+      margin-block-start: 0;
     }
-    /* 
+    > :last-child:not(main) {
+      margin-block-end: 0;
+    }
+  }
+  /* 
     Notice how we use margin-block: 1rem and not margin: 1rem 0.
      The reason is that this component only cares about the vertical margins to achieve its layout.
       By making the inline (horizontal in the default writing mode) margins 0, 
       we might be unduly undoing styles applied or inherited by an ancestor component. */
-    .cover > * {
-        margin-block: 1rem;
+  .cover > * {
+    margin-block: 1rem;
+  }
+
+  .switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-5);
+    --threshold: var(--size-15);
+
+    > * {
+      flex-grow: 1;
+      flex-basis: calc((var(--threshold) - 100%) * 999);
     }
+  }
 
-    .switcher {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--size-5);
-        --threshold: var(--size-15);
+  .switcher > :nth-last-child(n + 6),
+  .switcher > :nth-last-child(n + 6) ~ * {
+    flex-basis: 100%;
+  }
 
-        > * {
-            flex-grow: 1;
-            flex-basis: calc((var(--threshold) - 100%) * 999);
-        }
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 
-    .switcher > :nth-last-child(n + 6),
-    .switcher > :nth-last-child(n + 6) ~ * {
-        flex-basis: 100%;
-    }
-
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-    }
-
-    .imposter {
-        /* ↓ Position the top left corner in the center */
-        position: var(--positioning, absolute);
-        inset-block-start: 50%;
-        inset-inline-start: 50%;
-        /* ↓ Reposition so the center of the element
+  .imposter {
+    /* ↓ Position the top left corner in the center */
+    position: var(--positioning, absolute);
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    /* ↓ Reposition so the center of the element
   is the center of the positioning container */
-        transform: translate(-50%, -50%);
-    }
+    transform: translate(-50%, -50%);
+  }
 
-    .appContainer {
-        container: myContainer / inline-size;
-    }
+  .appContainer {
+    container: myContainer / inline-size;
+  }
 
-    @container myContainer (width < 360px) {
-        .appContainer > * {
-            background-color: red;
-        }
+  @container myContainer (width < 360px) {
+    .appContainer > * {
+      background-color: red;
     }
+  }
 
-    /* .frame {
+  /* .frame {
         --n: 16;
         --d: 9;
         aspect-ratio: var(--n) / var(--d);
@@ -327,41 +327,41 @@ import './layouts.css'
             aspect-ratio: 1 / 1;
         }
     } */
-    /* elements */
+  /* elements */
 
-    html,
-    body,
-    div,
-    header,
-    nav,
-    main,
-    footer {
-        max-inline-size: none;
-        background-color: var(--surface-4);
-    }
+  html,
+  body,
+  div,
+  header,
+  nav,
+  main,
+  footer {
+    max-inline-size: none;
+    background-color: var(--surface-4);
+  }
 
-    img {
-        max-inline-size: 100%;
-    }
+  img {
+    max-inline-size: 100%;
+  }
 
-    h1 {
-        font-size: var(--s4);
-    }
-    h2 {
-        font-size: var(--s3);
-    }
-    h3 {
-        font-size: var(--s2);
-    }
-    h4 {
-        font-size: var(--s1);
-    }
-    h5 {
-        font-size: var(--s);
-    }
-    p {
-        font-size: var(--s0);
-    }
+  h1 {
+    font-size: var(--s4);
+  }
+  h2 {
+    font-size: var(--s3);
+  }
+  h3 {
+    font-size: var(--s2);
+  }
+  h4 {
+    font-size: var(--s1);
+  }
+  h5 {
+    font-size: var(--s);
+  }
+  p {
+    font-size: var(--s0);
+  }
 
-    /* flow text  elements */
+  /* flow text  elements */
 </style>

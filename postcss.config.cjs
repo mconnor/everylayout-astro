@@ -5,17 +5,17 @@ const postcssNesting = require('postcss-nesting')
 const postcssPow = require('postcss-pow')
 
 module.exports = {
-    plugins: [
-        postcssJitProps({
-            files: [
-                path.resolve(
-                    __dirname,
-                    'node_modules/open-props/dist/open-props.min.css',
-                ),
-            ],
-        }),
-        autoprefixer,
-        postcssNesting,
-        postcssPow,
-    ],
+  plugins: [
+    postcssJitProps({
+      files: [
+        path.resolve(
+          __dirname,
+          'node_modules/open-props/dist/open-props.min.css',
+        ),
+      ],
+    }),
+    autoprefixer,
+    postcssNesting,
+    postcssPow,
+  ],
 }

@@ -4,28 +4,28 @@ import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '../components/BaseHead.astro'
 
 type Props = {
-    title?: string
-    description?: string
+  title?: string
+  description?: string
 }
 
 const {
-    title = 'I NEED A TITLE',
-    description = 'no description provided',
-    // pubDate, updatedDate, heroImage
+  title = 'I NEED A TITLE',
+  description = 'no description provided',
+  // pubDate, updatedDate, heroImage
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <html lang="en">
-    <head>
-        <BaseHead title={title} description={description} />
-        <link rel="canonical" href={canonicalURL} />
-        <ViewTransitions />
-        <GlobalStyle />
-    </head>
+  <head>
+    <BaseHead title={title} description={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <ViewTransitions />
+    <GlobalStyle />
+  </head>
 
-    <body class="box-no-border" color-scheme="dark">
-        <slot />
-    </body>
+  <body class="box-no-border" color-scheme="dark">
+    <slot />
+  </body>
 </html>

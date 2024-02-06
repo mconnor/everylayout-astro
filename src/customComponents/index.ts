@@ -13,16 +13,16 @@ import Icon from './Icon/index.astro'
 import Cover from './Cover/index.astro'
 
 export {
-    Box,
-    Center,
-    Frame,
-    Sidebar,
-    Stack,
-    Switcher,
-    Cluster,
-    Reel,
-    AstroGrid,
-    Imposter,
-    Icon,
-    Cover,
+  Box,
+  Center,
+  Frame,
+  Sidebar,
+  Stack,
+  Switcher,
+  Cluster,
+  Reel,
+  AstroGrid,
+  Imposter,
+  Icon,
+  Cover,
 }

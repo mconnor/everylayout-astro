@@ -3,21 +3,16 @@ import './Center.css'
 import type { RmUnitType } from '../Types'
 
 type Props = {
-    max?: RmUnitType
-    andText?: boolean
-    gutters?: boolean
-    intrinsic?: boolean
+  max?: RmUnitType
+  andText?: boolean
+  gutters?: boolean
+  intrinsic?: boolean
 }
-const {
-    max = 'var(--measure)',
-    andText = false,
-    gutters = 0,
-    intrinsic = false,
-} = Astro.props
+const props = Astro.props
 ---
 
-<center-l max={max} andText={andText} gutters={gutters} intrinsic={intrinsic}>
-    <slot />
+<center-l {...props}>
+  <slot />
 </center-l>
 
 <script src="./Center.ts"></script>

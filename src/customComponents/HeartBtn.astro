@@ -1,27 +1,27 @@
 <astro-heart>
-    <button aria-label="Heart">💜</button> × <span>0</span>
+  <button aria-label="Heart">💜</button> × <span>0</span>
 </astro-heart>
 
 <script>
-    // Define the behaviour for our new type of HTML element.
-    class AstroHeart extends HTMLElement {
-        constructor() {
-            super()
-            let count = 0
+  // Define the behaviour for our new type of HTML element.
+  class AstroHeart extends HTMLElement {
+    constructor() {
+      super()
+      let count = 0
 
-            const heartButton = this.querySelector('button')
-            const countSpan = this.querySelector('span')
+      const heartButton = this.querySelector('button')
+      const countSpan = this.querySelector('span')
 
-            // Each time the button is clicked, update the count.
-            heartButton &&
-                countSpan &&
-                heartButton.addEventListener('click', () => {
-                    count++
-                    countSpan.textContent = count.toString()
-                })
-        }
+      // Each time the button is clicked, update the count.
+      heartButton &&
+        countSpan &&
+        heartButton.addEventListener('click', () => {
+          count++
+          countSpan.textContent = count.toString()
+        })
     }
+  }
 
-    // Tell the browser to use our AstroHeart class for <astro-heart> elements.
-    customElements.define('astro-heart', AstroHeart)
+  // Tell the browser to use our AstroHeart class for <astro-heart> elements.
+  customElements.define('astro-heart', AstroHeart)
 </script>

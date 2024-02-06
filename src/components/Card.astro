@@ -2,8 +2,8 @@
 import { Stack, Box } from '@cc/index.ts'
 
 type Props = {
-    headline?: string
-    description?: string
+  headline?: string
+  description?: string
 }
 
 const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
@@ -15,10 +15,10 @@ const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props
 ---
 
 <Box>
-    <Stack>
-        <slot name="image-slot" />
+  <Stack>
+    <slot name="image-slot" />
 
-        <h4>{headline}</h4>
-        <p>{description}</p>
-    </Stack>
+    <h4>{headline}</h4>
+    <p>{description}</p>
+  </Stack>
 </Box>

@@ -2,16 +2,12 @@
 import Layout from '@layouts/SimpleLayout.astro'
 import AstroHeart from '@cc/HeartBtn.astro'
 // import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
-import CloseBtn from '@components/CloseBtn.astro'
+import CloseBtn from '@components/CloseSVG.astro'
+import Dialouge from '@components/Dialouge.astro'
 import { Box, Icon, Center } from '@cc/index.ts'
 import BoxWithHeader from '@components/BoxWithHeader.astro'
 ---
 
 <Layout title="home" description="testing css">
-    <BoxWithHeader>
-        <h4 slot="headline">my heading</h4>
-        <p slot="copy">lorem</p>
-    </BoxWithHeader>
-    <h1>close btn</h1>
-    <CloseBtn />
+  <Box borderWidth="10rem"> <Dialouge /></Box>
 </Layout>

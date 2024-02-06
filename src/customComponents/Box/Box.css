@@ -1,8 +1,8 @@
 box-l {
-    display: block;
-    padding: var(--s1);
-    border-width: var(--border-thin);
-    /* ↓ For high contrast mode */
-    outline: var(--border-thin) solid transparent;
-    outline-offset: calc(var(--border-thin) * -1);
+  display: block;
+  padding: var(--s1);
+  border-width: var(--border-thin);
+  /* ↓ For high contrast mode */
+  outline: var(--border-thin) solid transparent;
+  outline-offset: calc(var(--border-thin) * -1);
 }

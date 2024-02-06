@@ -1,0 +1,27 @@
+---
+import './ShrinkGrow.css'
+import type { RmUnitType } from '../Types'
+
+interface Props {
+  denominator: number
+}
+
+const props = Astro.props
+---
+
+<shrink-grow {...props}>
+  <slot />
+</shrink-grow>
+
+<script src="./ShrinkGrow.ts"></script>
+
+<!-- <shrink-grow height="auto" unit="rem" label="An element obscuring some text">
+    <div style="position: relative">
+      <text-l words="150" aria-hidden="true"><p><span>eu</span> <span>varius</span> <span>ornare</span> <span>venenatis</span> <span>nibh</span> <span>nullam</span> <span>mattis</span> <span>malesuada</span> <span>arcu</span> <span>nec</span> <span>nibh</span> <span>erat</span> <span>ipsum</span> <span>ac</span> <span>justo</span> <span>congue</span> <span>proin</span> <span>pretium</span> <span>imperdiet</span> <span>phasellus</span> <span>justo</span> <span>id</span> <span>semper</span> <span>urna</span> <span>ac</span> <span>semper</span> <span>sapien</span> <span>eget</span> <span>ornare</span> <span>euismod</span> <span>ac</span> <span>morbi</span> <span>primis</span> <span>vulputate</span> <span>id</span> <span>nec</span> <span>sodales</span> <span>sit</span> <span>ex</span> <span>sodales</span> <span>pellentesque</span> <span>convallis</span> <span>venenatis</span> <span>duis</span> <span>luctus</span> <span>ex</span> <span>ipsum</span> <span>non</span> <span>et</span> <span>ipsum</span> <span>in</span> <span>tempus</span> <span>quam</span> <span>enim</span> <span>feugiat</span> <span>vitae</span> <span>semper</span> <span>in</span> <span>in</span> <span>eu</span> <span>ipsum</span> <span>eget</span> <span>in</span> <span>vitae</span> <span>iaculis</span> <span>ultrices</span> <span>sed</span> <span>phasellus</span> <span>neque</span> <span>nibh</span> <span>iaculis</span> <span>orci</span> <span>sapien</span> <span>sit</span> <span>ac</span> <span>sapien</span> <span>amet</span> <span>ac</span> <span>ac</span> <span>ipsum</span> <span>nibh</span> <span>vestibulum</span> <span>non</span> <span>non</span> <span>tristique</span> <span>imperdiet</span> <span>quam</span> <span>quam</span> <span>efficitur</span> <span>erat</span> <span>neque</span> <span>enim</span> <span>morbi</span> <span>ac</span> <span>id</span> <span>ultrices</span> <span>ac</span> <span>mi</span> <span>sapien</span> <span>ultricies</span> <span>nec</span> <span>tristique</span> <span>morbi</span> <span>euismod</span> <span>sodales</span> <span>mi</span> <span>id</span> <span>efficitur</span> <span>tempus</span> <span>commodo</span> <span>ante</span> <span>nec</span> <span>nibh</span> <span>sapien</span> <span>et</span> <span>nibh</span> <span>quam</span> <span>faucibus</span> <span>efficitur</span> <span>orci</span> <span>feugiat</span> <span>dolor</span> <span>mi</span> <span>eros</span> <span>arcu</span> <span>faucibus</span> <span>quam</span> <span>vehicula</span> <span>id</span> <span>posuere</span> <span>odio</span> <span>vestibulum</span> <span>feugiat</span> <span>pretium</span> <span>duis</span> <span>et</span> <span>eu</span> <span>eu</span> <span>tempus</span> <span>semper</span> <span>vulputate</span> <span>phasellus</span> <span>porttitor</span> <span>eu</span> <span>feugiat</span> <span>curae</span> <span>imperdiet</span> <span>morbi</span> <span>quam</span> <span>nec</span></p></text-l>
+      <imposter-l margin="2rem" data-i="Imposter-falsefalse2rem">
+        <box-l style="background-color: var(--color-light)" data-i="Box-var(--s1)var(--border-thin)false">
+          <p class="h4"><strong>You can’t see all the content, because of this box.</strong></p>
+        </box-l>
+      </imposter-l>
+    </div>
+  </shrink-grow> -->

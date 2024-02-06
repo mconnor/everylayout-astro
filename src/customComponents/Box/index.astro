@@ -3,14 +3,14 @@ import './Box.css'
 import type { RmUnitType } from '../Types'
 
 type Props = {
-    padding?: RmUnitType //"var(--s1)"
-    borderWidth?: RmUnitType //"var(--border-thin)"
-    invert?: boolean // false
+  padding?: RmUnitType //"var(--s1)"
+  borderWidth?: RmUnitType //"var(--border-thin)"
+  invert?: boolean // false
 }
 const { padding, borderWidth, invert } = Astro.props
 ---
 
 <box-l padding={padding} borderWidth={borderWidth} invert={invert}>
-    <slot />
+  <slot />
 </box-l>
 <script src="./Box.ts"></script>

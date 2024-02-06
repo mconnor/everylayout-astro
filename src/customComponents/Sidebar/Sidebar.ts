@@ -9,22 +9,22 @@
  * @property {boolean} noStretch=false Make the adjacent elements adopt their natural height
  */
 export default class Sidebar extends HTMLElement {
-    render: () => void
-    i: string | undefined
-    constructor() {
-        super()
-        this.render = () => {
-            if (!this.contentMin.includes('%')) {
-                console.warn(
-                    'The value for each <sidebar-l> `contentMin` property should be a percentage. Otherwise overflow is likely to occur',
-                )
-            }
-            this.i = `Sidebar-${[this.side, this.sideWidth, this.contentMin, this.space].join('')}`
-            this.dataset.i = this.i
-            if (!document.getElementById(this.i)) {
-                let styleEl = document.createElement('style')
-                styleEl.id = this.i
-                styleEl.innerHTML = `
+  render: () => void
+  i: string | undefined
+  constructor() {
+    super()
+    this.render = () => {
+      if (!this.contentMin.includes('%')) {
+        console.warn(
+          'The value for each <sidebar-l> `contentMin` property should be a percentage. Otherwise overflow is likely to occur',
+        )
+      }
+      this.i = `Sidebar-${[this.side, this.sideWidth, this.contentMin, this.space].join('')}`
+      this.dataset.i = this.i
+      if (!document.getElementById(this.i)) {
+        let styleEl = document.createElement('style')
+        styleEl.id = this.i
+        styleEl.innerHTML = `
           [data-i="${this.i}"] {
             gap: ${this.space};
             ${this.noStretch ? 'align-items: flex-start;' : ''}
@@ -40,72 +40,72 @@ export default class Sidebar extends HTMLElement {
             min-inline-size: ${this.contentMin};
           }
         `
-                    .replace(/\s\s+/g, ' ')
-                    .trim()
-                document.head.appendChild(styleEl)
-            }
-        }
+          .replace(/\s\s+/g, ' ')
+          .trim()
+        document.head.appendChild(styleEl)
+      }
     }
+  }
 
-    get side() {
-        return this.getAttribute('side') || 'left'
-    }
+  get side() {
+    return this.getAttribute('side') || 'left'
+  }
 
-    set side(val) {
-        this.setAttribute('side', val)
-    }
+  set side(val) {
+    this.setAttribute('side', val)
+  }
 
-    get sideWidth() {
-        return this.getAttribute('sideWidth') || null
-    }
+  get sideWidth() {
+    return this.getAttribute('sideWidth') || null
+  }
 
-    set sideWidth(val) {
-        val
-            ? this.setAttribute('sideWidth', val)
-            : this.removeAttribute('sideWidth')
-    }
+  set sideWidth(val) {
+    val
+      ? this.setAttribute('sideWidth', val)
+      : this.removeAttribute('sideWidth')
+  }
 
-    get contentMin() {
-        return this.getAttribute('contentMin') || '50%'
-    }
+  get contentMin() {
+    return this.getAttribute('contentMin') || '50%'
+  }
 
-    set contentMin(val) {
-        this.setAttribute('contentMin', val)
-    }
+  set contentMin(val) {
+    this.setAttribute('contentMin', val)
+  }
 
-    get space() {
-        return this.getAttribute('space') || 'var(--s1)'
-    }
+  get space() {
+    return this.getAttribute('space') || 'var(--s1)'
+  }
 
-    set space(val) {
-        val ? this.setAttribute('space', val) : this.removeAttribute('space')
-    }
+  set space(val) {
+    val ? this.setAttribute('space', val) : this.removeAttribute('space')
+  }
 
-    get noStretch() {
-        return this.hasAttribute('noStretch')
-    }
+  get noStretch() {
+    return this.hasAttribute('noStretch')
+  }
 
-    set noStretch(val) {
-        if (val) {
-            this.setAttribute('noStretch', '')
-        } else {
-            this.removeAttribute('noStretch')
-        }
+  set noStretch(val) {
+    if (val) {
+      this.setAttribute('noStretch', '')
+    } else {
+      this.removeAttribute('noStretch')
     }
+  }
 
-    static get observedAttributes() {
-        return ['side', 'sideWidth', 'contentMin', 'space', 'noStretch']
-    }
+  static get observedAttributes() {
+    return ['side', 'sideWidth', 'contentMin', 'space', 'noStretch']
+  }
 
-    connectedCallback() {
-        this.render()
-    }
+  connectedCallback() {
+    this.render()
+  }
 
-    attributeChangedCallback(name) {
-        this.render()
-    }
+  attributeChangedCallback(name) {
+    this.render()
+  }
 }
 
 if ('customElements' in window) {
-    customElements.define('sidebar-l', Sidebar)
+  customElements.define('sidebar-l', Sidebar)
 }

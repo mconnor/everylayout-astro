@@ -1,0 +1,17 @@
+shrink-grow {
+  display: block;
+  margin-inline: 0;
+  max-width: none;
+  overflow: hidden;
+  border-width: var(--border-thin);
+  padding: var(--s1);
+}
+
+shrink-grow .test {
+  display: inline-block;
+}
+
+[tabindex='-1']:focus,
+shrink-grow:focus {
+  outline: none;
+}

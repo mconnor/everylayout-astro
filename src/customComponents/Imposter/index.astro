@@ -3,17 +3,17 @@ import './Imposter.css'
 import type { RmUnitType } from '../Types'
 
 interface Props {
-    breakout?: boolean // Whether the element is allowed to break out of the container over which it is positioned
-    margin?: RmUnitType //"var(--s1)"
-    fixed?: boolean //Whether to position the element relative to the viewport
-    children: any
+  breakout?: boolean // Whether the element is allowed to break out of the container over which it is positioned
+  margin?: RmUnitType //"var(--s1)"
+  fixed?: boolean //Whether to position the element relative to the viewport
+  children: any
 }
 
-const { breakout = false, margin, fixed } = Astro.props
+const props = Astro.props
 ---
 
-<imposter-l breakout={breakout} margin={margin} fixed="false">
-    <slot />
+<imposter-l {...props}>
+  <slot />
 </imposter-l>
 
 <script src="./Imposter.ts"></script>

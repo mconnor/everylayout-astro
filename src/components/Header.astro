@@ -8,24 +8,24 @@ import Select from '@components/select-component.astro'
 ---
 
 <header class="box invert">
-    <!-- <Center andText={true} intrinsic={true}> -->
+  <!-- <Center andText={true} intrinsic={true}> -->
 
-    <Box borderWidth="0">
-        <Cluster>
-            <div>
-                <Box padding="0" borderWidth="var(--border-thin)"
-                    ><a href="../"><h6>{SITE_TITLE}</h6></a></Box
-                >
-                <Select />
-            </div>
-            <Cluster>
-                <HeaderLink href="/">Home</HeaderLink>
-                <HeaderLink href="/blog">Blog</HeaderLink>
-                <HeaderLink href="/about">About</HeaderLink>
-                <HeaderLink href="/test">Test</HeaderLink>
-                <HeaderLink href="/mytest">mytest</HeaderLink>
-            </Cluster>
-        </Cluster>
-    </Box>
-    <!-- </Center> -->
+  <Box borderWidth="0">
+    <Cluster>
+      <div>
+        <Box padding="0" borderWidth="var(--border-thin)"
+          ><a href="../"><h6>{SITE_TITLE}</h6></a></Box
+        >
+        <Select />
+      </div>
+      <Cluster>
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+        <HeaderLink href="/test">Test</HeaderLink>
+        <HeaderLink href="/mytest">mytest</HeaderLink>
+      </Cluster>
+    </Cluster>
+  </Box>
+  <!-- </Center> -->
 </header>

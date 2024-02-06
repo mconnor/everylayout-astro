@@ -9,90 +9,97 @@
  * @property {boolean} intrinsic=false Center child elements based on their content width
  */
 export default class Center extends HTMLElement {
-  render: () => void;
-  i: string;
+  render: () => void
+  i: string
   constructor() {
-    super();
+    super()
     this.render = () => {
-      this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`;
-      this.dataset.i = this.i;
+      this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`
+      this.dataset.i = this.i
       if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style');
-        styleEl.id = this.i;
+        let styleEl = document.createElement('style')
+        styleEl.id = this.i
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             max-width: ${this.max};
-            ${this.gutters ? `
+            ${
+              this.gutters
+                ? `
             padding-inline-start: ${this.gutters};
             padding-inline-end: ${this.gutters};`
-            : ''}
+                : ''
+            }
             ${this.andText ? `text-align: center;` : ''}
-            ${this.intrinsic ? `
+            ${
+              this.intrinsic
+                ? `
             display: flex;
             flex-direction: column;
             align-items: center;`
-            : ''}
+                : ''
+            }
           }
-        `.replace(/\s\s+/g, ' ').trim();
-        document.head.appendChild(styleEl);
+        `
+          .replace(/\s\s+/g, ' ')
+          .trim()
+        document.head.appendChild(styleEl)
       }
     }
   }
 
   get max() {
-    return this.getAttribute('max') || 'var(--measure)';
+    return this.getAttribute('max') || 'var(--measure)'
   }
 
   set max(val) {
-     this.setAttribute('max', val);
+    this.setAttribute('max', val)
   }
 
   get andText() {
-    return this.hasAttribute('andText');
+    return this.hasAttribute('andText')
   }
 
   set andText(val) {
     if (val) {
-       this.setAttribute('andText', '');
+      this.setAttribute('andText', '')
     } else {
-       this.removeAttribute('andText');
+      this.removeAttribute('andText')
     }
   }
 
   get gutters() {
-    return this.getAttribute('gutters') || null;
+    return this.getAttribute('gutters') || null
   }
 
   set gutters(val) {
-     this.setAttribute('gutters', val);
+    this.setAttribute('gutters', val)
   }
 
   get intrinsic() {
-    return this.hasAttribute('intrinsic');
+    return this.hasAttribute('intrinsic')
   }
 
   set intrinsic(val) {
     if (val) {
-       this.setAttribute('intrinsic', '');
+      this.setAttribute('intrinsic', '')
     } else {
-       this.removeAttribute('intrinsic');
+      this.removeAttribute('intrinsic')
     }
   }
 
   static get observedAttributes() {
-    return ['max', 'andText', 'gutters', 'intrinsic'];
+    return ['max', 'andText', 'gutters', 'intrinsic']
   }
 
   connectedCallback() {
-    this.render();
+    this.render()
   }
 
   attributeChangedCallback() {
-    this.render();
+    this.render()
   }
 }
 
 if ('customElements' in window) {
-
-  customElements.define('center-l', Center);
+  customElements.define('center-l', Center)
 }
