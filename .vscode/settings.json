@@ -1,24 +1,24 @@
 {
-    "cssvar.files": [
-        "./node_modules/open-props/open-props.min.css",
+  "cssvar.files": [
+    "./node_modules/open-props/open-props.min.css",
 
-        "src/styles/*.astro"
-        // if you have an alternative path to where your styles are located
-        // you can add it in this array of files
-        // "assets/styles/variables.css"
-    ],
+    "src/styles/*.astro"
+    // if you have an alternative path to where your styles are located
+    // you can add it in this array of files
+    // "assets/styles/variables.css"
+  ],
 
-    // Do not ignore node_modules css files, which is ignored by default
-    "cssvar.ignore": [],
+  // Do not ignore node_modules css files, which is ignored by default
+  "cssvar.ignore": [],
 
-    // add support for autocomplete in JS or JS like files
-    "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
-    "editor.formatOnSave": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "astro", // Enable .astro
-        "typescript", // Enable .ts
-        "typescriptreact" // Enable .tsx
-    ]
+  // add support for autocomplete in JS or JS like files
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ]
 }
