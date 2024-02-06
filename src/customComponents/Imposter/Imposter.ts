@@ -52,9 +52,9 @@ export default class Imposter extends HTMLElement {
 
     set breakout(val) {
         if (val) {
-            return this.setAttribute('breakout', '')
+            this.setAttribute('breakout', '')
         } else {
-            return this.removeAttribute('breakout')
+            this.removeAttribute('breakout')
         }
     }
 

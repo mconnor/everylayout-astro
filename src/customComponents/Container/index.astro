@@ -1,23 +1,22 @@
 ---
-import './Cover.css'
-import type { RmUnitType } from '../Types'
+import './Container.css'
+import type { RmUnitType, JustifyContentTypes, AlignItemsTypes } from '../Types'
+
+// const LIST = 'list'
 
 type Props = {
-    centeredElement?: string // h1
-    space?: RmUnitType //"var(--s1)"
-    minHeight?: RmUnitType //"100vh"
-    noPad?: boolean // false
-    children: any
+    name: string
+    // role?: typeof LIST
 }
 
-const { centeredElement: centered, ...rest } = Astro.props
+const { name } = Astro.props
 ---
 
-<cover-l centered={centered} , {...rest}>
+<container-l name={name}>
     <slot />
-</cover-l>
+</container-l>
 
-<script src="./Cover.ts"></script>
+<script src="./Container.ts"></script>
 
 <!-- 
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")

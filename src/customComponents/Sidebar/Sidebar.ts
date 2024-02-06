@@ -10,7 +10,7 @@
  */
 export default class Sidebar extends HTMLElement {
     render: () => void
-    i: string
+    i: string | undefined
     constructor() {
         super()
         this.render = () => {
@@ -60,7 +60,9 @@ export default class Sidebar extends HTMLElement {
     }
 
     set sideWidth(val) {
-        this.setAttribute('sideWidth', val ?? null)
+        val
+            ? this.setAttribute('sideWidth', val)
+            : this.removeAttribute('sideWidth')
     }
 
     get contentMin() {
@@ -76,7 +78,7 @@ export default class Sidebar extends HTMLElement {
     }
 
     set space(val) {
-        this.setAttribute('space', val)
+        val ? this.setAttribute('space', val) : this.removeAttribute('space')
     }
 
     get noStretch() {

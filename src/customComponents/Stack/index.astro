@@ -9,7 +9,7 @@ type Props = {
 const { space = 'var(--s1)', recursive = false, splitAfter } = Astro.props
 ---
 
-<stack-l space>
+<stack-l space={space} recursive={recursive} splitAfter={splitAfter}>
     <slot />
 </stack-l>
 

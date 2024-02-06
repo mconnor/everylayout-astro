@@ -1,9 +1,7 @@
 ---
-import Stack from '@cc/Stack/index.astro'
+import { Stack, Box } from '@cc/index.ts'
 
 type Props = {
-    w?: number
-    h?: number
     headline?: string
     description?: string
 }
@@ -16,9 +14,11 @@ const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
 const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props
 ---
 
-<Stack>
-    <slot name="image-slot" />
+<Box>
+    <Stack>
+        <slot name="image-slot" />
 
-    <h4>{headline}</h4>
-    <p>{description}</p>
-</Stack>
+        <h4>{headline}</h4>
+        <p>{description}</p>
+    </Stack>
+</Box>

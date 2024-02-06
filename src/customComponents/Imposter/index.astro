@@ -1,18 +1,18 @@
 ---
 import './Imposter.css'
-import type { RmUnitType } from '../Types.ts'
+import type { RmUnitType } from '../Types'
 
 interface Props {
-    breakout?: boolean //"250px"
-    space?: RmUnitType //"var(--s1)"
-    fixed?: boolean
+    breakout?: boolean // Whether the element is allowed to break out of the container over which it is positioned
+    margin?: RmUnitType //"var(--s1)"
+    fixed?: boolean //Whether to position the element relative to the viewport
     children: any
 }
 
-const props = Astro.props
+const { breakout = false, margin, fixed } = Astro.props
 ---
 
-<imposter-l {...props}>
+<imposter-l breakout={breakout} margin={margin} fixed="false">
     <slot />
 </imposter-l>
 
