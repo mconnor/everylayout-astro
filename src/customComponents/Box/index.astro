@@ -1,4 +1,5 @@
 ---
+import './Box.css'
 import type { RmUnitType } from '../Types'
 
 type Props = {
@@ -9,32 +10,7 @@ type Props = {
 const { padding, borderWidth, invert } = Astro.props
 ---
 
-<box-l padding={padding} {borderWidth} invert={invert}>
+<box-l padding={padding} borderWidth={borderWidth} invert={invert}>
     <slot />
 </box-l>
-
 <script src="./Box.ts"></script>
-<style>
-    box-l {
-        display: block;
-        padding: var(--s1);
-        border-width: var(--border-thin);
-        /* ↓ For high contrast mode */
-        outline: var(--border-thin) solid transparent;
-        outline-offset: calc(var(--border-thin) * -1);
-        color: inherit;
-        background-color: inherit;
-    }
-
-    [class^='box'] {
-        color: var(--text-1);
-        background-color: var(--surface-4);
-        * {
-            color: inherit;
-        }
-    }
-
-    [class^='box'].invert {
-        filter: invert(100%);
-    }
-</style>
