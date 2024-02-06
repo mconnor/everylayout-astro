@@ -1,11 +1,10 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
 import GlobalStyle from '@styles/GlobalStyles.astro'
+import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@components/BaseHead.astro'
-
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import { Box, Cover } from '@cc/index.ts'
+import { Box, Cover, Center } from '@cc/index.ts'
 
 type Props = {
     title?: string
@@ -39,19 +38,15 @@ function capitalizeWords(str: string) {
         <GlobalStyle />
     </head>
 
-    <body color-scheme="light">
-        <div class="appContainer">
-            <Box borderWidth="0" padding="0">
-                <Cover centeredElement="main" noPad={true} space="0">
-                    <Header />
-                    <main class="box">
-                        <!-- <h2>{capitalizeWords(title)}</h2> -->
-
-                        <slot />
-                    </main>
-                    <Footer />
-                </Cover>
-            </Box>
-        </div>
+    <body color-scheme="light" class="appContainer">
+        <Box borderWidth="0" padding="0">
+            <Cover centeredElement="main" noPad={true} space="0">
+                <Header />
+                <main class="box">
+                    <slot />
+                </main>
+                <Footer />
+            </Cover>
+        </Box>
     </body>
 </html>

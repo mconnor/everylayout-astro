@@ -1,0 +1,12 @@
+---
+import { Box } from '@cc/index.ts'
+---
+
+<Box padding="0">
+    <Box borderWidth="0" invert>
+        <slot name="headline" />
+    </Box>
+    <Box borderWidth="0">
+        <slot name="copy" />
+    </Box>
+</Box>

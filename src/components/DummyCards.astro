@@ -5,8 +5,12 @@ import Card from '@components/Card.astro'
 
 import { Frame, Box, Stack } from '@cc/index.ts'
 
-const W = 300
-const H = 200
+type Props = {
+    w?: number
+    h?: number
+}
+
+const { w = 300, h = 200 } = Astro.props
 ---
 
 <Box

@@ -1,91 +1,11 @@
 ---
-import Layout from '@layouts/SimpleLayout.astro'
+import Layout from '@layouts/Layout.astro'
 import { Box, Stack } from '@cc/index.ts'
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-    <Stack>
-        <Box>
-            <Box borderWidth="0" invert><h4>stack box</h4></Box>
-
-            <Box borderWidth="0">
-                <p>
-                    Ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Vitae ultricies leo integer malesuada nunc vel risus commodo
-                    viverra.
-                </p>
-            </Box>
-        </Box>
-
-        <div class="box-no-border">
-            <h4>box level2</h4>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                adipisci officia saepe debitis nihil tempora quod nam odit
-                magnam doloremque pariatur molestias possimus non tenetur cum
-                distinctio dolores repudiandae modi?
-            </p>
-
-            <dib class="box-no-border-no-border">
-                <buton type="button" class="button center">button</buton></dib
-            >
-        </div>
-
-        <div class="box-no-border">
-            <h4>box level2</h4>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-            <p>Sagittis purus sit amet volutpat. Netus et malesuada fames ac</p>
-        </div>
-
-        <div class="box-no-border">
-            boxipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies
-            leo integer malesuada nunc vel risus commodo viverra.
-
-            <div class="box-no-border">
-                <h4>box level2</h4>
-                Sagittis purus sit amet volutpat. Netus et malesuada fames ac
-            </div>
-            <div class="box-no-border">
-                <h4>box level2</h4>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                </ul>
-                <p>
-                    Sagittis purus sit amet volutpat. Netus et malesuada fames
-                    ac
-                </p>
-            </div>
-        </div>
-        <div class="box-no-border">
-            box ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
-            ultricies leo integer malesuada nunc vel risus commodo viverra.
-
-            <div class="box-no-border">
-                <h4>box level2</h4>
-                Sagittis purus sit amet volutpat. Netus et malesuada fames ac
-            </div>
-            <div class="box">
-                <h4>box level2</h4>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                </ul>
-                <p>
-                    Sagittis purus sit amet volutpat. Netus et malesuada fames
-                    ac
-                </p>
-            </div>
-        </div>
-    </Stack>
+    <astro-dev-toolbar-window>
+        <p>My content</p>
+    </astro-dev-toolbar-window>
 </Layout>
