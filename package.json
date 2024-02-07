@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "fix": "eslint  --fix  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "format": "prettier --write . --plugin=prettier-plugin-astro"
   },
   "dependencies": {
@@ -18,6 +19,8 @@
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/ts-plugin": "^1.4.0",
+    "@sentry/astro": "^7.100.1",
+    "@spotlightjs/astro": "^1.0.15",
     "astro": "^4.3.3",
     "canvas-confetti": "^1.9.2",
     "open-props": "^1.6.18",

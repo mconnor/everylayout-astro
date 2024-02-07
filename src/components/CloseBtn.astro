@@ -11,7 +11,7 @@ import CloseSVG from './CloseSVG.astro'
     // Handle clicks on each button.
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        console.log('Button was clicked!')
+        throw new Error('This is a test error')
       })
     })
   })
