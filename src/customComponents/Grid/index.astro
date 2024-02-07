@@ -8,10 +8,10 @@ interface Props {
   children: any
 }
 
-const props = Astro.props
+const { min, space } = Astro.props
 ---
 
-<grid-l {...props}>
+<grid-l min={min} space={space}>
   <slot />
 </grid-l>
 

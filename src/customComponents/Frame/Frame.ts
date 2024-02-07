@@ -11,7 +11,7 @@ export default class Frame extends HTMLElement {
     super()
     this.render = () => {
       if (this.children.length !== 1) {
-        console.warn('<frame-l> elements should have just one child element')
+        throw new Error('<frame-l> elements should have just one child element')
       }
       this.i = `Frame-${[this.ratio].join('')}`
       this.dataset.i = this.i

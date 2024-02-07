@@ -5,46 +5,14 @@ import { Image } from 'astro:assets'
 import Card from '@components/Card.astro'
 import { Frame, AstroGrid } from '@cc/index.ts'
 
-const W = 100
-const H = 50
+const W = 300
+const H = 300
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
   <!-- space set the gap on the grid -->
-  <AstroGrid space="1rem">
-    <!-- <Card>
-      <Card description="cell 1" headline="">
-        <Frame ratio="16:9" slot="image-slot">
-          <Image
-            width={W}
-            height={H}
-            src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
-            alt="Image alt text"
-          />
-        </Frame>
-      </Card>
-      <Card description="cell 1" headline="">
-        <Frame ratio="16:9" slot="image-slot">
-          <Image
-            width={W}
-            height={H}
-            src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
-            alt="Image alt text"
-          />
-        </Frame>
-      </Card>
-      <Card description="cell 1" headline="">
-        <Frame ratio="16:9" slot="image-slot">
-          <Image
-            width={W}
-            height={H}
-            src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
-            alt="Image alt text"
-          />
-        </Frame>
-      </Card>
-    </Card> -->
+  <AstroGrid space="1rem" min="300px">
     <Card>
       <Frame ratio="16:9" slot="image-slot">
         <Image
