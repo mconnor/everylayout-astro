@@ -64,7 +64,8 @@ export default class Stack extends HTMLElement {
   }
 
   get splitAfter() {
-    return this.getAttribute('splitAfter') || null
+    const value = this.getAttribute('splitAfter')
+    return value !== null ? value : ''
   }
 
   set splitAfter(val: string) {

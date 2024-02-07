@@ -1,13 +1,103 @@
 ---
-import { Reel, Box } from '@cc/index.ts'
+import { Reel, Frame } from '@cc/index.ts'
+import Card from '@components/Card.astro'
+import { Image } from 'astro:assets'
 
 // import DummCards from '@components/DummyCards.astro'
 
 import Layout from '@layouts/SimpleLayout.astro'
+
+const W = 100
+const H = 50
 ---
 
 <Layout>
   <Reel itemWidth="20rem" noBar={false}>
-    <Box />
+    <Card>
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card
+      headline="BIG NEWS"
+      description="At the forefront of industry innovation, our paradigm-shifting ecosystem leverages synergistic partnerships to drive holistic growth. By harnessing the power of big data analytics and machine learning algorithms, we're redefining the boundaries of operational excellence. Our commitment to disruptive technologies ensures we stay ahead of the curve, delivering unparalleled value to our stakeholders."
+    >
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card
+      description=`In today's fast-paced digital landscape, our mission is to empower clients through transformative solutions that integrate seamlessly with their core business processes. Our agile methodologies and customer-centric approach enable us to deliver bespoke innovations that are both scalable and sustainable. We're not just about the technology; we're about building lasting relationships that foster mutual success.`
+    >
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card>
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card>
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card
+      headline="BIG NEWS"
+      description="At the forefront of industry innovation, our paradigm-shifting ecosystem leverages synergistic partnerships to drive holistic growth. By harnessing the power of big data analytics and machine learning algorithms, we're redefining the boundaries of operational excellence. Our commitment to disruptive technologies ensures we stay ahead of the curve, delivering unparalleled value to our stakeholders."
+    >
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
+
+    <Card
+      description=`In today's fast-paced digital landscape, our mission is to empower clients through transformative solutions that integrate seamlessly with their core business processes. Our agile methodologies and customer-centric approach enable us to deliver bespoke innovations that are both scalable and sustainable. We're not just about the technology; we're about building lasting relationships that foster mutual success.`
+    >
+      <Frame ratio="16:9" slot="image-slot">
+        <Image
+          width={W}
+          height={H}
+          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          alt="Image alt text"
+        />
+      </Frame></Card
+    >
   </Reel>
 </Layout>

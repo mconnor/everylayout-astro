@@ -10,10 +10,10 @@ interface Props {
   children: any
 }
 
-const props = Astro.props
+const { itemWidth, space, height, noBar } = Astro.props
 ---
 
-<reel-l {...props}>
+<reel-l itemWidth={itemWidth} space={space} height={height} noBar={noBar}>
   <slot />
 </reel-l>
 
