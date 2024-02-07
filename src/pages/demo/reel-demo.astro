@@ -1,11 +1,13 @@
 ---
-import { Reel } from '@cc/index.ts'
+import { Reel, Box } from '@cc/index.ts'
 
-import DummCards from '@components/DummyCards.astro'
+// import DummCards from '@components/DummyCards.astro'
 
 import Layout from '@layouts/SimpleLayout.astro'
 ---
 
 <Layout>
-  <Reel itemWidth="20rem" noBar={false}> <DummCards /></Reel>
+  <Reel itemWidth="20rem" noBar={false}>
+    <Box />
+  </Reel>
 </Layout>

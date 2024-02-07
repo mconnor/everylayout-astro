@@ -4,7 +4,7 @@ import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import { Box, Cover, Center } from '@cc/index.ts'
+import { Box, Cover } from '@cc/index.ts'
 
 type Props = {
   title?: string
@@ -19,12 +19,12 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-function capitalizeWords(str: string) {
-  return str
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
-}
+// function capitalizeWords(str: string) {
+//   return str
+//     .split(' ')
+//     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+//     .join(' ')
+// }
 ---
 
 <html lang="en">
@@ -36,15 +36,17 @@ function capitalizeWords(str: string) {
   </head>
 
   <body color-scheme="light" class="appContainer">
-    <Box borderWidth="0" padding="0">
-      <Cover centeredElement="main" noPad={true} space="0">
-        <Header />
-        <main class="center">
-          <slot />
-        </main>
-        <Footer />
-      </Cover>
-    </Box>
+    <!-- <Box borderWidth="0" padding="0"> -->
+    <Cover centeredElement="main" noPad={true} space="0">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <!-- <div class="box invert"> -->
+      <Footer />
+      <!-- </div> -->
+    </Cover>
+    <!-- </Box> -->
     <style>
       main {
         max-inline-width: var(--measure);

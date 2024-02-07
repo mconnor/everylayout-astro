@@ -4,15 +4,13 @@ import { Box, Center, Stack, Cluster } from '@cc/index.ts'
 ---
 
 <footer class="box invert">
-  <Stack
-    ><Center andText>
-      <Box borderWidth="0">
-        <p class="">
-          Built with <a href="https://astro.build">{Astro.generator}</a>. &copy;{
-            today.getFullYear()
-          } Mike Connor. All rights reserved.
-        </p>
-      </Box>
+  <Center andText>
+    <Stack>
+      <h6>
+        Built with <a href="https://astro.build">{Astro.generator}</a>. &copy;{
+          today.getFullYear()
+        } Mike Connor. All rights reserved.
+      </h6>
       <Cluster justify="space-between">
         <button>
           <a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -62,8 +60,8 @@ import { Box, Center, Stack, Cluster } from '@cc/index.ts'
           </a>
         </button>
       </Cluster>
-    </Center>
-  </Stack>
+    </Stack>
+  </Center>
 </footer>
 
 <style>

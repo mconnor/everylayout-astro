@@ -11,10 +11,10 @@ type Props = {
   // role?: typeof LIST
 }
 
-const props = Astro.props
+const { justify, align, space } = Astro.props
 ---
 
-<cluster-l {...props}>
+<cluster-l justify={justify} align={align} space={space}>
   <slot />
 </cluster-l>
 

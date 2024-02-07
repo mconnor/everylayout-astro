@@ -5,27 +5,26 @@ import CloseBtn from './CloseBtn.astro'
 import ConfetiBtn from './ConfettiButton.astro'
 ---
 
-<Imposter breakout>
-  <div>
-    <Center>
-      <Stack>
-        <div class="pushRight"><ConfetiBtn /></div>
-        <div class="pushRight"><CloseBtn /></div>
-        <h4>Dialouge Box</h4>
-        <div class="center" style="{{max-inline-size: 50ch;}}">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum
-          dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit
-          amet consectetur adipisicing elit.
-        </div>
+<Box>
+  <Center>
+    <Stack>
+      <div class="pushRight"><ConfetiBtn /></div>
+      <div class="pushRight"><CloseBtn /></div>
+      <h4>Dialouge Box</h4>
+      <div class="center" style="{{max-inline-size: 50ch;}}">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Lorem, ipsum dolor sit amet
+        consectetur adipisicing elit.
+      </div>
 
-        <div class="pushRight">
-          <button type="button">okay</button>
-          <button type="button">cancel</button>
-        </div>
-      </Stack>
-    </Center>
-  </div>
-</Imposter>
+      <div class="pushRight">
+        <button type="button">okay</button>
+        <button type="button">cancel</button>
+      </div>
+    </Stack>
+  </Center>
+</Box>
+
 <style>
   /* .center {
         max-inline-size: 50ch;

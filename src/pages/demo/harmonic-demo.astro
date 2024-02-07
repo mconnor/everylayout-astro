@@ -1,25 +1,33 @@
 ---
 import Layout from '@layouts/SimpleLayout.astro'
 import Cluster from '@cc/Cluster/index.astro'
+import BoxWithHeader from '@components/BoxWithHeader.astro'
+import { Center, Box } from '@cc/index.ts'
 ---
 
 <Layout>
-  <h4>setting height to harmonic scale --s0 to --s5</h4>
   <!-- <Box paddh4ing="8rem" width="20%" /> -->
-  <Cluster align="flex-end">
-    <div class="fill" style={{ height: 'var(--s0)' }}>xxx</div>
-    <div class="fill" style={{ height: 'var(--s1)' }}>xxx</div>
-    <div class="fill" style={{ height: 'var(--s2)' }}>xxx</div>
-    <div class="fill" style={{ height: 'var(--s3)' }}>xxx</div>
-    <div class="fill" style={{ height: 'var(--s4)' }}>xxx</div>
-    <div class="fill" style={{ height: 'var(--s5)' }}>xxx</div>
-  </Cluster>
+
+  <BoxWithHeader
+    ><h6 slot="headline">setting height to harmonic scale --s0 to --s5</h6>
+
+    <div slot="graphic">
+      <Cluster align="flex-end" justify="space-between">
+        <div class="fill" style={{ height: 'var(--s0)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s1)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s2)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s3)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s4)' }}>xxx</div>
+        <div class="fill" style={{ height: 'var(--s5)' }}>xxx</div>
+      </Cluster>
+    </div>
+  </BoxWithHeader>
 </Layout>
 
 <style>
   .fill {
-    width: 10%;
-    height: 100%;
+    width: '10rem';
+
     background-color: red;
   }
 </style>

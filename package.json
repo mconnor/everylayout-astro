@@ -24,10 +24,12 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.31.4",
     "postcss-html": "^1.6.0",
     "postcss-jit-props": "^1.0.14",
@@ -35,5 +37,9 @@
     "postcss-pow": "^1.0.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0 <19.0.0",
+    "pnpm": ">=8"
   }
 }
