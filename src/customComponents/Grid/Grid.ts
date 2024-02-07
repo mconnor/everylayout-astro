@@ -6,7 +6,7 @@
  * @property {string} min=250px A CSS length value representing x in `minmax(min(x, 100%), 1fr)`
  * @property {string} space=var(--s1) The space between grid cells
  */
-export default class AstroGrid extends HTMLElement {
+export default class Grid extends HTMLElement {
   render: () => void
   i: string | undefined
   constructor() {
@@ -71,5 +71,5 @@ export default class AstroGrid extends HTMLElement {
 }
 
 if ('customElements' in window) {
-  customElements.define('grid-l', AstroGrid)
+  customElements.define('grid-l', Grid)
 }
