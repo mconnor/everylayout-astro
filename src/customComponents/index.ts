@@ -6,7 +6,7 @@ import Stack from './Stack/index.astro'
 import Switcher from './Switcher/index.astro'
 import Cluster from './Cluster/index.astro'
 import Reel from './Reel/index.astro'
-import AstroGrid from './Grid/index.astro'
+import Grid from './Grid/index.astro'
 import Imposter from './Imposter/index.astro'
 import Icon from './Icon/index.astro'
 
@@ -21,7 +21,7 @@ export {
   Switcher,
   Cluster,
   Reel,
-  AstroGrid,
+  Grid,
   Imposter,
   Icon,
   Cover,

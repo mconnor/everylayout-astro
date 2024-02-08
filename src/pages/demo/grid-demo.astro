@@ -3,7 +3,7 @@ import Layout from '@layouts/SimpleLayout.astro'
 
 import { Image } from 'astro:assets'
 import Card from '@components/Card.astro'
-import { Frame, AstroGrid } from '@cc/index.ts'
+import { Frame, Grid } from '@cc/index.ts'
 
 const W = 300
 const H = 300
@@ -12,7 +12,7 @@ const H = 300
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
   <!-- space set the gap on the grid -->
-  <AstroGrid space="1rem" min="300px">
+  <Grid space="1rem" min="300px">
     <Card>
       <Frame ratio="16:9" slot="image-slot">
         <Image
@@ -99,5 +99,5 @@ const H = 300
         />
       </Frame></Card
     >
-  </AstroGrid>
+  </Grid>
 </Layout>
