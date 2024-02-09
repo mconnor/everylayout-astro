@@ -1,7 +1,8 @@
 module.exports = {
   env: {
+    sourceType: 'module',
     browser: true,
-    es2021: true,
+    es2022: true,
   },
   extends: [
     'eslint:recommended',
@@ -32,7 +33,11 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
+    extraFileExtensions: ['.astro'],
   },
   plugins: ['@typescript-eslint'],
-  rules: {},
+  rules: {
+    'import/no-unresolved': 'off',
+  },
 }
