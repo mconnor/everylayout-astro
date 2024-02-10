@@ -15,7 +15,7 @@ export default class Box extends HTMLElement {
       this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`
       this.dataset.i = this.i
       if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style')
+        const styleEl = document.createElement('style')
         styleEl.id = this.i
         styleEl.innerHTML = `
             [data-i="${this.i}"] {

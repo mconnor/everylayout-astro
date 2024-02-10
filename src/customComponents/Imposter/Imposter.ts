@@ -16,7 +16,7 @@ export default class Imposter extends HTMLElement {
       this.dataset.i = this.i
       let margin = this.margin === '0' ? '0px' : this.margin
       if (!document.getElementById(this.i) && (!this.breakout || this.fixed)) {
-        let styleEl = document.createElement('style')
+        const styleEl = document.createElement('style')
         styleEl.id = this.i
         styleEl.innerHTML = `
           [data-i="${this.i}"] {

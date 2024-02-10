@@ -16,7 +16,7 @@ export default class Reel extends HTMLElement {
       this.i = `Reel-${[this.itemWidth, this.height, this.space, this.noBar].join('')}`
       this.dataset.i = this.i
       if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style')
+        const styleEl = document.createElement('style')
         styleEl.id = this.i
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
