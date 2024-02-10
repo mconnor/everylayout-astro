@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    sourceType: 'module',
     browser: true,
     es2022: true,
   },
@@ -23,6 +22,8 @@ module.exports = {
         extraFileExtensions: ['.astro'],
       },
       rules: {
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-uses-react': 'off',
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
       },
@@ -33,11 +34,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
-    extraFileExtensions: ['.astro'],
   },
   plugins: ['@typescript-eslint'],
-  rules: {
-    'import/no-unresolved': 'off',
-  },
+  rules: {},
 }

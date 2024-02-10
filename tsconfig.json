@@ -1,14 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ],
-    "jsx": "preserve",
     "baseUrl": ".",
-    "strictNullChecks": true,
     "paths": {
       "@components/*": ["src/components/*"],
       "@cc/*": ["src/customComponents/*"],
