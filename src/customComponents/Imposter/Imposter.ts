@@ -14,7 +14,7 @@ export default class Imposter extends HTMLElement {
     this.render = () => {
       this.i = `Imposter-${[this.breakout, this.fixed, this.margin].join('')}`
       this.dataset.i = this.i
-      let margin = this.margin === '0' ? '0px' : this.margin
+      const margin = this.margin === '0' ? '0px' : this.margin
       if (!document.getElementById(this.i) && (!this.breakout || this.fixed)) {
         const styleEl = document.createElement('style')
         styleEl.id = this.i
