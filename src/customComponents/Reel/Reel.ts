@@ -9,7 +9,7 @@
  */
 export default class Reel extends HTMLElement {
   render: () => void
-  i: string
+  i: string | undefined
   constructor() {
     super()
     this.render = () => {
@@ -62,7 +62,7 @@ export default class Reel extends HTMLElement {
     }
   }
 
-  toggleOverflowClass(elem) {
+  toggleOverflowClass(elem: Element) {
     elem.classList.toggle('overflowing', this.scrollWidth > this.clientWidth)
   }
 

@@ -101,7 +101,10 @@ export default class Sidebar extends HTMLElement {
     this.render()
   }
 
-  attributeChangedCallback(name) {
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log(
+      `Attribute ${name} has changed from ${oldValue} to ${newValue}.`,
+    )
     this.render()
   }
 }
