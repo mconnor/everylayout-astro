@@ -4,8 +4,13 @@ import sitemap from '@astrojs/sitemap'
 
 import sentry from '@sentry/astro'
 import spotlightjs from '@spotlightjs/astro'
-import process from 'process'
+import { loadEnv } from 'vite'
 
+const { SECRET_TOKEN } = loadEnv(
+  process.env.SENTRY_AUTH_TOKEN,
+  process.cwd(),
+  '',
+)
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
@@ -16,10 +21,13 @@ export default defineConfig({
     mdx(),
     sitemap(),
     sentry({
-      dsn: 'https://f1c193eae695e0d5f652cb876dc1aa08@o4506328206802944.ingest.sentry.io/4506707699171328',
+      dsn: 'https://17bdb94a63b43e26f623fb84e54a100e@o4506328206802944.ingest.sentry.io/4506770353356800',
+      release: '1.0.0',
+      environment: import.meta.env.MODE,
       sourceMapsUploadOptions: {
-        project: 'sentry-astro',
-        authToken: process.env.SENTRY_AUTH_TOKEN,
+        project: 'every-layout-1',
+        org: 'mike-connor',
+        authToken: SECRET_TOKEN,
       },
     }),
     spotlightjs(),
