@@ -22,8 +22,10 @@ module.exports = {
         extraFileExtensions: ['.astro'],
       },
       rules: {
-        'react/react-in-jsx-scope': 'off',
-        'react/jsx-uses-react': 'off',
+        // 'react/react-in-jsx-scope': 'off',
+        // 'react/jsx-uses-react': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
       },

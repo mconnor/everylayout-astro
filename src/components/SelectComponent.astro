@@ -1,4 +1,9 @@
-<select data-navigate-select>
+---
+const DEFAULT_VAL = '--layout Custom Web Component'
+---
+
+<select data-navigate-select data-message={DEFAULT_VAL}>
+  <option value="/">{DEFAULT_VAL}</option>
   <option value="/demo/cluster-demo">cluster</option>
   <option value="/demo/sidebar-demo">sidebar</option>
   <option value="/demo/switcher-demo">switcher-demo</option>
@@ -15,7 +20,14 @@
     const select = document.querySelector(
       '[data-navigate-select]',
     ) as HTMLSelectElement
-    select.value = window.location.pathname
+
+    const defaultVal = select.dataset.message ?? 'pick a demo...'
+    const path = window.location.pathname
+    if (!path) {
+      throw new Error('path is not defined')
+    }
+
+    select.value = 'xxx'
     select.addEventListener(
       'change',
       (e: Event) => e.target && navigate((e.target as HTMLSelectElement).value),

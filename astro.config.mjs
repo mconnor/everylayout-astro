@@ -2,16 +2,17 @@
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-
 import sentry from '@sentry/astro'
 import spotlightjs from '@spotlightjs/astro'
 import { loadEnv } from 'vite'
-
+import react from '@astrojs/react'
+import vercel from '@astrojs/vercel/serverless'
 const { SECRET_TOKEN } = loadEnv(
   process.env.SENTRY_AUTH_TOKEN,
   process.cwd(),
   '',
 )
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
@@ -32,10 +33,13 @@ export default defineConfig({
       },
     }),
     spotlightjs(),
+    react(),
   ],
   vite: {
     ssr: {
       noExternal: ['open-props'],
     },
   },
+  output: 'server',
+  adapter: vercel(),
 })

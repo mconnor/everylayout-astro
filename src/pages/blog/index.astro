@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content'
 import FormattedDate from '@components/FormattedDate.astro'
 import Layout from '@layouts/SimpleLayout.astro'
+import { Switcher, Box } from '@cc/index'
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
@@ -9,20 +10,22 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
-  <div class="my-switcher">
-    {
-      posts.map((post) => (
-        <div class="box">
-          <a href={`/blog/${post.slug}/`}>
-            <h4 class="title">{post.data.title}</h4>
-            <p class="date">
-              <FormattedDate date={post.data.pubDate} />
-            </p>
-          </a>
-        </div>
-      ))
-    }
-  </div>
+  <Box invert>
+    <Switcher>
+      {
+        posts.map((post) => (
+          <div class="box">
+            <a href={`/blog/${post.slug}/`}>
+              <h4 class="title">{post.data.title}</h4>
+              <p class="date">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </a>
+          </div>
+        ))
+      }
+    </Switcher>
+  </Box>
 </Layout>
 <style>
   a {

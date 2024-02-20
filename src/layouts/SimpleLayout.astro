@@ -1,5 +1,6 @@
 ---
 import GlobalStyle from '@styles/GlobalStyles.astro'
+
 import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
@@ -35,7 +36,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <GlobalStyle />
   </head>
 
-  <body color-scheme="light" class="appContainer">
+  <body color-scheme="dark" class="appContainer">
     <!-- <Box borderWidth="0" padding="0"> -->
     <Cover centeredElement="main" noPad={true} space="0">
       <Header />

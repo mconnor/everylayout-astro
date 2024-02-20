@@ -1,21 +1,20 @@
 ---
 // import HeaderLink from './HeaderLink.astro'
-import { SITE_TITLE } from '../consts'
+
 import HeaderLink from './HeaderLink.astro'
 
-import { Box, Center, Cluster } from '@cc/index.ts'
-import Select from '@components/SelectComponent.astro'
+import { Box, Cluster } from '@cc/index'
+import Select from '@components/Select'
 ---
 
 <header class="box invert">
-  <Center andText={true} intrinsic={true}>
+  <Cluster justify="space-between">
+    <Box padding="0" borderWidth="1px">
+      <Select client:only="react" transition:persist />
+    </Box>
+
     <Box>
       <Cluster>
-        <Box padding="0" borderWidth="var(--border-thin)"
-          ><a href="../"><h6>{SITE_TITLE}</h6></a></Box
-        >
-        <Select />
-
         <HeaderLink href="/">Home</HeaderLink>
         <HeaderLink href="/blog">Blog</HeaderLink>
         <HeaderLink href="/about">About</HeaderLink>
@@ -23,5 +22,5 @@ import Select from '@components/SelectComponent.astro'
         <HeaderLink href="/mytest">mytest</HeaderLink>
       </Cluster>
     </Box>
-  </Center>
+  </Cluster>
 </header>

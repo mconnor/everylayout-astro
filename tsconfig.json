@@ -1,17 +1,40 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "/Users/mikeconnor/code/code-2024/css-layouts/every-layout-1",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@cc/*": ["src/customComponents/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@content/*": ["src/content/*"],
-      "@assets/*": ["src/assets/*"],
-      "@styles/*": ["src/styles/*"],
-      "@scripts/*": ["src/scripts/*"]
-    }
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@cc/*": [
+        "src/customComponents/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@scripts/*": [
+        "src/scripts/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
-  "include": ["src/**/*.d.ts", "src/**/*.tsx", "src/**/*.ts", "src/**/*.astro"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.astro"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
