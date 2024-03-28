@@ -10,22 +10,17 @@ import { Cover } from '@cc/index.ts'
 type Props = {
   title?: string
   description?: string
+  darkBool?: boolean
 }
 
 const {
   title = 'I NEED A TITLE',
   description = 'no description provided',
+  darkBool = false,
   // pubDate, updatedDate, heroImage
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-
-// function capitalizeWords(str: string) {
-//   return str
-//     .split(' ')
-//     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-//     .join(' ')
-// }
 ---
 
 <html lang="en">
@@ -36,15 +31,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <GlobalStyle />
   </head>
 
-  <body color-scheme="dark" class="appContainer">
+  <body color-scheme="light" class="appContainer">
     <!-- <Box borderWidth="0" padding="0"> -->
     <Cover centeredElement="main" noPad={true} space="0">
-      <Header />
+      <Header invertMe={darkBool} />
       <main>
         <slot />
       </main>
       <!-- <div class="box invert"> -->
-      <Footer />
+      <Footer invertMe={darkBool} />
       <!-- </div> -->
     </Cover>
     <!-- </Box> -->

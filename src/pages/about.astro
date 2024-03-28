@@ -7,29 +7,33 @@ import { Box, Stack, Center } from '@cc/index.ts'
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
   <Center>
     <Stack recursive>
-      <div class="boxWithoutBorder">
-        <div class="box">
-          <h3>Sagittis purus sc</h3>
-        </div>
-        <Box>
+      <Box>
+        <h3>Sagittis purus sc</h3>
+      </Box>
+      <Box>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
+          exercitationem inventore, nihil amet officiis tenetur voluptas debitis
+          reprehenderit asperiores cupiditate eum doloribus eos magnam
+          voluptates suscipit praesentium recusandae magni nulla.
+        </p>
+        <Box invert>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
-            exercitationem inventore, nihil amet officiis tenetur voluptas
-            debitis reprehenderit asperiores cupiditate eum doloribus eos magnam
-            voluptates suscipit praesentium recusandae magni nulla.
+            Ut quis tempora tenetur, corrupti odio quidem modi hic neque
+            consequuntur enim expedita doloribus pariatur odit, aspernatur dolor
+            minima aliquid cupiditate!
           </p>
-          <Box invert>
-            <p>
-              Ut quis tempora tenetur, corrupti odio quidem modi hic neque
-              consequuntur enim expedita doloribus pariatur odit, aspernatur
-              dolor minima aliquid cupiditate!
-            </p>
-          </Box>
         </Box>
-      </div>
+      </Box>
       <Box>
         <p>Invert purus sit amet volutc</p>
       </Box>
     </Stack>
   </Center>
 </Layout>
+
+<style>
+  article :global(h1) {
+    color: blue;
+  }
+</style>

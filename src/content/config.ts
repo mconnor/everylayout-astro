@@ -1,16 +1,18 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { authorSchema, blogSchema } from '../schemas'
 
-const blog = defineCollection({
+const blogCollection = defineCollection({
   type: 'content',
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    // Transform string to Date object
-    pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
-  }),
+  schema: blogSchema,
 })
 
-export const collections = { blog }
+const authorCollection = defineCollection({
+  type: 'data',
+  schema: authorSchema,
+})
+
+// 3. Export multiple collections to register them
+export const collections = {
+  blog: blogCollection,
+  authors: authorCollection,
+}

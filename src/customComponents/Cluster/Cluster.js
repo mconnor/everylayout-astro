@@ -7,8 +7,6 @@
  * @property {string} space=var(--s1) A CSS `gap` value. The minimum space between the clustered child elements.
  */
 export default class Cluster extends HTMLElement {
-  render: () => void
-  i: string
   constructor() {
     super()
     this.render = () => {

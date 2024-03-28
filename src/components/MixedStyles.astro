@@ -1,0 +1,21 @@
+---
+import { Box } from '@cc/index'
+---
+
+<style>
+  /* Scoped to this component, only. */
+  h1 {
+    color: yellow;
+  }
+  /* Mixed: Applies to child `h1` elements only. */
+  article h1 {
+    color: blue;
+  }
+</style>
+
+<Box borderWidth="2px">
+  <h1>h1</h1>
+  <Box borderWidth="2px">
+    <article><h1>my headline</h1><slot /></article>
+  </Box>
+</Box>

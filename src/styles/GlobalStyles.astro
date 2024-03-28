@@ -1,5 +1,6 @@
 ---
 import 'open-props/postcss/style'
+import './modular-scale.css'
 ---
 
 <style is:global>
@@ -60,20 +61,37 @@ import 'open-props/postcss/style'
   }
 
   :root {
-    /* 
-        Set up modular scale
-        */
-    --border-thin: var(--border-size-1);
+    /* set up modulare scale */
     --measure: 60ch;
-    --ratio: 1.5;
+    --ratio: 1.61803398875;
     --font-size-base: 1rem;
+
     --s0: var(--font-size-base);
+    --s00: calc(var(--s0) * pow(var(--ratio), -3));
+    --s00: calc(var(--s0) * pow(var(--ratio), -2));
     --s1: calc(var(--s0) * pow(var(--ratio), 1));
     --s2: calc(var(--s0) * pow(var(--ratio), 2));
+
     --s3: calc(var(--s0) * pow(var(--ratio), 3));
     --s4: calc(var(--s0) * pow(var(--ratio), 4));
     --s5: calc(var(--s0) * pow(var(--ratio), 5));
+    --s6: calc(var(--s0) * pow(var(--ratio), 6));
+    --s7: calc(var(--s0) * pow(var(--ratio), 7));
+    --s8: calc(var(--s0) * pow(var(--ratio), 8));
+
+    --h0: 10;
+    --h1: calc(80vh / var(--h0) * pow(var(--ratio), 1));
+    --h2: calc(80vh / var(--h0) * pow(var(--ratio), 2));
+    --h3: calc(80vh / var(--h0) * pow(var(--ratio), 3));
+    --h4: calc(80vh / var(--h0) * pow(var(--ratio), 4));
+    --h5: calc(80vh / var(--h0) * pow(var(--ratio), 5));
+
     --line-height: var(--ratio);
+
+    --border-thin: var(--border-size-1);
+
+    --line-height: var(--ratio);
+
     --font-size-biggish: var(--s1);
     --font-size-big: var(--s2);
 
@@ -178,30 +196,6 @@ import 'open-props/postcss/style'
   }
 
   /* COVER */
-
-  .cover {
-    display: flex;
-    flex-direction: column;
-    min-block-size: 100vh;
-
-    > main {
-      margin-block: auto;
-    }
-    > :first-child:not(main) {
-      margin-block-start: 0;
-    }
-    > :last-child:not(main) {
-      margin-block-end: 0;
-    }
-  }
-  /* 
-    Notice how we use margin-block: 1rem and not margin: 1rem 0.
-     The reason is that this component only cares about the vertical margins to achieve its layout.
-      By making the inline (horizontal in the default writing mode) margins 0, 
-      we might be unduly undoing styles applied or inherited by an ancestor component. */
-  .cover > * {
-    margin-block: 1rem;
-  }
 
   .switcher {
     display: flex;
@@ -379,4 +373,18 @@ import 'open-props/postcss/style'
     font-size: var(--font-size-big) !important;
   }
   /* flow text  elements */
+
+  @media (prefers-color-scheme: light) {
+    .element {
+      color: black;
+      background-color: white;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .element {
+      color: white;
+      background-color: black;
+    }
+  }
 </style>

@@ -1,0 +1,11 @@
+---
+type Props = { name: string }
+import { getEntry } from 'astro:content'
+const { name } = Astro.props
+
+const { data: authorData } = await getEntry('authors', author.id)
+---
+
+<p>
+  Written by: {name}
+</p>

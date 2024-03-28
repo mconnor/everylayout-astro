@@ -1,37 +1,39 @@
 ---
+function calc(arg0: string): number {
+  // Assuming arg0 is a CSS variable, you need to extract the numerical value
+  const value = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue(arg0),
+  )
+  if (isNaN(value)) {
+    throw new Error(`Invalid argument: ${arg0}`)
+  }
+  return value
+}
+
 import Layout from '@layouts/SimpleLayout.astro'
-import { Cluster, Center, Box } from '@cc/index.ts'
+import { Cluster, Switcher, Box } from '@cc/index.ts'
 ---
 
 <Layout>
   <!--  paddh4ing="8rem" widtstyle={{"20%" /> -->
-  <Center
-    ><Box invert>
-      <Cluster justify="center" align="flex-end">
-        <div class="box" style={{ height: 'var(--s0)' }}>s0</div>
-        <div class="box" style={{ height: 'var(--s1)' }}>s1</div>
-        <div class="box" style={{ height: 'var(--s2)' }}>s2</div>
-        <div class="box" style={{ height: 'var(--s3)' }}>s0</div>
-        <div class="box" style={{ height: 'var(--s4)' }}>s0</div>
-        <div class="box" style={{ height: 'var(--s5)' }}>s4</div>
-      </Cluster>
-    </Box>
-  </Center>
+
+  <Box>
+    <Cluster>
+      <div style={{ height: 'var(--h1)' }}>s0</div>
+      <div style={{ height: 'var(--h2)' }}>s0</div>
+      <div style={{ height: 'var(--h3)' }}>s4</div>
+
+      <div style={{ height: 'var(--h4)' }}>s6</div>
+      <div style={{ height: 'var(--h5)' }}>s7</div>
+    </Cluster>
+  </Box>
 </Layout>
 
 <style>
   div {
-    width: 12%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: red;
+    flex-grow: 1;
 
     font-size: var(--s0);
-  }
-  .myGrid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
   }
 </style>

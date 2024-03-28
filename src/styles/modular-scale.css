@@ -1,0 +1,16 @@
+  :root {
+
+     
+        --measure: 60ch;
+        --ratio: 1.61803398875;
+        --font-size-base: 1rem;
+        --s0: var(--font-size-base);
+        --s1: calc(var(--s0) * pow(var(--ratio), 1));
+        --s2: calc(var(--s0) * pow(var(--ratio), 2));
+        --s3: calc(var(--s0) * pow(var(--ratio), 3));
+        --s4: calc(var(--s0) * pow(var(--ratio), 4));
+        --s5: calc(var(--s0) * pow(var(--ratio), 5));
+
+        --line-height: var(--ratio);
+    
+}

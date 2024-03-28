@@ -1,48 +1,45 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { Box } from '@cc/index.ts'
-// import BaseHead from '../components/BaseHead.astro'
-// import Header from '../components/Header.astro'
-// import Footer from '../components/Footer.astro'
-import FormattedDate from '../components/FormattedDate.astro'
+// import type { CollectionEntry } from 'astro:content'
+// import { getEntry } from 'astro:content'
+import { Box, Center } from '@cc/index.ts'
+
+import type { BlogSchemaType } from '../schemas'
+import FormattedDate from '@components/FormattedDate.astro'
+// import Author from '@components/Author.astro'
 import Layout from '@layouts/SimpleLayout.astro'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = {
+  data: BlogSchemaType
+}
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props
+const { data } = Astro.props
+
+const { title, description, pubDate, cover } = data
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
-  <article>
+  <Center>
     <div class="stack">
+      <Box> <h2>{description}</h2></Box>
+      <!-- {author && <Author {...author} />} -->
       <Box>
         <div class="hero-image box">
-          {
-            heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
-            )
-          }
+          <img width={1020} height={510} src={cover.url} alt={cover.url} />
         </div>
         <div class="prose box">
           <div class="box">
             <div class="date box">
               <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
             </div>
             <div class="box"><h3>{title}</h3></div>
             <hr />
           </div>
+
           <slot />
         </div>
       </Box>
     </div>
-  </article>
+  </Center>
 </Layout>
 
 <style>

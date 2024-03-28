@@ -6,7 +6,7 @@ import sentry from '@sentry/astro'
 import spotlightjs from '@spotlightjs/astro'
 import { loadEnv } from 'vite'
 import react from '@astrojs/react'
-import vercel from '@astrojs/vercel/serverless'
+// import vercel from '@astrojs/vercel/serverless'
 const { SECRET_TOKEN } = loadEnv(
   process.env.SENTRY_AUTH_TOKEN,
   process.cwd(),
@@ -16,6 +16,7 @@ const { SECRET_TOKEN } = loadEnv(
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
+  output: 'static',
   image: {
     domains: ['astro.build', 'picsum.photos'],
   },
@@ -37,9 +38,7 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      noExternal: ['open-props'],
+      noExternal: ['date-fns', 'open-props'],
     },
   },
-  output: 'server',
-  adapter: vercel(),
 })
