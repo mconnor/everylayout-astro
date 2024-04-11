@@ -16,7 +16,6 @@ export default [
   {
     ignores: ['pnpm-lock.yaml', '.astro/', 'dist/'],
   },
-
   {
     languageOptions: {
       ecmaVersion: 2022,
