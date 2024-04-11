@@ -13,6 +13,9 @@ export default [
   // js.configs.recommended,
   js.configs.recommended,
   ...eslintPluginAstro.configs['flat/recommended'],
+  {
+    ignores: ['pnpm-lock.yaml', '.astro/', 'dist/'],
+  },
 
   {
     languageOptions: {
