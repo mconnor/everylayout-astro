@@ -14,12 +14,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.astro",
-    "src/customComponents/Cluster/Cluster.js"
-  ],
+    "include": ["src/**/*.d.ts", "src/**/*.tsx", "src/**/*.ts", "src/**/*.js", "src/**/*.astro"],
   "exclude": ["node_modules"]
 }
