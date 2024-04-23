@@ -8,8 +8,6 @@
  * @property {number} splitAfter=null The element after which to _split_ the stack with an auto margin
  */
 export default class Stack extends HTMLElement {
-  render: () => void
-  i: string | undefined
   constructor() {
     super()
     this.render = () => {

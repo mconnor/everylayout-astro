@@ -2,13 +2,13 @@
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 2024-01-14
-draft: false
 cover:
-  url: '/blog-placeholder-1.jpg'
+  url: 'https://picsum.photos/1200/300?random=0'
   alt: 'A photograph of a sunset behind a mountain range.'
+draft: false
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+![A starry night sky.](../../assets/blog-placeholder-1.jpg)
 
 ## Headings
 
@@ -67,13 +67,13 @@ The blockquote element represents content that is quoted from another source, op
 #### Syntax
 
 ```markdown
-> Don't communicate by sharing memory, share memory by communicating.<br>
+> Don't communicate by sharing memory, share memory by communicating.<br />
 > — <cite>Rob Pike[^1]</cite>
 ```
 
 #### Output
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
+> Don't communicate by sharing memory, share memory by communicating.<br />
 > — <cite>Rob Pike[^1]</cite>
 
 [^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.

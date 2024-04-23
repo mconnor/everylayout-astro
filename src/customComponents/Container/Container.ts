@@ -5,8 +5,6 @@
  * @property {string} name The name of the container, used as the CSS `container-name` value (optional)
  */
 class Container extends HTMLElement {
-  render: () => void
-  i: string
   constructor() {
     super()
     this.render = () => {

@@ -9,8 +9,6 @@
  * @property {boolean} noStretch=false Make the adjacent elements adopt their natural height
  */
 export default class Sidebar extends HTMLElement {
-  render: () => void
-  i: string | undefined
   constructor() {
     super()
     this.render = () => {

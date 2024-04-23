@@ -1,5 +1,5 @@
 {
-    "css.validate": false,
+  "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "cssvar.files": [
@@ -16,8 +16,8 @@
 
   // add support for autocomplete in JS or JS like files
   "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
-    "editor.defaultFormatter": "astro-build.astro-vscode",
-    "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "astro-build.astro-vscode",
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "eslint.validate": [

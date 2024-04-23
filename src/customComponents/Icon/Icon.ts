@@ -6,8 +6,6 @@
  * @property {string} label=null Turns the element into an image in assistive technologies and adds an aria-label of the value
  */
 export default class Icon extends HTMLElement {
-  render: () => void
-  i: string | undefined
   constructor() {
     super()
     this.render = () => {

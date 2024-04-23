@@ -21,7 +21,7 @@ const DEFAULT_VAL = '--layout Custom Web Component'
       '[data-navigate-select]',
     ) as HTMLSelectElement
 
-    const defaultVal = select.dataset.message ?? 'pick a demo...'
+    // const defaultVal = select.dataset.message ?? 'pick a demo...'
     const path = window.location.pathname
     if (!path) {
       throw new Error('path is not defined')

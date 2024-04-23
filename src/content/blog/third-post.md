@@ -3,7 +3,7 @@ title: 'Third post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 2024-01-16
 cover:
-  url: '/blog-placeholder-2.jpg'
+  url: 'https://picsum.photos/1200/300?random=0'
   alt: 'A photograph of a sunset behind a mountain range.'
 ---
 

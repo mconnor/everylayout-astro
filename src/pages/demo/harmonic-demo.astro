@@ -1,17 +1,17 @@
 ---
-function calc(arg0: string): number {
-  // Assuming arg0 is a CSS variable, you need to extract the numerical value
-  const value = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue(arg0),
-  )
-  if (isNaN(value)) {
-    throw new Error(`Invalid argument: ${arg0}`)
-  }
-  return value
-}
+// function calc(arg0: string): number {
+//   // Assuming arg0 is a CSS variable, you need to extract the numerical value
+//   const value = parseFloat(
+//     getComputedStyle(document.documentElement).getPropertyValue(arg0),
+//   )
+//   if (isNaN(value)) {
+//     throw new Error(`Invalid argument: ${arg0}`)
+//   }
+//   return value
+// }
 
 import Layout from '@layouts/SimpleLayout.astro'
-import { Cluster, Switcher, Box } from '@cc/index.ts'
+import { Cluster, Box } from '@cc/index.ts'
 ---
 
 <Layout>

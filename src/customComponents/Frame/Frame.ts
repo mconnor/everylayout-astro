@@ -5,8 +5,6 @@
  * @property {string} ratio=16:9 The element's aspect ratio
  */
 export default class Frame extends HTMLElement {
-  render: () => void
-  i: string
   constructor() {
     super()
     this.render = () => {
