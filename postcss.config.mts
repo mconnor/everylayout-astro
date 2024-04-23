@@ -10,11 +10,11 @@ import OpenProps from 'open-props'
 
 export default {
   plugins: [
-     postcssImport,
+    postcssImport,
     postcssJitProps(OpenProps),
     autoprefixer,
     postcssNesting,
-    postcssPow
+    postcssPow,
   ],
 }
 // Use process.env.NODE_ENV to check if the environment is production
