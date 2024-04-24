@@ -1,20 +1,20 @@
 ---
 // import type { CollectionEntry } from 'astro:content'
 // import { getEntry } from 'astro:content'
-import { Box, Center } from '@cc/index.ts'
-import { Image } from 'astro:assets'
-import type { BlogSchemaType } from '../schemas'
-import FormattedDate from '@components/FormattedDate.astro'
+import { Box, Center } from '@cc/index.ts';
+import { Image } from 'astro:assets';
+import type { BlogSchemaType } from '../schemas';
+import FormattedDate from '@components/FormattedDate.astro';
 // import Author from '@components/Author.astro'
-import Layout from '@layouts/SimpleLayout.astro'
+import Layout from '@layouts/SimpleLayout.astro';
 
 type Props = {
-  data: BlogSchemaType
-}
+  data: BlogSchemaType;
+};
 
-const { data } = Astro.props
+const { data } = Astro.props;
 
-const { title, description, pubDate, cover } = data
+const { title, description, pubDate, cover } = data;
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
@@ -40,20 +40,3 @@ const { title, description, pubDate, cover } = data
     </div>
   </Center>
 </Layout>
-
-<style>
-  .hero-image img {
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-  }
-  .prose {
-    color: rgb(var(--gray-dark));
-  }
-
-  .date {
-    color: rgb(var(--gray));
-  }
-  .last-updated-on {
-    font-style: italic;
-  }
-</style>

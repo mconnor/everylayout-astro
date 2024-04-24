@@ -3,8 +3,8 @@ title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 pubDate: 2024-01-14
 cover:
-  url: 'https://picsum.photos/1200/300?random=0'
-  alt: 'A photograph of a sunset behind a mountain range.'
+  src: 'https://picsum.photos/1200/300?random=0'
+  description: 'A photograph of a sunset behind a mountain range.'
 draft: false
 ---
 

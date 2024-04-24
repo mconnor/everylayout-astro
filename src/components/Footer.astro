@@ -1,11 +1,11 @@
 ---
-import { Box, Cluster } from '@cc/index'
+import { Box, Cluster } from '@cc/index';
 type Props = {
-  invertMe: boolean
-}
-const today = new Date()
+  invertMe: boolean;
+};
+const today = new Date();
 
-const { invertMe }: Props = Astro.props
+const { invertMe }: Props = Astro.props;
 ---
 
 <footer class:list={['box', { invert: invertMe }]}>
@@ -67,26 +67,4 @@ const { invertMe }: Props = Astro.props
       </button>
     </Box>
   </Cluster>
-
-  <style>
-    p {
-      font-size: calc(var(--s0) / var(--ratio));
-    }
-
-    .icon {
-      width: 0.75em;
-      width: 1cap;
-      height: 0.75em;
-      height: 1cap;
-    }
-
-    .with-icon {
-      display: inline-flex;
-      align-items: baseline;
-    }
-
-    .with-icon .icon {
-      margin-inline-end: 3rem;
-    }
-  </style>
 </footer>

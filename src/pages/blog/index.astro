@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content'
-import FormattedDate from '@components/FormattedDate.astro'
-import Layout from '@layouts/SimpleLayout.astro'
-import { Switcher, Box } from '@cc/index'
+import { getCollection } from 'astro:content';
+import FormattedDate from '@components/FormattedDate.astro';
+import Layout from '@layouts/SimpleLayout.astro';
+import { Switcher, Box } from '@cc/index';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-)
+);
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
@@ -30,30 +30,5 @@ const posts = (await getCollection('blog')).sort(
 <style>
   a {
     text-decoration: none;
-  }
-
-  .my-box {
-    padding: var(--size-1);
-
-    --color-light: hsl(0, 0%, 80%);
-    --color-dark: hsl(0, 0%, 20%);
-    color: var(--color-dark);
-
-    background-color: var(--color-light);
-
-    /* color: var(--gray-1);
-        background-color: var(--gray-12); */
-    outline: 0.125rem solid transparent;
-    outline-offset: -0.125rem;
-  }
-
-  .my-switcher {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--size-5);
-  }
-
-  .my-switcher > * {
-    flex-basis: 100%;
   }
 </style>
