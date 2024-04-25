@@ -1,10 +1,10 @@
 // ver 2.0.0
-import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import globals from 'globals';
-import js from '@eslint/js';
-import markdown from 'eslint-plugin-markdown';
-import tseslint from 'typescript-eslint';
+import eslintPluginAstro from 'eslint-plugin-astro'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import globals from 'globals'
+import js from '@eslint/js'
+import markdown from 'eslint-plugin-markdown'
+import tseslint from 'typescript-eslint'
 
 // import tsPlugin from '@typescript-eslint/eslint-plugin';
 
@@ -81,4 +81,4 @@ export default [
     },
   },
   eslintConfigPrettier, // eslint-config-prettier last
-];
+]
