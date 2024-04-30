@@ -33,3 +33,5 @@ pnpm-lock.yaml
 /src/.DS_Store
 /src/assets/.DS_Store
 /my-custom-cache-directory/
+/*.
+src/env.d.ts
