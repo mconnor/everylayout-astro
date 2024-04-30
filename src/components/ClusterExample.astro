@@ -1,16 +1,16 @@
 ---
-import { Box, Cluster } from '@cc/index';
+import { Box, Cluster } from '@cc/index'
 
 function generateRandomString() {
-  const length = 8;
+  const length = 8
   // Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
-  let result = '';
+  let result = ''
   const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
+    result += characters.charAt(Math.floor(Math.random() * characters.length))
   }
-  return result;
+  return result
 }
 ---
 

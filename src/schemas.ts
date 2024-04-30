@@ -1,19 +1,16 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { z, reference, type SchemaContext } from 'astro:content'
 
-
 // The context object that defineCollection uses for the function shape of schema. This type can be useful when building reusable schemas for multiple collections.
 
 // This includes the following property:
 
 // image - The image() schema helper that allows you to use local images in Content Collections
 export const imageSchema = ({ image }: SchemaContext) =>
-    z.object({
-        image: image(),
-        description: z.string().optional(),
-    });
-
-
+  z.object({
+    image: image(),
+    description: z.string().optional(),
+  })
 
 export const blogSchema = z.object({
   title: z.string(),
