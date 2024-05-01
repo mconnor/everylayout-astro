@@ -1,16 +1,26 @@
 import { useState, useEffect } from 'react'
 import { navigate } from 'astro:transitions/client'
 
+import {useAsync} from 'react-use';
+
+  
+
+
 export default function Form() {
   const [selectedDemo, setSelectedDemo] = useState('/')
-  const [prevSection, setPrevSelection] = useState('/')
+  // const [prevSection, setPrevSelection] = useState('/')
 
-  useEffect(() => {
-    if (prevSection !== selectedDemo) {
-      setPrevSelection(selectedDemo)
-      navigate(selectedDemo) // ...and u
-    }
+
+  useAsync(async ()  => {
+    await navigate(selectedDemo).then(() => {
+      // console.log('navigated to', selectedDemo)
+    }).catch((err) => {
+      console.log('error navigating to', selectedDemo, err)
+    })
+
   }, [selectedDemo])
+
+
 
   return (
     <label>

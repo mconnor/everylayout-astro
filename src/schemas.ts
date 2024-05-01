@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+
 import { z, reference, type SchemaContext } from 'astro:content'
 
 // The context object that defineCollection uses for the function shape of schema. This type can be useful when building reusable schemas for multiple collections.

@@ -11,9 +11,19 @@ import tseslint from 'typescript-eslint'
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...eslintPluginAstro.configs['flat/recommended'],
+  ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
+  ...eslintPluginAstro.configs.recommended,
+  {
+    rules: {
+      // override/add rules settings here, such as:
+      // "astro/no-set-html-directive": "error"
+      'astro/no-unused-css-selector': 'warn',
+    },
+  },
   {
     ignores: [
+      '.prettierrc.*',
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',
@@ -22,8 +32,7 @@ export default [
       'src/env.d.ts',
     ],
   },
-
-  {
+    {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -33,16 +42,9 @@ export default [
       parserOptions: {
         project: true,
       },
-    },
-    rules: {
-      // add more rules here
-      // 'no-console': 'off',
-      'astro/no-unused-css-selector': 'warn',
-      '@typescript-eslint/no-duplicate-type-constituents': 'off',
-      'no-constructor-return': ['error'],
-      'no-sequences': ['error', { allowInParentheses: false }],
-    },
+    }
   },
+
   {
     // disable type-aware linting on JS files
     files: ['**/*.js'],
@@ -62,16 +64,12 @@ export default [
   {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
+    ...tseslint.configs.disableTypeChecked,
     rules: {
       // 2. Disable other rules.
       // 'no-console': 'off',
       // 'import/no-unresolved': 'off',
     },
-  },
-  {
-    // disable type-aware linting on JS files
-    files: ['**/*.js'],
-    ...tseslint.configs.disableTypeChecked,
   },
   {
     settings: {
