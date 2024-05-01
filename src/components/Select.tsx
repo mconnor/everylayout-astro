@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { navigate } from 'astro:transitions/client'
 
 import {useAsync} from 'react-use';
@@ -15,7 +15,7 @@ export default function Form() {
     await navigate(selectedDemo).then(() => {
       // console.log('navigated to', selectedDemo)
     }).catch((err) => {
-      console.log('error navigating to', selectedDemo, err)
+      console.error('error navigating to', selectedDemo, err)
     })
 
   }, [selectedDemo])
@@ -23,9 +23,11 @@ export default function Form() {
 
 
   return (
-    <label>
-      Pick a fruit:
+    <>
+<label id="label1" htmlFor="demo" className='visually-hidden'>Label 1</label>
+ 
       <select
+        id='demo'
         onChange={(ev) => setSelectedDemo(ev.target.value)}
         title="see a layout"
         defaultValue={selectedDemo}
@@ -39,6 +41,6 @@ export default function Form() {
         <option value="/demo/imposter-demo">imposter-demo</option>
         <option value="/demo/harmonic-demo">harmonic-demo</option>
       </select>
-    </label>
+</>
   )
 }

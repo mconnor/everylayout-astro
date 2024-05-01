@@ -1,5 +1,8 @@
 @import 'open-props/postcss/style';
+@import 'open-props/postcss/buttons';
+@import 'open-props/postcss/normalize';
 @import './modular-scale.css';
+@import './utilities.css';
 
 * {
   /* max-inline-size: var(--measure); */
