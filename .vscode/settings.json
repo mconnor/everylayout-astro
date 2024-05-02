@@ -4,22 +4,36 @@
   "scss.validate": false,
   "cssvar.files": [
     "./node_modules/open-props/open-props.min.css",
-    "**/*.astro",
-    "**/*.css"
+    "src/styles/**/*css",
+    "src/styles/**/*.astro"
     // if you have an alternative path to where your styles are located
     // you can add it in this array of files
     // "assets/styles/variables.css"
   ],
-
   // Do not ignore node_modules css files, which is ignored by default
-  // "cssvar.ignore": [],
-
+  "cssvar.ignore": [],
   // add support for autocomplete in JS or JS like files
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
-  "editor.defaultFormatter": "astro-build.astro-vscode",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
+  "cssvar.extensions": [
+    "css",
+    "postcss",
+    "jsx",
+    "js",
+    "ts",
+    "tsx",
+    "astro"
+  ],
+  "[astro][javascript][typescript][markdown][json]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "mohsen1.prettify-json",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -27,5 +41,11 @@
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ],
-  "stylelint.validate": ["html", "vue", "svelte", "astro"]
+  "stylelint.validate": [
+    "html",
+    "vue",
+    "svelte",
+    "astro"
+  ],
+  "typescript.inlayHints.parameterNames.enabled": "none"
 }

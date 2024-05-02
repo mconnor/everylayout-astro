@@ -11,7 +11,7 @@ import tseslint from 'typescript-eslint'
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  // ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
   ...eslintPluginAstro.configs.recommended,
   {
@@ -23,7 +23,7 @@ export default [
   },
   {
     ignores: [
-      '.prettierrc.*',
+    
       'pnpm-lock.yaml',
       '.astro/',
       'dist/',
