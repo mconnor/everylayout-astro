@@ -1,27 +1,60 @@
 ---
-// import 'open-props/postcss/style'
-// import 'open-props/postcss/buttons'
+import 'open-props/postcss/style'
+import 'open-props/postcss/buttons'
+import 'open-props/postcss/normalize'
 
-// import './modular-scale.css'
-// import './variables.css'
-// import './utilities.css'
-// import './global.css'
+import './modular-scale.css'
+
+import './utilities.css'
 ---
 
 <style is:global>
-  @layer base, utils, vars;
+  /* @layer base, utils, vars;
   @import url('open-props/postcss/style') layer(base);
   @import url('open-props/postcss/buttons') layer(base);
   @import url('open-props/postcss/normalize') layer(base);
   @import url('./modular-scale.css') layer(base);
   @import url('./utilities.css') layer(utils);
-  @import url('./variables.css') layer(vars);
+  @import url('./variables.css') layer(vars); */
   /* @import url('./light.css') layer(light);
   @import url('./dark.css') layer(dark);
 
   @layer themes {
     @layer light;
   } */
+
+  :root {
+    --color-light: hsl(0 0% 80%);
+    --color-dark: hsl(0 0% 20%);
+
+    /* light */
+    --brand-light: var(--orange-12);
+
+    /* open-props light theme as defaults but these are better */
+    --text-1-light: var(--gray-12);
+    --text-2-light: var(--gray-7);
+    --surface-1-light: var(--gray-0);
+    --surface-2-light: var(--gray-1);
+    --surface-3-light: var(--gray-2);
+    --surface-4-light: var(--gray-3);
+
+    --surface-shadow-light: var(--gray-8-hsl);
+    --shadow-strength-light: 2%;
+
+    /* dark */
+    --brand-dark: var(--orange-3);
+
+    /* open-props dark theme as defaults but these are better */
+    --text-1-dark: var(--gray-3);
+    --text-2-dark: var(--gray-5);
+    --surface-1-dark: var(--gray-12);
+    --surface-2-dark: var(--gray-11);
+    --surface-3-dark: var(--gray-10);
+    --surface-4-dark: var(--gray-9);
+
+    --surface-shadow-dark: var(--gray-12-hsl);
+    --shadow-strength-dark: 80%;
+  }
 
   @media (prefers-color-scheme: dark) {
     :root {

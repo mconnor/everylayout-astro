@@ -10,11 +10,11 @@ import tseslint from 'typescript-eslint'
 
 export default [
   js.configs.recommended,
-    ...tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
   //  ...tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
-...eslintPluginAstro.configs.recommended,
-  
+  ...eslintPluginAstro.configs.recommended,
+
   {
     ignores: [
       'pnpm-lock.yaml',
@@ -25,7 +25,6 @@ export default [
       'src/env.d.ts',
     ],
   },
-  
 
   {
     languageOptions: {
@@ -37,12 +36,12 @@ export default [
       parserOptions: {
         project: true,
       },
-    }
+    },
   },
-  
+
   {
     // disable type-aware linting on JS files
-     files: ['**/*.js', '**/*.mjs'],
+    files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 
@@ -59,7 +58,7 @@ export default [
   {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
-    ...tseslint.configs.disableTypeChecked
+    ...tseslint.configs.disableTypeChecked,
   },
   {
     // disable type-aware linting on JS files

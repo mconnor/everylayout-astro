@@ -39,7 +39,7 @@ export default class Box extends HTMLElement {
   }
 
   set padding(val) {
-     this.setAttribute('padding', val)
+    this.setAttribute('padding', val)
   }
 
   get borderWidth() {
@@ -60,9 +60,9 @@ export default class Box extends HTMLElement {
 
   set invert(val) {
     if (val) {
-       this.setAttribute('invert', '')
+      this.setAttribute('invert', '')
     } else {
-       this.removeAttribute('invert')
+      this.removeAttribute('invert')
     }
   }
 

@@ -1,5 +1,5 @@
 :root {
- --measure: 60ch;
+  --measure: 60ch;
   --ratio: 1.61803398875;
   --font-size-base: 1rem;
 
@@ -16,20 +16,16 @@
   --s7: calc(var(--s0) * pow(var(--ratio), 7));
   --s8: calc(var(--s0) * pow(var(--ratio), 8));
 
-   --h0: 10;
+  --h0: 10;
   --h1: calc(80vh / var(--h0) * pow(var(--ratio), 1));
   --h2: calc(80vh / var(--h0) * pow(var(--ratio), 2));
   --h3: calc(80vh / var(--h0) * pow(var(--ratio), 3));
   --h4: calc(80vh / var(--h0) * pow(var(--ratio), 4));
   --h5: calc(80vh / var(--h0) * pow(var(--ratio), 5));
 
-
-  
-
   --line-height: var(--ratio);
   --border-thin: var(--border-size-1);
 
-  
   --font-size-biggish: var(--s1);
   --font-size-big: var(--s2);
 }
