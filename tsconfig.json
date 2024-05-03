@@ -1,25 +1,43 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@cc/*": ["src/customComponents/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@content/*": ["src/content/*"],
-      "@assets/*": ["src/assets/*"],
-      "@styles/*": ["src/styles/*"],
-      "@scripts/*": ["src/scripts/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@cc/*": [
+        "src/customComponents/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@content/*": [
+        "src/content/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@scripts/*": [
+        "src/scripts/*"
+      ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
   "include": [
-    "src/**/*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.js",
+    "**/*.ts",
+    "**/*.mts",
+    "**/*.js",
+    "**/*.mjs",
     "src/**/*.astro",
-     "src/**/*.tsx"
+    "src/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

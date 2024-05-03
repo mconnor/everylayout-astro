@@ -4,7 +4,8 @@
     "dbaeumer.vscode-eslint",
     "phoenisx.cssvar",
     "unifiedjs.vscode-mdx",
-    "github.copilot"
+    "stylelint.vscode-stylelint",
+    "mohsen1.prettify-json"
   ],
   "unwantedRecommendations": []
 }
