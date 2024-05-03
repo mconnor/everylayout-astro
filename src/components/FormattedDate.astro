@@ -1,4 +1,5 @@
 ---
+import { Box } from '@cc/index'
 interface Props {
   date: Date
 }
@@ -6,12 +7,14 @@ interface Props {
 const { date } = Astro.props
 ---
 
-<time datetime={date.toISOString()}>
-  {
-    date.toLocaleDateString('en-us', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    })
-  }
-</time>
+<Box
+  ><time datetime={date.toISOString()}>
+    {
+      date.toLocaleDateString('en-us', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    }
+  </time></Box
+>

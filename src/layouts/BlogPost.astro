@@ -1,12 +1,13 @@
 ---
 // import type { CollectionEntry } from 'astro:content'
 // import { getEntry } from 'astro:content'
-import { Box, Center } from '@cc/index.ts'
-import { Image } from 'astro:assets'
-import type { BlogSchemaType } from '../schemas'
-import FormattedDate from '@components/FormattedDate.astro'
+import { Box, Stack, Center } from '@cc/index.ts';
+import { Image } from 'astro:assets';
+
+import FormattedDate from '@components/FormattedDate.astro';
 // import Author from '@components/Author.astro'
 import Layout from '@layouts/LayoutWcover.astro'
+import type { BlogSchemaType } from '../schemas';
 
 type Props = {
   data: BlogSchemaType
@@ -19,7 +20,7 @@ const { title, description, pubDate, cover } = data
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
   <Center>
-    <div class="stack">
+    <Stack>
       <Image
         src={cover.src}
         width="1200"
@@ -30,13 +31,12 @@ const { title, description, pubDate, cover } = data
       <Box invert> <p>{description}</p></Box>
       <!-- {author && <Author {...author} />} -->
 
-      <div class="date box">
-        <FormattedDate date={pubDate} />
-      </div>
-      <div class="box"><h3>{title}</h3></div>
+      <FormattedDate date={pubDate} />
+
+      <Box invert><h3>{title}</h3></Box>
       <hr />
 
       <slot />
-    </div>
+    </Stack>
   </Center>
 </Layout>

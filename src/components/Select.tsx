@@ -13,7 +13,7 @@ export default function Form() {
 
   useAsync(async ()  => {
     await navigate(selectedDemo).then(() => {
-      // console.log('navigated to', selectedDemo)
+      console.log('navigated to', selectedDemo)
     }).catch((err) => {
       console.error('error navigating to', selectedDemo, err)
     })
@@ -23,8 +23,8 @@ export default function Form() {
 
 
   return (
-    <>
-<label id="label1" htmlFor="demo" className='visually-hidden'>Label 1</label>
+
+<label id="label1" htmlFor="demo">
  
       <select
         id='demo'
@@ -40,7 +40,8 @@ export default function Form() {
         <option value="/demo/reel-demo">reel-demo</option>
         <option value="/demo/imposter-demo">imposter-demo</option>
         <option value="/demo/harmonic-demo">harmonic-demo</option>
-      </select>
-</>
+        </select>
+        </label>
+
   )
 }

@@ -3,15 +3,9 @@ import HeaderLink from './HeaderLink.astro'
 
 import { Box, Cluster } from '@cc/index'
 import Select from '@components/Select'
-
-type Props = {
-  invertMe: boolean
-}
-
-const { invertMe }: Props = Astro.props
 ---
 
-<header class:list={['box', { invert: invertMe }]}>
+<Box borderWidth="5px">
   <Cluster justify="space-between">
     <Box padding="0" borderWidth="1px">
       <Select client:only="react" transition:persist />
@@ -27,4 +21,4 @@ const { invertMe }: Props = Astro.props
       </Cluster>
     </Box>
   </Cluster>
-</header>
+</Box>

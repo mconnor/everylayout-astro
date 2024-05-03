@@ -7,28 +7,26 @@
  * @property {boolean} invert=false Whether to apply an inverted theme. Only recommended for greyscale designs.
  */
 export default class Box extends HTMLElement {
-  render: () => void
-  i: string | undefined
   constructor() {
     super()
     this.render = () => {
       this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`
       this.dataset.i = this.i
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
+        let styleEl = document.createElement('style')
         styleEl.id = this.i
         styleEl.innerHTML = `
-            [data-i="${this.i}"] {
-              padding: ${this.padding};
-              border: ${this.borderWidth} solid;
-              ${this.invert ? `filter: invert(100%);` : ''}
-            }
-        
-            [data-i="${this.i}"] {
-              color: inherit;
-              background-color: inherit;
-            }
-          `
+          [data-i="${this.i}"] {
+            padding: ${this.padding};
+            border: ${this.borderWidth} solid;
+            ${this.invert ? `filter: invert(100%);` : ''}
+          }
+      
+          [data-i="${this.i}"] {
+            color: inherit;
+            background-color: inherit;
+          }
+        `
           .replace(/\s\s+/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
@@ -41,7 +39,7 @@ export default class Box extends HTMLElement {
   }
 
   set padding(val) {
-    this.setAttribute('padding', val)
+     this.setAttribute('padding', val)
   }
 
   get borderWidth() {
@@ -62,9 +60,9 @@ export default class Box extends HTMLElement {
 
   set invert(val) {
     if (val) {
-      this.setAttribute('invert', '')
+       this.setAttribute('invert', '')
     } else {
-      this.removeAttribute('invert')
+       this.removeAttribute('invert')
     }
   }
 

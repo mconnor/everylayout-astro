@@ -1,14 +1,10 @@
 ---
 import { Box, Cluster } from '@cc/index'
-type Props = {
-  invertMe: boolean
-}
-const today = new Date()
 
-const { invertMe }: Props = Astro.props
+const today = new Date()
 ---
 
-<footer class:list={['box', { invert: invertMe }]}>
+<footer>
   <Cluster justify="space-between">
     <Box
       ><h6>
@@ -17,6 +13,7 @@ const { invertMe }: Props = Astro.props
         } Mike Connor. All rights reserved.
       </h6></Box
     >
+
     <Box>
       <button>
         <a href="https://m.webtoo.ls/@astro" target="_blank">

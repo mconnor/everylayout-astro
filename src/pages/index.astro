@@ -3,18 +3,27 @@ import Layout from '@layouts/LayoutWcover.astro'
 
 // import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 
-import { Box } from '@cc/index.ts'
-import MixedStyles from '@components/MixedStyles.astro'
+import { Box, Stack } from '@cc/index.ts'
 ---
 
 <Layout title="home" description="testing css">
-  <Box>
-    <h1>not in MS</h1>
-    <MixedStyles>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem deleniti
-      soluta ducimus doloribus accusantium iusto corrupti ipsam, atque libero
-      omnis neque cum ut perspiciatis cupiditate maxime recusandae laudantium
-      non? Totam?
-    </MixedStyles></Box
-  >
+  <Stack>
+    <Box invert>
+      <h1>Home</h1>
+    </Box>
+    <Box>
+      <h2 class="my-brand">welcome</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti
+        vel magnam eaque maxime sit quos. Totam deserunt modi facere ipsam ab
+        harum, voluptate, sapiente alias, quo impedit dolores eaque!
+      </p>
+    </Box>
+  </Stack>
 </Layout>
+
+<style>
+  .my-brand {
+    color: var(--brand);
+  }
+</style>
