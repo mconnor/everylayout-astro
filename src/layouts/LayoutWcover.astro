@@ -1,19 +1,23 @@
 ---
 import GlobalStyle from '@styles/GlobalStyles.astro'
+
 import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import { Cover, Center } from '@cc/index';
+import { Cover, Center } from '@cc/index'
 
 type Props = {
   title?: string
   description?: string
+  dark?: boolean
 }
 
 const {
   title = 'I NEED A TITLE',
-  description = 'no description provided'} = Astro.props
+  description = 'no description provided',
+  dark = false,
+} = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
@@ -26,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <GlobalStyle />
   </head>
 
-  <body id="the-body">
+  <body id="the-body" color->
     <Cover centeredElement="center-l" noPad={true} space="0">
       <Header />
 
