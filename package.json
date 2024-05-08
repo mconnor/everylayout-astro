@@ -13,7 +13,7 @@
     "astro": "astro",
     "lint": "eslint  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "fix": "eslint  --fix  \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "format": "prettier --write .",
+    "format": "prettier --write  --ignore-unknown .",
     "stylelint": "stylelint \"src/**/*.{css,astro}\"",
     "sfix": "stylelint \"src/**/*.{css,astro}\" --fix",
     "inspect": "eslint --inspect-config"
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^3.3.2",
+    "@eslint/eslintrc": "^3.0.2",
     "@eslint/js": "^9.2.0",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
@@ -45,7 +46,8 @@
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.1.2",
-    "eslint-plugin-markdown": "^4.0.1",
+    "eslint-plugin-markdown": "^5.0.0",
+    "eslint-plugin-regexp": "^2.5.0",
     "globals": "^15.1.0",
     "postcss-html": "^1.6.0",
     "postcss-import": "^16.1.0",
@@ -63,8 +65,7 @@
     "vitest": "^1.6.0"
   },
   "engines": {
-    "node": ">=20.12.0",
-    "pnpm": ">=8"
-  },
-  "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0",
+    "pnpm": ">=8.6.12"
+  }
 }

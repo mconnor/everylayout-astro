@@ -5,11 +5,12 @@ import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@components/BaseHead.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import { Cover, Center } from '@cc/index'
+import { Cover, Center } from '@cc/index.js'
 
 type Props = {
   title?: string
   description?: string
+  children: unknown
 }
 
 const { title = 'I NEED A TITLE', description = 'no description provided' } =
@@ -18,7 +19,7 @@ const { title = 'I NEED A TITLE', description = 'no description provided' } =
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={title} description={description} />
     <link rel="canonical" href={canonicalURL} />
@@ -26,7 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <GlobalStyle />
   </head>
 
-  <body id="the-body">
+  <body>
     <Cover centeredElement="center-l" noPad={true} space="0">
       <Header />
 

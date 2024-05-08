@@ -7,8 +7,13 @@ import { Image } from 'astro:assets'
 
 import Layout from '@layouts/LayoutWcover.astro'
 
-const W = 100
-const H = 50
+const W = '100'
+const H = '50'
+const getRandomSrc = () => {
+  const random = Math.floor(Math.random() * 1000).toString()
+
+  return `https://picsum.photos/100/50?random=${random}`
+}
 ---
 
 <Layout>
@@ -18,7 +23,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -32,7 +37,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -45,7 +50,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -56,7 +61,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -67,7 +72,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -81,7 +86,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card
@@ -94,7 +99,7 @@ const H = 50
         <Image
           width={W}
           height={H}
-          src=`https://picsum.photos/${W}/${H}?random=${Math.floor(Math.random() * 1000)}`
+          src= {getRandomSrc()}
           alt="Image alt text"
         />
       </Frame></Card

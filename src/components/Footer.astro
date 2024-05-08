@@ -4,17 +4,17 @@ import { Box, Cluster } from '@cc/index'
 const today = new Date()
 ---
 
-<footer>
+<Box invert padding="var(--s1)" borderWidth="0">
   <Cluster justify="space-between">
-    <Box
-      ><h6>
+    <Box borderWidth="0" padding="0"
+      ><p>
         Built with <a href="https://astro.build">{Astro.generator}</a>. &copy;{
           today.getFullYear()
         } Mike Connor. All rights reserved.
-      </h6></Box
+      </p></Box
     >
 
-    <Box>
+    <Box borderWidth="0" padding="0">
       <button>
         <a href="https://m.webtoo.ls/@astro" target="_blank">
           <svg
@@ -64,4 +64,4 @@ const today = new Date()
       </button>
     </Box>
   </Cluster>
-</footer>
+</Box>

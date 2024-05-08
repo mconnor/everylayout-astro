@@ -9,8 +9,7 @@
  * @property {boolean} intrinsic=false Center child elements based on their content width
  */
 export default class Center extends HTMLElement {
-  render: () => void
-  i: string
+
   constructor() {
     super()
     this.render = () => {

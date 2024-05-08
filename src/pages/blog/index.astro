@@ -10,14 +10,14 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
-  <Box invert>
+  <Box>
     <Switcher>
       {
         posts.map((post) => (
           <Box>
             <a href={`/blog/${post.slug}/`}>
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
+              <h4>xx{post.data.title}</h4>
+              <p>
                 <FormattedDate date={post.data.pubDate} />
               </p>
             </a>
@@ -29,6 +29,11 @@ const posts = (await getCollection('blog')).sort(
 </Layout>
 <style>
   a {
-    text-decoration: none;
+    /* text-decoration: none; */
+    color: var(--link);
+    &:hover {
+      text-decoration: underline;
+      color: yellow;
+    }
   }
 </style>

@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-
+import { Box, Cluster } from '@cc/index'
 type Props = HTMLAttributes<'a'> & {
   slug?: string
 }
@@ -12,8 +12,10 @@ const { href } = Astro.props
 <!-- <Box padding='--sizes'><a href={href} class:list={[{ active: isActive }]}>
     <slot />
 </a></Box> -->
-<div class="btn" :active="{ active: isActive }">
-  <a href={href}>
-    <slot />
-  </a>
-</div>
+<Cluster>
+  <div class="btn" :active="{ active: isActive }">
+    <a href={href}>
+      <slot />
+    </a>
+  </div>
+</Cluster>

@@ -5,13 +5,13 @@ import { Box, Cluster } from '@cc/index'
 import Select from '@components/Select'
 ---
 
-<Box borderWidth="5px">
+<Box invert padding="var(--s1)" borderWidth="0">
   <Cluster justify="space-between">
     <Box padding="0" borderWidth="1px">
       <Select client:only="react" transition:persist />
     </Box>
 
-    <Box>
+    <Box borderWidth="0" padding="0">
       <Cluster>
         <HeaderLink href="/">Home</HeaderLink>
         <HeaderLink href="/blog">Blog</HeaderLink>

@@ -7,10 +7,8 @@
  * @property {string} space=var(--s1) The space between grid cells
  */
 export default class Grid extends HTMLElement {
-  render: () => void
-  i: string | undefined
   constructor() {
-    super()
+    super();
     this.render = () => {
       // this.space &&
       //     isSigleDigitString(
@@ -18,11 +16,11 @@ export default class Grid extends HTMLElement {
       //         'AstroGrid space setting should be a number representing a point on the modular scale',
       //     )
 
-      this.i = `Grid-${[this.min, this.space].join('')}`
-      this.dataset.i = this.i
+      this.i = `Grid-${[this.min, this.space].join('')}`;
+      this.dataset.i = this.i;
       if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style')
-        styleEl.id = this.i
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             grid-gap: ${this.space};
@@ -34,42 +32,42 @@ export default class Grid extends HTMLElement {
             }
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get min() {
-    return this.getAttribute('min') || '250px'
+    return this.getAttribute('min') || '250px';
   }
 
   set min(val) {
-    this.setAttribute('min', val)
+    this.setAttribute('min', val);
   }
 
   get space() {
-    return this.getAttribute('space') || 'var(--s1)'
+    return this.getAttribute('space') || 'var(--s1)';
   }
 
   set space(val) {
-    this.setAttribute('space', val)
+    this.setAttribute('space', val);
   }
 
   static get observedAttributes() {
-    return ['min', 'space']
+    return ['min', 'space'];
   }
 
   connectedCallback() {
-    this.render()
+    this.render();
   }
 
   attributeChangedCallback() {
-    this.render()
+    this.render();
   }
 }
 
 if ('customElements' in window) {
-  customElements.define('grid-l', Grid)
+  customElements.define('grid-l', Grid);
 }

@@ -4,7 +4,7 @@
   --font-size-base: 1rem;
 
   --s0: var(--font-size-base);
-  --s00: calc(var(--s0) * pow(var(--ratio), -3));
+  --s000: calc(var(--s0) * pow(var(--ratio), -3));
   --s00: calc(var(--s0) * pow(var(--ratio), -2));
   --s1: calc(var(--s0) * pow(var(--ratio), 1));
   --s2: calc(var(--s0) * pow(var(--ratio), 2));

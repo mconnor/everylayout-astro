@@ -13,7 +13,7 @@ export default function Form() {
         console.log('navigated to', selectedDemo)
       })
       .catch((err) => {
-        console.error('error navigating to', selectedDemo, err)
+        console.error('error navigating to', selectedDemo, err.message)
       })
   }, [selectedDemo])
 
@@ -21,7 +21,7 @@ export default function Form() {
     <label id="label1" htmlFor="demo">
       <select
         id="demo"
-        onChange={(ev) => setSelectedDemo(ev.target.value)}
+        onChange={(ev) => { setSelectedDemo(ev.target.value); }}
         title="see a layout"
         defaultValue={selectedDemo}
         size={1}

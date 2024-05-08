@@ -12,13 +12,28 @@ const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
     doloremque velit nobis eos?`
 
 const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props
+
+function truncateString(str: string) {
+  if (str.length <= 100) {
+    return str
+  }
+  return str.slice(0, 100) + '...'
+}
 ---
 
-<Box>
-  <Stack>
-    <slot name="image-slot" />
-
+<Box padding="0" borderWidth="var(--border-size-2)">
+  <Box padding="0" borderWidth="0" invert>
     <h4>{headline}</h4>
-    <p>{description}</p>
-  </Stack>
+  </Box>
+  <Box padding="0" borderWidth="0"><slot name="image-slot" /></Box>
+  <Box borderWidth="0"><p>{truncateString(description)}</p></Box>
 </Box>
+<style>
+  p {
+    font-size: var(--s0);
+  }
+  h4 {
+    font-size: var(--s1);
+    padding: var(--s1);
+  }
+</style>
