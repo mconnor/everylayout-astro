@@ -21,7 +21,9 @@ export default function Form() {
     <label id="label1" htmlFor="demo">
       <select
         id="demo"
-        onChange={(ev) => { setSelectedDemo(ev.target.value); }}
+        onChange={(ev) => {
+          setSelectedDemo(ev.target.value)
+        }}
         title="see a layout"
         defaultValue={selectedDemo}
         size={1}

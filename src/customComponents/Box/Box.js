@@ -15,7 +15,7 @@ export default class Box extends HTMLElement {
 
       if (!document.getElementById(this.i)) {
         let styleEl = document.createElement('style')
-        styleEl.id = this.i;
+        styleEl.id = this.i
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             padding: ${this.padding};
@@ -29,9 +29,9 @@ export default class Box extends HTMLElement {
           }
         `
           .replace(/\s{2,}/g, ' ')
-          .trim();
-        
-        document.head.appendChild(styleEl);
+          .trim()
+
+        document.head.appendChild(styleEl)
       }
     }
   }
@@ -69,7 +69,7 @@ export default class Box extends HTMLElement {
   }
 
   connectedCallback() {
-    this.dataset.i = this.i;
+    this.dataset.i = this.i
     this.render()
   }
 

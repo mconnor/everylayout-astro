@@ -1,8 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
@@ -10,27 +8,13 @@
     "useDefineForClassFields": false,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@cc/*": [
-        "src/customComponents/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@content/*": [
-        "src/content/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@scripts/*": [
-        "src/scripts/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@cc/*": ["src/customComponents/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@content/*": ["src/content/*"],
+      "@assets/*": ["src/assets/*"],
+      "@styles/*": ["src/styles/*"],
+      "@scripts/*": ["src/scripts/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
