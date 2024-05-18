@@ -1,5 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "include": [
+    "src"
+  ],
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
@@ -31,17 +34,5 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  },
-  "include": [
-    "src/**/*.d.ts",
-    "**/*.ts",
-    "**/*.mts",
-    "**/*.js",
-    "**/*.mjs",
-    "src/**/*.astro",
-    "src/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }

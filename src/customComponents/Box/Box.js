@@ -11,10 +11,11 @@ export default class Box extends HTMLElement {
     super()
     this.render = () => {
       this.i = `Box-${[this.padding, this.borderWidth, this.invert].join('')}`
-      this.dataset.i = this.i
+      // this.dataset.i = this.i
+
       if (!document.getElementById(this.i)) {
         let styleEl = document.createElement('style')
-        styleEl.id = this.i
+        styleEl.id = this.i;
         styleEl.innerHTML = `
           [data-i="${this.i}"] {
             padding: ${this.padding};
@@ -27,9 +28,10 @@ export default class Box extends HTMLElement {
             background-color: inherit;
           }
         `
-          .replace(/\s\s+/g, ' ')
-          .trim()
-        document.head.appendChild(styleEl)
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        
+        document.head.appendChild(styleEl);
       }
     }
   }
@@ -67,6 +69,7 @@ export default class Box extends HTMLElement {
   }
 
   connectedCallback() {
+    this.dataset.i = this.i;
     this.render()
   }
 
