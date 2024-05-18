@@ -39,7 +39,7 @@ export default class Center extends HTMLElement {
             }
           }
         `
-          .replace(/\s\s+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
       }

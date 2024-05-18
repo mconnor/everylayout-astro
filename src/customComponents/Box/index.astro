@@ -1,11 +1,8 @@
 ---
-import './Box.css'
-import type { RmUnitType } from '../Types'
-
 type Props = {
-  padding?: RmUnitType //"var(--s1)"
-  borderWidth?: RmUnitType //"var(--border-thin)"
-  invert?: boolean // false
+  padding?: string
+  borderWidth?: string
+  invert?: boolean
 }
 const { padding, borderWidth, invert } = Astro.props
 ---
@@ -14,3 +11,16 @@ const { padding, borderWidth, invert } = Astro.props
   <slot />
 </box-l>
 <script src="./Box.js"></script>
+
+<style is:global>
+  box-l {
+    display: block;
+    padding: var(--s1);
+    border-width: var(--border-thin);
+    /* ↓ For high contrast mode */
+    outline: 0.125rem solid transparent;
+    outline-offset: -0.125rem;
+    color: var(--text-3) !important;
+    background-color: var(--surface-3) !important;
+  }
+</style>

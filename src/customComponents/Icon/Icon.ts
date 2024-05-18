@@ -29,7 +29,7 @@ export default class Icon extends HTMLElement {
               margin-inline-end: ${this.space};
             }
           `
-            .replace(/\s\s+/g, ' ')
+            .replace(/\s{2,}/g, ' ')
             .trim()
           document.head.appendChild(styleEl)
         }

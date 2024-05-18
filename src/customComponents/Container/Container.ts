@@ -20,7 +20,7 @@ class Container extends HTMLElement {
               ${this.name ? `container-name: ${this.name};` : ''}
             }
           `
-          .replace(/\s\s+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
       }

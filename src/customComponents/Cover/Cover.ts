@@ -41,7 +41,7 @@ export default class Cover extends HTMLElement {
             margin-block: auto;
           }
         `
-          .replace(/\s\s+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
       }

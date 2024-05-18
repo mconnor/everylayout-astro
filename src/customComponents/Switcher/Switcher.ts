@@ -30,7 +30,7 @@ export default class Switcher extends HTMLElement {
               flex-basis: 100%;
             }
           `
-          .replace(/\s\s+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
       }

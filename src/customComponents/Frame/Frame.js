@@ -21,7 +21,7 @@ export default class Frame extends HTMLElement {
           [data-i="${this.i}"] {
             aspect-ratio: ${ratio[0]} / ${ratio[1]};
           }
-        `.replace(/\s\s+/g, ' ').trim();
+        `.replace(/\s{2,}/g, ' ').trim();
         document.head.appendChild(styleEl);
       }
     }

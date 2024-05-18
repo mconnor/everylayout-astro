@@ -22,7 +22,7 @@ export default class Cluster extends HTMLElement {
             gap: ${this.space};
           }
         `
-          .replace(/\s\s+/g, ' ')
+          .replace(/\s{2,}/g, ' ')
           .trim()
         document.head.appendChild(styleEl)
       }

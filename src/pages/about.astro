@@ -7,9 +7,10 @@ import { Box, Stack, Center } from '@cc/index.ts'
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
   <Center>
     <Stack recursive>
-      <Box>
+      <Box invert>
         <h3>Sagittis purus sc</h3>
       </Box>
+
       <Box>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
@@ -17,7 +18,7 @@ import { Box, Stack, Center } from '@cc/index.ts'
           reprehenderit asperiores cupiditate eum doloribus eos magnam
           voluptates suscipit praesentium recusandae magni nulla.
         </p>
-        <Box invert>
+        <Box>
           <p>
             Ut quis tempora tenetur, corrupti odio quidem modi hic neque
             consequuntur enim expedita doloribus pariatur odit, aspernatur dolor
@@ -31,3 +32,10 @@ import { Box, Stack, Center } from '@cc/index.ts'
     </Stack>
   </Center>
 </Layout>
+
+<style>
+  .about-colors {
+    color: white !important;
+    background-color: black !important;
+  }
+</style>

@@ -14,9 +14,9 @@ const posts = (await getCollection('blog')).sort(
     <Switcher>
       {
         posts.map((post) => (
-          <Box>
+          <Box invert>
             <a href={`/blog/${post.slug}/`}>
-              <h4>xx{post.data.title}</h4>
+              <h4>{post.data.title}</h4>
               <p>
                 <FormattedDate date={post.data.pubDate} />
               </p>
