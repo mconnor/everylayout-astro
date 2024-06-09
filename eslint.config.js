@@ -1,28 +1,27 @@
-// ver 2.0.0
+// @ts-check
 
-import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import globals from 'globals';
-import js from '@eslint/js';
-import markdown from 'eslint-plugin-markdown';
-import tseslint from 'typescript-eslint';
+import eslintPluginAstro from 'eslint-plugin-astro'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import reactPlugin from 'eslint-plugin-react'
+import globals from 'globals'
+import js from '@eslint/js'
+import markdown from 'eslint-plugin-markdown'
+import tseslint from 'typescript-eslint'
 
+import * as regexpPlugin from 'eslint-plugin-regexp'
 
-import * as regexpPlugin from 'eslint-plugin-regexp';
-
-import { FlatCompat } from '@eslint/eslintrc';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 // mimic CommonJS variables -- not needed if using CommonJS
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-});
-
-
+})
 
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
@@ -30,10 +29,13 @@ export default tseslint.config(
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
 
-  regexpPlugin.configs["flat/recommended"],
-  
+  regexpPlugin.configs['flat/recommended'],
+
+  // @ts-ignore
   ...markdown.configs.recommended,
 
+  // ...compat.extends('plugin:react/jsx-runtime'),
+  // ...compat.extends('plugin:react-hooks/recommended'),
   // ...compat.extends('plugin:jsx-a11y/recommended'),
   // ...compat.extends('plugin:lit/recommended'),
   // ...compat.extends('plugin:wc/recommended'),
@@ -43,14 +45,8 @@ export default tseslint.config(
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        window: "readonly",
-        customElements: "readonly", 
-        document: "readonly",
-        HTMLElement: "readonly",
-        ResizeObserver: "readonly",
-        MutationObserver: "readonly",
-        console: "readonly",
-        
+        ...globals.serviceworker,
+        ...globals.browser,
       },
       parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -63,30 +59,61 @@ export default tseslint.config(
   {
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
-    }
+    },
   },
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 
-  // {
-  //   plugins: {
-  //     markdown,
-  //   },
-  // },
-  // {
-  //   files: ['**/*.md'],
-  //   processor: 'markdown/markdown',
-  // },
-  // {
-  //   files: ['**/*.md'],
-  //   rules: {
-  //     ...markdown.configs.recommended.rules,
-  //   },
-  // },
+  {
+    files: ['**/*.tsx'],
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+    },
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        project: true,
+        tsconfigDirName: import.meta.dirname,
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off', // Not needed for newer React versions
+      'react/prop-types': 'off', // Disable if not using PropTypes
+      'react-hooks/rules-of-hooks': 'error', // Enforces the rules of Hooks
+      'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    },
 
+    settings: {
+      react: {
+        version: 'detect', // Automatically detect the React version
+      },
+    },
+  },
 
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'react/display-name': 1,
+      'react/no-array-index-key': 0,
+      'react/react-in-jsx-scope': 0,
+      'react/prefer-stateless-function': 0,
+      'react/forbid-prop-types': 0,
+      'react/no-unescaped-entities': 0,
+      'react/function-component-definition': 0,
+    },
+  },
 
   {
     files: [
@@ -133,4 +160,4 @@ export default tseslint.config(
     ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
-);
+)
