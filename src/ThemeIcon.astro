@@ -43,8 +43,8 @@
 </style>
 
 <script is:inline>
-  const LIGHT = 'light'
-  const DARK = 'dark'
+  const LIGHT = 'light';
+  const DARK = 'dark';
 
   document.addEventListener('astro:page-load', () => {
     const theme = (() => {
@@ -52,36 +52,36 @@
         typeof localStorage !== 'undefined' &&
         localStorage.getItem('theme')
       ) {
-        return localStorage.getItem('theme')
+        return localStorage.getItem('theme');
       }
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return DARK
+        return DARK;
       }
-      return LIGHT
-    })()
+      return LIGHT;
+    })();
 
     if (theme === LIGHT) {
-      document.documentElement.classList.remove(DARK)
+      document.documentElement.classList.remove(DARK);
     } else {
-      document.documentElement.classList.add(DARK)
+      document.documentElement.classList.add(DARK);
     }
 
-    window.localStorage.setItem('theme', theme)
+    window.localStorage.setItem('theme', theme);
 
-    const btnSunMoo = document.getElementById('themeToggle')
+    const btnSunMoo = document.getElementById('themeToggle');
 
     btnSunMoo.addEventListener('click', (e) => {
-      const element = document.documentElement
+      const element = document.documentElement;
       // // element.classList.toggle(DARK)
 
       // const isDark = element.classList.contains(DARK)
-      const isDark = element.getAttribute('data-theme')
+      const isDark = element.getAttribute('data-theme');
 
-      element.setAttribute('data-theme', isDark ? LIGHT : DARK)
+      element.setAttribute('data-theme', isDark ? LIGHT : DARK);
 
-      localStorage.setItem('theme', isDark ? LIGHT : DARK)
+      localStorage.setItem('theme', isDark ? LIGHT : DARK);
 
       // e.target.setAttribute('data-state', isDark ? 'moon' : 'sun')
-    })
-  })
+    });
+  });
 </script>

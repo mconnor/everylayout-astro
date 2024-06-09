@@ -1,19 +1,19 @@
 ---
-import { Reel, Frame } from '@cc/index.js'
-import Card from '@/components/Card.astro'
-import { Image } from 'astro:assets'
+import { Reel, Frame } from '@cc/index.js';
+import Card from '@/components/Card.astro';
+import { Image } from 'astro:assets';
 
 // import DummCards from '@cc/DummyCards.astro'
 
-import Layout from '@/layouts/LayoutWcover.astro'
+import Layout from '@/layouts/LayoutWcover.astro';
 
-const W = '100'
-const H = '50'
+const W = '100';
+const H = '50';
 const getRandomSrc = () => {
-  const random = Math.floor(Math.random() * 1000).toString()
+  const random = Math.floor(Math.random() * 1000).toString();
 
-  return `https://picsum.photos/100/50?random=${random}`
-}
+  return `https://picsum.photos/100/50?random=${random}`;
+};
 ---
 
 <Layout>

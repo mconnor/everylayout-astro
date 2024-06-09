@@ -1,19 +1,19 @@
 ---
-import CloseSVG from './CloseSVG.astro'
+import CloseSVG from './CloseSVG.astro';
 ---
 
 <button data-role="close" type="button"><CloseSVG /></button>
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    const buttons = document.querySelectorAll('button[data-role="close"]')
+    const buttons = document.querySelectorAll('button[data-role="close"]');
 
     // Handle clicks on each button.
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        throw new Error('This is a test error')
-      })
-    })
-  })
+        throw new Error('This is a test error');
+      });
+    });
+  });
   // Find all buttons with the `alert` class on the page.
 </script>

@@ -6,22 +6,22 @@
   // Define the behaviour for our new type of HTML element.
   class AstroHeart extends HTMLElement {
     constructor() {
-      super()
-      let count = 0
+      super();
+      let count = 0;
 
-      const heartButton = this.querySelector('button')
-      const countSpan = this.querySelector('span')
+      const heartButton = this.querySelector('button');
+      const countSpan = this.querySelector('span');
 
       // Each time the button is clicked, update the count.
       heartButton &&
         countSpan &&
         heartButton.addEventListener('click', () => {
-          count++
-          countSpan.textContent = count.toString()
-        })
+          count++;
+          countSpan.textContent = count.toString();
+        });
     }
   }
 
   // Tell the browser to use our AstroHeart class for <astro-heart> elements.
-  customElements.define('astro-heart', AstroHeart)
+  customElements.define('astro-heart', AstroHeart);
 </script>

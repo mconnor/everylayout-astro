@@ -1,27 +1,27 @@
 // @ts-check
 
-import eslintPluginAstro from 'eslint-plugin-astro'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import reactHooksPlugin from 'eslint-plugin-react-hooks'
-import reactPlugin from 'eslint-plugin-react'
-import globals from 'globals'
-import js from '@eslint/js'
-import markdown from 'eslint-plugin-markdown'
-import tseslint from 'typescript-eslint'
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import reactPlugin from 'eslint-plugin-react';
+import globals from 'globals';
+import js from '@eslint/js';
+import markdown from 'eslint-plugin-markdown';
+import tseslint from 'typescript-eslint';
 
-import * as regexpPlugin from 'eslint-plugin-regexp'
+import * as regexpPlugin from 'eslint-plugin-regexp';
 
-import { FlatCompat } from '@eslint/eslintrc'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // mimic CommonJS variables -- not needed if using CommonJS
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-})
+});
 
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
@@ -160,4 +160,4 @@ export default tseslint.config(
     ],
   },
   eslintConfigPrettier, // eslint-config-prettier last
-)
+);

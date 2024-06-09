@@ -1,19 +1,19 @@
 ---
-import BaseHead from '@/components/BaseHead.astro'
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
-import { Cover, Center } from '@cc/index.js'
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { Cover, Center } from '@cc/index.js';
 
 interface Props {
-  title?: string
-  description?: string
-  children: unknown
+  title?: string;
+  description?: string;
+  children: unknown;
 }
 
 const { title = 'I NEED A TITLE', description = 'no description provided' } =
-  Astro.props
+  Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en" transition:animate="none" color-scheme="dark">

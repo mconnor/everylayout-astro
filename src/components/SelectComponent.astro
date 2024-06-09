@@ -1,5 +1,5 @@
 ---
-const DEFAULT_VAL = '--layout Custom Web Component'
+const DEFAULT_VAL = '--layout Custom Web Component';
 ---
 
 <select data-navigate-select data-message={DEFAULT_VAL}>
@@ -14,23 +14,23 @@ const DEFAULT_VAL = '--layout Custom Web Component'
 </select>
 
 <script>
-  import { navigate } from 'astro:transitions/client'
+  import { navigate } from 'astro:transitions/client';
 
   document.addEventListener('astro:page-load', () => {
     const select = document.querySelector(
       '[data-navigate-select]',
-    ) as HTMLSelectElement
+    ) as HTMLSelectElement;
 
     // const defaultVal = select.dataset.message ?? 'pick a demo...'
-    const path = window.location.pathname
+    const path = window.location.pathname;
     if (!path) {
-      throw new Error('path is not defined')
+      throw new Error('path is not defined');
     }
 
-    select.value = 'xxx'
+    select.value = 'xxx';
     select.addEventListener(
       'change',
       (e: Event) => e.target && navigate((e.target as HTMLSelectElement).value),
-    )
-  })
+    );
+  });
 </script>

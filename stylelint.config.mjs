@@ -5,4 +5,4 @@ export default {
     'block-no-empty': true,
     'color-function-notation': ['modern'],
   },
-}
+};

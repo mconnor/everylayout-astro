@@ -2,16 +2,16 @@
 
 <script>
   // Import npm modules.
-  import confetti from 'canvas-confetti'
+  import confetti from 'canvas-confetti';
 
   // Find our component DOM on the page.
-  const buttons = document.querySelectorAll('[data-confetti-button]')
+  const buttons = document.querySelectorAll('[data-confetti-button]');
 
   // Add event listeners to fire confetti when a button is clicked.
 
   document.addEventListener('astro:page-load', () => {
     buttons.forEach((button) => {
-      button.addEventListener('click', () => confetti())
-    })
-  })
+      button.addEventListener('click', () => confetti());
+    });
+  });
 </script>

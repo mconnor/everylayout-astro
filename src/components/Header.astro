@@ -1,23 +1,23 @@
 ---
-import HeaderLink from './HeaderLink.astro'
+import HeaderLink from './HeaderLink.astro';
 
-import { Box, Cluster } from '@cc/index'
-import Select from '@/components/Select'
+import { Box, Cluster, Switcher } from '@cc/index';
+import Select from '@/components/Select.tsx';
 ---
 
-<Box invert padding="var(--s1)" borderWidth="0">
+<Box padding="var(--s1)" borderWidth="0">
   <Cluster justify="space-between">
     <Box padding="0" borderWidth="1px">
       <Select client:only="react" transition:persist />
     </Box>
 
     <Box borderWidth="0" padding="0">
-      <Cluster>
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/blog">Blog</HeaderLink>
-        <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="/test">Test</HeaderLink>
-        <HeaderLink href="/mytest">mytest</HeaderLink>
+      <Cluster align="baseline" justify="flex-start" space="var(--s6)">
+        <Switcher threshold="20ch" limit={6}>
+          <HeaderLink href="/">Home</HeaderLink>
+          <HeaderLink href="/blog">Blog</HeaderLink>
+          <HeaderLink href="/about">About</HeaderLink>
+        </Switcher>
       </Cluster>
     </Box>
   </Cluster>

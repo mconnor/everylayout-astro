@@ -1,23 +1,23 @@
 ---
-import { Box } from '@cc/index.js'
+import { Box } from '@cc/index.js';
 
 interface Props {
-  headline?: string
-  description?: string
+  headline?: string;
+  description?: string;
 }
 
 const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
     aspernatur, veritatis voluptate asperiores blanditiis beatae, modi
     impedit voluptatibus dignissimos optio eaque consectetur saepe illum sit
-    doloremque velit nobis eos?`
+    doloremque velit nobis eos?`;
 
-const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props
+const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props;
 
 function truncateString(str: string) {
   if (str.length <= 100) {
-    return str
+    return str;
   }
-  return str.slice(0, 100) + '...'
+  return str.slice(0, 100) + '...';
 }
 ---
 
