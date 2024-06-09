@@ -1,11 +1,11 @@
 ---
 // import type { CollectionEntry } from 'astro:content'
 // import { getEntry } from 'astro:content'
-import { Box, Stack, Center } from '@cc/index.ts'
+import { Box, Stack, Center } from '@cc/index.js'
 import { Image } from 'astro:assets'
 
 import FormattedDate from '@/components/FormattedDate.astro'
-// import Author from '@/components/Author.astro'
+// import Author from '@cc/Author.astro'
 import Layout from '@/layouts/LayoutWcover.astro'
 
 const { data } = Astro.props
@@ -18,7 +18,7 @@ const { title, description, pubDate, cover } = data
     <Stack>
       <Image
         src={cover.src}
-        width="60ch"
+        width="1200"
         sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
         height="300"
         alt={cover.description}

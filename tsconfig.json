@@ -14,7 +14,7 @@
       //   "src/components/*"
       // ],
       "@cc/*": [
-        "src/customComponents/*"
+        "src/astro-custom-layout-components/*"
       ],
       // "@layouts/*": [
       //   "src/layouts/*"

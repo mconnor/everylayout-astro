@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
 
 // import vercel from '@astrojs/vercel/serverless'
-import lit from '@astrojs/lit'
+// import lit from '@astrojs/lit'
 // const { SECRET_TOKEN } = loadEnv(
 //  proceess.env.SENTRY_AUTH_TOKEN,
 //   process.cwd(),
@@ -37,7 +37,7 @@ export default defineConfig({
     // }),
     // spotlightjs(),
     react(),
-    lit(),
+    // lit(),
   ],
   vite: {
     ssr: {

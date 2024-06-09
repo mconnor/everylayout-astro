@@ -11,22 +11,21 @@ export const imageSchema = ({ image }: SchemaContext) =>
     description: z.string().optional(),
   })
 
-export const blogSchema = z.object({
-  title: z.string(),
-  pubDate: z.date({
-    required_error: 'Please select a date and time',
-    invalid_type_error: "That's not a date!",
-  }),
-  description: z.string(),
-
-  // Reference a single author from the `authors` collection by `id`
-  author: reference('authors').optional(),
-  // Reference an array of related posts from the `blog` collection by `slug`
-  relatedPosts: z.array(reference('blog')).optional(),
-  draft: z.boolean().optional(),
-  tags: z.array(z.string()).optional(),
-  cover: z.object({ src: z.string(), description: z.string() }),
-})
+export const blogSchema = ({ image }: SchemaContext) =>
+  z.object({
+    title: z.string(),
+    pubDate: z.date({
+      required_error: 'Please select a date and time',
+      invalid_type_error: "That's not a date!",
+    }),
+    description: z.string(),
+    author: reference('authors').optional(),
+    relatedPosts: z.array(reference('blog')).optional(),
+    draft: z.boolean().optional(),
+    tags: z.array(z.string()).optional(),
+    cover: z.object({ src: z.string(), description: z.string() }),
+    // cover: imageSchema({ image }),
+  })
 
 export const authorSchema = z.object({
   id: z.string(),
@@ -38,5 +37,5 @@ export const authorSchema = z.object({
 
 // const blogSchema = blogCollection.schema
 
-export type BlogSchemaType = z.infer<typeof blogSchema>
+// export type BlogSchemaType = z.infer<typeof blogSchema>
 export type AurthorSchemaType = z.infer<typeof authorSchema>
