@@ -1,10 +1,10 @@
 ---
-import BaseHead from '@components/BaseHead.astro'
-import Header from '@components/Header.astro'
-import Footer from '@components/Footer.astro'
+import BaseHead from '@/components/BaseHead.astro'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
 import { Cover, Center } from '@cc/index.js'
 
-type Props = {
+interface Props {
   title?: string
   description?: string
   children: unknown

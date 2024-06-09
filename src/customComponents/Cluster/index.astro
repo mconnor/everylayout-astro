@@ -4,17 +4,18 @@ import type { RmUnitType, JustifyContentTypes, AlignItemsTypes } from '../Types'
 
 // const LIST = 'list'
 
-type Props = {
+interface Props {
   justify?: JustifyContentTypes //"flex-start"
   align?: AlignItemsTypes // "flex-start"
   space?: RmUnitType
+
   // role?: typeof LIST
 }
 
 const { justify, align, space } = Astro.props
 ---
 
-<cluster-l justify={justify} align={align} space={space}>
+<cluster-l justify={justify} align={align} space={space} role="list">
   <slot />
 </cluster-l>
 

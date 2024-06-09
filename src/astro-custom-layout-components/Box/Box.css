@@ -1,0 +1,12 @@
+box-l {
+  display: block;
+  padding: var(--s1);
+  border-width: var(--border-thin);
+
+  background-color: var(--surface-1) !important;
+  color: var(--text-2) !important;
+
+  /* ↓ For high contrast mode */
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.125rem;
+}

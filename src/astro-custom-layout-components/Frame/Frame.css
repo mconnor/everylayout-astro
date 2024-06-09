@@ -1,0 +1,22 @@
+frame-l {
+  --n: 16;
+  --d: 9;
+  aspect-ratio: var(--n) / var(--d);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+frame-l > img,
+frame-l > video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+@media (orientation: portrait) {
+  .frame {
+    aspect-ratio: 1 / 1;
+  }
+}

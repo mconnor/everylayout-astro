@@ -1,0 +1,36 @@
+---
+import type { Percentage, RmUnitType } from '../Types.ts';
+
+interface Props {
+  side?: 'left' | 'right';
+  sideWidth?: RmUnitType; //Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
+  contentMin?: Percentage; //A CSS percentage value. The minimum width of the content element in the horizontal configuration
+  space?: RmUnitType; //"var(--s1)"
+  noStretch?: boolean;
+}
+const props = Astro.props;
+---
+
+<sidebar-l {...props}>
+  <slot />
+</sidebar-l>
+
+<script src="./Sidebar.js"></script>
+
+<style is:global>
+  sidebar-l {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  sidebar-l > * {
+    flex-grow: 1;
+  }
+</style>
+
+<!-- 
+side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")
+sideWidth	string		Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
+contentMin	string	"50%"	A CSS percentage value. The minimum width of the content element in the horizontal configuration
+space	string	"var(--s1)"	A CSS margin value representing the space between the two elements
+noStretch	boolean	false	Make the adjacent elements adopt their natural height -->

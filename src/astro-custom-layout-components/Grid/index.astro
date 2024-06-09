@@ -1,0 +1,26 @@
+---
+import type { RmUnitType } from '../Types';
+
+interface Props {
+  min?: RmUnitType; //"250px"
+  space?: RmUnitType; //"var(--s1)"
+  children: unknown;
+}
+
+const { min, space } = Astro.props;
+---
+
+<grid-l min={min} space={space}>
+  <slot />
+</grid-l>
+
+<script src="./Grid.js"></script>
+
+<style is:global>
+  grid-l {
+    display: grid;
+    grid-gap: var(--s1);
+    align-content: start;
+    grid-template-columns: 100%;
+  }
+</style>

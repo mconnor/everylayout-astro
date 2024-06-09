@@ -1,0 +1,29 @@
+---
+// const LIST = 'list'
+
+interface Props {
+  name: string;
+  // role?: typeof LIST
+}
+
+const { name } = Astro.props;
+---
+
+<container-l name={name}>
+  <slot />
+</container-l>
+
+<script src="./Container.js"></script>
+
+<style is:global>
+  container-l {
+    display: block;
+  }
+</style>
+
+<!-- 
+side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")
+sideWidth	string		Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
+contentMin	string	"50%"	A CSS percentage value. The minimum width of the content element in the horizontal configuration
+space	string	"var(--s1)"	A CSS margin value representing the space between the two elements
+noStretch	boolean	false	Make the adjacent elements adopt their natural height -->

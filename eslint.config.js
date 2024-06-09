@@ -1,112 +1,136 @@
 // ver 2.0.0
 
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import eslintPluginAstro from 'eslint-plugin-astro'
-import eslintConfigPrettier from 'eslint-config-prettier'
-import globals from 'globals'
-import js from '@eslint/js'
-import markdown from 'eslint-plugin-markdown'
-import tseslint from 'typescript-eslint'
-import { FlatCompat } from '@eslint/eslintrc'
-import regexpEslint from 'eslint-plugin-regexp'
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
+import js from '@eslint/js';
+import markdown from 'eslint-plugin-markdown';
+import tseslint from 'typescript-eslint';
 
-// import tsPlugin from '@typescript-eslint/eslint-plugin';
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
-// ref: https://eslint.org/docs/latest/use/configure/migration-guide#using-eslintrc-configs-in-flat-config
+import * as regexpPlugin from 'eslint-plugin-regexp';
+
+import { FlatCompat } from '@eslint/eslintrc';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 // mimic CommonJS variables -- not needed if using CommonJS
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-})
+});
+
+
 
 export default tseslint.config(
-  js.configs.recommended,
+  js.configs.recommended, // Recommended config applied to all files
   ...tseslint.configs.recommended,
-  // ...tseslint.configs.recommendedTypeChecked,
-  // ...tseslint.configs.stylisticTypeChecked,
+  ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
+
+  regexpPlugin.configs["flat/recommended"],
+  
+  ...markdown.configs.recommended,
+
+  // ...compat.extends('plugin:jsx-a11y/recommended'),
   // ...compat.extends('plugin:lit/recommended'),
   // ...compat.extends('plugin:wc/recommended'),
-  ...compat.extends('plugin:regexp/recommended'),
-  {
-    ignores: [
-      'pnpm-lock.yaml',
-      '.astro/',
-      'dist/',
-      '**/test.ts',
-      'my-custom-cache-directory',
-      'src/env.d.ts',
-    ],
-  },
 
   {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ...globals.browser,
+        window: "readonly",
+        customElements: "readonly", 
+        document: "readonly",
+        HTMLElement: "readonly",
+        ResizeObserver: "readonly",
+        MutationObserver: "readonly",
+        console: "readonly",
+        
       },
-
       parserOptions: {
-        project: ['./tsconfig.json'],
-        tsconfigRootDir: './',
+        parser: '@typescript-eslint/parser',
+        processor: eslintPluginAstro.processors.astro,
+        project: true,
+        tsconfigDirName: import.meta.dirname,
       },
     },
-    plugins: {
-      regexp: regexpEslint,
-    },
+  },
+  {
     rules: {
-      // In some cases, using explicit letter-casing is more performant than the `i` flag
-      'regexp/use-ignore-case': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/no-duplicate-type-constituents': 'warn',
-      '@typescript-eslint/unbound-method': 'warn',
-    },
+      '@typescript-eslint/no-unused-vars': 'off',
+    }
   },
   {
-    linterOptions: {
-      reportUnusedDisableDirectives: 'warn',
-    },
-  },
-
-  {
-    // disable type-aware linting on JS files
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
-  {
-    // 1. Add the plugin
-    plugins: {
-      markdown,
-    },
-  },
+
+  // {
+  //   plugins: {
+  //     markdown,
+  //   },
+  // },
+  // {
+  //   files: ['**/*.md'],
+  //   processor: 'markdown/markdown',
+  // },
+  // {
+  //   files: ['**/*.md'],
+  //   rules: {
+  //     ...markdown.configs.recommended.rules,
+  //   },
+  // },
+
+
 
   {
-    files: ['src/**/*.md'],
-
-    processor: 'markdown/markdown',
+    files: [
+      'scr/web-components/**/*.js',
+      'src/astro-custom-layout-components/**/*.js',
+    ],
     rules: {
-      // ...
+      'wc/no-constructor-attributes': 'off',
     },
   },
+
   {
     // 1. Target ```js code blocks in .md files.
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
   },
+  // {
+  //   files: ['tests/**'],
+  //   languageOptions: {
+  //     globals: {
+  //       ...globals.mocha,
+  //     },
+  //   },
+  // },
   {
-    // disable type-aware linting on JS files
-    files: ['**/*.js'],
-    ...tseslint.configs.disableTypeChecked,
-  },
-  {
-    settings: {
-      react: {
-        version: 'detect',
-      },
+    linterOptions: {
+      reportUnusedDisableDirectives: 'warn',
     },
   },
+  {
+    ignores: [
+      'src/pages/demo/grid-demo.astro',
+      '**/temp.js',
+      'config/*',
+      'pnpm-lock.yaml',
+      '.astro/',
+      'dist/',
+      '**/test.ts',
+      'my-custom-cache-directory',
+      'src/env.d.ts',
+      'src/components/Hamburger.astro',
+      'src/pages/kitchensink.astro',
+      'src/pages/splash.astro',
+    ],
+  },
   eslintConfigPrettier, // eslint-config-prettier last
-)
+);

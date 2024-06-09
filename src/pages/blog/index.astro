@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
-import FormattedDate from '@components/FormattedDate.astro'
-import Layout from '@layouts/LayoutWcover.astro'
+import FormattedDate from '@/components/FormattedDate.astro'
+import Layout from '@/layouts/LayoutWcover.astro'
 import { Switcher, Box } from '@cc/index'
 
 const posts = (await getCollection('blog')).sort(

@@ -12,6 +12,7 @@ export default class Cluster extends HTMLElement {
     this.render = () => {
       this.i = `Cluster-${[this.justify, this.align, this.space].join('')}`
       this.dataset.i = this.i
+
       if (!document.getElementById(this.i)) {
         const styleEl = document.createElement('style')
         styleEl.id = this.i

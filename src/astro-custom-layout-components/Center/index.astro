@@ -1,0 +1,18 @@
+---
+import './Center.css';
+import type { RmUnitType } from '../Types';
+
+interface Props {
+  max?: RmUnitType;
+  andText?: boolean;
+  gutters?: boolean;
+  intrinsic?: boolean;
+}
+const { max, ...rest } = Astro.props;
+---
+
+<center-l max={max} {...rest}>
+  <slot />
+</center-l>
+
+<script src="./Center.js"></script>

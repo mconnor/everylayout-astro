@@ -1,0 +1,26 @@
+---
+import type { RmUnitType } from '../Types';
+
+interface Props {
+  breakout?: boolean; // Whether the element is allowed to break out of the container over which it is positioned
+  margin?: RmUnitType; //"var(--s1)"
+  fixed?: boolean; //Whether to position the element relative to the viewport
+}
+
+const props = Astro.props;
+---
+
+<imposter-l {...props}>
+  <slot />
+</imposter-l>
+
+<script src="./Imposter.js"></script>
+
+<style is:global>
+  imposter-l {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
