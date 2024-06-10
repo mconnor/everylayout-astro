@@ -20,19 +20,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: __dirname,                  // optional; default: process.cwd()
+  resolvePluginsRelativeTo: __dirname,       // optional
+  // recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
+  // allConfig: js.configs.all,                 // optional unless you're using "eslint:all"
 });
+
 
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
+  // @ts-ignore
+  ...markdown.configs.recommended,
 
   regexpPlugin.configs['flat/recommended'],
 
-  // @ts-ignore
-  ...markdown.configs.recommended,
+
+
 
   // ...compat.extends('plugin:react/jsx-runtime'),
   // ...compat.extends('plugin:react-hooks/recommended'),
