@@ -35,7 +35,7 @@ export const authorSchema = z.object({
   id: strSC,
   name: strSC.default('Anonymous'),
   email: emailSchemaOptional,
-  portfolio: z.string().url().optional(),
+  portfolio: urlSchemaOptional,
   bio: strSCOptional,
 });
 

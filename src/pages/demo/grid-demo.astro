@@ -12,15 +12,17 @@ const getRandomSrc = () => {
 
   return `https://picsum.photos/${W}/${H}?random=${random}`;
 };
+
+const pic = getRandomSrc();
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
   <!-- space set the gap on the grid -->
   <Grid space="1rem" min=`${W}px`>
-    <Card w="">
+    <Card>
       <Frame ratio="16:9" slot="image-slot">
-        <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />
+        <Image width={W} height={H} src={pic} alt="Image alt text" />
       </Frame></Card
     >
 
