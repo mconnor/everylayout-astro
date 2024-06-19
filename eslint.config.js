@@ -1,7 +1,7 @@
 // @ts-check
 
 import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintConfigPrettier from 'eslint-config-prettier';
+// import eslintConfigPrettier from 'eslint-config-prettier';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import reactPlugin from 'eslint-plugin-react';
 import globals from 'globals';
@@ -20,12 +20,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,                  // optional; default: process.cwd()
-  resolvePluginsRelativeTo: __dirname,       // optional
-  // recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-  // allConfig: js.configs.all,                 // optional unless you're using "eslint:all"
+  baseDirectory: __dirname, // optional; default: process.cwd()
+  resolvePluginsRelativeTo: __dirname, // optional
+  recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
+  allConfig: js.configs.all, // optional unless you're using "eslint:all"
 });
-
 
 export default tseslint.config(
   js.configs.recommended, // Recommended config applied to all files
@@ -37,15 +36,11 @@ export default tseslint.config(
 
   regexpPlugin.configs['flat/recommended'],
 
-
-
-
-  // ...compat.extends('plugin:react/jsx-runtime'),
-  // ...compat.extends('plugin:react-hooks/recommended'),
+  ...compat.extends('plugin:react/jsx-runtime'),
+  ...compat.extends('plugin:react-hooks/recommended'),
   // ...compat.extends('plugin:jsx-a11y/recommended'),
   // ...compat.extends('plugin:lit/recommended'),
-  // ...compat.extends('plugin:wc/recommended'),
-
+  ...compat.extends('plugin:wc/recommended'),
   {
     languageOptions: {
       ecmaVersion: 'latest',
@@ -61,8 +56,6 @@ export default tseslint.config(
         tsconfigDirName: import.meta.dirname,
       },
     },
-  },
-  {
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
     },
@@ -71,7 +64,6 @@ export default tseslint.config(
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
-
   {
     files: ['**/*.tsx'],
     plugins: {
@@ -109,23 +101,7 @@ export default tseslint.config(
   },
 
   {
-    files: ['**/*.tsx'],
-    rules: {
-      'react/display-name': 1,
-      'react/no-array-index-key': 0,
-      'react/react-in-jsx-scope': 0,
-      'react/prefer-stateless-function': 0,
-      'react/forbid-prop-types': 0,
-      'react/no-unescaped-entities': 0,
-      'react/function-component-definition': 0,
-    },
-  },
-
-  {
-    files: [
-      'scr/web-components/**/*.js',
-      'src/astro-custom-layout-components/**/*.js',
-    ],
+    files: ['src/astro-custom-layout-components/**/*.js'],
     rules: {
       'wc/no-constructor-attributes': 'off',
     },
@@ -151,7 +127,6 @@ export default tseslint.config(
   },
   {
     ignores: [
-      'src/pages/demo/grid-demo.astro',
       '**/temp.js',
       'config/*',
       'pnpm-lock.yaml',
@@ -160,10 +135,6 @@ export default tseslint.config(
       '**/test.ts',
       'my-custom-cache-directory',
       'src/env.d.ts',
-      'src/components/Hamburger.astro',
-      'src/pages/kitchensink.astro',
-      'src/pages/splash.astro',
     ],
   },
-  eslintConfigPrettier, // eslint-config-prettier last
 );
