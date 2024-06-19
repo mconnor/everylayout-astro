@@ -1,42 +1,43 @@
 import { z, reference, type SchemaContext } from 'astro:content';
 
-// The context object that defineCollection uses for the function shape of schema. This type can be useful when building reusable schemas for multiple collections.
+const urlSchema = z.string().url();
+const urlSchemaOptional = urlSchema.optional();
+const strSC = z.string();
+const strSCOptional = strSC.optional();
+const emailSchema = z.string().email();
+const emailSchemaOptional = emailSchema.optional();
 
-// This includes the following property:
+const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 
-// image - The image() schema helper that allows you to use local images in Content Collections
+const myDateSchema = z.date({
+  required_error: 'Please select a date and time',
+  invalid_type_error: "That's not a date!",
+});
+
 export const imageSchema = ({ image }: SchemaContext) =>
   z.object({
     image: image(),
     description: z.string().optional(),
   });
 
-export const blogSchema = ({ image }: SchemaContext) =>
-  z.object({
-    title: z.string(),
-    pubDate: z.date({
-      required_error: 'Please select a date and time',
-      invalid_type_error: "That's not a date!",
-    }),
-    description: z.string(),
-    author: reference('authors').optional(),
-    relatedPosts: z.array(reference('blog')).optional(),
-    draft: z.boolean().optional(),
-    tags: z.array(z.string()).optional(),
-    cover: z.object({ src: z.string(), description: z.string() }),
-    // cover: imageSchema({ image }),
-    // image: imageSchema({ image })
-  });
-
-export const authorSchema = z.object({
-  id: z.string(),
-  name: z.string().default('Anonymous'),
-  email: z.string().email().optional(),
-  portfolio: z.string().url().optional(),
-  bio: z.string().optional(),
+export const blogSchema = z.object({
+  title: strSC,
+  pubDate: myDateSchema,
+  description: strSC,
+  author: reference('authors'),
+  // relatedPosts: z.array(reference('blog')).optional(),
+  draft: z.boolean().optional(),
+  tags: z.array(strSC).optional(),
+  cover: imageSrcSchema,
 });
 
-// const blogSchema = blogCollection.schema
+export const authorSchema = z.object({
+  id: strSC,
+  name: strSC.default('Anonymous'),
+  email: emailSchemaOptional,
+  portfolio: z.string().url().optional(),
+  bio: strSCOptional,
+});
 
-// export type BlogSchemaType = z.infer<typeof blogSchema>
 export type AurthorSchemaType = z.infer<typeof authorSchema>;
+export type BlogSchemaType = z.infer<typeof blogSchema>;

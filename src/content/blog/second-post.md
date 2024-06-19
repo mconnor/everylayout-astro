@@ -3,9 +3,10 @@ title: 'Second post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 2024-01-15
 draft: false
+author: mike-connor
 cover:
   src: 'https://picsum.photos/1200/300?random=0'
-  description: 'A photograph of a sunset behind a mountain range.'
+  alt: 'A photograph of a sunset behind a mountain range.'
 tags: ['rafting', 'dogs']
 ---
 

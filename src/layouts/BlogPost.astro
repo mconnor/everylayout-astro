@@ -1,14 +1,19 @@
 ---
+import { getEntry } from 'astro:content';
 import { Box, Stack, Center } from '@cc/index.js';
 import { Image } from 'astro:assets';
+
+import type { BlogSchemaType } from '../schemas.ts';
 
 import FormattedDate from '@/components/FormattedDate.astro';
 // import Author from '@cc/Author.astro'
 import Layout from '@/layouts/LayoutWcover.astro';
 
-const { data } = Astro.props;
+type Props = BlogSchemaType;
 
-const { title, description, pubDate, cover } = data;
+const { title, description, pubDate, cover, author } = Astro.props;
+
+const { data } = await getEntry('authors', author.id);
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
@@ -19,14 +24,14 @@ const { title, description, pubDate, cover } = data;
         width="1200"
         sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
         height="300"
-        alt={cover.description}
+        alt={cover.alt}
       />
       <Box invert> <p>{description}</p></Box>
-      <!-- {author && <Author {...author} />} -->
 
       <FormattedDate date={pubDate} />
 
       <Box invert><h3>{title}</h3></Box>
+      <Box invert><hh2>written by {data.name}</hh2></Box>
       <hr />
 
       <slot />
