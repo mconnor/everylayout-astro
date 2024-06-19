@@ -25,6 +25,7 @@ export const blogSchema = ({ image }: SchemaContext) =>
     tags: z.array(z.string()).optional(),
     cover: z.object({ src: z.string(), description: z.string() }),
     // cover: imageSchema({ image }),
+    // image: imageSchema({ image })
   });
 
 export const authorSchema = z.object({

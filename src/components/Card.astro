@@ -26,14 +26,15 @@ function truncateString(str: string) {
     <h4>{headline}</h4>
   </Box>
   <Box padding="0" borderWidth="0"><slot name="image-slot" /></Box>
-  <Box borderWidth="0"><p>{truncateString(description)}</p></Box>
+  <Box borderWidth="0" padding="var(--s00)"
+    ><p>{truncateString(description)}</p></Box
+  >
 </Box>
 <style>
   p {
-    font-size: var(--s0);
+    font-size: var(--font-size-fluid-0);
   }
   h4 {
-    font-size: var(--s1);
-    padding: var(--s1);
+    font-size: var(--font-size-fluid-1);
   }
 </style>

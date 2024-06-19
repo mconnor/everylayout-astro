@@ -5,20 +5,20 @@ import { Image } from 'astro:assets';
 import Card from '@/components/Card.astro';
 import { Frame, Grid } from '@cc/index.js';
 
-const W = '180';
-const H = '180';
+const W = '120';
+const H = '120';
 const getRandomSrc = () => {
   const random = Math.floor(Math.random() * 1000).toString();
 
-  return `https://picsum.photos/300/300?random=${random}`;
+  return `https://picsum.photos/${W}/${H}?random=${random}`;
 };
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
   <!-- space set the gap on the grid -->
-  <Grid space="1rem" min=`${250}px`>
-    <Card>
+  <Grid space="1rem" min=`${W}px`>
+    <Card w="">
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />
       </Frame></Card

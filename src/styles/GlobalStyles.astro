@@ -4,6 +4,8 @@ import 'open-props/postcss/buttons';
 import 'open-props/postcss/normalize';
 import './variables.css';
 import './modular-scale.css';
+// Supports weights 300-800
+import '@fontsource-variable/open-sans';
 ---
 
 <style is:global>
@@ -20,6 +22,9 @@ import './modular-scale.css';
     --surface-4: var(--surface-4-light);
     --surface-shadow: var(--surface-shadow-light);
     --shadow-strength: var(--shadow-strength-light);
+  }
+  body {
+    font-family: 'Open Sans Variable', sans-serif;
   }
 
   [class^='box'].invert {
