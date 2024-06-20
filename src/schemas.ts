@@ -1,4 +1,4 @@
-import { z, reference, type SchemaContext } from 'astro:content';
+import { z, reference } from 'astro:content';
 
 const urlSchema = z.string().url();
 const urlSchemaOptional = urlSchema.optional();
@@ -13,12 +13,6 @@ const myDateSchema = z.date({
   required_error: 'Please select a date and time',
   invalid_type_error: "That's not a date!",
 });
-
-export const imageSchema = ({ image }: SchemaContext) =>
-  z.object({
-    image: image(),
-    description: z.string().optional(),
-  });
 
 export const blogSchema = z.object({
   title: strSC,

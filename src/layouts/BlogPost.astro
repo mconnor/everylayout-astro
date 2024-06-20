@@ -9,9 +9,11 @@ import FormattedDate from '@/components/FormattedDate.astro';
 // import Author from '@cc/Author.astro'
 import Layout from '@/layouts/LayoutWcover.astro';
 
-type Props = BlogSchemaType;
+type Props = BlogSchemaType & {
+  children: unknown;
+};
 
-const { title, description, pubDate, cover, author } = Astro.props;
+const { title, description, pubDate, cover, author, tags } = Astro.props;
 
 const { data } = await getEntry('authors', author.id);
 ---
