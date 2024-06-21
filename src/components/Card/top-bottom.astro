@@ -1,0 +1,30 @@
+---
+type Props = { children: any };
+import { Box, Cluster } from '@cc/index.js';
+---
+
+<Box borderWidth="0" padding="var(--s0)">
+  <Cluster justify="space-between" align="baseline">
+    <div class="truncate fb3">
+      <slot name="left" />
+    </div>
+    <div class="fb1">
+      <slot name="right" />
+    </div>
+  </Cluster></Box
+>
+
+<style>
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flexbasis: 3;
+  }
+  .fb1 {
+    flex-basis: 1;
+  }
+  .fb3 {
+    flex-basis: 2;
+  }
+</style>

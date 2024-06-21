@@ -1,5 +1,5 @@
 ---
-title: 'First post'
+title: First post
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 2024-01-13
 draft: false

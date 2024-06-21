@@ -3,17 +3,17 @@ import { getEntry } from 'astro:content';
 import { Box, Stack, Center } from '@cc/index.js';
 import { Image } from 'astro:assets';
 
-import type { BlogSchemaType } from '../schemas.ts';
+import type { BlogSchemaType } from '@/schemas/index.ts';
 
 import FormattedDate from '@/components/FormattedDate.astro';
 // import Author from '@cc/Author.astro'
-import Layout from '@/layouts/LayoutWcover.astro';
+import Layout from '@/layouts/Layout.astro';
 
 type Props = BlogSchemaType & {
   children: unknown;
 };
 
-const { title, description, pubDate, cover, author, tags } = Astro.props;
+const { title, description, pubDate, cover, author } = Astro.props;
 
 const { data } = await getEntry('authors', author.id);
 ---

@@ -1,0 +1,44 @@
+---
+// import { Debug } from 'astro:components';
+import Layout from '@/layouts/Layout.astro';
+import { Box, Stack } from '@cc/index.js';
+import { getCollection } from 'astro:content';
+// import Card from '@components/CardBySlug.astro';
+import Card from '@/components/Card/index.astro';
+
+// import type { CollectionEntry } from 'astro:content'
+
+export const prerender = true;
+
+export const getStaticPaths = async () => {
+  const allPosts = await getCollection('blog');
+  const uniqueTags = [
+    ...new Set(allPosts.map(({ data }) => data?.tags || []).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter(
+      ({ data }) => data.draft !== true && data?.tags?.includes(tag),
+    );
+    return {
+      params: { tag },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
+};
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout title={tag as string}>
+  <!-- <Debug {tag} />
+  <Debug {posts} /> -->
+  <Stack space="var(--s1)">
+    <Box><h2>#{tag}</h2></Box>
+    {posts.map(({ slug }) => <Card slug={slug} />)}
+  </Stack>
+  <!-- <TitleDate posts={posts} /> -->
+</Layout>

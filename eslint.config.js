@@ -1,16 +1,10 @@
-// @ts-check
-
 import eslintPluginAstro from 'eslint-plugin-astro';
 // import eslintConfigPrettier from 'eslint-config-prettier';
-import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import reactPlugin from 'eslint-plugin-react';
 import globals from 'globals';
 import js from '@eslint/js';
 import markdown from 'eslint-plugin-markdown';
 import tseslint from 'typescript-eslint';
-
 import * as regexpPlugin from 'eslint-plugin-regexp';
-
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -31,13 +25,12 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
-  // @ts-ignore
-  ...markdown.configs.recommended,
-
   regexpPlugin.configs['flat/recommended'],
 
-  ...compat.extends('plugin:react/jsx-runtime'),
-  ...compat.extends('plugin:react-hooks/recommended'),
+  // @ts-ignore
+  ...markdown.configs.recommended,
+  // ...compat.extends('plugin:react/jsx-runtime'),
+  // ...compat.extends('plugin:react-hooks/recommended'),
   // ...compat.extends('plugin:jsx-a11y/recommended'),
   // ...compat.extends('plugin:lit/recommended'),
   ...compat.extends('plugin:wc/recommended'),
@@ -63,41 +56,6 @@ export default tseslint.config(
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
-  },
-  {
-    files: ['**/*.tsx'],
-    plugins: {
-      react: reactPlugin,
-      'react-hooks': reactHooksPlugin,
-    },
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-      globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
-      },
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        project: true,
-        tsconfigDirName: import.meta.dirname,
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    rules: {
-      'react/react-in-jsx-scope': 'off', // Not needed for newer React versions
-      'react/prop-types': 'off', // Disable if not using PropTypes
-      'react-hooks/rules-of-hooks': 'error', // Enforces the rules of Hooks
-      'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
-    },
-
-    settings: {
-      react: {
-        version: 'detect', // Automatically detect the React version
-      },
-    },
   },
 
   {

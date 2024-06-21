@@ -1,0 +1,53 @@
+---
+import { Box, Icon, Cluster } from '@cc/index.js';
+interface Props {
+  tags: string[];
+  tagCounts?: Record<string, number>;
+  // children: never;
+}
+const { tags, tagCounts } = Astro.props;
+---
+
+<Cluster>
+  {
+    tags.map((tag) => (
+      <Box padding="0" borderWidth="0">
+        <a href={`/tags/${tag}`}>
+          <Box padding="0" borderWidth="0">
+            <Icon space="var(--size-3)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="16"
+                width="14"
+                viewBox="0 0 448 512"
+              >
+                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+              </svg>
+
+              {tagCounts ? `${tag}, ${tagCounts[tag]}` : `${tag}`}
+            </Icon>
+          </Box>
+        </a>
+      </Box>
+    ))
+  }
+</Cluster>
+<style>
+  /* display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--size-2); */
+
+  a {
+    color: var(--text-1);
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-5);
+    /* background-color: var(--brand); */
+    border-radius: var(--border-radius-2);
+    &:hover {
+      color: var(--brand);
+      background-color: var(
+        --surface-1
+      ); /* replace with your desired hover styles */
+    }
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import { getEntry } from 'astro:content';
+import { Frame, Stack } from '@cc/index.js';
+// import { Debug } from 'astro:components';
+// import type { HTMLAttributes } from 'astro/types';
+// import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
+import { Image } from 'astro:assets';
+import type { BlogSchemaType } from '@schemas/index.ts';
+import CardTop from './top-bottom.astro';
+
+// interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
+
+// type EntryType = CollectionEntry<'blog'>;
+
+interface Props {
+  slug: string;
+  foregroundColor?: string;
+  backgroundColor?: string;
+}
+
+const {
+  slug,
+  foregroundColor = 'var(--text-2)',
+  backgroundColor = 'var(--surface-4)',
+} = Astro.props;
+const blogdata = await getEntry('blog', slug);
+
+const { title, pubDate, description, author, cover }: BlogSchemaType =
+  blogdata.data;
+
+const authObj = await getEntry('authors', author.id);
+---
+
+<article class="card">
+  <Stack>
+    <code>`const blogdata = await getEntry("blog", {slug})`</code>
+    <CardTop>
+      <a slot="left" href={`/posts/${slug}`}
+        ><h3 class="truncate">{title}</h3></a
+      >
+      <a slot="right" href={`/writer/${authObj.id}`}>{authObj.data.name}</a>
+    </CardTop>
+
+    <div class="myMask">
+      <Frame ratio="4:3">
+        <Image src={cover.src} alt={cover.alt} width="1200" height="300" />
+      </Frame>
+    </div>
+
+    <CardTop>
+      <p slot="left">
+        {description}
+      </p>
+      <p slot="right">{format(pubDate, 'MMMM dd, yyyy')}</p>
+    </CardTop>
+  </Stack>
+</article>
+
+<style define:vars={{ foregroundColor, backgroundColor }}>
+  article {
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+  }
+  .card {
+    border-radius: var(--radius-drawn-3);
+    border: var(--border-size-4) solid var(--text-2);
+    padding: 0;
+
+    /* &:hover {
+      animation: var(--animation-shake-z);
+    } */
+
+    /* box-shadow: var(--shadow-2); */
+
+    @media (--motionOK) {
+      animation: var(--animation-fade-in);
+    }
+  }
+
+  a {
+    color: var(--brand);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline double;
+    }
+    &:visited {
+      color: var(--link-visited);
+    }
+  }
+  .myMask {
+    -webkit-mask: var(--mask-edge-zig-zag-vertical);
+  }
+
+  /* .my-box-no-border {
+    padding: var(--s0) var(--s2);
+    border: 0 solid;
+    outline: var(--size-0) solid transparent;
+    outline-offset: (calc * var(--size-0));
+  } */
+
+  /* .cardPadding {
+    padding-inline: var(--s2);
+    font-weight: var(--font-weight-8);
+  } */
+</style>
