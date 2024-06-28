@@ -28,6 +28,8 @@ export default function Form() {
         defaultValue={selectedDemo}
         size={1}
       >
+        <option value="/">select</option>
+        <option value="/demo/parrallex">para</option>
         <option value="/demo/cluster-demo">cluster</option>
         <option value="/demo/sidebar-demo">sidebar</option>
         <option value="/demo/switcher-demo">switcher-demo</option>
