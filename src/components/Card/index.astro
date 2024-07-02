@@ -6,7 +6,7 @@ import { Frame, Stack } from '@cc/index.js';
 // import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '@schemas/index.ts';
+// import type { BlogSchemaType } from '@/schemas/index.ts';
 import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
@@ -26,8 +26,11 @@ const {
 } = Astro.props;
 const blogdata = await getEntry('blog', slug);
 
-const { title, pubDate, description, author, cover }: BlogSchemaType =
-  blogdata.data;
+if (blogdata === undefined) {
+  throw new Error(`No blog entry found for slug: ${slug}`);
+}
+
+const { title, pubDate, description, author, cover } = blogdata.data;
 
 const authObj = await getEntry('authors', author.id);
 ---

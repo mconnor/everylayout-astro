@@ -1,10 +1,11 @@
 ---
 // import { Debug } from 'astro:components';
+
 import Layout from '@/layouts/Layout.astro';
 import { Box, Stack } from '@cc/index.js';
 import { getCollection } from 'astro:content';
 // import Card from '@components/CardBySlug.astro';
-import Card from '@/components/Card/index.astro';
+import BlogCard from '@/components/Card/index.astro';
 
 // import type { CollectionEntry } from 'astro:content'
 
@@ -12,6 +13,7 @@ export const prerender = true;
 
 export const getStaticPaths = async () => {
   const allPosts = await getCollection('blog');
+
   const uniqueTags = [
     ...new Set(allPosts.map(({ data }) => data?.tags || []).flat()),
   ];
@@ -38,7 +40,7 @@ const { posts } = Astro.props;
   <Debug {posts} /> -->
   <Stack space="var(--s1)">
     <Box><h2>#{tag}</h2></Box>
-    {posts.map(({ slug }) => <Card slug={slug} />)}
+    {posts.map(({ slug }) => <BlogCard slug={slug} />)}
   </Stack>
   <!-- <TitleDate posts={posts} /> -->
 </Layout>

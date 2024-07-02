@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/SplashLayout.astro';
+
+// import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+
+import { Box, Stack } from '@cc/index.js';
+---
+
+<Layout title="home" description="testing css">
+  <Stack slot="left">
+    <Box invert>
+      <h1>Mike Connor DOT tech</h1>
+    </Box>
+    <Box>
+      <h2 class="my-brand">welcome</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti
+        vel magnam eaque maxime sit quos. Totam deserunt modi facere ipsam ab
+        harum, voluptate, sapiente alias, quo impedit dolores eaque!
+      </p>
+      <Box invert>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+          deleniti vel magnam eaque maxime sit quos. Totam deserunt modi facere
+          ipsam ab harum, voluptate, sapiente alias, quo impedit dolores eaque!
+        </p>
+      </Box>
+    </Box>
+  </Stack>
+</Layout>
+<style>
+  .my-brand {
+    color: var(--brand);
+  }
+</style>

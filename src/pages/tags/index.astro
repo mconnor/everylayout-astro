@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-import TagContainer from '@components/TagContainer.astro';
+import TagContainer from '@/components/TagContainer.astro';
 
 const allBlogPost = await getCollection('blog');
 
@@ -18,12 +18,12 @@ const tags = [
   ...new Set(
     allBlogPost
       .filter((post) => post.data.draft !== true)
-      .map((post) => post.data.tags)
+      .map(({ data }) => data?.tags || [])
       .flat(),
   ),
 ];
 ---
 
-<BaseLayout pageTitle="Tag Index">
+<BaseLayout title="Tag Index">
   {tags && <TagContainer tags={tags} tagCounts={tagCounts} />}
 </BaseLayout>

@@ -1,36 +1,41 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-
-// import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
-
-import { Box, Stack } from '@cc/index.js';
+import { Box, Stack, Center, Sidebar } from '@cc/index.js';
 ---
 
-<Layout title="home" description="testing css">
-  <Stack>
-    <Box invert>
-      <h1>Home</h1>
-    </Box>
-    <Box>
-      <h2 class="my-brand">welcome</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti
-        vel magnam eaque maxime sit quos. Totam deserunt modi facere ipsam ab
-        harum, voluptate, sapiente alias, quo impedit dolores eaque!
-      </p>
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout title="About Me" description="Lorem ipsum dolor sit amet">
+  <Center>
+    <Stack recursive>
       <Box invert>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          deleniti vel magnam eaque maxime sit quos. Totam deserunt modi facere
-          ipsam ab harum, voluptate, sapiente alias, quo impedit dolores eaque!
-        </p>
+        <h3>Sagittis purus sc</h3>
       </Box>
-    </Box>
-  </Stack>
+
+      <Box>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
+          exercitationem inventore, nihil amet officiis tenetur voluptas debitis
+          reprehenderit asperiores cupiditate eum doloribus eos magnam
+          voluptates suscipit praesentium recusandae magni nulla.
+        </p>
+        <Box>
+          <p>
+            Ut quis tempora tenetur, corrupti odio quidem modi hic neque
+            consequuntur enim expedita doloribus pariatur odit, aspernatur dolor
+            minima aliquid cupiditate!
+          </p>
+        </Box>
+      </Box>
+      <Box>
+        <p>Invert purus sit amet volutc</p>
+      </Box>
+    </Stack>
+  </Center>
 </Layout>
 
 <style>
-  .my-brand {
-    color: var(--brand);
+  .about-colors {
+    color: white !important;
+    background-color: black !important;
   }
 </style>

@@ -10,27 +10,9 @@
       "@/*": [
         "src/*"
       ],
-      // "@components/*": [
-      //   "src/components/*"
-      // ],
       "@cc/*": [
         "src/astro-custom-layout-components/*"
       ]
-      // "@layouts/*": [
-      //   "src/layouts/*"
-      // ],
-      // "@content/*": [
-      //   "src/content/*"
-      // ],
-      // "@assets/*": [
-      //   "src/assets/*"
-      // ],
-      // "@styles/*": [
-      //   "src/styles/*"
-      // ],
-      // "@scripts/*": [
-      //   "src/scripts/*"
-      // ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
@@ -39,6 +21,7 @@
     "src/**/*.astro",
     "src/**/*.js",
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "test/*.ts"
   ]
 }

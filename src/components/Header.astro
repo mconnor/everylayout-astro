@@ -3,6 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 
 import { Box, Cluster, Switcher } from '@cc/index';
 import Select from '@/components/Select.tsx';
+import { DropDown } from '@/ui/react/DropDown.tsx';
 ---
 
 <Box padding="var(--s1)" borderWidth="0">
@@ -10,6 +11,7 @@ import Select from '@/components/Select.tsx';
     <Box padding="0" borderWidth="1px">
       <Select client:only="react" transition:persist />
     </Box>
+    <DropDown client:only="react" transition:persist />
 
     <Box borderWidth="0" padding="0">
       <Cluster align="baseline" justify="flex-start" space="var(--s6)">

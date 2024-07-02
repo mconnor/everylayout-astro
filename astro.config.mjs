@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 // import sentry from '@sentry/astro'
-// import spotlightjs from '@spotlightjs/astro'
+
 // import { loadEnv } from 'vite'
 import react from '@astrojs/react';
 
@@ -17,6 +17,9 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/index': '/about',
+  },
   site: 'https://example.com',
   output: 'static',
   image: {
@@ -41,7 +44,7 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      noExternal: ['date-fns', 'open-props'],
+      noExternal: ['date-fns', 'open-props', '@shoelace-style/shoelace'],
     },
   },
 });
