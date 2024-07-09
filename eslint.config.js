@@ -1,35 +1,22 @@
-// import eslintConfigPrettier from 'eslint-config-prettier';
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
-
 import tseslint from 'typescript-eslint';
+import { fixupConfigRules } from '@eslint/compat';
 
-import eslintPluginAstro from 'eslint-plugin-astro';
 import markdown from 'eslint-plugin-markdown';
 import regex from 'eslint-plugin-regexp';
-import react from 'eslint-plugin-react';
-import hooks from 'eslint-plugin-react-hooks';
+
+// import reactPlugin from 'eslint-plugin-react';
+// import configReactRecommended from 'eslint-plugin-react/configs/recommended.js';
+// import configJSXruntime from 'eslint-plugin-react/configs/jsx-runtime.js';
+
+// import hooks from 'eslint-plugin-react-hooks/';
 import wc from 'eslint-plugin-wc';
-// import lit from 'eslint-plugin-lit';
-
-// import { FlatCompat } from '@eslint/eslintrc';
-// import path from 'path';
-// import { fileURLToPath } from 'url';
-
-// mimic CommonJS variables -- not needed if using CommonJS
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname, // optional; default: process.cwd()
-//   resolvePluginsRelativeTo: __dirname, // optional
-//   recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-//   allConfig: js.configs.all, // optional unless you're using "eslint:all"
-// });
 
 export default tseslint.config(
-  js.configs.recommended, // Recommended config applied to all files
+  js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
@@ -38,46 +25,7 @@ export default tseslint.config(
   ...fixupConfigRules(markdown.configs.recommended),
   ...fixupConfigRules(regex.configs['flat/recommended']),
 
-  // ...fixupConfigRules(hooks.configs.recommended),
   ...fixupConfigRules(wc.configs['flat/recommended']),
-  // ...fixupConfigRules(lit.configs['flat/recommended']),
-
-  // ...compat.extends('plugin:react/jsx-runtime'),
-  // ...compat.extends('plugin:react-hooks/recommended'),
-  // ...compat.extends('plugin:jsx-a11y/recommended'),
-  // ...compat.extends('plugin:lit/recommended'),
-  // ...compat.extends('plugin:wc/recommended'),
-
-  {
-    files: ['src/**/*.tsx'],
-    plugins: {
-      // insert the fixed plugin instead of the original
-
-      react: fixupPluginRules(react),
-      hooks: fixupPluginRules(hooks),
-      // ...fixupPluginRules(hooks),
-    },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      globals: {
-        ...globals.browser,
-      },
-    },
-    rules: {
-      // ... any rules you want
-      // ...fixupConfigRules(react.configs['jsx-runtime']),
-      'react/jsx-uses-react': 'error',
-      'react/jsx-uses-vars': 'error',
-    },
-  },
-
-  {
-    ignores: ['src/**/_*.*', 'dist/'],
-  },
 
   {
     languageOptions: {
@@ -102,6 +50,18 @@ export default tseslint.config(
       // 'lit/no-invalid-html': 'warn',
     },
   },
+  // {
+  //   files: ['src/**/*.tsx'],
+  //   plugins: {
+  //     react: fixupPluginRules(reactPlugin),
+  //   },
+
+  //   rules: {
+  //     // react
+  //     ...fixupConfigRules(configReactRecommended),
+  //     ...fixupConfigRules(configJSXruntime),
+  //   },
+  // },
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
@@ -134,6 +94,8 @@ export default tseslint.config(
   },
   {
     ignores: [
+      'src/**/_*.*',
+      'dist/',
       '**/temp.js',
       'config/*',
       'pnpm-lock.yaml',
@@ -144,4 +106,5 @@ export default tseslint.config(
       'src/env.d.ts',
     ],
   },
+  eslintConfigPrettier,
 );

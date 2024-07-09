@@ -49,8 +49,6 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-markdown": "^5.0.0",
-    "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-wc": "^2.1.0",
     "globals": "^15.8.0",
