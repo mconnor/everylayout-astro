@@ -28,6 +28,7 @@
     "node_modules",
     "dist",
     "build",
-    "src/**/_*.*"
+    "src/**/_*.tsx",
+    "src/components/_Icon.tsx"
   ]
 }

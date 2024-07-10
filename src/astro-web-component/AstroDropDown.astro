@@ -1,0 +1,32 @@
+---
+import { navigate } from 'astro:transitions/client';
+---
+
+<astro-dropdown>
+  <select data-navigate-select>
+    <option value="/">astro dropdown</option>
+    <option value="/demo/cluster-demo">cluster</option>
+    <option value="/demo/sidebar-demo">sidebar</option>
+    <option value="/demo/switcher-demo">switcher-demo</option>
+    <option value="/demo/grid-demo">grid-demo</option>
+    <option value="/demo/reel-demo">reel-demo</option>
+    <option value="/demo/imposter-demo">imposter-demo</option>
+    <option value="/demo/harmonic-demo">harmonic-demo</option>
+  </select>
+</astro-dropdown>
+
+<script is:inline>
+  class AstroDropDown extends HTMLElement {
+    constructor() {
+      super();
+
+      const select = this.querySelector('[data-navigate-select]');
+
+      select.addEventListener(
+        'change',
+        (e) => e.target && navigate(e.target.value),
+      );
+    }
+  }
+  customElements.define('astro-dropdown', AstroDropDown);
+</script>
