@@ -2,8 +2,10 @@
 import HeaderLink from './HeaderLink.astro';
 
 import { Box, Cluster, Switcher } from '@cc/index';
-import Select from '@/components/Select.tsx';
-import { DropDown } from '@/ui/react/DropDown.tsx';
+
+import Select from '@/ui/react/Select';
+// import { DropDown as HeadlessUI } from '@/ui/react/DropDown.tsx';
+import AstroDropDown from '@/astro-web-component/AstroDropDown.astro';
 ---
 
 <Box padding="var(--s1)" borderWidth="0">
@@ -11,7 +13,10 @@ import { DropDown } from '@/ui/react/DropDown.tsx';
     <Box padding="0" borderWidth="1px">
       <Select client:only="react" transition:persist />
     </Box>
-    <DropDown client:only="react" transition:persist />
+    <!-- <Box padding="0" borderWidth="1px">
+      <HeadlessUI client:only="react" transition:persist /></Box
+    > -->
+    <Box padding="0" borderWidth="1px"><AstroDropDown /></Box>
 
     <Box borderWidth="0" padding="0">
       <Cluster align="baseline" justify="flex-start" space="var(--s6)">
@@ -19,6 +24,7 @@ import { DropDown } from '@/ui/react/DropDown.tsx';
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink href="/blog">Blog</HeaderLink>
           <HeaderLink href="/about">About</HeaderLink>
+          <HeaderLink href="/ui">Ui</HeaderLink>
         </Switcher>
       </Cluster>
     </Box>

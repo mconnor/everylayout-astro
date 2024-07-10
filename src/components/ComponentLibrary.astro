@@ -1,0 +1,34 @@
+---
+const components = await Astro.glob('@/components/*.astro');
+
+const pages = await Astro.glob('@/pages/**/*.astro');
+---
+
+<h4>list off all components</h4>
+
+{
+  (
+    <ul>
+      {pages.map((page) => (
+        <li>{page.file.match(/([^/]+)$/)?.[0]}</li>
+      ))}
+    </ul>
+  )
+}
+
+<h4>ui</h4>
+{
+  (
+    <ul>
+      {components.map((component) => (
+        <li>{component?.file.match(/([^/]+)$/)?.[0]}</li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  div {
+    color: black;
+  }
+</style>
