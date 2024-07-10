@@ -6,7 +6,7 @@ import TagContainer from '@/components/TagContainer.astro';
 
 const allBlogPost = await getCollection('blog');
 
-const tagCounts: Record<string, number> = {};
+const tagCounts = {};
 
 allBlogPost.forEach((post) =>
   (post.data.tags || []).forEach((tag: string) => {

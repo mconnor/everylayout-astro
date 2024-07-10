@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getRandomPic } from '@/lib/index.ts';
+
+import { Image } from 'astro:assets';
+
+const W = '300';
+const H = '200';
+---
+
+<Layout>
+  <div class="container">
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+    <div class="image_container">
+      <Image src={getRandomPic(W, H)} width={W} height={H} alt="alt text" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    column-count: 3;
+  }
+
+  .image_container:nth-child(6) {
+    column-span: all;
+  }
+  Image {
+    width: 100%;
+  }
+</style>

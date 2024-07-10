@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Box, Stack, Center, Sidebar } from '@cc/index.js';
+import AppDrawer from '@/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
@@ -10,8 +11,8 @@ import { Box, Stack, Center, Sidebar } from '@cc/index.js';
       <Box invert>
         <h3>Sagittis purus sc</h3>
       </Box>
-
-      <Box>
+      <AppDrawer open disabled />
+      <!-- <Box>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
           exercitationem inventore, nihil amet officiis tenetur voluptas debitis
@@ -25,7 +26,7 @@ import { Box, Stack, Center, Sidebar } from '@cc/index.js';
             minima aliquid cupiditate!
           </p>
         </Box>
-      </Box>
+      </Box> -->
       <Box>
         <p>Invert purus sit amet volutc</p>
       </Box>
