@@ -15,7 +15,7 @@
       ]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "preact"
   },
   "include": [
     "src/**/*.astro",

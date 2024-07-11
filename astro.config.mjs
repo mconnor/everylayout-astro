@@ -8,12 +8,14 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 // import vercel from '@astrojs/vercel/serverless'
-// import lit from '@astrojs/lit'
+
 // const { SECRET_TOKEN } = loadEnv(
 //  proceess.env.SENTRY_AUTH_TOKEN,
 //   process.cwd(),
 //   '',
 // )
+
+import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,7 +42,7 @@ export default defineConfig({
     // }),
     // spotlightjs(),
     react(),
-    // lit(),
+    preact(),
   ],
   vite: {
     ssr: {
