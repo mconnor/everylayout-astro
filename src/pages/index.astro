@@ -1,18 +1,18 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { Box, Stack, Center, Sidebar } from '@cc/index.js';
+import { Box, Stack, Center } from '@cc/index.js';
 import AppDrawer from '@/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
   <Center>
-    <Stack recursive>
-      <Box invert>
-        <h3>Sagittis purus sc</h3>
-      </Box>
-      <AppDrawer open disabled />
-      <!-- <Box>
+    <!-- <Stack recursive> -->
+    <Box invert>
+      <h3>Sagittis purus sc</h3>
+    </Box>
+    <!-- <AppDrawer open disabled /> -->
+    <!-- <Box>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
           exercitationem inventore, nihil amet officiis tenetur voluptas debitis
@@ -27,10 +27,10 @@ import AppDrawer from '@/web-components/AppDrawer.astro';
           </p>
         </Box>
       </Box> -->
-      <Box>
+    <!-- <Box>
         <p>Invert purus sit amet volutc</p>
       </Box>
-    </Stack>
+    </Stack> -->
   </Center>
 </Layout>
 

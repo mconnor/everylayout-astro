@@ -1,0 +1,38 @@
+---
+// function calc(arg0: string): number {
+//   // Assuming arg0 is a CSS variable, you need to extract the numerical value
+//   const value = parseFloat(
+//     getComputedStyle(document.documentElement).getPropertyValue(arg0),
+//   )
+//   if (isNaN(value)) {
+//     throw new Error(`Invalid argument: ${arg0}`)
+//   }
+//   return value
+// }
+
+import Layout from '@/layouts/BareLayout.astro';
+// import Modal from '@/ui/astro/modal/Modal.astro';
+import Modal from '@/astro-web-component/astro-modal/index.astro';
+import { Cluster, Box } from '@cc/index.js';
+import { isOpen } from '@/store/index.ts';
+---
+
+<Layout>
+  <Modal>hello</Modal>
+  <Box>
+    <button class="modal">show modal</button>
+  </Box>
+</Layout>
+
+<script>
+  import { isOpen } from '@/store/index.ts';
+  console.log('isOpen.get()' + isOpen.get());
+  const buttons = document.querySelectorAll('button.modal');
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      isOpen.set(true);
+      console.log('isOpen.get()' + isOpen.get());
+    });
+  });
+</script>

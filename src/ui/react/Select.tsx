@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { navigate } from 'astro:transitions/client';
+import './Select.css';
 
 import { useAsync } from 'react-use';
 
@@ -45,3 +46,5 @@ export default function Form() {
     </label>
   );
 }
+
+

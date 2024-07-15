@@ -1,0 +1,57 @@
+.surface1 {
+  background-color: var(--surface-1);
+  color: var(--text-2);
+}
+
+.surface2 {
+  background-color: var(--surface-2);
+  color: var(--text-2);
+}
+
+.surface3 {
+  background-color: var(--surface-3);
+  color: var(--text-3);
+}
+
+.surface4 {
+  background-color: var(--surface-4);
+  color: var(--text-4);
+}
+
+.text1 {
+  color: var(--text-1);
+}
+/* p.text1 {
+  font-weight: var(--font-weight-2);
+} */
+
+.text2 {
+  color: var(--text-2);
+}
+
+.brand {
+  color: var(--brand);
+  background-color: var(--brand);
+}
+
+.link {
+  color: var(--link);
+  background-color: var(--link);
+}
+
+.link-visited {
+  color: var(--link-visited);
+  background-color: var(--link-visited);
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}

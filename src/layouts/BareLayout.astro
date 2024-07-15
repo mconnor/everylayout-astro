@@ -1,9 +1,8 @@
 ---
 import BaseHead from '@/components/BaseHead.astro';
-
-import { Frame, Switcher } from '@cc/index.js';
-import { Image } from 'astro:assets';
-import Andy from '../assets/Andy.jpg';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { Cover, Center } from '@cc/index.js';
 
 interface Props {
   title?: string;
@@ -24,22 +23,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
 
   <body>
-    <Switcher>
-      <div class="fb1"><slot name="left" /></div>
-      <div class="fb1">
-        <Frame ratio="1:1">
-          <Image src={Andy} alt="Andy" />
-        </Frame>
-      </div>
-    </Switcher>
-    <style>
-      .fb1 {
-        flex-grow: 1;
-        background-color: green;
-      }
-      .promo-art {
-        align-self: stretch;
-      }
-    </style>
+    <Cover centeredElement="center-l" noPad={true} space="0">
+      <Center>
+        <slot />
+      </Center>
+    </Cover>
   </body>
 </html>

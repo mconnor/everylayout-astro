@@ -1,10 +1,10 @@
----
-import { navigate } from 'astro:transitions/client';
----
+
 
 <astro-dropdown>
-  <select data-navigate-select>
-    <option value="/">astro dropdown</option>
+  <h6>Astro Dropdown</h6>
+  <label for="demo-select">Select a layout demo:</label>
+  <select data-navigate-select id="demo-select">
+    <option value="/"></option>
     <option value="/demo/cluster-demo">cluster</option>
     <option value="/demo/sidebar-demo">sidebar</option>
     <option value="/demo/switcher-demo">switcher-demo</option>
@@ -15,18 +15,49 @@ import { navigate } from 'astro:transitions/client';
   </select>
 </astro-dropdown>
 
-<script is:inline>
+<script>
+  import { navigate } from 'astro:transitions/client';
+
+
   class AstroDropDown extends HTMLElement {
+
+    
     constructor() {
       super();
 
-      const select = this.querySelector('[data-navigate-select]');
+      this._handleChange.bind(this)
 
-      select.addEventListener(
+    }
+
+   connectedCallback() {
+      this.querySelector('[data-navigate-select]')?.addEventListener(
         'change',
-        (e) => e.target && navigate(e.target.value),
+        this._handleChange
       );
     }
-  }
+
+    disconnectedCallback() {
+      this.querySelector('[data-navigate-select]')?.removeEventListener(
+        'change',
+        this._handleChange
+      );
+    }
+
+  // (e) => e.target && navigate(e.target.value)
+
+  async _handleChange(e: Event) {
+      const targetUrl = (e.target as HTMLSelectElement)?.value;
+      if (!targetUrl) throw new Error('No target URL provided');
+      navigate(targetUrl);
+    }
+}
+
   customElements.define('astro-dropdown', AstroDropDown);
 </script>
+
+<style>
+  astro-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
