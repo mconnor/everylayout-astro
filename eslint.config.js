@@ -1,31 +1,29 @@
-import eslintPluginAstro from 'eslint-plugin-astro';
+import astro from 'eslint-plugin-astro';
+import markdown from 'eslint-plugin-markdown';
+import regexp from 'eslint-plugin-regexp';
+import wc from 'eslint-plugin-wc';
+import lit from 'eslint-plugin-lit';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+
+import { fixupPluginRules } from '@eslint/compat';
+
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import { fixupConfigRules } from '@eslint/compat';
 
-import markdown from 'eslint-plugin-markdown';
-import regex from 'eslint-plugin-regexp';
-
-// import reactPlugin from 'eslint-plugin-react';
-// import configReactRecommended from 'eslint-plugin-react/configs/recommended.js';
-// import configJSXruntime from 'eslint-plugin-react/configs/jsx-runtime.js';
-
-// import hooks from 'eslint-plugin-react-hooks/';
-import wc from 'eslint-plugin-wc';
+import react from 'eslint-plugin-react';
 
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
-  ...eslintPluginAstro.configs.recommended,
+  ...astro.configs.recommended,
+  // jsxA11y.flatConfigs.recommended,
 
-  // ...markdown.configs.recommended,
-  ...fixupConfigRules(markdown.configs.recommended),
-  ...fixupConfigRules(regex.configs['flat/recommended']),
-
-  ...fixupConfigRules(wc.configs['flat/recommended']),
+  regexp.configs['flat/recommended'],
+  wc.configs['flat/recommended'],
+  lit.configs['flat/recommended'],
 
   {
     languageOptions: {
@@ -47,38 +45,76 @@ export default tseslint.config(
           destructuredArrayIgnorePattern: '^_',
         },
       ],
-      // 'lit/no-invalid-html': 'warn',
     },
+    // 'lit/no-invalid-html': 'warn',
   },
-  // {
-  //   files: ['src/**/*.tsx'],
-  //   plugins: {
-  //     react: fixupPluginRules(reactPlugin),
-  //   },
 
-  //   rules: {
-  //     // react
-  //     ...fixupConfigRules(configReactRecommended),
-  //     ...fixupConfigRules(configJSXruntime),
-  //   },
-  // },
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 
   {
-    files: ['src/astro-custom-layout-components/**/*.js'],
+    files: [
+      'src/astro-custom-layout-components/**/*',
+      'src/astro-web-component/**/*',
+    ],
     rules: {
       'wc/no-constructor-attributes': 'off',
     },
   },
 
   {
-    // 1. Target ```js code blocks in .md files.
+    plugins: {
+      markdown,
+      'jsx-a11y': jsxA11y,
+      react,
+      // 'react-hooks': fixupPluginRules(reactHooks),
+    },
+  },
+  {
+    rules: {
+      // ...
+      // ...reactHooks.configs.recommended.rules,
+    },
+  },
+
+  {
+    files: ['**/*.tsx', '**/*.jsx'],
+    rules: {
+      'jsx-a11y/alt-text': [
+        2,
+        {
+          elements: ['img', 'object', 'area', 'input[type="image"]'],
+          img: ['Image'],
+          object: ['Object'],
+          area: ['Area'],
+          'input[type="image"]': ['InputImage'],
+        },
+      ],
+      'jsx-a11y/no-autofocus': [
+        2,
+        {
+          ignoreNonDOM: true,
+        },
+      ],
+    },
+  },
+
+  {
+    files: ['**/*.md'],
+    processor: 'markdown/markdown',
+  },
+  {
     files: ['**/*.md/*.js'],
     ...tseslint.configs.disableTypeChecked,
+    // ...
+    rules: {
+      'no-console': 'off',
+      'import/no-unresolved': 'off',
+    },
   },
+
   // {
   //   files: ['tests/**'],
   //   languageOptions: {
@@ -94,16 +130,14 @@ export default tseslint.config(
   },
   {
     ignores: [
-      'src/**/_*.*',
-      'dist/',
+      '**/_*.*',
       '**/temp.js',
-      'config/*',
-      'pnpm-lock.yaml',
+      '*lock.yaml',
       '.astro/',
       'dist/',
-      '**/test.ts',
       'my-custom-cache-directory',
       'src/env.d.ts',
+      '.vercel/',
     ],
   },
   eslintConfigPrettier,
