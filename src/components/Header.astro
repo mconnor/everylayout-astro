@@ -5,7 +5,7 @@ import { Box, Cluster, Switcher } from '@cc/index';
 
 import Select from '@/ui/react/Select';
 // import { DropDown as HeadlessUI } from '@/ui/react/DropDown.tsx';
-import AstroDropDown from '@/astro-web-component/AstroDropDown.astro';
+import AstroNavigateSelect from '@/astro-web-component/AstroNavigateSelect.astro';
 ---
 
 <Box padding="var(--s1)" borderWidth="0">
@@ -17,7 +17,7 @@ import AstroDropDown from '@/astro-web-component/AstroDropDown.astro';
     <!-- <Box padding="0" borderWidth="1px">
       <HeadlessUI client:only="react" transition:persist /></Box
     > -->
-    <Box padding="0" borderWidth="1px"><AstroDropDown /></Box>
+    <Box padding="0" borderWidth="1px"><AstroNavigateSelect /></Box>
 
     <Box borderWidth="0" padding="0">
       <Cluster align="baseline" justify="flex-start" space="var(--s6)">

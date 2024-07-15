@@ -1,6 +1,6 @@
 
 
-<astro-dropdown>
+<astro-navigate-select>
   <h6>Astro Dropdown</h6>
   <label for="demo-select">Select a layout demo:</label>
   <select data-navigate-select id="demo-select">
@@ -13,13 +13,13 @@
     <option value="/demo/imposter-demo">imposter-demo</option>
     <option value="/demo/harmonic-demo">harmonic-demo</option>
   </select>
-</astro-dropdown>
+</astro-navigate-select>
 
 <script>
   import { navigate } from 'astro:transitions/client';
 
 
-  class AstroDropDown extends HTMLElement {
+  class AstroNavigateSelect extends HTMLElement {
 
     
     constructor() {
@@ -52,11 +52,11 @@
     }
 }
 
-  customElements.define('astro-dropdown', AstroDropDown);
+customElements.define('astro-navigate-select', AstroNavigateSelect);
 </script>
 
 <style>
-  astro-dropdown {
+  astro-navigate-select {
     display: flex;
     flex-direction: column;
   }
