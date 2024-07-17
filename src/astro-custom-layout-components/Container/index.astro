@@ -1,5 +1,5 @@
 ---
-// const LIST = 'list'
+import './Container.css';
 
 interface Props {
   name: string;
@@ -15,11 +15,7 @@ const { name } = Astro.props;
 
 <script src="./Container.js"></script>
 
-<style is:global>
-  container-l {
-    display: block;
-  }
-</style>
+
 
 <!-- 
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")

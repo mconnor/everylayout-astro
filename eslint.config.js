@@ -5,8 +5,6 @@ import wc from 'eslint-plugin-wc';
 import lit from 'eslint-plugin-lit';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 
-import { fixupPluginRules } from '@eslint/compat';
-
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
@@ -60,7 +58,7 @@ export default tseslint.config(
       'src/astro-web-component/**/*',
     ],
     rules: {
-      'wc/no-constructor-attributes': 'off',
+      // 'wc/no-constructor-attributes': 'warn',
     },
   },
 
