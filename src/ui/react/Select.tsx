@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { navigate } from 'astro:transitions/client';
 import './Select.css';
 
@@ -24,8 +24,9 @@ export default function Form() {
     <label id="label1" htmlFor="demo">
       <select
         id="demo"
-        onChange={(ev) => {
-          setSelectedDemo(ev.target.value);
+        onChange={(e) => {
+          const event = e as unknown as React.ChangeEvent<HTMLSelectElement>;
+          setSelectedDemo(event.target.value);
         }}
         title="see a layout"
         defaultValue={selectedDemo}
