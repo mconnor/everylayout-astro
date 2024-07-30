@@ -38,10 +38,12 @@ export default class Cover extends HTMLElement {
           [data-i="${this.i}"] > ${this.centered} {
             margin-block: auto;
           }
-        `.replace(/\s{2,}/g, ' ').trim();
+        `
+          .replace(/\s{2,}/g, ' ')
+          .trim();
         document.head.appendChild(styleEl);
       }
-    }
+    };
   }
 
   get centered() {

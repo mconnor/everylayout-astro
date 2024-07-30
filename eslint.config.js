@@ -136,6 +136,8 @@ export default tseslint.config(
       'my-custom-cache-directory',
       'src/env.d.ts',
       '.vercel/',
+      'src/pages/demo/modal-demo.astro',
+      'src/web-component/astro-modal/index.astro',
     ],
   },
   eslintConfigPrettier,

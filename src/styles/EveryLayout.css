@@ -19,8 +19,6 @@
     } */
 }
 
-
-
 .stack-small > * + * {
   margin-block-start: var(--size-2);
 }
