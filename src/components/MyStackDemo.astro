@@ -1,0 +1,55 @@
+---
+import { Box, Stack, Center } from '@cc/index';
+const W = '120';
+function generateRandomString() {
+  const length = 8;
+  // Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
+  let result = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+---
+
+<Center>
+  <div class="myborder container">
+    <!-- <div class="stack">
+      <Box><a href="#tag3">xxx</a></Box>
+      <Box><a href="#tag4">xxx</a></Box>
+      <Box>
+        <Box><a href="#tag3">000</a></Box>
+        <Box><a href="#tag4">000</a></Box>
+        <Box><a href="#tag1">000</a></Box>
+      </Box>
+      <Box><a href="#tag1">xxx</a></Box>
+      <Box><a href="#tag2">xxx</a></Box>
+    </div> -->
+
+    <Stack space="var(--size-1)">
+      <Box><a href="#tag3">xxx</a></Box>
+      <Box><a href="#tag4">xxx</a></Box>
+      <Box>
+        <Box><a href="#tag3">000</a></Box>
+        <Box><a href="#tag4">000</a></Box>
+        <Box><a href="#tag1">000</a></Box>
+      </Box>
+      <Box><a href="#tag1">xxx</a></Box>
+      <Box><a href="#tag2">xxx</a></Box>
+    </Stack>
+  </div>
+</Center>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 0 100px;
+  }
+
+  .myborder {
+    border: 1px black solid;
+  }
+</style>

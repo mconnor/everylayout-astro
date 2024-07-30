@@ -12,13 +12,13 @@
 
 import Layout from '@/layouts/BareLayout.astro';
 // import Modal from '@/ui/astro/modal/Modal.astro';
-import Modal from '@/astro-web-component/astro-modal/index.astro';
-import { Cluster, Box } from '@cc/index.js';
+import Modal from '@/web-component/astro-modal/index.astro';
+import { Box } from '@/astro-custom-layout-components';
 import { isOpen } from '@/store/index.ts';
 ---
 
 <Layout>
-  <Modal>hello</Modal>
+  <Modal open />
   <Box>
     <button class="modal">show modal</button>
   </Box>

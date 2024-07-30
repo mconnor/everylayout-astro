@@ -1,11 +1,11 @@
 ---
-import { Reel, Frame } from '@cc/index.js';
+import { Reel, Frame } from '@/astro-custom-layout-components';
 import Card from '@/components/Card.astro';
 import { Image } from 'astro:assets';
 
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/SimpleLayout.astro';
 
-const W = '100';
+const W = '50';
 const H = '50';
 const getRandomSrc = () => {
   const random = Math.floor(Math.random() * 1000).toString();
@@ -15,7 +15,7 @@ const getRandomSrc = () => {
 ---
 
 <Layout>
-  <Reel itemWidth="20rem" noBar={false}>
+  <Reel itemWidth="10rem" noBar={false} space="var(--s3)">
     <Card>
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />

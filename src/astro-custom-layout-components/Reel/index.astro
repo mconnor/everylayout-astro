@@ -1,4 +1,5 @@
 ---
+import './Reel.css';
 import type { RmUnitType } from '../Types';
 
 interface Props {
@@ -17,41 +18,3 @@ const { itemWidth, space, height, noBar } = Astro.props;
 </reel-l>
 
 <script src="./Reel.js"></script>
-
-<style is:global>
-  reel-l {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-color: var(--color-light) var(--color-dark);
-  }
-
-  reel-l > * {
-    flex: 0 0 var(--item-width);
-  }
-
-  reel-l > img {
-    block-size: 100%;
-    flex-basis: auto;
-    inline-size: auto;
-  }
-
-  reel-l::-webkit-scrollbar {
-    block-size: 1rem;
-  }
-
-  reel-l::-webkit-scrollbar-track {
-    background-color: var(--color-dark);
-  }
-
-  reel-l::-webkit-scrollbar-thumb {
-    background-color: var(--color-dark);
-    background-image: linear-gradient(
-      var(--color-dark) 0,
-      var(--color-dark) 0.25rem,
-      var(--color-light) 0.25rem,
-      var(--color-light) 0.75rem,
-      var(--color-dark) 0.75rem
-    );
-  }
-</style>

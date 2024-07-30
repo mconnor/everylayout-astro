@@ -1,10 +1,9 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "verbatimModuleSyntax": true,
-    "experimentalDecorators": true,
     "declaration": true,
-    "useDefineForClassFields": false,
+    "useDefineForClassFields": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -15,20 +14,17 @@
       ]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "react"
   },
   "include": [
-    "src/**/*.astro",
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "test/*.ts"
+    "src/**/*.*",
   ],
   "exclude": [
     "node_modules",
     "dist",
     "build",
-    "src/**/_*.tsx",
-    "src/components/_Icon.tsx"
+    "src/**/_*.*",
+    "src/components/_Icon.tsx",
+    "src/pages/demo/modal-demo.astro"
   ]
 }

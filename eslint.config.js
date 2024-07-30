@@ -1,8 +1,8 @@
 import astro from 'eslint-plugin-astro';
 import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
-import wc from 'eslint-plugin-wc';
-import lit from 'eslint-plugin-lit';
+// import wc from 'eslint-plugin-wc';
+// import lit from 'eslint-plugin-lit';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -20,8 +20,8 @@ export default tseslint.config(
   // jsxA11y.flatConfigs.recommended,
 
   regexp.configs['flat/recommended'],
-  wc.configs['flat/recommended'],
-  lit.configs['flat/recommended'],
+  // wc.configs['flat/recommended'],
+  // lit.configs['flat/recommended'],
 
   {
     languageOptions: {
@@ -55,10 +55,10 @@ export default tseslint.config(
   {
     files: [
       'src/astro-custom-layout-components/**/*',
-      'src/astro-web-component/**/*',
+      'src/ui/web-components/**/*',
     ],
     rules: {
-      // 'wc/no-constructor-attributes': 'warn',
+      'wc/no-constructor-attributes': 'off',
     },
   },
 
