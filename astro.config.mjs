@@ -43,9 +43,4 @@ export default defineConfig({
     // spotlightjs(),
     react(),
   ],
-  vite: {
-    ssr: {
-      noExternal: ['date-fns', 'open-props', '@shoelace-style/shoelace'],
-    },
-  },
 });

@@ -8,17 +8,17 @@ import { useAsync } from 'react-use';
 const DEFAULT_VAL = 'Select.tsx';
 
 export function Select() {
-  const [selectedDemo, setSelectedDemo] = useState('/');
+  const [selectedDemo, setSelectedDemo] = useState<string>('/');
   // const [prevSection, setPrevSelection] = useState('/')
 
   useAsync(async () => {
-    await navigate(selectedDemo)
-      .then(() => {
-        //console.log('navigated to', selectedDemo);
-      })
-      .catch((err) => {
-        console.error('error navigating to', selectedDemo, err.message);
-      });
+    await navigate(selectedDemo);
+    // .then(() => {
+    //   //console.log('navigated to', selectedDemo);
+    // })
+    // .catch((err) => {
+    //   console.error('error navigating to', selectedDemo, err?.message);
+    // });
   }, [selectedDemo]);
 
   return (
@@ -29,8 +29,7 @@ export function Select() {
           className="col"
           id="demo"
           onChange={(e) => {
-            const event = e as unknown as React.ChangeEvent<HTMLSelectElement>;
-            setSelectedDemo(event.target.value);
+            setSelectedDemo(e.target.value as string);
           }}
           title="see a layout"
           defaultValue={selectedDemo}

@@ -1,9 +1,10 @@
 import astro from 'eslint-plugin-astro';
+import astroParser from 'astro-eslint-parser';
 import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
 // import wc from 'eslint-plugin-wc';
 // import lit from 'eslint-plugin-lit';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
+// import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
@@ -14,7 +15,7 @@ import react from 'eslint-plugin-react';
 
 export default tseslint.config(
   js.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylistic,
   ...astro.configs.recommended,
   // jsxA11y.flatConfigs.recommended,
@@ -27,6 +28,16 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        project: './tsconfig.eslint.json',
+
+        // For example, if you use a specific tsconfig.eslint.json for linting, you'd specify:
+        tsconfigRootDir: import.meta.dirname,
+
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -53,19 +64,19 @@ export default tseslint.config(
   },
 
   {
-    files: [
-      'src/astro-custom-layout-components/**/*',
-      'src/ui/web-components/**/*',
-    ],
+    files: ['src/astro-custom-layout-components/**/*.js'],
+    ...tseslint.configs.disableTypeChecked,
     rules: {
       'wc/no-constructor-attributes': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
     },
   },
 
   {
     plugins: {
       markdown,
-      'jsx-a11y': jsxA11y,
+      // 'jsx-a11y': jsxA11y,
       react,
       // 'react-hooks': fixupPluginRules(reactHooks),
     },
@@ -76,26 +87,40 @@ export default tseslint.config(
       // ...reactHooks.configs.recommended.rules,
     },
   },
+  {
+    files: ['**/*.astro'],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        parser: tseslint.parser,
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'warn',
+    },
+  },
 
   {
     files: ['**/*.tsx', '**/*.jsx'],
     rules: {
-      'jsx-a11y/alt-text': [
-        2,
-        {
-          elements: ['img', 'object', 'area', 'input[type="image"]'],
-          img: ['Image'],
-          object: ['Object'],
-          area: ['Area'],
-          'input[type="image"]': ['InputImage'],
-        },
-      ],
-      'jsx-a11y/no-autofocus': [
-        2,
-        {
-          ignoreNonDOM: true,
-        },
-      ],
+      // 'jsx-a11y/alt-text': [
+      //   2,
+      //   {
+      //     elements: ['img', 'object', 'area', 'input[type="image"]'],
+      //     img: ['Image'],
+      //     object: ['Object'],
+      //     area: ['Area'],
+      //     'input[type="image"]': ['InputImage'],
+      //   },
+      // ],
+      // 'jsx-a11y/no-autofocus': [
+      //   2,
+      //   {
+      //     ignoreNonDOM: true,
+      //   },
+      // ],
     },
   },
 
@@ -138,6 +163,8 @@ export default tseslint.config(
       '.vercel/',
       'src/pages/demo/modal-demo.astro',
       'src/web-component/astro-modal/index.astro',
+      '*.config.*',
+      'src/components/ComponentLibrary.astro',
     ],
   },
   eslintConfigPrettier,

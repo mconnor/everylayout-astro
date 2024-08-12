@@ -51,7 +51,7 @@ export default class Cover extends HTMLElement {
   }
 
   set centered(val) {
-    return this.setAttribute('centered', val);
+    this.setAttribute('centered', val);
   }
 
   get space() {
@@ -59,7 +59,7 @@ export default class Cover extends HTMLElement {
   }
 
   set space(val) {
-    return this.setAttribute('space', val);
+    this.setAttribute('space', val);
   }
 
   get minHeight() {
@@ -67,7 +67,7 @@ export default class Cover extends HTMLElement {
   }
 
   set minHeight(val) {
-    return this.setAttribute('minHeight', val);
+    this.setAttribute('minHeight', val);
   }
 
   get noPad() {
@@ -76,9 +76,9 @@ export default class Cover extends HTMLElement {
 
   set noPad(val) {
     if (val) {
-      return this.setAttribute('noPad', '');
+      this.setAttribute('noPad', '');
     } else {
-      return this.removeAttribute('noPad');
+      this.removeAttribute('noPad');
     }
   }
 

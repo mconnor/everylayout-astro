@@ -1,25 +1,31 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
+    "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
     "declaration": true,
-    "useDefineForClassFields": true,
+    "declarationDir": "./types",
+    "declarationMap": true,
+    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@cc/*": ["src/astro-custom-layout-components/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@cc/index": [
+        "./src/astro-custom-layout-components/index.ts"
+      ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["src/**/*.*"],
+  "include": [
+    "src"
+  ],
   "exclude": [
-    "node_modules",
+    ".vercel",
+    ".astro",
     "dist",
-    "build",
     "src/**/_*.*",
-    "src/components/_Icon.tsx",
-    "src/pages/demo/modal-demo.astro",
-    "src/web-component/astro-modal/index.astro"
   ]
 }
