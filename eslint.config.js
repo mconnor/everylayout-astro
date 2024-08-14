@@ -16,7 +16,7 @@ import react from 'eslint-plugin-react';
 export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylistic,
+  ...tseslint.configs.stylisticTypeChecked,
   ...astro.configs.recommended,
   // jsxA11y.flatConfigs.recommended,
 
@@ -47,8 +47,12 @@ export default tseslint.config(
   {
     rules: {
       'no-unused-vars': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'error',
+      '@typescript-eslint/no-unsafe-call': 'error',
+      '@typescript-eslint/no-unsafe-member-access': 'error',
+
       '@typescript-eslint/no-unused-vars': [
-        'warn',
+        'error',
         {
           argsIgnorePattern: '^_',
           destructuredArrayIgnorePattern: '^_',
@@ -57,6 +61,12 @@ export default tseslint.config(
     },
     // 'lit/no-invalid-html': 'warn',
   },
+
+  //   rules: {
+  //     '@typescript-eslint/no-unsafe-assignment': 'warn',
+  //     '@typescript-eslint/no-unsafe-call': 'warn',
+  //     '@typescript-eslint/no-unsafe-member-access': 'warn',
+  //   },
 
   {
     files: ['**/*.js', '**/*.mjs'],
@@ -93,6 +103,9 @@ export default tseslint.config(
       parser: astroParser,
       parserOptions: {
         parser: tseslint.parser,
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
     rules: {

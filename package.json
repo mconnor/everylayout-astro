@@ -34,7 +34,6 @@
     "date-fns": "^3.6.0",
     "nanostores": "^0.11.2",
     "open-props": "^1.7.5",
-    "pnpm": "^9.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-use": "^17.5.1",

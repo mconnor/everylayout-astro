@@ -29,7 +29,7 @@ export function Select() {
           className="col"
           id="demo"
           onChange={(e) => {
-            setSelectedDemo(e.target.value as string);
+            setSelectedDemo(e.target.value);
           }}
           title="see a layout"
           defaultValue={selectedDemo}
