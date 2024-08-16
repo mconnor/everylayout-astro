@@ -1,6 +1,7 @@
 ---
 
 ---
+
 <astro-navigate-select>
   <h6>js wc</h6>
   <label for="demo-select">Select a layout demo:</label>
@@ -20,39 +21,36 @@
 <script>
   import { navigate } from 'astro:transitions/client';
   class AstroNavigateSelect extends HTMLElement {
-
-
     constructor() {
       super();
 
-      this._handleChange.bind(this)
-
+      this._handleChange.bind(this);
     }
 
-   connectedCallback() {
+    connectedCallback() {
       this.querySelector('[data-navigate-select]')?.addEventListener(
         'change',
-        this._handleChange
+        this._handleChange,
       );
     }
 
     disconnectedCallback() {
       this.querySelector('[data-navigate-select]')?.removeEventListener(
         'change',
-        this._handleChange
+        this._handleChange,
       );
     }
 
-  // (e) => e.target && navigate(e.target.value)
+    // (e) => e.target && navigate(e.target.value)
 
-  async _handleChange(e: Event) {
+    async _handleChange(e: Event) {
       const targetUrl = (e.target as HTMLSelectElement)?.value;
       if (!targetUrl) throw new Error('No target URL provided');
       navigate(targetUrl);
     }
-}
+  }
 
-customElements.define('astro-navigate-select', AstroNavigateSelect);
+  customElements.define('astro-navigate-select', AstroNavigateSelect);
 </script>
 
 <style>
