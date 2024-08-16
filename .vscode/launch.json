@@ -2,12 +2,24 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "chrome",
+      "name": "Debug Astro",
+      "type": "node",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "runtimeExecutable": "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
+      "program": "${workspaceFolder}/node_modules/.bin/astro",
+      "args": [
+        "dev"
+      ],
+      "cwd": "${workspaceFolder}",
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ],
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeExecutable": "node",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
