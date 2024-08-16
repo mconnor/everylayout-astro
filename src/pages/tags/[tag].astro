@@ -7,8 +7,11 @@ import { getCollection } from 'astro:content';
 // import Card from '@components/CardBySlug.astro';
 import BlogCard from '#components/Card/index.astro';
 
-// import type { CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from 'astro:content';
 
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
 export const prerender = true;
 
 export const getStaticPaths = async () => {

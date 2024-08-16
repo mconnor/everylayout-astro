@@ -15,31 +15,31 @@ function generateRandomString() {
 ---
 
 <Center>
-  <div class="myborder container">
+  <Box>
     <!-- <div class="stack">
       <Box><a href="#tag3">xxx</a></Box>
       <Box><a href="#tag4">xxx</a></Box>
       <Box>
-        <Box><a href="#tag3">000</a></Box>
-        <Box><a href="#tag4">000</a></Box>
-        <Box><a href="#tag1">000</a></Box>
+        <Box><a href="#tag3">{generateRandomString()}</a></Box>
+        <Box><a href="#tag4">{generateRandomString()}</a></Box>
+        <Box><a href="#tag1">{generateRandomString()}</a></Box>
       </Box>
       <Box><a href="#tag1">xxx</a></Box>
       <Box><a href="#tag2">xxx</a></Box>
     </div> -->
 
-    <Stack space="var(--size-1)">
+    <Stack space="var(--size-3)" recursive>
       <Box><a href="#tag3">xxx</a></Box>
-      <Box><a href="#tag4">xxx</a></Box>
-      <Box>
-        <Box><a href="#tag3">000</a></Box>
-        <Box><a href="#tag4">000</a></Box>
-        <Box><a href="#tag1">000</a></Box>
+      <Box invert><a href="#tag4">xxx</a></Box>
+      <Box borderWidth="10px">
+        <Box><a href="#tag3">{generateRandomString()}</a></Box>
+        <Box><a href="#tag4">{generateRandomString()}</a></Box>
+        <Box><a href="#tag1">{generateRandomString()}</a></Box>
       </Box>
       <Box><a href="#tag1">xxx</a></Box>
       <Box><a href="#tag2">xxx</a></Box>
     </Stack>
-  </div>
+  </Box>
 </Center>
 
 <style>

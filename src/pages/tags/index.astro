@@ -8,8 +8,8 @@ const allBlogPost = await getCollection('blog');
 
 const tagCounts = {};
 
-allBlogPost.forEach((post) =>
-  (post.data.tags || []).forEach((tag: string) => {
+allBlogPost.forEach(({ data }) =>
+  (data.tags || []).forEach((tag: string) => {
     tagCounts[tag] = (tagCounts[tag] || 0) + 1;
   }),
 );
