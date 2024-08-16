@@ -10,23 +10,12 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@cc/index": [
-        "./src/astro-custom-layout-components/index.ts"
-      ]
+      "@/*": ["src/*"],
+      "@cc/index": ["./src/astro-custom-layout-components/index.ts"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    ".vercel",
-    ".astro",
-    "dist",
-    "src/**/_*.*",
-  ]
+  "include": ["src", "*.config.*"],
+  "exclude": [".vercel", ".astro", "dist", "**/_*.*"]
 }

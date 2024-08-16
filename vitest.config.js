@@ -4,6 +4,7 @@ import { getViteConfig } from 'astro/config.js';
 export default getViteConfig({
   build: {
     minify: 'esbuild',
+    sourcemap: true, // Source map generation must be turned on
   },
   ssr: {
     noExternal: ['date-fns', 'open-props', '@shoelace-style/shoelace'],
