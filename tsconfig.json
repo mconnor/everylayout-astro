@@ -9,13 +9,18 @@
     "declarationMap": true,
     "strictNullChecks": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@cc/index": ["./src/astro-custom-layout-components/index.ts"]
-    },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["src", "*.config.*"],
-  "exclude": [".vercel", ".astro", "dist", "**/_*.*"]
+  "include": [
+    "src",
+    "*.config.*"
+  ],
+  "exclude": [
+    ".vercel",
+    ".astro",
+    "dist",
+    "**/_*.*",
+    "my-custom-cache-directory"
+  ]
 }

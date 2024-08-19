@@ -1,7 +1,7 @@
 ---
-const components = await Astro.glob('@/components/*.astro');
+const components = await Astro.glob('./*.astro');
 
-const pages = await Astro.glob('@/pages/**/*.astro');
+const pages = await Astro.glob('../pages/**/*.astro');
 ---
 
 <h4>list off all components</h4>

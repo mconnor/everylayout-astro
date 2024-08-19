@@ -43,4 +43,5 @@ export default defineConfig({
     // spotlightjs(),
     react(),
   ],
+  cacheDir: './my-custom-cache-directory',
 });

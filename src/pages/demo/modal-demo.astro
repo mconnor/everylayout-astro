@@ -11,21 +11,21 @@
 // }
 
 import Layout from '#layouts/BareLayout.astro';
-// import Modal from '@/ui/astro/modal/Modal.astro';
-import Modal from '@/web-component/astro-modal/index.astro';
-import { Box } from '@/astro-custom-layout-components';
-import { isOpen } from '@/store/index.ts';
+// import Modal from '#ui/astro/modal/Modal.astro';
+// import Modal from '#web-component/astro-modal/index.astro';
+import { Box } from '#astro-custom-layout-components/index.js';
+import { isOpen } from '#store/index.ts';
 ---
 
 <Layout>
-  <Modal open />
+  <!-- <Modal open /> -->
   <Box>
     <button class="modal">show modal</button>
   </Box>
 </Layout>
 
 <script>
-  import { isOpen } from '@/store/index.ts';
+  import { isOpen } from '#store/index.ts';
   console.log('isOpen.get()' + isOpen.get());
   const buttons = document.querySelectorAll('button.modal');
   // Handle clicks on each button.

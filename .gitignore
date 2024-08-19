@@ -11,14 +11,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
+my-custom-cache-directory/
 
 # environment variables
 .env
 .env.production
 .env.local
 .env.sentry-build-plugin
-
 
 # macOS-specific files
 .DS_Store

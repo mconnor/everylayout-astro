@@ -15,7 +15,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint",
-    "fix": "eslint  --fix  .",
+    "fix": "eslint  --fix",
     "format": "prettier --write  --ignore-unknown .",
     "stylelint": "stylelint \"src/**/*.{css,astro}\"",
     "sfix": "stylelint \"src/**/*.{css,astro}\" --fix",
@@ -47,6 +47,9 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.9.0",
     "@types/canvas-confetti": "^1.6.4",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint-plugin-markdown": "^2.0.2",
+    "@types/eslint__js": "^8.42.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro-eslint-parser": "^1.0.2",
@@ -61,6 +64,7 @@
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-wc": "^2.1.0",
     "globals": "^15.9.0",
+    "postcss": "^8.4.41",
     "postcss-html": "^1.7.0",
     "postcss-import": "^16.1.0",
     "postcss-jit-props": "^1.0.14",
@@ -75,8 +79,7 @@
     "typescript-eslint": "^8.1.0"
   },
   "engines": {
-    "node": ">= 20.11.0 <21 || >= 21.2.0",
-    "pnpm": ">=9.1.2"
+    "node": "20.x"
   },
   "packageManager": "pnpm@9.7.1"
 }

@@ -2,10 +2,10 @@
 // import { Debug } from 'astro:components';
 
 import Layout from '#layouts/Layout.astro';
-import { Box, Stack } from '@/astro-custom-layout-components';
+import { Box, Stack } from '#astro-custom-layout-components/index.js';
 import { getCollection } from 'astro:content';
 // import Card from '@components/CardBySlug.astro';
-import BlogCard from '#components/Card/index.astro';
+import Card from '#components/Card/index.astro';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -43,7 +43,7 @@ const { posts } = Astro.props;
   <Debug {posts} /> -->
   <Stack space="var(--s1)">
     <Box><h2>#{tag}</h2></Box>
-    {posts.map(({ slug }) => <BlogCard slug={slug} />)}
+    {posts.map(({ slug }) => <Card slug={slug} />)}
   </Stack>
   <!-- <TitleDate posts={posts} /> -->
 </Layout>

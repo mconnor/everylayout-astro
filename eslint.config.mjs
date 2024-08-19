@@ -108,6 +108,7 @@ export default [
       'src/env.d.ts',
       'src/components/_Hamburger.astro',
       'cache-directory/',
+      'my-custom-cache-directory',
       '*.d.ts',
       '**/temp.js',
       '*lock.yaml',
