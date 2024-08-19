@@ -2,27 +2,44 @@
 const components = await Astro.glob('./*.astro');
 
 const pages = await Astro.glob('../pages/**/*.astro');
+// const fileNameRegex = /([^/]+)$/;
+ const afterPagesRegex = /pages\/(.+)/;
+ const afterComponentssRegex = /components\/(.+)/;
+ const regexAstro = /\.astro$/;
 ---
 
-<h4>list off all components</h4>
+<h4>list off all pages</h4>
 
 {
   (
+
     <ul>
-      {pages.map((page) => (
-        <li>{page.file.match(/([^/]+)$/)?.[0]}</li>
-      ))}
-    </ul>
+     {
+     pages
+        .map((page) => {
+          const match = page.file.match(afterPagesRegex);
+          return match?.[1];
+        })
+        .filter((path:string) => !/\[.*\]/.test(path))
+        .map((filteredPath) => (<li>
+           <a href={`./${filteredPath}`}>{filteredPath?.replace(/\.astro$/, '')}</a></li>))
+           }
+    </ul>,
   )
 }
 
-<h4>ui</h4>
+<h4>components</h4>
 {
   (
     <ul>
-      {components.map((component) => (
-        <li>{component?.file.match(/([^/]+)$/)?.[0]}</li>
-      ))}
+      {
+      components.map((comp) => {
+          const match = comp.file.match(afterComponentssRegex);
+          return match?.[1]  })
+        .filter((path:string) => !/\[.*\]/.test(path)) // Exclude paths with brackets
+        .map((filteredPath) => (<li>
+           {filteredPath?.replace(/\.astro$/, '')}</li>))
+        }
     </ul>
   )
 }
