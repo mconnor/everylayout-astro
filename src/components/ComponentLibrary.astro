@@ -2,29 +2,34 @@
 const components = await Astro.glob('./*.astro');
 
 const pages = await Astro.glob('../pages/**/*.astro');
+
+const layoutComps = await Astro.glob(
+  '../astro-custom-layout-components/**/*.astro',
+);
 // const fileNameRegex = /([^/]+)$/;
- const afterPagesRegex = /pages\/(.+)/;
- const afterComponentssRegex = /components\/(.+)/;
- const regexAstro = /\.astro$/;
+const pagesRegExp = /pages\/(.+)/;
+const afterComponentssRegex = /components\/(.+)/;
+const regexAstro = /\.astro$/;
 ---
 
 <h4>list off all pages</h4>
 
 {
   (
-
     <ul>
-     {
-     pages
+      {pages
         .map((page) => {
-          const match = page.file.match(afterPagesRegex);
+          const match = page.file.match(pagesRegExp);
           return match?.[1];
         })
-        .filter((path:string) => !/\[.*\]/.test(path))
-        .map((filteredPath) => (<li>
-           <a href={`./${filteredPath}`}>{filteredPath?.replace(/\.astro$/, '')}</a></li>))
-           }
-    </ul>,
+        .filter((path: string) => !/\[.*\]/.test(path)) // Exclude paths with brackets
+        .map((path) => path?.replace(regexAstro, ''))
+        .map((filteredPath) => (
+          <li>
+            <a href={`./${filteredPath}`}>{filteredPath}</a>
+          </li>
+        ))}
+    </ul>
   )
 }
 
@@ -32,20 +37,30 @@ const pages = await Astro.glob('../pages/**/*.astro');
 {
   (
     <ul>
-      {
-      components.map((comp) => {
+      {components
+        .map((comp) => {
           const match = comp.file.match(afterComponentssRegex);
-          return match?.[1]  })
-        .filter((path:string) => !/\[.*\]/.test(path)) // Exclude paths with brackets
-        .map((filteredPath) => (<li>
-           {filteredPath?.replace(/\.astro$/, '')}</li>))
-        }
+          return match?.[1];
+        })
+        .map((filteredPath) => (
+          <li>{filteredPath?.replace(regexAstro, '')}</li>
+        ))}
     </ul>
   )
 }
 
-<style>
-  div {
-    color: black;
-  }
-</style>
+<h4>layout components</h4>
+{
+  (
+    <ul>
+      {layoutComps
+        .map((comp) => {
+          const match = comp.file.match(afterComponentssRegex);
+          return match?.[1];
+        })
+        .map((filteredPath) => (
+          <li>{filteredPath?.replace(regexAstro, '')}</li>
+        ))}
+    </ul>
+  )
+}
