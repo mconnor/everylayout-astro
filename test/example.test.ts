@@ -7,11 +7,11 @@ test('Card with slots', async () => {
 
   const result = await container.renderToString(Card, {
     props: {
-      slug: 'bob-dobs',
+      slug: 'second-post',
     },
   });
 
-  expect(result).toContain('Bob Dobbs');
+  expect(result).toContain('Second post');
 });
 
 // import { assert, describe, expect, it } from 'vitest'
