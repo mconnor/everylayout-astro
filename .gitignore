@@ -21,3 +21,4 @@ my-custom-cache-directory/
 
 # macOS-specific files
 .DS_Store
+.turbo
