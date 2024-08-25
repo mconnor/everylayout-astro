@@ -1,6 +1,6 @@
 import './Select.css';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { navigate } from 'astro:transitions/client';
 
 import { useAsync } from 'react-use';

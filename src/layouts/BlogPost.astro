@@ -1,4 +1,5 @@
 ---
+import Layout from '#layouts/Layout.astro';
 import { getEntry } from 'astro:content';
 import { Box, Stack, Center } from '#astro-custom-layout-components/index.js';
 import { Image } from 'astro:assets';
@@ -7,7 +8,7 @@ import type { BlogSchemaType } from '#schemas/index.ts';
 
 import FormattedDate from '#components/FormattedDate.astro';
 // import Author from '@cc/Author.astro'
-import Layout from '#layouts/Layout.astro';
+
 import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
 interface Props {

@@ -2,7 +2,7 @@
 import Layout from '#layouts/Layout.astro';
 import { Center } from '#astro-custom-layout-components/index.js';
 import Box from '#astro-custom-layout-components/Box/index.astro';
-// import AppDrawer from '#web-components/AppDrawer.astro';
+import AppDrawer from '#ui/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
@@ -10,9 +10,10 @@ import Box from '#astro-custom-layout-components/Box/index.astro';
   <Center>
     <!-- <Stack recursive> -->
     <Box invert>
+      <h2>{process.env.NODE_ENV}</h2>
       <h3>Sagittis purus sc</h3>
     </Box>
-    <!-- <AppDrawer open disabled /> -->
+    <AppDrawer open disabled />
     <!-- <Box>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
