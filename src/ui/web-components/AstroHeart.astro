@@ -13,12 +13,12 @@
       const countSpan = this.querySelector('span');
 
       // Each time the button is clicked, update the count.
-      heartButton &&
-        countSpan &&
+      if (heartButton && countSpan) {
         heartButton.addEventListener('click', () => {
           count++;
           countSpan.textContent = count.toString();
         });
+      }
     }
   }
 

@@ -3,9 +3,6 @@ import { getViteConfig } from 'astro/config';
 // import { sentryVitePlugin } from '@sentry/vite-plugin';
 
 export default getViteConfig({
-  ssr: {
-    noExternal: ['date-fns', 'open-props'],
-  },
   test: {
     // Vitest configuration options
   },

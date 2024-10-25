@@ -11,7 +11,7 @@ import OpenProps from 'open-props';
 export default {
   plugins: [
     postcssImport,
-    postcssJitProps(OpenProps),
+    postcssJitProps({ ...OpenProps, custom_selector: ':global' }),
     autoprefixer,
     postcssNesting,
     postcssPow,

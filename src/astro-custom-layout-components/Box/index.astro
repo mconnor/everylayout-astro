@@ -7,7 +7,7 @@ interface Props {
   borderWidth?: RmUnitType; //"var(--border-thin)"
   invert?: boolean; // false
 }
-const { padding, borderWidth, invert } = Astro.props;
+const { padding = 'var(--s1)', borderWidth, invert } = Astro.props;
 ---
 
 <box-l padding={padding} borderWidth={borderWidth} invert={invert}>

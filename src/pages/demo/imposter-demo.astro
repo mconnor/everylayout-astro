@@ -1,15 +1,37 @@
 ---
 import Layout from '#layouts/Layout.astro';
-import { Imposter, Cluster } from '#astro-custom-layout-components/index.js';
+import { Imposter, Box } from '#astro-custom-layout-components/index.js';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-  <Imposter>
-    <Cluster>
-      <p class="h4">
-        <strong>You can’t see all the content, because of this box.</strong>
-      </p>
-    </Cluster>
+  <Box>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
+      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
+      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
+      corrupti!
+    </p>
+
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
+      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
+      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
+      corrupti!
+    </p>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
+      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
+      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
+      corrupti!
+    </p>
+  </Box>
+  <Imposter fixed>
+    <Box invert>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis saepe
+      soluta, voluptatem, iste nesciunt asperiores suscipit aut corrupti dolores
+      inventore vero explicabo alias sint expedita deserunt facere nisi
+      consectetur sit.
+    </Box>
   </Imposter>
 </Layout>

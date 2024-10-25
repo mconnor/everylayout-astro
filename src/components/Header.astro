@@ -1,11 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 
-import {
-  Box,
-  Cluster,
-  Switcher,
-} from '#astro-custom-layout-components/index.js';
+import { Box, Cluster } from '#astro-custom-layout-components/index.js';
 
 // import { DropDown as HeadlessUI } from '#ui/react/DropDown.tsx';
 import NavDropDown from '#ui/web-components/NavDropDown.astro';
@@ -24,14 +20,12 @@ import NavDropDown from '#ui/web-components/NavDropDown.astro';
     > -->
 
   <Box padding="0" borderWidth="2px">
-    <Cluster align="baseline" justify="flex-start" space="var(--s6)">
-      <Switcher threshold="20ch" limit={6}>
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/blog">Blog</HeaderLink>
-        <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="/ui">Ui</HeaderLink>
-        <HeaderLink href="/tags">tags</HeaderLink>
-      </Switcher>
+    <Cluster align="baseline" justify="flex-start">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="/ui">Ui</HeaderLink>
+      <HeaderLink href="/tags">tags</HeaderLink>
     </Cluster>
   </Box>
   <!-- </Cluster> -->

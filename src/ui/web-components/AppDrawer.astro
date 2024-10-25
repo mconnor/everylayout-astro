@@ -38,11 +38,9 @@
       super();
 
       // Setup a click listener on <app-drawer> itself.
-      this.addEventListener('click', (_e) => {
+      this.addEventListener('click', () => {
         // Don't toggle the drawer if it's disabled.
-        if (this.disabled) {
-          return;
-        }
+        if (this.disabled) return;
         this.toggleDrawer();
       });
     }

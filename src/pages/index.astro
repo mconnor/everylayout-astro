@@ -1,44 +1,38 @@
 ---
 import Layout from '#layouts/Layout.astro';
-import { Center } from '#astro-custom-layout-components/index.js';
+import { Stack } from '#astro-custom-layout-components/index.js';
 import Box from '#astro-custom-layout-components/Box/index.astro';
-import AppDrawer from '#ui/web-components/AppDrawer.astro';
+// import AppDrawer from '#ui/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
-  <Center>
-    <!-- <Stack recursive> -->
-    <Box invert>
-      <h2>{process.env.NODE_ENV}</h2>
-      <h3>Sagittis purus sc</h3>
+  <Stack space="var(--s3)">
+    <Box>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
     </Box>
-    <AppDrawer open disabled />
-    <!-- <Box>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
-          exercitationem inventore, nihil amet officiis tenetur voluptas debitis
-          reprehenderit asperiores cupiditate eum doloribus eos magnam
-          voluptates suscipit praesentium recusandae magni nulla.
-        </p>
-        <Box>
-          <p>
-            Ut quis tempora tenetur, corrupti odio quidem modi hic neque
-            consequuntur enim expedita doloribus pariatur odit, aspernatur dolor
-            minima aliquid cupiditate!
-          </p>
-        </Box>
-      </Box> -->
-    <!-- <Box>
-        <p>Invert purus sit amet volutc</p>
-      </Box>
-    </Stack> -->
-  </Center>
-</Layout>
+    <Box invert>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
 
-<style>
-  .about-colors {
-    color: white !important;
-    background-color: black !important;
-  }
-</style>
+    <Box invert>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
+
+    <Box>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
+  </Stack>
+</Layout>

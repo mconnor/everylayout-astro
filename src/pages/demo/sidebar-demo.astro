@@ -1,36 +1,25 @@
 ---
-import Layout from '#layouts/SimpleLayout.astro';
+import Layout from '#layouts/Layout.astro';
 
-import { Box, Sidebar } from '#astro-custom-layout-components/index.js';
+import { Box, Sidebar, Stack } from '#astro-custom-layout-components/index.js';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-  <Box>
-    <Sidebar
-      space="var(--s2)"
-      contentMin="20%"
-      noStretch={false}
-      sideWidth="30ch"
-    >
-      <Box>
-        <p>
-          <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
-          20rem as an ideal or “target” width. It is then free to calculate just
-          how closely the 20rem target can be resembled given the content and available
-          space. You empower the browser to make the right decision for the content,
-          and the user, reading that content, given their circumstances.
-        </p>
-      </Box>
-      <Box>
-        <p>
-          <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
-          20rem as an ideal or “target” width. It is then free to calculate just
-          how closely the 20rem target can be resembled given the content and available
-          space. You empower the browser to make the right decision for the content,
-          and the user, reading that content, given their circumstances.
-        </p>
-      </Box>
-    </Sidebar>
-  </Box>
+  <Sidebar contentMin="20%" noStretch={false} sideWidth="30ch">
+    <Stack splitAfter={1}>
+      <p>xxx</p>
+      <p>xxx</p>
+      <p>xxx</p>
+    </Stack>
+    <Box>
+      <p>
+        <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
+        20rem as an ideal or “target” width. It is then free to calculate just how
+        closely the 20rem target can be resembled given the content and available
+        space. You empower the browser to make the right decision for the content,
+        and the user, reading that content, given their circumstances.
+      </p>
+    </Box>
+  </Sidebar>
 </Layout>
