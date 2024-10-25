@@ -18,9 +18,6 @@ const config = tseslint.config(
 
   {
     languageOptions: {
-      // ecmaVersion: 'latest',
-      // sourceType: 'module',
-
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -33,8 +30,9 @@ const config = tseslint.config(
   },
   {
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      'typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/triple-slash-reference': 'off',
     },
   },
   {
