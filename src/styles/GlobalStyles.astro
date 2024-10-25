@@ -1,10 +1,28 @@
 ---
-// import 'open-props/postcss/style'
+import 'open-props/postcss/style';
 import 'open-props/postcss/buttons';
 import 'open-props/postcss/normalize';
 import './variables.css';
+import './utility-classes.css';
 import './modular-scale.css';
+
 // Supports weights 300-800
-import './layoutStyles/box.css';
-import '@fontsource-variable/open-sans';
+// import './layoutStyles/box.css';
+// import './layoutStyles/EveryLayout.css';
+import './columns.css';
 ---
+
+<style is:global>
+  :root {
+    --my-bg-color: var(--gradient-5);
+    --my-color: var(--text-2);
+
+    --color-light: var(--surface-2);
+    --color-dark: var(--text-2);
+  }
+
+  body {
+    color: var(--my-color);
+    background-color: var(--my-bg-color);
+  }
+</style>

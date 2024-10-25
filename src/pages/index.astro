@@ -1,36 +1,38 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-
-// import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
-
-import { Box, Stack } from '@cc/index.js';
+import Layout from '#layouts/Layout.astro';
+import { Stack } from '#astro-custom-layout-components/index.js';
+import Box from '#astro-custom-layout-components/Box/index.astro';
+// import AppDrawer from '#ui/web-components/AppDrawer.astro';
 ---
 
-<Layout title="home" description="testing css">
-  <Stack>
-    <Box invert>
-      <h1>Home</h1>
-    </Box>
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout title="About Me" description="Lorem ipsum dolor sit amet">
+  <Stack space="var(--s3)">
     <Box>
-      <h2 class="my-brand">welcome</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti
-        vel magnam eaque maxime sit quos. Totam deserunt modi facere ipsam ab
-        harum, voluptate, sapiente alias, quo impedit dolores eaque!
-      </p>
-      <Box invert>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          deleniti vel magnam eaque maxime sit quos. Totam deserunt modi facere
-          ipsam ab harum, voluptate, sapiente alias, quo impedit dolores eaque!
-        </p>
-      </Box>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
+    <Box invert>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
+
+    <Box invert>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
+    </Box>
+
+    <Box>
+      <pre
+        class="pre-wrap">&lt;div class="box invert"&gt;
+Here using the box class rather than the Box web component.
+&lt;/div&gt;</pre>
     </Box>
   </Stack>
 </Layout>
-
-<style>
-  .my-brand {
-    color: var(--brand);
-  }
-</style>

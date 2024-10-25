@@ -1,0 +1,45 @@
+---
+import BaseHead from '#components/BaseHead.astro';
+
+import { Frame, Switcher } from '#astro-custom-layout-components/index.js';
+import { Image } from 'astro:assets';
+import Andy from '../assets/Andy.jpg';
+
+interface Props {
+  title?: string;
+  description?: string;
+  children: unknown;
+}
+
+const { title = 'I NEED A TITLE', description = 'no description provided' } =
+  Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en" transition:animate="none" color-scheme="dark">
+  <head>
+    <BaseHead title={title} description={description} />
+    <link rel="canonical" href={canonicalURL} />
+  </head>
+
+  <body>
+    <Switcher>
+      <div class="fb1"><slot name="left" /></div>
+      <div class="fb1">
+        <Frame ratio="1:1">
+          <Image src={Andy} alt="Andy" />
+        </Frame>
+      </div>
+    </Switcher>
+    <style>
+      .fb1 {
+        flex-grow: 1;
+        background-color: green;
+      }
+      .promo-art {
+        align-self: stretch;
+      }
+    </style>
+  </body>
+</html>

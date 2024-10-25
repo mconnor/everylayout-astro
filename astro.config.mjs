@@ -3,20 +3,25 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 // import sentry from '@sentry/astro'
-// import spotlightjs from '@spotlightjs/astro'
+
 // import { loadEnv } from 'vite'
 import react from '@astrojs/react';
 
 // import vercel from '@astrojs/vercel/serverless'
-// import lit from '@astrojs/lit'
+
 // const { SECRET_TOKEN } = loadEnv(
 //  proceess.env.SENTRY_AUTH_TOKEN,
 //   process.cwd(),
 //   '',
 // )
 
+// import preact from '@astrojs/preact';
+
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/index': '/about',
+  },
   site: 'https://example.com',
   output: 'static',
   image: {
@@ -37,11 +42,6 @@ export default defineConfig({
     // }),
     // spotlightjs(),
     react(),
-    // lit(),
   ],
-  vite: {
-    ssr: {
-      noExternal: ['date-fns', 'open-props'],
-    },
-  },
+  cacheDir: './my-custom-cache-directory',
 });

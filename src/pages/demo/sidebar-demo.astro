@@ -1,27 +1,17 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from '#layouts/Layout.astro';
 
-import { Box, Sidebar } from '@cc/index.js';
-import { Image } from 'astro:assets';
+import { Box, Sidebar, Stack } from '#astro-custom-layout-components/index.js';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="test Me" description="Lorem ipsum dolor sit amet">
-  <Sidebar
-    space="var(--s2)"
-    contentMin="30%"
-    noStretch={false}
-    sideWidth="30ch"
-  >
-    <Image
-      class="box-with-corner-cuts"
-      width="200"
-      height="100"
-      quality="max"
-      src="https://picsum.photos/200/100?random=2"
-      alt="Image alt text"
-    />
-
+  <Sidebar contentMin="20%" noStretch={false} sideWidth="30ch">
+    <Stack splitAfter={1}>
+      <p>xxx</p>
+      <p>xxx</p>
+      <p>xxx</p>
+    </Stack>
     <Box>
       <p>
         <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider

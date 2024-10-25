@@ -38,8 +38,8 @@ export default class Center extends HTMLElement {
             }
           }
         `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
+          .replace(/\s{2,}/g, ' ') // remove extra spaces
+          .trim(); // remove leading/trailing spaces
         document.head.appendChild(styleEl);
       }
     };
@@ -98,6 +98,4 @@ export default class Center extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('center-l', Center);
-}
+customElements.define('center-l', Center);

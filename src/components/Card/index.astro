@@ -1,19 +1,20 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import { getEntry } from 'astro:content';
-import { Frame, Stack } from '@cc/index.js';
+import { Frame, Stack } from '#astro-custom-layout-components/index.js';
 // import { Debug } from 'astro:components';
 // import type { HTMLAttributes } from 'astro/types';
 // import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 import { Image } from 'astro:assets';
-import type { BlogSchemaType } from '@schemas/index.ts';
+// import type { BlogSchemaType } from '#schemas/index.ts';
 import CardTop from './top-bottom.astro';
 
 // interface Props extends HTMLAttributes<'a'> extends CollectionEntry<'blog'>.data;
 
 // type EntryType = CollectionEntry<'blog'>;
 
-interface Props {
+interface Props extends HTMLAttributes<'article'> {
   slug: string;
   foregroundColor?: string;
   backgroundColor?: string;
@@ -26,8 +27,11 @@ const {
 } = Astro.props;
 const blogdata = await getEntry('blog', slug);
 
-const { title, pubDate, description, author, cover }: BlogSchemaType =
-  blogdata.data;
+if (blogdata === undefined) {
+  throw new Error(`No blog entry found for slug: ${slug}`);
+}
+
+const { title, pubDate, description, author, cover } = blogdata.data;
 
 const authObj = await getEntry('authors', author.id);
 ---

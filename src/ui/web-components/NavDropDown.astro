@@ -1,0 +1,61 @@
+---
+
+---
+
+<astro-navigate-select>
+  <h6>js wc</h6>
+  <label for="demo-select">Select a layout demo:</label>
+  <select data-navigate-select id="demo-select">
+    <option value="/">home</option>
+    <option value="/demo/cluster-demo">cluster</option>
+    <option value="/demo/sidebar-demo">sidebar</option>
+    <option value="/demo/switcher-demo">switcher-demo</option>
+    <option value="/demo/grid-demo">grid-demo</option>
+    <option value="/demo/reel-demo">reel-demo</option>
+    <option value="/demo/imposter-demo">imposter-demo</option>
+    <option value="/demo/harmonic-demo">harmonic-demo</option>
+    <option value="/demo/stack-demo">stack-demo</option>
+  </select>
+</astro-navigate-select>
+
+<script>
+  import { navigate } from 'astro:transitions/client';
+  class AstroNavigateSelect extends HTMLElement {
+    constructor() {
+      super();
+
+      this._handleChange.bind(this);
+    }
+
+    connectedCallback() {
+      this.querySelector('[data-navigate-select]')?.addEventListener(
+        'change',
+        this._handleChange,
+      );
+    }
+
+    disconnectedCallback() {
+      this.querySelector('[data-navigate-select]')?.removeEventListener(
+        'change',
+        this._handleChange,
+      );
+    }
+
+    // (e) => e.target && navigate(e.target.value)
+
+    async _handleChange(e: Event) {
+      const targetUrl = (e.target as HTMLSelectElement)?.value;
+      if (!targetUrl) throw new Error('No target URL provided');
+      navigate(targetUrl);
+    }
+  }
+
+  customElements.define('astro-navigate-select', AstroNavigateSelect);
+</script>
+
+<style>
+  astro-navigate-select {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

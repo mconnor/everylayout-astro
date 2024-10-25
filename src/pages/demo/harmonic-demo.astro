@@ -10,30 +10,31 @@
 //   return value
 // }
 
-import Layout from '@/layouts/Layout.astro';
-import { Cluster, Box } from '@cc/index.js';
+import Layout from '#layouts/Layout.astro';
+import { Cluster, Box } from '#astro-custom-layout-components/index.js';
 ---
 
-<Layout>
+<Layout centerWidth="100vw">
   <!--  paddh4ing="8rem" widtstyle={{"20%" /> -->
 
-  <Box>
-    <Cluster>
-      <div style={{ height: 'var(--h1)' }}>s0</div>
-      <div style={{ height: 'var(--h2)' }}>s0</div>
-      <div style={{ height: 'var(--h3)' }}>s4</div>
+  <Cluster space="var(--s3)">
+    <Box borderWidth="0"><div style={{ height: 'var(--h1)' }}>s0</div></Box>
+    <Box borderWidth="0"><div style={{ height: 'var(--h2)' }}>s1</div></Box>
+    <Box borderWidth="0"><div style={{ height: 'var(--h3)' }}>s4</div></Box>
 
-      <div style={{ height: 'var(--h4)' }}>s6</div>
-      <div style={{ height: 'var(--h5)' }}>s7</div>
-    </Cluster>
-  </Box>
+    <Box borderWidth="0"><div style={{ height: 'var(--h4)' }}>s6</div></Box>
+    <Box borderWidth="0"> <div style={{ height: 'var(--h5)' }}>s7</div></Box>
+  </Cluster>
 </Layout>
 
 <style>
   div {
-    background-color: red;
-    flex-grow: 1;
-
+    background: var(--gradient-13);
+    width: 10vw;
     font-size: var(--s0);
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-inline: 50%;
+    padding-top: var(--s1);
   }
 </style>

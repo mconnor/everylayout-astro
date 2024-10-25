@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import GlobalStyles from '@/styles/GlobalStyles.astro';
+import GlobalStyles from '#styles/GlobalStyles.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
@@ -22,7 +22,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link
+<!-- <link
   rel="preload"
   href="/fonts/atkinson-regular.woff"
   as="font"
@@ -35,7 +35,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
   as="font"
   type="font/woff"
   crossorigin
-/>
+/> -->
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

@@ -1,6 +1,6 @@
 :root {
-  /* --color-light: hsl(0 0% 80%);
-    --color-dark: hsl(0 0% 20%); */
+  --color-light: hsl(0 0% 80%);
+  --color-dark: hsl(0 0% 20%);
 
   /* light */
   --brand-light: var(--orange-12);

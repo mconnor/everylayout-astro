@@ -10,7 +10,11 @@ interface Props {
   children: unknown;
 }
 
-const { centeredElement: centered, ...rest } = Astro.props;
+const {
+  centeredElement: centered,
+
+  ...rest
+} = Astro.props;
 ---
 
 <cover-l centered={centered} {...rest}>
@@ -19,7 +23,7 @@ const { centeredElement: centered, ...rest } = Astro.props;
 
 <script src="./Cover.js"></script>
 
-<!-- 
+<!--
 side	string	"left"	Which element to treat as the sidebar (all values but "left" are considered "right")
 sideWidth	string		Represents the width of the sidebar when adjacent. If not set (null) it defaults to the sidebar's content width
 contentMin	string	"50%"	A CSS percentage value. The minimum width of the content element in the horizontal configuration

@@ -1,0 +1,92 @@
+/* Layouts */
+
+[class^='stack'] > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* top and bottom margins in horizontal-tb writing mode */
+  margin-block: 0;
+  gap: var(--size-10);
+}
+
+.stack {
+  > * + * {
+    margin-block-start: var(--size-5);
+  }
+  /* p elements after the second element towards the bottom of the space. */
+  /* > :nth-child(2) {
+        margin-block-end: auto;
+    } */
+}
+
+.stack-small > * + * {
+  margin-block-start: var(--size-2);
+}
+
+/* end stack */
+
+.center {
+  /* measurement of the content is critica */
+  box-sizing: content-box;
+  margin-inline: auto;
+  max-inline-size: var(--measure);
+  /* text align center */
+  /* text-align: center;
+        max-inline-size: var(--measure); */
+  /* Intrinsic centering?
+        Whether to center and child elements narrower than the max value */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--space, var(--size-2));
+  column-gap: var(--space, var(--size-fluid-5));
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* COVER */
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-5);
+  --threshold: var(--size-15);
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--threshold) - 100%) * 999);
+  }
+}
+
+.switcher > :nth-last-child(n + 6),
+.switcher > :nth-last-child(n + 6) ~ * {
+  flex-basis: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.imposter {
+  /* ↓ Position the top left corner in the center */
+  position: var(--positioning, absolute);
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  /* ↓ Reposition so the center of the element
+  is the center of the positioning container */
+  transform: translate(-50%, -50%);
+}

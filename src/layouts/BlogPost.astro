@@ -1,21 +1,26 @@
 ---
+import Layout from '#layouts/Layout.astro';
 import { getEntry } from 'astro:content';
-import { Box, Stack, Center } from '@cc/index.js';
+import { Box, Stack, Center } from '#astro-custom-layout-components/index.js';
 import { Image } from 'astro:assets';
 
-import type { BlogSchemaType } from '@/schemas/index.ts';
+import type { BlogSchemaType } from '#schemas/index.ts';
 
-import FormattedDate from '@/components/FormattedDate.astro';
+import FormattedDate from '#components/FormattedDate.astro';
 // import Author from '@cc/Author.astro'
-import Layout from '@/layouts/Layout.astro';
 
-type Props = BlogSchemaType & {
-  children: unknown;
-};
+import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
 
-const { title, description, pubDate, cover, author } = Astro.props;
+interface Props {
+  blogData: BlogSchemaType;
+  children: AstroComponentFactory;
+}
+const { blogData } = Astro.props;
 
-const { data } = await getEntry('authors', author.id);
+const { title, description, pubDate, cover, author } = blogData;
+
+const results = await getEntry('authors', author.id);
+const { name } = results.data;
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
@@ -33,7 +38,7 @@ const { data } = await getEntry('authors', author.id);
       <FormattedDate date={pubDate} />
 
       <Box invert><h3>{title}</h3></Box>
-      <Box invert><hh2>written by {data.name}</hh2></Box>
+      <Box invert><hh2>written by {name}</hh2></Box>
       <hr />
 
       <slot />

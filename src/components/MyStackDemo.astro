@@ -1,0 +1,55 @@
+---
+import { Box, Stack, Center } from '#astro-custom-layout-components/index.js';
+
+function generateRandomString() {
+  const length = 8;
+  // Math.floor(Math.random() * 13) + 3 // Generate a random length between 3 and 15
+  let result = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+---
+
+<Center>
+  <Box>
+    <!-- <div class="stack">
+      <Box><a href="#tag3">xxx</a></Box>
+      <Box><a href="#tag4">xxx</a></Box>
+      <Box>
+        <Box><a href="#tag3">{generateRandomString()}</a></Box>
+        <Box><a href="#tag4">{generateRandomString()}</a></Box>
+        <Box><a href="#tag1">{generateRandomString()}</a></Box>
+      </Box>
+      <Box><a href="#tag1">xxx</a></Box>
+      <Box><a href="#tag2">xxx</a></Box>
+    </div> -->
+
+    <Stack space="var(--size-3)" recursive>
+      <Box><a href="#tag3">xxx</a></Box>
+      <Box invert><a href="#tag4">xxx</a></Box>
+      <Box borderWidth="10px">
+        <Box><a href="#tag3">{generateRandomString()}</a></Box>
+        <Box><a href="#tag4">{generateRandomString()}</a></Box>
+        <Box><a href="#tag1">{generateRandomString()}</a></Box>
+      </Box>
+      <Box><a href="#tag1">xxx</a></Box>
+      <Box><a href="#tag2">xxx</a></Box>
+    </Stack>
+  </Box>
+</Center>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 0 100px;
+  }
+
+  .myborder {
+    border: 1px black solid;
+  }
+</style>

@@ -1,0 +1,29 @@
+[data-columns] {
+  display: grid;
+  grid-gap: 1rem;
+  border-radius: var(--radius-2);
+
+  box-shadow: var(--shadow-2);
+  padding: var(--size-fluid-1);
+  margin: 0 0 1rem 0;
+}
+
+[data-columns] > div {
+  height: 100px;
+  background: white;
+}
+
+[data-columns='2'] {
+  background: #64b5f6;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+[data-columns='3'] {
+  background: #9ccc65;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+[data-columns='4'] {
+  background: #ffb74d;
+  grid-template-columns: repeat(4, 1fr);
+}

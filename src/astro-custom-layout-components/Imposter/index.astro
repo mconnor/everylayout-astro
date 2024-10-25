@@ -1,4 +1,5 @@
 ---
+import './Imposter.css';
 import type { RmUnitType } from '../Types';
 
 interface Props {
@@ -15,12 +16,3 @@ const props = Astro.props;
 </imposter-l>
 
 <script src="./Imposter.js"></script>
-
-<style is:global>
-  imposter-l {
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: 50%;
-    transform: translate(-50%, -50%);
-  }
-</style>

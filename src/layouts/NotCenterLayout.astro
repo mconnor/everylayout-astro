@@ -1,0 +1,35 @@
+---
+import BaseHead from '#components/BaseHead.astro';
+import Header from '#components/Header.astro';
+import Footer from '#components/Footer.astro';
+import { Cover } from '#astro-custom-layout-components/index.js';
+
+interface Props {
+  title?: string;
+  description?: string;
+  children: unknown;
+}
+
+const { title = 'I NEED A TITLE', description = 'no description provided' } =
+  Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en" transition:animate="none" color-scheme="dark">
+  <head>
+    <BaseHead title={title} description={description} />
+    <link rel="canonical" href={canonicalURL} />
+  </head>
+
+  <body>
+    <Cover centeredElement="main" noPad={true} space="0">
+      <Header />
+
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </Cover>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from '#layouts/Layout.astro';
 
 import { Image } from 'astro:assets';
-import Card from '@/components/Card.astro';
-import { Frame, Grid } from '@cc/index.js';
+import Card from '#components/Card.astro';
+import { Frame, Grid } from '#astro-custom-layout-components/index.js';
 
 const W = '120';
 const H = '120';
@@ -17,7 +17,11 @@ const pic = getRandomSrc();
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
-<Layout title="test Me" description="Lorem ipsum dolor sit amet">
+<Layout
+  centerWidth="100vw"
+  title="test Me"
+  description="Lorem ipsum dolor sit amet"
+>
   <!-- space set the gap on the grid -->
   <Grid space="1rem" min=`${W}px`>
     <Card>

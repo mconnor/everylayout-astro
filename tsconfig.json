@@ -1,44 +1,21 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
-    "experimentalDecorators": true,
-    "declaration": true,
-    "useDefineForClassFields": false,
+    "rootDir": ".",
+    "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
+    "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
+    "strictNullChecks": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      // "@components/*": [
-      //   "src/components/*"
-      // ],
-      "@cc/*": [
-        "src/astro-custom-layout-components/*"
-      ]
-      // "@layouts/*": [
-      //   "src/layouts/*"
-      // ],
-      // "@content/*": [
-      //   "src/content/*"
-      // ],
-      // "@assets/*": [
-      //   "src/assets/*"
-      // ],
-      // "@styles/*": [
-      //   "src/styles/*"
-      // ],
-      // "@scripts/*": [
-      //   "src/scripts/*"
-      // ]
-    },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": [
-    "src/**/*.astro",
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.tsx"
+  "include": ["src", "*.config.*"],
+  "exclude": [
+    ".vercel",
+    ".astro",
+    "dist",
+    "**/_*.*",
+    "my-custom-cache-directory",
+    "test"
   ]
 }

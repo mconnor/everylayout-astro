@@ -19,11 +19,15 @@ export default class Box extends HTMLElement {
           [data-i="${this.i}"] {
             padding: ${this.padding};
             border: ${this.borderWidth} solid;
-            ${this.invert ? `filter: invert(100%);` : ''}
+            ${
+              this.invert
+                ? `background-color: var(--color-light);
+              filter: invert(100%);`
+                : ''
+            }
           }
-      
+
           [data-i="${this.i}"] {
-            color: inherit;
             background-color: inherit;
           }
         `

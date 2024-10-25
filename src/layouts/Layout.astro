@@ -1,17 +1,22 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
-import { Cover, Center } from '@cc/index.js';
+import BaseHead from '#components/BaseHead.astro';
+import Header from '#components/Header.astro';
+import Footer from '#components/Footer.astro';
+import { Cover, Center } from '#astro-custom-layout-components/index.js';
+import type { RmUnitType } from '#astro-custom-layout-components/Types.js';
 
 interface Props {
   title?: string;
   description?: string;
+  centerWidth?: RmUnitType;
   children: unknown;
 }
 
-const { title = 'I NEED A TITLE', description = 'no description provided' } =
-  Astro.props;
+const {
+  centerWidth = 'var(--measure)',
+  title = 'I NEED A TITLE',
+  description = 'no description provided',
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -24,12 +29,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
   <body>
     <Cover centeredElement="center-l" noPad={true} space="0">
-      <Header client:idle />
+      <Header />
 
-      <Center>
+      <Center max={centerWidth}>
         <slot />
       </Center>
-      <Footer client:idle />
+      <Footer />
     </Cover>
   </body>
 </html>
