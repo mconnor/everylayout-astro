@@ -1,5 +1,6 @@
 {
   "name": "everylayout-astro",
+  "author": "Mike Connor",
   "type": "module",
   "private": true,
   "version": "2.0.0",
