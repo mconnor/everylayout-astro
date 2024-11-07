@@ -9,13 +9,17 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "include": ["src", "*.config.*"],
+  "include": [
+    "src/**/*.astro",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "*.config.mjs",
+  ],
   "exclude": [
     ".vercel",
     ".astro",
     "dist",
-    "**/_*.*",
-    "my-custom-cache-directory",
-    "test"
+    "my-custom-cache-directory"
   ]
 }
