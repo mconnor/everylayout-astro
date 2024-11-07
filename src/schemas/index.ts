@@ -1,4 +1,4 @@
-import { z, reference } from 'astro:content';
+import { reference,z } from 'astro:content';
 
 const urlSchema = z.string().url();
 const urlSchemaOptional = urlSchema.optional();

@@ -1,8 +1,7 @@
 import './Select.css';
 
-import { useState } from 'react';
 import { navigate } from 'astro:transitions/client';
-
+import { useState } from 'react';
 import { useAsync } from 'react-use';
 
 const DEFAULT_VAL = 'Select.tsx';

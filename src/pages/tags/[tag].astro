@@ -1,13 +1,13 @@
 ---
 // import { Debug } from 'astro:components';
 
-import Layout from '#layouts/Layout.astro';
-import { Box, Stack } from '#astro-custom-layout-components/index.js';
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+
+import { Box, Stack } from '#astro-custom-layout-components/index.js';
 // import Card from '@components/CardBySlug.astro';
 import Card from '#components/Card/index.astro';
-
-import type { CollectionEntry } from 'astro:content';
+import Layout from '#layouts/Layout.astro';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];

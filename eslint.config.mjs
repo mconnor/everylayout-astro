@@ -1,13 +1,13 @@
 // @ts-check
-import astroParser from 'astro-eslint-parser';
-import globals from 'globals';
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import astroParser from 'astro-eslint-parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
-
 import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 const config = tseslint.config(
   js.configs.recommended,
@@ -78,6 +78,15 @@ const config = tseslint.config(
   {
     plugins: {
       markdown,
+    },
+  },
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   {
