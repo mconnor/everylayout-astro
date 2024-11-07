@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "rootDir": ".",
     "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
@@ -9,17 +9,14 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
+  "files": [".astro/types.d.ts"],
   "include": [
     "src/**/*.astro",
     "src/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "*.config.mjs",
+    "src/**/*.md",
+    "*.config.mjs"
   ],
-  "exclude": [
-    ".vercel",
-    ".astro",
-    "dist",
-    "my-custom-cache-directory"
-  ]
+  "exclude": [".vercel", ".astro", "dist", "my-custom-cache-directory"]
 }

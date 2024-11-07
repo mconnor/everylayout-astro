@@ -22,4 +22,4 @@ type AlignItemsTypes =
   | 'baseline'
   | 'stretch';
 
-export type { AlignItemsTypes,JustifyContentTypes, Percentage, RmUnitType };
+export type { AlignItemsTypes, JustifyContentTypes, Percentage, RmUnitType };

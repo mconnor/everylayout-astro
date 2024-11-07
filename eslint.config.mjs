@@ -1,19 +1,34 @@
 // @ts-check
 import js from '@eslint/js';
+import markdown from '@eslint/markdown';
 import astroParser from 'astro-eslint-parser';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
-import markdown from 'eslint-plugin-markdown';
 import regexp from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
-const config = tseslint.config(
+const tsConfig = tseslint.config(
+  {
+    ignores: [
+      'dist',
+      '.astro',
+      'cache-directory/',
+      'my-custom-cache-directory',
+      '**/temp.js',
+      '*lock.yaml',
+      '.vercel/',
+      'turbo/',
+      'test/',
+      'node_modules/',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...astro.configs.recommended,
+
   regexp.configs['flat/recommended'],
 
   {
@@ -42,7 +57,6 @@ const config = tseslint.config(
       parser: astroParser,
       parserOptions: {
         parser: tseslint.parser,
-        project: true,
         ecmaFeatures: {
           jsx: true,
         },
@@ -54,6 +68,10 @@ const config = tseslint.config(
     files: ['**/*js'],
     extends: [tseslint.configs.disableTypeChecked],
   },
+  // {
+  //   files: ['src/content/blog/*.md'],
+  //   extends: [markdown.configs.recommended,],
+  // },
   {
     files: [
       'src/astro-custom-layout-components/**/*js',
@@ -76,14 +94,11 @@ const config = tseslint.config(
   },
 
   {
+    files: ['**/*.md'],
     plugins: {
       markdown,
     },
-  },
-  {
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-    },
+
     rules: {
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
@@ -102,23 +117,38 @@ const config = tseslint.config(
       reportUnusedDisableDirectives: 'warn',
     },
   },
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
+  },
+
+  prettier,
 );
 
 export default [
+  ...tsConfig,
   {
-    ignores: [
-      'dist',
-      '.astro',
-      'cache-directory/',
-      'my-custom-cache-directory',
-      '**/temp.js',
-      '*lock.yaml',
-      '.vercel/',
-      'turbo/',
-      'test/',
-    ],
+    // Apply the Markdown processor to all .md files
+    files: ['**/*.md'],
+    plugins: {
+      markdown,
+    },
+    processor: 'markdown/markdown', // Lint fenced code blocks in Markdown
+    language: 'markdown/commonmark', // Or use "markdown/gfm" for GitHub-Flavored Markdown
+    rules: {
+      // Markdown rules
+      'markdown/fenced-code-language': 'warn', // Enforce language specification in fenced code blocks
+      'markdown/heading-increment': 'error', // Ensure heading levels increment by one
+      'markdown/no-duplicate-headings': 'warn', // Disallow duplicate headings in the same document
+      'markdown/no-empty-links': 'warn', // Disallow empty link elements
+      'markdown/no-html': 'error', // Disallow HTML in Markdown
+      'markdown/no-invalid-label-refs': 'error', // Disallow invalid label references
+      'markdown/no-missing-label-refs': 'error', // Disallow missing label references
+    },
   },
-  ...config,
-
-  eslintConfigPrettier,
 ];
