@@ -6,6 +6,7 @@ import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 import regexp from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import wc from 'eslint-plugin-wc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -77,10 +78,12 @@ const tsConfig = tseslint.config(
       'src/astro-custom-layout-components/**/*js',
       'src/astro-web-component/**/*js',
     ],
-    extends: [tseslint.configs.disableTypeChecked],
+    extends: [wc.configs['flat/recommended']] ,
+    // extends: [tseslint.configs.disableTypeChecked],
     rules: {
       'no-unused-expressions': 'off',
-      'wc/no-constructor-attributes': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'wc/no-constructor-attributes': 'warn',
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
     },
