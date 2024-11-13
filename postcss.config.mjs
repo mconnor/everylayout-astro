@@ -17,4 +17,3 @@ export default {
     postcssPow,
   ],
 };
-// Use process.env.NODE_ENV to check if the environment is production

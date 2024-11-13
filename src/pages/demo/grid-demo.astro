@@ -5,7 +5,7 @@ import { Frame, Grid } from '#astro-custom-layout-components/index.js';
 import Card from '#components/Card.astro';
 import Layout from '#layouts/Layout.astro';
 
-const W = '120';
+const W = '240';
 const H = '120';
 const getRandomSrc = () => {
   const random = Math.floor(Math.random() * 1000).toString();
@@ -24,11 +24,11 @@ const pic = getRandomSrc();
 >
   <!-- space set the gap on the grid -->
   <Grid space="1rem" min=`${W}px`>
-    <Card>
+    <Card headline="xxx">
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={pic} alt="Image alt text" />
-      </Frame></Card
-    >
+      </Frame>
+    </Card>
 
     <Card
       headline="BIG NEWS"

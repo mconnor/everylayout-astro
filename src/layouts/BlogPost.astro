@@ -4,7 +4,7 @@ import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/in
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 
-import { Box, Center, Stack } from '#astro-custom-layout-components/index.js';
+import { Box, Center, Frame,Stack } from '#astro-custom-layout-components/index.js';
 import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
 import type { BlogSchemaType } from '#schemas/index.ts';
@@ -23,23 +23,28 @@ const { name } = results.data;
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
   <Center>
-    <Stack>
-      <Image
-        src={cover.src}
-        width="1200"
+    <Stack space="var(--s00)">
+      <Frame ratio="16:9">
+        <Image
+          src={cover.src}
+          width="1200"
         sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
         height="300"
         alt={cover.alt}
-      />
+      /></Frame>
       <Box invert> <p>{description}</p></Box>
 
-      <FormattedDate date={pubDate} />
+      <Box invert><FormattedDate date={pubDate} /></Box>
 
       <Box invert><h3>{title}</h3></Box>
-      <Box invert><hh2>written by {name}</hh2></Box>
-      <hr />
+      <Box invert>
+        <details>
+          <summary>About the author</summary>
+          <h2>written by {name}</h2>
+        </details>
+      </Box>
 
-      <slot />
+      <Box invert><slot /></Box>
     </Stack>
   </Center>
 </Layout>

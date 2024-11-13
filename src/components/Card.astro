@@ -22,13 +22,11 @@ function truncateString(str: string) {
 ---
 
 <Box padding="0" borderWidth="var(--border-size-2)">
-  <Box padding="0" borderWidth="0" invert>
+  <Box borderWidth="0" invert>
     <h4>{headline}</h4>
   </Box>
   <Box padding="0" borderWidth="0"><slot name="image-slot" /></Box>
-  <Box borderWidth="0" padding="var(--s00)"
-    ><p>{truncateString(description)}</p></Box
-  >
+  <Box padding="var(--s00)"><p>{truncateString(description)}</p></Box>
 </Box>
 <style>
   p {
