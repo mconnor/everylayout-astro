@@ -8,32 +8,34 @@
 export default class Switcher extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Switcher-${[this.threshold, this.space, this.limit].join('')}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-            [data-i="${this.i}"] {
-              gap: ${this.space};
-            }
-  
-            [data-i="${this.i}"] > * {
-              flex-basis: calc((${this.threshold} - 100%) * 999);
-            }
-  
-            [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}),
-            [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}) ~ * {
-              flex-basis: 100%;
-            }
-          `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-        document.head.appendChild(styleEl);
-      }
-    };
+    this.render = this.render.bind(this);
   }
+
+  render = () => {
+    this.i = `Switcher-${[this.threshold, this.space, this.limit].join('')}`;
+    this.dataset.i = this.i;
+    if (!document.getElementById(this.i)) {
+      const styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+          [data-i="${this.i}"] {
+            gap: ${this.space};
+          }
+
+          [data-i="${this.i}"] > * {
+            flex-basis: calc((${this.threshold} - 100%) * 999);
+          }
+
+          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}),
+          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}) ~ * {
+            flex-basis: 100%;
+          }
+        `
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
+  };
   get threshold() {
     return this.getAttribute('threshold') || 'var(--measure)';
   }
@@ -71,6 +73,6 @@ export default class Switcher extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
+
   customElements.define('switcher-l', Switcher);
-}
+

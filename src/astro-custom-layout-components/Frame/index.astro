@@ -1,5 +1,14 @@
 ---
 import './Frame.css';
+
+// --ratio-square: 1;
+//   --ratio-landscape: 4/3;
+//   --ratio-portrait: 3/4;
+//   --ratio-widescreen: 16/9;
+//   --ratio-ultrawide: 18/5;
+//   --ratio-golden: 1.6180/1;
+
+// type  RatioType :
 interface Props {
   ratio:
     | '16:9'
@@ -14,9 +23,8 @@ interface Props {
     | '1:3'
     | '3:1'
     | '1:4'
-    | '4:1';
-
-  children: unknown;
+    | '4:1'
+    | '1.6180:1';
 }
 
 const { ratio } = Astro.props;

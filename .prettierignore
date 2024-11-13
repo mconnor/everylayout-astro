@@ -35,3 +35,4 @@ pnpm-lock.yaml
 /my-custom-cache-directory/
 /*.
 src/env.d.ts
+.turbo/

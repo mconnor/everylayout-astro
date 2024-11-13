@@ -9,25 +9,27 @@
 export default class Cluster extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Cluster-${[this.justify, this.align, this.space].join('')}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-          [data-i="${this.i}"] {
-            justify-content: ${this.justify};
-            align-items: ${this.align};
-            gap: ${this.space};
-          }
-        `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-        document.head.appendChild(styleEl);
-      }
-    };
+    this.render = this.render.bind(this);
   }
+
+  render = () => {
+    this.i = `Cluster-${[this.justify, this.align, this.space].join('')}`;
+    this.dataset.i = this.i;
+    if (!document.getElementById(this.i)) {
+      const styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+        [data-i="${this.i}"] {
+          justify-content: ${this.justify};
+          align-items: ${this.align};
+          gap: ${this.space};
+        }
+      `
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
+  };
 
   get justify() {
     return this.getAttribute('justify') || 'flex-start';
@@ -66,6 +68,4 @@ export default class Cluster extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('cluster-l', Cluster);
-}
+customElements.define('cluster-l', Cluster);

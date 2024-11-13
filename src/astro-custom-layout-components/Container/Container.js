@@ -7,26 +7,27 @@
 class Container extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Container-${[this.name]}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-            [data-i="${this.i}"] {
-              display: block;
-              container-type: inline-size;
-              ${this.name ? `container-name: ${this.name};` : ''}
-            }
-          `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-        document.head.appendChild(styleEl);
-      }
-    };
+    this.render = this.render.bind(this);
   }
 
+  render = () => {
+    this.i = `Container-${[this.name]}`;
+    this.dataset.i = this.i;
+    if (!document.getElementById(this.i)) {
+      const styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+          [data-i="${this.i}"] {
+            display: block;
+            container-type: inline-size;
+            ${this.name ? `container-name: ${this.name};` : ''}
+          }
+        `
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
+  };
   get name() {
     return this.getAttribute('name') || null;
   }
@@ -48,6 +49,4 @@ class Container extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('container-l', Container);
-}
+customElements.define('container-l', Container);

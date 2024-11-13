@@ -10,36 +10,41 @@
 export default class Stack extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Stack-${[this.space, this.recursive, this.splitAfter].join('')}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        const styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-            [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
-              margin-block-start: ${this.space};
-            }
-
-            ${
-              this.splitAfter
-                ? `
-              [data-i="${this.i}"]:only-child {
-                block-size: 100%;
-              }
-
-              [data-i="${this.i}"] > :nth-child(${this.splitAfter}) {
-                margin-block-end: auto;
-              }`
-                : ''
-            }
-          `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-        document.head.appendChild(styleEl);
-      }
-    };
+    this.render = this.render.bind(this);
   }
+
+  render = () => {
+    this.i = `Stack-${[this.space, this.recursive, this.splitAfter].join('')}`;
+    this.dataset.i = this.i;
+    if (!document.getElementById(this.i)) {
+      let styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+        [data-i="${this.i}"]${this.recursive ? '' : ' >'} * + * {
+          margin-block-start: ${this.space};
+        }
+
+
+
+
+        ${
+          this.splitAfter
+            ? `
+          [data-i="${this.i}"]:only-child {
+            block-size: 100%;
+          }
+
+          [data-i="${this.i}"] > :nth-child(${this.splitAfter}) {
+            margin-block-end: auto;
+          }`
+            : ''
+        }
+      `
+        .replace(/\s\s+/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
+  };
 
   get space() {
     return this.getAttribute('space') || 'var(--s1)';
@@ -54,24 +59,15 @@ export default class Stack extends HTMLElement {
   }
 
   set recursive(val) {
-    if (val) {
-      this.setAttribute('recursive', '');
-    } else {
-      this.removeAttribute('recursive');
-    }
+    this.setAttribute(val ? 'recursive' : '');
   }
 
   get splitAfter() {
-    const value = this.getAttribute('splitAfter');
-    return value !== null ? value : '';
+    return this.getAttribute('splitAfter') || null;
   }
 
   set splitAfter(val) {
-    if (val) {
-      this.setAttribute('splitAfter', val);
-    } else {
-      this.removeAttribute('splitAfter');
-    }
+    this.setAttribute('splitAfter', val);
   }
 
   static get observedAttributes() {
@@ -87,6 +83,4 @@ export default class Stack extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('stack-l', Stack);
-}
+customElements.define('stack-l', Stack);

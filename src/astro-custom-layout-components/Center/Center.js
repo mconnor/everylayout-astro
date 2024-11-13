@@ -11,38 +11,40 @@
 export default class Center extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`;
-      this.dataset.i = this.i;
-      if (!document.getElementById(this.i)) {
-        let styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-          [data-i="${this.i}"] {
-            max-width: ${this.max};
-            ${
-              this.gutters
-                ? `
-            padding-inline-start: ${this.gutters};
-            padding-inline-end: ${this.gutters};`
-                : ''
-            }
-            ${this.andText ? `text-align: center;` : ''}
-            ${
-              this.intrinsic
-                ? `
-            display: flex;
-            flex-direction: column;
-            align-items: center;`
-                : ''
-            }
+    this.render = this.render.bind(this);
+  }
+
+  render() {
+    this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`;
+    this.dataset.i = this.i;
+    if (!document.getElementById(this.i)) {
+      let styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+        [data-i="${this.i}"] {
+          max-width: ${this.max};
+          ${
+            this.gutters
+              ? `
+          padding-inline-start: ${this.gutters};
+          padding-inline-end: ${this.gutters};`
+              : ''
           }
-        `
-          .replace(/\s{2,}/g, ' ') // remove extra spaces
-          .trim(); // remove leading/trailing spaces
-        document.head.appendChild(styleEl);
-      }
-    };
+          ${this.andText ? `text-align: center;` : ''}
+          ${
+            this.intrinsic
+              ? `
+          display: flex;
+          flex-direction: column;
+          align-items: center;`
+              : ''
+          }
+        }
+      `
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
   }
 
   get max() {

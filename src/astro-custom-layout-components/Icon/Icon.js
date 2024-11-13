@@ -8,34 +8,36 @@
 export default class Icon extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      if (this.label) {
-        this.setAttribute('role', 'img');
-        this.setAttribute('aria-label', this.label);
-      }
-      if (this.space) {
-        this.i = `Icon-${this.space}`;
-        this.dataset.i = this.i;
-        if (!document.getElementById(this.i)) {
-          const styleEl = document.createElement('style');
-          styleEl.id = this.i;
-          styleEl.innerHTML = `
-            [data-i="${this.i}"] {
-              display: inline-flex;
-              align-items: baseline;
-            }
-
-            [data-i="${this.i}"] > svg {
-              margin-inline-end: ${this.space};
-            }
-          `
-            .replace(/\s{2,}/g, ' ')
-            .trim();
-          document.head.appendChild(styleEl);
-        }
-      }
-    };
+    this.render = this.render.bind(this);
   }
+
+  render = () => {
+    if (this.label) {
+      this.setAttribute('role', 'img');
+      this.setAttribute('aria-label', this.label);
+    }
+    if (this.space) {
+      this.i = `Icon-${this.space}`;
+      this.dataset.i = this.i;
+      if (!document.getElementById(this.i)) {
+        const styleEl = document.createElement('style');
+        styleEl.id = this.i;
+        styleEl.innerHTML = `
+          [data-i="${this.i}"] {
+            display: inline-flex;
+            align-items: baseline;
+          }
+
+          [data-i="${this.i}"] > svg {
+            margin-inline-end: ${this.space};
+          }
+        `
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        document.head.appendChild(styleEl);
+      }
+    }
+  };
 
   get space() {
     return this.getAttribute('space') || null;
@@ -66,6 +68,4 @@ export default class Icon extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
-  customElements.define('icon-l', Icon);
-}
+customElements.define('icon-l', Icon);

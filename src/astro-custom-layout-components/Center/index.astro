@@ -9,10 +9,11 @@ interface Props {
   gutters?: boolean;
   intrinsic?: boolean;
 }
-const { max, ...rest } = Astro.props;
+
+const props = Astro.props;
 ---
 
-<center-l max={max} {...rest}>
+<center-l {...props}>
   <slot />
 </center-l>
 

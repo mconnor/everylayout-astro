@@ -9,37 +9,39 @@
 export default class Imposter extends HTMLElement {
   constructor() {
     super();
-    this.render = () => {
-      this.i = `Imposter-${[this.breakout, this.fixed, this.margin].join('')}`;
-      this.dataset.i = this.i;
-      const margin = this.margin === '0' ? '0px' : this.margin;
-      if (!document.getElementById(this.i) && (!this.breakout || this.fixed)) {
-        const styleEl = document.createElement('style');
-        styleEl.id = this.i;
-        styleEl.innerHTML = `
-          [data-i="${this.i}"] {
-            ${
-              !this.breakout
-                ? `
-              max-inline-size: calc(100% - (${margin} * 2));
-              max-block-size: calc(100% - (${margin} * 2));
-              overflow: auto;`
-                : ''
-            }
-            ${
-              this.fixed
-                ? `
-              position: fixed;`
-                : ''
-            }
-          }
-        `
-          .replace(/\s{2,}/g, ' ')
-          .trim();
-        document.head.appendChild(styleEl);
-      }
-    };
+    this.render = this.render.bind(this);
   }
+
+  render = () => {
+    this.i = `Imposter-${[this.breakout, this.fixed, this.margin].join('')}`;
+    this.dataset.i = this.i;
+    const margin = this.margin === '0' ? '0px' : this.margin;
+    if (!document.getElementById(this.i) && (!this.breakout || this.fixed)) {
+      const styleEl = document.createElement('style');
+      styleEl.id = this.i;
+      styleEl.innerHTML = `
+        [data-i="${this.i}"] {
+          ${
+            !this.breakout
+              ? `
+            max-inline-size: calc(100% - (${margin} * 2));
+            max-block-size: calc(100% - (${margin} * 2));
+            overflow: auto;`
+              : ''
+          }
+          ${
+            this.fixed
+              ? `
+            position: fixed;`
+              : ''
+          }
+        }
+      `
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      document.head.appendChild(styleEl);
+    }
+  };
 
   get breakout() {
     return this.hasAttribute('breakout');
@@ -86,6 +88,6 @@ export default class Imposter extends HTMLElement {
   }
 }
 
-if ('customElements' in window) {
+
   customElements.define('imposter-l', Imposter);
-}
+

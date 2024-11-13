@@ -1,4 +1,6 @@
 ---
+import './Switcher.css';
+
 import type { RmUnitType } from '../Types';
 
 interface Props {
@@ -15,16 +17,3 @@ const props = Astro.props;
 </switcher-l>
 
 <script src="./Switcher.js"></script>
-
-<style is:global>
-  switcher-l {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  switcher-l > * {
-    flex-basis: calc((var(--measure) - 100%) * 999);
-    /* flex: [max] [min] [ideal size]; */
-    flex-grow: 1;
-  }
-</style>
