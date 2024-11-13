@@ -20,18 +20,15 @@ const tsConfig = tseslint.config(
       '**/temp.js',
       '*lock.yaml',
       '.vercel/',
-      'turbo/',
+      '.turbo/',
       'test/',
       'node_modules/',
     ],
   },
   js.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...tseslint.configs.stylistic,
-  ...astro.configs.recommended,
-
+  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   regexp.configs['flat/recommended'],
-
   {
     languageOptions: {
       parserOptions: {
@@ -53,15 +50,16 @@ const tsConfig = tseslint.config(
   },
   {
     files: ['**/*.astro'],
-    extends: [tseslint.configs.disableTypeChecked],
+    extends: [ tseslint.configs.disableTypeChecked,...astro.configs.recommended],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
+      
         parser: tseslint.parser,
         ecmaFeatures: {
           jsx: true,
         },
-        extraFileExtensions: ['.astro'],
+     
       },
     },
   },
@@ -78,7 +76,7 @@ const tsConfig = tseslint.config(
       'src/astro-custom-layout-components/**/*js',
       'src/astro-web-component/**/*js',
     ],
-    extends: [wc.configs['flat/recommended']] ,
+    extends: [wc.configs['flat/recommended']],
     // extends: [tseslint.configs.disableTypeChecked],
     rules: {
       'no-unused-expressions': 'off',

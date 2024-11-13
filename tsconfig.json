@@ -11,12 +11,7 @@
   },
   "files": [".astro/types.d.ts"],
   "include": [
-    "src/**/*.astro",
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.md",
-    "*.config.mjs"
+    "."
   ],
-  "exclude": [".vercel", ".astro", "dist", "my-custom-cache-directory"]
+  "exclude": [".vercel", ".astro",".turbo", "dist", "my-custom-cache-directory"]
 }
