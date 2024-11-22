@@ -10,7 +10,7 @@ cover:
 tags: ['rafting', 'dogs']
 ---
 
-![A starry night sky.](../../assets/blog-placeholder-1.jpg)
+![A starry night sky.](#assets/blog-placeholder-1.jpg)
 
 ## Headings
 
@@ -55,13 +55,13 @@ The blockquote element represents content that is quoted from another source, op
 #### Syntax
 
 ```markdown
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 ```
 
 #### Output
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
+> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 
 ### Blockquote with attribution

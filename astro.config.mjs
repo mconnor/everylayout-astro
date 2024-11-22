@@ -10,7 +10,7 @@ export default defineConfig({
     '/index': '/about',
   },
   site: 'https://example.com',
-  output: 'static',
+
   image: {
     domains: ['astro.build', 'picsum.photos'],
   },

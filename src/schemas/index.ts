@@ -33,5 +33,11 @@ export const authorSchema = z.object({
   bio: strSCOptional,
 });
 
+export const zTags = z.array(strSC).nonempty();
+
+// Record<string, number>;
+
+export const tagCountTypeSchema = z.record(z.number());
+
 export type AurthorSchemaType = z.infer<typeof authorSchema>;
 export type BlogSchemaType = z.infer<typeof blogSchema>;

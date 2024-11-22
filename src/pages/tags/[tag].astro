@@ -1,45 +1,50 @@
 ---
-
 import { getCollection } from 'astro:content';
 
-import { Box, Stack } from '#astro-custom-layout-components/index.js';
-// import Card from '@components/CardBySlug.astro';
+import { Box,Stack } from '#astro-custom-layout-components/index.ts';
 import Card from '#components/Card/index.astro';
 import Layout from '#layouts/Layout.astro';
 
+export const prerender = true;
 
-
-
-export const getStaticPaths = async () => {
-  const allPosts = await getCollection('blog');
+export async function getStaticPaths() {
+  const publishsedPosts = await getCollection(
+    'blog',
+    ({ data }) => data.draft !== true,
+  );
 
   const uniqueTags = [
-    ...new Set(allPosts.map(({ data }) => data?.tags || []).flat()),
+    ...new Set(publishsedPosts.map(({ data }) => data.tags ?? []).flat()),
   ];
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter(
-      ({ data }) => data.draft !== true && data?.tags?.includes(tag),
-    );
-    return {
-      params: { tag },
-      props: {
-        posts: filteredPosts,
-      },
-    };
-  });
-};
+  return uniqueTags.map((tag) => ({
+    params: { tag: tag },
+    props: {
+      postsWithThisTag: publishsedPosts.filter(({ data }) =>
+        data.tags.includes(tag),
+      ),
+    },
+  }));
+}
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { postsWithThisTag } = Astro.props;
 ---
 
 <Layout title={tag}>
-  <!-- <Debug {tag} />
-  <Debug {posts} /> -->
+  <!-- {
+    postsWithThisTag.map(({ id, data }) => (
+      <BlogCard
+        backgroundColor="var(--surface-4)"
+        foregroundColor="var(--text-2)"
+        id={id}
+        postData={data}
+      />
+    ))
+  } -->
+
   <Stack space="var(--s1)">
     <Box><h2>#{tag}</h2></Box>
-    {posts.map(({ slug }) => <Card slug={slug} />)}
+    {postsWithThisTag.map(({ id }) => <Card slug={id} />)}
   </Stack>
-  <!-- <TitleDate posts={posts} /> -->
 </Layout>

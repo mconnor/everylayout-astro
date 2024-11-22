@@ -1,29 +1,72 @@
 ---
 import { getCollection } from 'astro:content';
+import { z } from 'astro:content';
 
 import TagContainer from '#components/TagContainer.astro';
-import BaseLayout from '#layouts/Layout.astro';
+import Layout from '#layouts/Layout.astro';
+import { tagCountTypeSchema, zTags } from '#schemas/index.js';
 
 const allBlogPost = await getCollection('blog');
 
-const tagCounts = {};
+const allBlogDataObjs = allBlogPost.map((post) => post);
 
-allBlogPost.forEach(({ data }) =>
-  (data.tags || []).forEach((tag: string) => {
-    tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-  }),
+/// we only need a list of unique tags and their counts
+const slugTags = allBlogDataObjs
+  .filter((post) => post.data.draft !== true)
+  .map((post) => {
+    return {
+      slug: post.id,
+      tags: post.data.tags,
+    };
+  });
+
+// const { success, data: zslugTagsDataArray } = z
+//   .array(blogSchema)
+//   .safeParse(slugTags);
+
+// if (!success) {
+//   throw new Error('Invalid blog post data');
+// }
+
+const zString = z.string();
+
+const tagCountsObject = slugTags.reduce(
+  (tagCountAcc, post) => {
+    (post.tags || []).forEach((tag) => {
+      const { success, data: _tag } = zString.safeParse(tag);
+      if (success) {
+        // Ensure tag is a string
+        const count = tagCountAcc[_tag] || 0;
+        tagCountAcc[_tag] = count + 1;
+      } else {
+        throw new Error('tag is not a string');
+      }
+    });
+    return tagCountAcc;
+  },
+  {} as Record<string, number>,
 );
 
-const tags = [
-  ...new Set(
-    allBlogPost
-      .filter((post) => post.data.draft !== true)
-      .map(({ data }) => data?.tags || [])
-      .flat(),
-  ),
-];
+const uniqueTagArray = [...new Set(slugTags.map((post) => post.tags).flat())];
+
+const zUniqueTagArray = zTags.safeParse(uniqueTagArray);
+
+const {
+  success: tagCountSuccess,
+  data: tagCountData,
+  error,
+} = tagCountTypeSchema.safeParse(tagCountsObject);
+
+if (!tagCountSuccess) {
+  throw new Error(error.message);
+}
+const { success, error: error2, data: tagArray } = zUniqueTagArray;
+
+if (!success) {
+  throw new Error(error2.message);
+}
 ---
 
-<BaseLayout title="Tag Index">
-  {tags && <TagContainer tags={tags} tagCounts={tagCounts} />}
-</BaseLayout>
+<Layout title="Tag Index">
+  {tagArray && <TagContainer tags={tagArray} tagCounts={tagCountData} />}
+</Layout>

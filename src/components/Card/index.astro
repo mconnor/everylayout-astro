@@ -7,7 +7,7 @@ import { getEntry } from 'astro:content';
 // import type { CollectionEntry } from 'astro:content';
 import { format } from 'date-fns';
 
-import { Frame, Stack } from '#astro-custom-layout-components/index.js';
+import { Frame, Stack } from '#astro-custom-layout-components/index.ts';
 
 // import type { BlogSchemaType } from '#schemas/index.ts';
 import CardTop from './top-bottom.astro';
@@ -27,6 +27,7 @@ const {
   foregroundColor = 'var(--text-2)',
   backgroundColor = 'var(--surface-4)',
 } = Astro.props;
+
 const blogdata = await getEntry('blog', slug);
 
 if (blogdata === undefined) {

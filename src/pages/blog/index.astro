@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-import { Box, Switcher } from '#astro-custom-layout-components/index.js';
+import { Box, Switcher } from '#astro-custom-layout-components/index.ts';
 import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
 
@@ -14,12 +14,12 @@ const posts = (await getCollection('blog')).sort(
   <Box>
     <Switcher>
       {
-        posts.map((post) => (
+        posts.map(({ id, data }) => (
           <Box invert>
-            <a href={`/blog/${post.slug}/`}>
-              <h4>{post.data.title}</h4>
+            <a href={`/blog/${id}/`}>
+              <h4>{data.title}</h4>
               <p>
-                <FormattedDate date={post.data.pubDate} />
+                <FormattedDate date={data.pubDate} />
               </p>
             </a>
           </Box>

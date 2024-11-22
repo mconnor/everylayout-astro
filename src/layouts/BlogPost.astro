@@ -1,18 +1,27 @@
 ---
 // import Author from '@cc/Author.astro'
-import type { AstroComponentFactory } from 'astro/runtime/server/render/astro/index.js';
+
 import { Image } from 'astro:assets';
-import { getEntry } from 'astro:content';
+import { type CollectionEntry, getEntry } from 'astro:content';
 
-import { Box, Center, Frame,Stack } from '#astro-custom-layout-components/index.js';
-import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
-import type { BlogSchemaType } from '#schemas/index.ts';
+import {
+  Box,
+  Center,
+  Frame,
+  Stack,
+} from '#astro-custom-layout-components/index.ts';
+import FormattedDate from '#components/FormattedDate.astro';
 
+// interface Props {
+//   data: BlogSchemaType;
+//   children: AstroComponentFactory;
+// }
 interface Props {
-  blogData: BlogSchemaType;
-  children: AstroComponentFactory;
+  blogData: CollectionEntry<'blog'>['data'];
+  id: string;
 }
+
 const { blogData } = Astro.props;
 
 const { title, description, pubDate, cover, author } = blogData;
@@ -28,10 +37,11 @@ const { name } = results.data;
         <Image
           src={cover.src}
           width="1200"
-        sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
-        height="300"
-        alt={cover.alt}
-      /></Frame>
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+          height="300"
+          alt={cover.alt}
+        /></Frame
+      >
       <Box invert> <p>{description}</p></Box>
 
       <Box invert><FormattedDate date={pubDate} /></Box>

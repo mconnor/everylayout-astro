@@ -4,14 +4,23 @@
     "rootDir": ".",
     "experimentalDecorators": true, // default is false for TypeScript 5.0 and up
     "useDefineForClassFields": false, // default is true when "target" is "ES2022" or higher
-    "strictNullChecks": true,
+    "strictNullChecks": true, // add if using `base` template
     "baseUrl": ".",
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "allowJs": true // required, and included with all Astro templates
   },
-  "files": [".astro/types.d.ts"],
+  "files": [
+    ".astro/types.d.ts"
+  ],
   "include": [
     "."
   ],
-  "exclude": [".vercel", ".astro",".turbo", "dist", "my-custom-cache-directory"]
+  "exclude": [
+    ".vercel",
+    ".astro",
+    ".turbo",
+    "dist",
+    "my-custom-cache-directory"
+  ]
 }
