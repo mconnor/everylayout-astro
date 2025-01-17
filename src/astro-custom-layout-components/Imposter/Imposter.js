@@ -88,6 +88,4 @@ export default class Imposter extends HTMLElement {
   }
 }
 
-
-  customElements.define('imposter-l', Imposter);
-
+customElements.define('imposter-l', Imposter);

@@ -1,4 +1,7 @@
+// import { file } from 'astro/loaders';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { reference, z } from 'astro:content';
+import { z } from 'astro:schema';
 
 const urlSchema = z.string().url();
 const urlSchemaOptional = urlSchema.optional();
@@ -35,7 +38,24 @@ export const authorSchema = z.object({
 
 export const zTags = z.array(strSC).nonempty();
 
-// Record<string, number>;
+// type AstroInstanceType = {
+//   /* The file path of this file */
+//   file: string;
+//   /* The URL for this file (if it is in the pages directory) */
+//   url: string | undefined;
+//   default: AstroComponentFactory;
+// };
+
+// export const astroComponentSchema = z.custom<AstroInstanceType>;
+const regexAstro = /[a-z]+.astro/;
+
+export const astroComponentSchema = z.object({
+  file: strSC,
+  url: urlSchemaOptional,
+  default: z.custom<AstroComponentFactory>((val: string) =>
+    val.test(regexAstro),
+  ),
+});
 
 export const tagCountTypeSchema = z.record(z.number());
 

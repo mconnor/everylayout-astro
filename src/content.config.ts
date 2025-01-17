@@ -1,7 +1,11 @@
 import { glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 
-import { authorSchema, blogSchema } from '#schemas/index.ts';
+import {
+  astroComponentSchema,
+  authorSchema,
+  blogSchema,
+} from '#schemas/index.ts';
 
 const blog = defineCollection({
   loader: glob({
@@ -11,6 +15,14 @@ const blog = defineCollection({
   schema: blogSchema,
 });
 
+const astroComponents = defineCollection({
+  loader: glob({
+    pattern: ['**/*..astro'],
+    base: './src/components',
+  }),
+  schema: astroComponentSchema,
+});
+
 const authors = defineCollection({
   type: 'data',
   schema: authorSchema,
@@ -18,6 +30,7 @@ const authors = defineCollection({
 
 // 3. Export multiple collections to register them
 export const collections = {
+  astroComponents,
   blog,
   authors,
 };

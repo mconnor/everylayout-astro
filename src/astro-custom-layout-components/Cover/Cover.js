@@ -97,6 +97,4 @@ export default class Cover extends HTMLElement {
   }
 }
 
-
-  customElements.define('cover-l', Cover);
-
+customElements.define('cover-l', Cover);

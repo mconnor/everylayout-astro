@@ -126,6 +126,4 @@ export default class Reel extends HTMLElement {
   }
 }
 
-
-  customElements.define('reel-l', Reel);
-
+customElements.define('reel-l', Reel);

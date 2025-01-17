@@ -13,6 +13,7 @@ const posts = (await getCollection('blog')).sort(
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
   <Box>
     <Switcher>
+      <h4>blog post</h4>
       {
         posts.map(({ id, data }) => (
           <Box invert>

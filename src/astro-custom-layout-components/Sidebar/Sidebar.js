@@ -106,6 +106,4 @@ export default class Sidebar extends HTMLElement {
   }
 }
 
-
-  customElements.define('sidebar-l', Sidebar);
-
+customElements.define('sidebar-l', Sidebar);

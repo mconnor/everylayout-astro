@@ -14,12 +14,12 @@ export async function getStaticPaths() {
   }));
 }
 
-// const { pid } = Astro.params;
+const { pid } = Astro.params;
 const { post } = Astro.props;
 
 const { Content } = await render(post);
 ---
 
-<Layout blogData={post.data}>
+<Layout id={pid} blogData={post.data}>
   <Content />
 </Layout>

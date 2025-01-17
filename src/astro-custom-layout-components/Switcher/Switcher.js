@@ -73,6 +73,4 @@ export default class Switcher extends HTMLElement {
   }
 }
 
-
-  customElements.define('switcher-l', Switcher);
-
+customElements.define('switcher-l', Switcher);

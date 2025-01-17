@@ -81,6 +81,4 @@ export default class Box extends HTMLElement {
   }
 }
 
-
-  customElements.define('box-l', Box);
-
+customElements.define('box-l', Box);

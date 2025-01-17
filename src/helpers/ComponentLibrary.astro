@@ -1,11 +1,20 @@
 ---
-const components = await Astro.glob('./*.astro');
-
-const pages = await Astro.glob('../pages/**/*.astro');
-
-const layoutComps = await Astro.glob(
-  '../astro-custom-layout-components/**/*.astro',
+const components = Object.values(
+  import.meta.glob('./*.astro', {
+    eager: true,
+  }),
 );
+
+const pages = Object.values(
+  import.meta.glob('../pages/**/*.astro', { eager: true }),
+);
+
+const layoutComps = Object.values(
+  import.meta.glob('../astro-custom-layout-components/**/*.astro', {
+    eager: true,
+  }),
+);
+
 // const fileNameRegex = /([^/]+)$/;
 const pagesRegExp = /pages\/(.+)/;
 const afterComponentssRegex = /components\/(.+)/;

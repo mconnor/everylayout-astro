@@ -1,19 +1,20 @@
 ---
-import { Box, Cluster, Icon } from '#astro-custom-layout-components/index.ts';
+import { Cluster, Icon } from '#astro-custom-layout-components/index.ts';
 interface Props {
   tags: string[];
   tagCounts?: Record<string, number>;
   // children: never;
 }
+import TagBtn from './TagBtn.astro';
 const { tags, tagCounts } = Astro.props;
 ---
 
 <Cluster>
   {
     tags.map((tag) => (
-      <Box padding="0" borderWidth="0">
+      <TagBtn>
         <a href={`/tags/${tag}`}>
-          <Box padding="0" borderWidth="0">
+          <div>
             <Icon space="var(--size-3)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -26,9 +27,9 @@ const { tags, tagCounts } = Astro.props;
 
               {tagCounts ? `${tag}, ${tagCounts[tag]}` : `${tag}`}
             </Icon>
-          </Box>
+          </div>
         </a>
-      </Box>
+      </TagBtn>
     ))
   }
 </Cluster>

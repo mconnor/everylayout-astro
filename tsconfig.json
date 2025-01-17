@@ -10,12 +10,8 @@
     "jsxImportSource": "react",
     "allowJs": true // required, and included with all Astro templates
   },
-  "files": [
-    ".astro/types.d.ts"
-  ],
-  "include": [
-    "."
-  ],
+  "files": [".astro/types.d.ts"],
+  "include": ["**/*"],
   "exclude": [
     ".vercel",
     ".astro",

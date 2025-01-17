@@ -50,16 +50,17 @@ const tsConfig = tseslint.config(
   },
   {
     files: ['**/*.astro'],
-    extends: [ tseslint.configs.disableTypeChecked,...astro.configs.recommended],
+    extends: [
+      tseslint.configs.disableTypeChecked,
+      ...astro.configs.recommended,
+    ],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
-      
         parser: tseslint.parser,
         ecmaFeatures: {
           jsx: true,
         },
-     
       },
     },
   },
