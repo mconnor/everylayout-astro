@@ -1,0 +1,89 @@
+---
+import ThumbNail from '#assets/400x300.svg';
+---
+
+<div id="layout__item" class="layout">
+  <div class="card">
+    <div class="card-thumb">
+      <ThumbNail />
+    </div>
+    <div class="card-content">
+      <h3>Card title in here</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <ThumbNail />
+    </div>
+    <div class="card-content">
+      <h3>Card title in here</h3>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-thumb">
+      <ThumbNail />
+    </div>
+    <div class="card-content">
+      <h3>Card title in here</h3>
+    </div>
+  </div>
+</div>
+<form class="slider-form">
+  <wa-slider min="400" max="1600"></wa-slider>
+</form>
+
+<style>
+  /* define the container type.
+ We can also define the name (not mandatory but recommended) */
+
+  h3 {
+    font-size: var(--s1);
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+    background-color: lightblue;
+  }
+
+  #layout__item {
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  @container card (min-width: 800px) {
+    .card {
+      display: flex;
+      align-items: center;
+
+      outline: dotted 2px deeppink;
+    }
+  }
+</style>
+
+<script>
+  const codeSlider = async () => {
+    await Promise.all([customElements.whenDefined('wa-slider')]).then(() => {
+      const slider = document.querySelector('wa-slider') as HTMLElement & {
+        value: number;
+      };
+      const container = document.getElementById('layout__item') as HTMLElement;
+
+      slider?.addEventListener('wa-input', () => {
+        container.style.setProperty('width', `${slider.value}px`);
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    codeSlider();
+    // Wait for controls to be defined before attaching form listeners
+  });
+
+  //   document.addEventListener('astro:page-loaded', () => {
+
+  //   });
+</script>

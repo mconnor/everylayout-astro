@@ -1,0 +1,32 @@
+---
+import ThumbNail from './400x300.svg';
+---
+
+<div class="layout__item">
+  <div class="card">
+    <div class="card-thumb">
+      <ThumbNail />
+    </div>
+    <div class="card-content">
+      <h3>Card title in here</h3>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* define the container type.
+ We can also define the name (not mandatory but recommended) */
+
+  .layout__item {
+    container-type: inline-size;
+    container-name: card;
+  }
+
+  @container card (min-width: 180px) {
+    .card {
+      display: flex;
+      gap: 1rem;
+      outline: dotted 2px deeppink;
+    }
+  }
+</style>

@@ -6,9 +6,9 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  redirects: {
-    '/index': '/about',
-  },
+  // redirects: {
+  //   '/index': '/about',
+  // },
   site: 'https://example.com',
 
   image: {
@@ -16,4 +16,7 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap(), react()],
   cacheDir: './my-custom-cache-directory',
+  experimental: {
+    svg: true,
+  },
 });
