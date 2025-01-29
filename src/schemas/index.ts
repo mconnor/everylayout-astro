@@ -1,5 +1,7 @@
 // import { file } from 'astro/loaders';
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+// import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import type { AstroInstance } from 'astro';
+import type { MarkdownInstance } from 'astro';
 import { reference, z } from 'astro:content';
 import { z } from 'astro:schema';
 
@@ -9,6 +11,7 @@ const strSC = z.string();
 const strSCOptional = strSC.optional();
 const emailSchema = z.string().email();
 const emailSchemaOptional = emailSchema.optional();
+const astroInstanceSchema = z.ZodType<AstroInstance>;
 
 const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 
@@ -52,9 +55,7 @@ const regexAstro = /[a-z]+.astro/;
 export const astroComponentSchema = z.object({
   file: strSC,
   url: urlSchemaOptional,
-  default: z.custom<AstroComponentFactory>((val: string) =>
-    val.test(regexAstro),
-  ),
+  default: astroInstanceSchema,
 });
 
 export const tagCountTypeSchema = z.record(z.number());

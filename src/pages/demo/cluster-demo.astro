@@ -1,8 +1,43 @@
 ---
-import ClusterExample from '#components/ClusterExample.astro';
 import Layout from '#layouts/Layout.astro';
+import { Box, Cluster } from '#astro-custom-layout-components/index.ts';
 ---
 
-<Layout title="Cluster Demo">
-  <ClusterExample />
+<Layout title="Cluster Demo" centerWidth="100%">
+  <wa-card with-header class="card-header">
+    <div slot="header">
+      Cluster - resize the browser window
+      <wa-icon-button name="gear" variant="solid" label="Settings"
+      ></wa-icon-button>
+    </div>
+
+    <Cluster>
+      <wa-button>Button</wa-button>
+      <wa-button>Button</wa-button>
+      <wa-button>Button</wa-button>
+      <wa-button>Button</wa-button>
+      <wa-button>Button</wa-button>
+      <wa-button>Button</wa-button>
+    </Cluster>
+  </wa-card>
 </Layout>
+
+<style>
+  .card-header {
+    max-width: 100%;
+  }
+
+  .card-header [slot='header'] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-header h3 {
+    margin: 0;
+  }
+
+  .card-header wa-icon-button {
+    font-size: var(--wa-font-size-m);
+  }
+</style>

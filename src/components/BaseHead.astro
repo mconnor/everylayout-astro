@@ -59,6 +59,15 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<link
+  rel="stylesheet"
+  href="https://early.webawesome.com/webawesome@3.0.0-alpha.9/dist/styles/themes/default.css"
+/>
+
+<script
+  type="module"
+  src="https://early.webawesome.com/webawesome@3.0.0-alpha.9/dist/webawesome.loader.js"
+></script>
 
 <ClientRouter />
 <GlobalStyles />

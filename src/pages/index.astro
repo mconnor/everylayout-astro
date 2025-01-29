@@ -1,26 +1,16 @@
 ---
 import Box from '#astro-custom-layout-components/Box/index.astro';
 import { Stack } from '#astro-custom-layout-components/index.ts';
+import WaDialog from '#components/WaDialog.astro';
 import Layout from '#layouts/Layout.astro';
+
+// import FeaturedPost from '#components/FeaturedPost.astro';
 // import AppDrawer from '#ui/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
   <Stack space="var(--s3)">
-    <Box>
-      <p>Lorem ipsum dolor sit amet</p>
-    </Box>
-    <Box invert>
-      <p>Lorem ipsum dolor sit amet</p>
-    </Box>
-
-    <Box>
-      <p>Lorem ipsum dolor sit amet</p>
-    </Box>
-
-    <Box invert>
-      <p>Lorem ipsum dolor sit amet</p>
-    </Box>
+    <WaDialog copy="xxx ipsum dolor sit amet, consectetur adipiscing elit." />
   </Stack>
 </Layout>

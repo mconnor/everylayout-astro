@@ -1,11 +1,11 @@
 ---
 import { Box, Cluster } from '#astro-custom-layout-components/index.ts';
-
-// import { DropDown as HeadlessUI } from '#ui/react/DropDown.tsx';
-// import NavDropDown from '#ui/web-components/NavDropDown.astro';
-import HeaderLink from './HeaderLink.astro';
-
 //  import NavDropDown from '#ui/react/Select.tsx'
+import DemoMenu from '#components/DemoMenu.astro';
+// import { DropDown as HeadlessUI } from '#ui/react/DropDown.tsx';
+import NavDropDown from '#ui/web-components/NavDropDown.astro';
+
+import HeaderLink from './HeaderLink.astro';
 ---
 
 <Box padding="var(--s1)" borderWidth="0">
@@ -20,6 +20,7 @@ import HeaderLink from './HeaderLink.astro';
 
   <Box padding="0" borderWidth="2px">
     <Cluster align="baseline" justify="flex-start">
+      <DemoMenu />
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <!-- <HeaderLink href="/about">About</HeaderLink> -->

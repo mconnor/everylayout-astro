@@ -1,31 +1,26 @@
 ---
-import { pagePaths } from '#lib/allPages.ts';
+import { z } from 'astro:content';
+
+import { layoutDemoPages, topLevelPages } from '#lib/getPages.ts';
+
+const regexHasSubPages = /^\/[^/]*\/./;
 
 // const fileNameRegex = /([^/]+)$/;
 // const pagesRegExp = /pages\/(.+)/;
 // const afterComponentssRegex = /components\/(.+)/;
-const regexAstro = /\.astro$/;
+// const regexAstro = /\.astro$/;
 ---
 
-<h4>list off all pages</h4>
+<h4>Main Pages</h4>
 
 {
-  pagePaths.length > 0 ? (
+  topLevelPages.length > 0 ? (
     <ul>
-      {pagePaths
-        // .map((page) => {
-        //   const match = page.file.match(pagesRegExp);
-        //   return match?.[1];
-        // })
-        // .filter((astroInst) => astroInst?.url && !/\[.*\]/.test(astroInst.url)) // Exclude paths with brackets
-        // .map((astroInst) => {
-        //   if (astroInst.url) {
-        //     return astroInst?.url.replace(regexAstro, '');
-        //   }
-        // })
-        .map((filteredPath) => (
+      {topLevelPages
+        // .filter((page) => !regexHasSubPages.test(page))
+        .map((page) => (
           <li>
-            <a href={filteredPath}>{filteredPath}</a>
+            <a href={page.url}>{page.url?.slice(1)}</a>
           </li>
         ))}
     </ul>
@@ -33,3 +28,27 @@ const regexAstro = /\.astro$/;
     <p>no pages found</p>
   )
 }
+
+<h4>Layout web-components demos</h4>
+{
+  layoutDemoPages.length > 0 ? (
+    <ul>
+      {layoutDemoPages
+        // .filter((page) => !regexHasSubPages.test(page))
+        .map((page) => (
+          <li>
+            <a href={page.url}>{page.url?.slice(1)}</a>
+          </li>
+        ))}
+    </ul>
+  ) : (
+    <p>no pages found</p>
+  )
+}
+
+<style>
+  li.indent {
+    padding-left: 5rem;
+    background-color: red;
+  }
+</style>

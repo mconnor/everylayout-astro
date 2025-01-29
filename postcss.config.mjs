@@ -13,7 +13,9 @@ export default {
     postcssImport,
     postcssJitProps({ ...OpenProps, custom_selector: ':global' }),
     autoprefixer,
-    postcssNesting,
+    postcssNesting({
+      edition: '2024-02',
+    }),
     postcssPow,
   ],
 };
