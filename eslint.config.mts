@@ -1,22 +1,49 @@
 // @ts-check
+import 'eslint-plugin-only-warn';
+
 import js from '@eslint/js';
 import markdown from '@eslint/markdown';
 import astroParser from 'astro-eslint-parser';
 import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
-import regexp from 'eslint-plugin-regexp';
+// import regexp from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import wc from 'eslint-plugin-wc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+import reactConfig from './react-lint/react-internal.mjs';
+// import type { Linter } from 'eslint';
+
+const mdconfig = [
+  {
+    // Apply the Markdown processor to all .md files
+    files: ['**/*.md'],
+    plugins: {
+      markdown,
+    },
+    processor: 'markdown/markdown', // Lint fenced code blocks in Markdown
+    language: 'markdown/commonmark', // Or use "markdown/gfm" for GitHub-Flavored Markdown
+    rules: {
+      // Markdown rules
+      'markdown/fenced-code-language': 'warn', // Enforce language specification in fenced code blocks
+      'markdown/heading-increment': 'error', // Ensure heading levels increment by one
+      'markdown/no-duplicate-headings': 'warn', // Disallow duplicate headings in the same document
+      'markdown/no-empty-links': 'warn', // Disallow empty link elements
+      'markdown/no-html': 'error', // Disallow HTML in Markdown
+      'markdown/no-invalid-label-refs': 'error', // Disallow invalid label references
+      'markdown/no-missing-label-refs': 'error', // Disallow missing label references
+    },
+  },
+];
+
 const tsConfig = tseslint.config(
   {
     ignores: [
-      'dist',
-      '.astro',
+      'dist/',
+      '.astro/',
       'cache-directory/',
-      'my-custom-cache-directory',
+      'my-custom-cache-directory/',
       '**/temp.js',
       '*lock.yaml',
       '.vercel/',
@@ -28,7 +55,7 @@ const tsConfig = tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  regexp.configs['flat/recommended'],
+
   {
     languageOptions: {
       parserOptions: {
@@ -57,9 +84,11 @@ const tsConfig = tseslint.config(
     languageOptions: {
       parser: astroParser,
       parserOptions: {
+        project: true,
+        extraFileExtensions: ['.astro'],
         parser: tseslint.parser,
         ecmaFeatures: {
-          jsx: true,
+          jsx: false,
         },
       },
     },
@@ -72,6 +101,7 @@ const tsConfig = tseslint.config(
   //   files: ['src/content/blog/*.md'],
   //   extends: [markdown.configs.recommended,],
   // },
+  { files: ['src/**/*.jsx', 'src/**/*.tsx'], extends: [reactConfig] },
   {
     files: [
       'src/astro-custom-layout-components/**/*js',
@@ -87,25 +117,14 @@ const tsConfig = tseslint.config(
       '@typescript-eslint/no-unsafe-member-access': 'off',
     },
   },
-  {
-    files: ['src/schemas/**/*.ts'],
-    rules: {
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-    },
-  },
+  // {
+  //   files: ['src/schemas/**/*.ts'],
+  //   rules: {
+  //     '@typescript-eslint/no-unsafe-assignment': 'off',
+  //     '@typescript-eslint/no-unsafe-call': 'off',
+  //   },
+  // },
 
-  {
-    files: ['**/*.md'],
-    plugins: {
-      markdown,
-    },
-
-    rules: {
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
-    },
-  },
   {
     files: ['**/*.md/*.js'],
     extends: [tseslint.configs.disableTypeChecked],
@@ -132,25 +151,4 @@ const tsConfig = tseslint.config(
   prettier,
 );
 
-export default [
-  ...tsConfig,
-  {
-    // Apply the Markdown processor to all .md files
-    files: ['**/*.md'],
-    plugins: {
-      markdown,
-    },
-    processor: 'markdown/markdown', // Lint fenced code blocks in Markdown
-    language: 'markdown/commonmark', // Or use "markdown/gfm" for GitHub-Flavored Markdown
-    rules: {
-      // Markdown rules
-      'markdown/fenced-code-language': 'warn', // Enforce language specification in fenced code blocks
-      'markdown/heading-increment': 'error', // Ensure heading levels increment by one
-      'markdown/no-duplicate-headings': 'warn', // Disallow duplicate headings in the same document
-      'markdown/no-empty-links': 'warn', // Disallow empty link elements
-      'markdown/no-html': 'error', // Disallow HTML in Markdown
-      'markdown/no-invalid-label-refs': 'error', // Disallow invalid label references
-      'markdown/no-missing-label-refs': 'error', // Disallow missing label references
-    },
-  },
-];
+export default [...tsConfig, ...mdconfig] satisfies Linter.Config[];

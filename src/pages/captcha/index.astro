@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script is:inline src="https://www.google.com/recaptcha/api.js"></script>
+  </head>
+
+  <body>
+    <button
+      class="g-recaptcha"
+      data-sitekey="PUBLIC_SITE_KEY"
+      data-callback="onSubmit"
+      data-action="submit"
+    >
+      Click me to verify the captcha challenge!
+    </button>
+
+    <script is:inline>
+      function onSubmit(token) {
+        fetch('/recaptcha', {
+          method: 'POST',
+          body: JSON.stringify({ recaptcha: token }),
+        })
+          .then((response) => response.json())
+          .then((gResponse) => {
+            if (gResponse.success) {
+              // Captcha verification was a success
+            } else {
+              // Captcha verification failed
+            }
+          });
+      }
+    </script>
+  </body>
+</html>

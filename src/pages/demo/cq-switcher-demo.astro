@@ -1,0 +1,26 @@
+---
+import { Box } from '#astro-custom-layout-components/index.ts';
+import CqSwitcher from '#components/cq/CqSwitcher.astro';
+import Layout from '#layouts/Layout.astro';
+---
+
+<!-- heroImage="/blog-placeholder-about.jpg" -->
+<Layout
+  title="test Me"
+  description="Lorem ipsum dolor sit amet"
+  centerWidth="100%"
+>
+  <Box>
+    <Box borderWidth="0">
+      <h4>Components</h4>
+      <p>
+        <code>.switcher</code> - especially useful where each element should be considered
+        equal, or part of a continuum.
+      </p>
+
+      <Box borderWidth="0">
+        <CqSwitcher />
+      </Box>
+    </Box>
+  </Box>
+</Layout>

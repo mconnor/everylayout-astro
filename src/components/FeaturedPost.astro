@@ -1,0 +1,21 @@
+---
+interface Props {
+  postSlug: string;
+}
+
+const { postSlug } = Astro.props;
+const pathToMyFeaturedPost = `src/pages/blog/${postSlug}.md`;
+
+const posts = Object.values(
+  import.meta.glob('../pages/blog/*.md', { eager: true }),
+);
+const myFeaturedPost = posts.find((post) =>
+  post.file.includes(pathToMyFeaturedPost),
+);
+---
+
+<p>
+  Take a look at my favorite post, <a href={myFeaturedPost.url}
+    >{myFeaturedPost.frontmatter.title}</a
+  >!
+</p>

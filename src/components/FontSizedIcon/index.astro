@@ -1,0 +1,58 @@
+---
+interface Props {
+  label?: string;
+  iconSize?: string;
+}
+
+const CHEVRON =
+  'M7.43547133 19.4355653L14.7947168 12 7.43547133 4.56443467c-.58062844-.58664991-.58062844-1.53779734 0-2.12444724.58062844-.58664991 1.52201314-.58664991 2.10264158 0L19 12l-9.46188709 9.5600126c-.58062844.5866499-1.52201314.5866499-2.10264158 0-.58062844-.5866499-.58062844-1.5377974 0-2.1244473z';
+
+const { iconSize = '1.5rem', label = 'Font size based icon' } = Astro.props;
+---
+
+<div class="container">
+  <a href="https://andy-bell.design" class="fancy-link">
+    <span class="fancy-link__text">{label}</span>
+    <svg
+      class="[ icon ] [ fancy-link__icon ]"
+      width="1em"
+      height="1em"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path fill="currentColor" fill-rule="nonzero" d={CHEVRON}></path>
+    </svg>
+  </a>
+</div>
+
+<style define:vars={{ iconSize }}>
+  .container {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .fancy-link {
+    display: inline-flex;
+    align-items: center;
+    /* color: #17717a; */
+    color: var(--color-primary);
+    font-weight: bold;
+    text-decoration-skip-ink: auto;
+  }
+
+  .fancy-link:hover,
+  .fancy-link:focus {
+    text-decoration: none;
+  }
+
+  /* Because the icon's dimensions are set with ems, we can
+   affect it's size using font size */
+  .fancy-link__icon {
+    font-size: var(--iconSize);
+  }
+</style>

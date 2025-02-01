@@ -1,16 +1,28 @@
 ---
-// import Box from '#astro-custom-layout-components/Box/index.astro';
+import Box from '#astro-custom-layout-components/Box/index.astro';
 import { Stack } from '#astro-custom-layout-components/index.ts';
-import WaDialog from '#components/WaDialog.astro';
+import Dialouge from '#components/Dialouge.astro';
 import Layout from '#layouts/Layout.astro';
-
 // import FeaturedPost from '#components/FeaturedPost.astro';
 // import AppDrawer from '#ui/web-components/AppDrawer.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
 <Layout title="About Me" description="Lorem ipsum dolor sit amet">
+  <!-- <Dialouge /> -->
+
+  <wa-button>Open Dialog</wa-button>
+
   <Stack space="var(--s3)">
-    <WaDialog copy="xxx ipsum dolor sit amet, consectetur adipiscing elit." />
+    <Dialouge />
+
+    <Box>
+      <a href="./astro-logo.png">astro-logo.png.ts</a>
+    </Box>
+    <Box>
+      <a href="./builtwith.json">builtwith.json</a>
+    </Box>
   </Stack>
+
+  <!-- <FeaturedPost postSlug="second-post" /> -->
 </Layout>

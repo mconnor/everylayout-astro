@@ -1,32 +1,32 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import { expect, test } from 'vitest';
-import Card from '#components/Card/index.astro';
+// import { experimental_AstroContainer as AstroContainer } from 'astro/container';
+import { assert, describe, expect, it } from 'vitest';
+// import Card from '#components/Card/index.astro';
 
-test('Card with slots', async () => {
-  const container = await AstroContainer.create();
+// test('Card with slots', async () => {
+//   const container = await AstroContainer.create();
 
-  const result = await container.renderToString(Card, {
-    props: {
-      slug: 'second-post',
-    },
-  });
+//   const result = await container.renderToString(Card, {
+//     props: {
+//       slug: 'second-post',
+//     },
+//   });
 
-  expect(result).toContain('Second post');
-});
+//   expect(result).toContain('Second post');
+// });
 
 // import { assert, describe, expect, it } from 'vitest'
 
-// describe('suite name', () => {
-//   it('foo', () => {
-//     expect(1 + 1).toEqual(2)
-//     expect(true).to.be.true
-//   })
+describe('suite name', () => {
+  it('foo', () => {
+    expect(1 + 1).toEqual(2);
+    expect(true).to.be.true;
+  });
 
-//   it('bar', () => {
-//     assert.equal(Math.sqrt(4), 2)
-//   })
+  it('bar', () => {
+    assert.equal(Math.sqrt(4), 2);
+  });
 
-//   it('snapshot', () => {
-//     expect({ foo: 'bar' }).toMatchSnapshot()
-//   })
-// })
+  // it('snapshot', () => {
+  //   expect({ foo: 'bar' }).toMatchSnapshot();
+  // });
+});

@@ -1,9 +1,8 @@
 // import { file } from 'astro/loaders';
 // import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import type { AstroInstance } from 'astro';
-import type { MarkdownInstance } from 'astro';
+// import type { MarkdownInstance } from 'astro';
 import { reference, z } from 'astro:content';
-import { z } from 'astro:schema';
 
 const urlSchema = z.string().url();
 const urlSchemaOptional = urlSchema.optional();
@@ -50,7 +49,7 @@ export const zTags = z.array(strSC).nonempty();
 // };
 
 // export const astroComponentSchema = z.custom<AstroInstanceType>;
-const regexAstro = /[a-z]+.astro/;
+// const regexAstro = /[a-z]+.astro/;
 
 export const astroComponentSchema = z.object({
   file: strSC,

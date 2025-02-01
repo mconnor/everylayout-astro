@@ -1,4 +1,6 @@
 ---
+import { Code } from 'astro:components';
+
 import { Box, Imposter } from '#astro-custom-layout-components/index.ts';
 import Layout from '#layouts/Layout.astro';
 ---
@@ -26,12 +28,39 @@ import Layout from '#layouts/Layout.astro';
       corrupti!
     </p>
   </Box>
-  <Imposter fixed>
+  <Imposter>
     <Box invert>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis saepe
-      soluta, voluptatem, iste nesciunt asperiores suscipit aut corrupti dolores
-      inventore vero explicabo alias sint expedita deserunt facere nisi
-      consectetur sit.
+      <h4>Importer web-component</h4>
+      <div class="details-group-example">
+        <wa-details summary="breakout" open>
+          Whether the element is allowed to break out of the container over
+          which it is positioned
+        </wa-details>
+
+        <wa-details summary="margin">
+          The minimum space between the element and the inside edges of the
+          positioning container over which it is placed (where breakout is not
+          applied)
+        </wa-details>
+
+        <wa-details summary="fixed">
+          Whether to position the element relative to the viewport
+        </wa-details>
+      </div>
     </Box>
   </Imposter>
 </Layout>
+
+<style>
+  .details-group-example wa-details:not(:last-of-type) {
+    margin-bottom: var(--wa-space-2xs);
+  }
+</style>
+
+<script>
+  await Promise.allSettled([customElements.whenDefined('wa-details')]);
+
+  // Button, card, and rating are registered now! Add
+  // the `ready` class so the UI fades in.
+  document.body.classList.add('ready');
+</script>

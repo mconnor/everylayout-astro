@@ -15,13 +15,13 @@ const blog = defineCollection({
   schema: blogSchema,
 });
 
-const astroComponents = defineCollection({
-  loader: glob({
-    pattern: ['**/*..astro'],
-    base: './src/components',
-  }),
-  schema: astroComponentSchema,
-});
+// const astroComponents = defineCollection({
+//   loader: glob({
+//     pattern: ['**/*.astro'],
+//     base: './src/components',
+//   }),
+//   schema: astroComponentSchema,
+// });
 
 const authors = defineCollection({
   type: 'data',
@@ -30,7 +30,7 @@ const authors = defineCollection({
 
 // 3. Export multiple collections to register them
 export const collections = {
-  astroComponents,
+  // astroComponents,
   blog,
   authors,
 };

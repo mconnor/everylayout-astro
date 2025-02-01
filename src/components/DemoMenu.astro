@@ -1,0 +1,46 @@
+---
+import { layoutDemoPages } from '#lib/getPages.ts';
+---
+
+<wa-dropdown>
+  <wa-button slot="trigger" caret>Layout Demos</wa-button>
+  {
+    layoutDemoPages.map((page) => (
+      <wa-menu-item>
+        <a href={page.url}>{page.url?.slice(1)}</a>
+      </wa-menu-item>
+    ))
+  }
+</wa-dropdown>
+<!-- <wa-dropdown>
+  <wa-button slot="trigger" caret>Dropdown</wa-button>
+  <wa-menu>
+    <wa-menu-item>Dropdown Item 1</wa-menu-item>
+    <wa-menu-item>Dropdown Item 2</wa-menu-item>
+    <wa-menu-item>Dropdown Item 3</wa-menu-item>
+    <wa-divider></wa-divider>
+    <wa-menu-item type="checkbox" checked>Checkbox</wa-menu-item>
+    <wa-menu-item disabled>Disabled</wa-menu-item>
+    <wa-divider></wa-divider>
+    <wa-menu-item>
+      Prefix
+      <wa-icon slot="prefix" name="gift" variant="solid"></wa-icon>
+    </wa-menu-item>
+    <wa-menu-item>
+      Suffix Icon
+      <wa-icon slot="suffix" name="heart" variant="solid"></wa-icon>
+    </wa-menu-item>
+  </wa-menu>
+</wa-dropdown> -->
+
+<script>
+  await Promise.allSettled([
+    customElements.whenDefined('wa-button'),
+    customElements.whenDefined('wa-menu'),
+    customElements.whenDefined('wa-menu-item'),
+  ]);
+
+  // Button, card, and rating are registered now! Add
+  // the `ready` class so the UI fades in.
+  document.body.classList.add('ready');
+</script>

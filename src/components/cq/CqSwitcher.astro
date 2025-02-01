@@ -1,11 +1,13 @@
 ---
-import ThumbNail from '#assets/400x300.svg';
+// import { Image } from 'astro:assets';
+
+// import thumb from '#assets/blog-placeholder-2.jpg';
 ---
 
 <div id="layout__item" class="layout">
   <div class="card">
     <div class="card-thumb">
-      <ThumbNail />
+      <img src="https://picsum.photos/400/300?random=1" alt="x" />
     </div>
     <div class="card-content">
       <h3>Card title in here</h3>
@@ -14,7 +16,7 @@ import ThumbNail from '#assets/400x300.svg';
 
   <div class="card">
     <div class="card-thumb">
-      <ThumbNail />
+      <img src="https://picsum.photos/400/300?random=1" alt="x" />
     </div>
     <div class="card-content">
       <h3>Card title in here</h3>
@@ -23,7 +25,7 @@ import ThumbNail from '#assets/400x300.svg';
 
   <div class="card">
     <div class="card-thumb">
-      <ThumbNail />
+      <img src="https://picsum.photos/400/300?random=1" alt="x" />
     </div>
     <div class="card-content">
       <h3>Card title in here</h3>
@@ -31,35 +33,36 @@ import ThumbNail from '#assets/400x300.svg';
   </div>
 </div>
 <form class="slider-form">
-  <wa-slider min="400" max="1600"></wa-slider>
+  <wa-slider min="160" max="200"></wa-slider>
 </form>
 
 <style>
   /* define the container type.
  We can also define the name (not mandatory but recommended) */
 
-  h3 {
-    font-size: var(--s1);
-  }
-
   .layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 1rem;
-    background-color: lightblue;
-  }
-
-  #layout__item {
     container-type: inline-size;
     container-name: card;
+    border: 2px solid red;
+
+    background-color: aquamarine;
+
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem; */
   }
 
-  @container card (min-width: 800px) {
+  @container card (min-width: 180px) {
     .card {
       display: flex;
-      align-items: center;
-
+      gap: 1rem;
       outline: dotted 2px deeppink;
+    }
+  }
+
+  .card-thumb {
+    .img {
+      width: 100%;
     }
   }
 </style>

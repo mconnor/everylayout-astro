@@ -1,4 +1,5 @@
 ---
+import ThumbNail from '#assets/400x300.svg';
 import { Box, Switcher } from '#astro-custom-layout-components/index.ts';
 import Layout from '#layouts/Layout.astro';
 ---
@@ -14,18 +15,15 @@ import Layout from '#layouts/Layout.astro';
       </p>
 
       <Box borderWidth="0">
-        <Switcher>
-          <Box>x</Box>
-          <Box>x</Box>
-          <Box>x</Box>
+        <Switcher threshold="80ch">
+          <ThumbNail mode="sprite" />
+          <ThumbNail mode="sprite" />
+          <ThumbNail mode="sprite" />
+          <ThumbNail mode="sprite" />
+          <ThumbNail mode="sprite" />
         </Switcher>
+        <wa-slider></wa-slider>
       </Box>
     </Box>
   </Box>
-  <style>
-    .filled {
-      inline-size: 10rem;
-      background-color: var(--pink-3);
-    }
-  </style></Layout
->
+</Layout>

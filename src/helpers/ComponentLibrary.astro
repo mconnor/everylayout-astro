@@ -1,47 +1,64 @@
 ---
-const components = Object.values(
-  import.meta.glob('./*.astro', {
+import type { AstroInstance } from 'astro';
+// import type { SchemaContext } from 'astro:content';
+
+// import { z } from 'astro:content';
+
+// const stringArraySchema = z.string().object(); // string[]
+
+// const components = Object.values(
+//   import.meta.glob<AstroInstance>('./*.astro', {
+//     eager: true,
+//   }),
+// );
+
+const allAstroPages = Object.values(
+  import.meta.glob<AstroInstance>('../pages/**/*.astro', {
     eager: true,
   }),
-);
+).filter((astroInst) => astroInst?.url && !/\[.*\]/.test(astroInst.url)); // Exclude paths with brackets
 
-const pages = Object.values(
-  import.meta.glob('../pages/**/*.astro', { eager: true }),
-);
+// const pages = stringArraySchema.parse(pagesValues);
 
-const layoutComps = Object.values(
-  import.meta.glob('../astro-custom-layout-components/**/*.astro', {
-    eager: true,
-  }),
-);
+// const layoutComps = Object.values(
+//   import.meta.glob('../astro-custom-layout-components/**/*.astro', {
+//     eager: true,
+//   }),
+// );
 
 // const fileNameRegex = /([^/]+)$/;
-const pagesRegExp = /pages\/(.+)/;
-const afterComponentssRegex = /components\/(.+)/;
+// const pagesRegExp = /pages\/(.+)/;
+// const afterComponentssRegex = /components\/(.+)/;
 const regexAstro = /\.astro$/;
 ---
 
 <h4>list off all pages</h4>
 
 {
-  (
+  allAstroPages.length > 0 ? (
     <ul>
-      {pages
-        .map((page) => {
-          const match = page.file.match(pagesRegExp);
-          return match?.[1];
+      {allAstroPages
+        // .map((page) => {
+        //   const match = page.file.match(pagesRegExp);
+        //   return match?.[1];
+        // })
+        .filter((astroInst) => astroInst?.url && !/\[.*\]/.test(astroInst.url)) // Exclude paths with brackets
+        .map((astroInst) => {
+          if (astroInst.url) {
+            return astroInst?.url.replace(regexAstro, '');
+          }
         })
-        .filter((path: string) => !/\[.*\]/.test(path)) // Exclude paths with brackets
-        .map((path) => path?.replace(regexAstro, ''))
         .map((filteredPath) => (
           <li>
-            <a href={`./${filteredPath}`}>{filteredPath}</a>
+            <a href={filteredPath}>{filteredPath}</a>
           </li>
         ))}
     </ul>
+  ) : (
+    <p>no pages found</p>
   )
 }
-
+<!--
 <h4>components</h4>
 {
   (
@@ -72,4 +89,4 @@ const regexAstro = /\.astro$/;
         ))}
     </ul>
   )
-}
+} -->

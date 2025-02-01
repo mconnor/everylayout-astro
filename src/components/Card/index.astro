@@ -37,6 +37,8 @@ if (blogdata === undefined) {
 const { title, pubDate, description, author, cover } = blogdata.data;
 
 const authObj = await getEntry('authors', author.id);
+
+const { id: authId, data: authData } = authObj;
 ---
 
 <article class="card">
@@ -46,7 +48,7 @@ const authObj = await getEntry('authors', author.id);
       <a slot="left" href={`/posts/${slug}`}
         ><h3 class="truncate">{title}</h3></a
       >
-      <a slot="right" href={`/writer/${authObj.id}`}>{authObj.data.name}</a>
+      <a slot="right" href={`/writer/${authId}`}>{authData.name}</a>
     </CardTop>
 
     <div class="myMask">

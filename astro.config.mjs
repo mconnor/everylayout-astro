@@ -1,8 +1,9 @@
-/// <reference types="vitest" />
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+import browserslist from 'browserslist';
+import { browserslistToTargets } from 'lightningcss';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,6 +11,17 @@ export default defineConfig({
   //   '/index': '/about',
   // },
   site: 'https://example.com',
+  vite: {
+    css: {
+      transformer: 'lightningcss',
+      lightningcss: {
+        targets: browserslistToTargets(browserslist('>= 0.25%')),
+        drafts: {
+          customMedia: true,
+        },
+      },
+    },
+  },
 
   image: {
     domains: ['astro.build', 'picsum.photos'],
