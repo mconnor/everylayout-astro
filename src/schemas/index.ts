@@ -51,12 +51,6 @@ export const zTags = z.array(strSC).nonempty();
 // export const astroComponentSchema = z.custom<AstroInstanceType>;
 // const regexAstro = /[a-z]+.astro/;
 
-export const astroComponentSchema = z.object({
-  file: strSC,
-  url: urlSchemaOptional,
-  default: astroInstanceSchema,
-});
-
 export const tagCountTypeSchema = z.record(z.number());
 
 export type AurthorSchemaType = z.infer<typeof authorSchema>;

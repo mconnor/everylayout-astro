@@ -16,5 +16,5 @@ const { copy } = Astro.props;
   const dialog = document.querySelector('#dialog-overview');
   const openButton = dialog?.nextElementSibling;
 
-  openButton?.addEventListener('click', () => (dialog.open = true));
+  dialog && openButton?.addEventListener('click', () => (dialog.open = true));
 </script>

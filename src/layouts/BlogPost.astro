@@ -27,7 +27,7 @@ const { blogData } = Astro.props;
 const { title, description, pubDate, cover, author } = blogData;
 
 const results = await getEntry('authors', author.id);
-const { name } = results.data;
+const { name } = results!.data;
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">
