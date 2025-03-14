@@ -31,5 +31,8 @@
     // you can add it in this array of files
     // "assets/styles/variables.css"
   ],
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"]
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
+  "terminal.integrated.fastScrollSensitivity": 2,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.cursorBlinking": true
 }
