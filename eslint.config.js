@@ -151,4 +151,4 @@ const tsConfig = tseslint.config(
   prettier,
 );
 
-export default [...tsConfig, ...mdconfig] satisfies Linter.Config[];
+export default [...tsConfig, ...mdconfig];

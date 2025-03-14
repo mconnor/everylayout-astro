@@ -39,11 +39,11 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/vercel": "~8.0.5",
+    "@astrojs/vercel": "~8.1.2",
     "@sentry/astro": "^8.53.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "add": "^2.0.6",
-    "astro": "^5.2.3",
+    "astro": "^5.5.2",
     "date-fns": "^4.1.0",
     "nanostores": "^0.11.3",
     "open-props": "^1.7.12",
@@ -54,8 +54,8 @@
     "vitest": "^2.1.8"
   },
   "devDependencies": {
-    "@astrojs/mdx": "~4.0.8",
-    "@astrojs/react": "~4.2.0",
+    "@astrojs/mdx": "~4.2.0",
+    "@astrojs/react": "~4.2.1",
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.19.0",
@@ -97,5 +97,5 @@
     "node": "^22.2.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@10.1.0"
+  "packageManager": "pnpm@10.6.3"
 }

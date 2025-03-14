@@ -7,7 +7,7 @@
     },
     "lint": {},
     "fix": {},
-    "check": {},
+    "check-types": {},
     "dev": {
       "cache": false,
       "persistent": true
