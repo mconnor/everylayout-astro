@@ -14,20 +14,44 @@ import { Box, Cluster } from '#astro-custom-layout-components/index.ts';
 import Layout from '#layouts/Layout.astro';
 ---
 
-<Layout centerWidth="100vw">
+<Layout maxW="80vw">
   <!--  paddh4ing="8rem" widtstyle={{"20%" /> -->
 
-  <Cluster space="var(--s3)">
-    <Box borderWidth="0"><div style={{ height: 'var(--h1)' }}>s0</div></Box>
-    <Box borderWidth="0"><div style={{ height: 'var(--h2)' }}>s1</div></Box>
-    <Box borderWidth="0"><div style={{ height: 'var(--h3)' }}>s4</div></Box>
-
-    <Box borderWidth="0"><div style={{ height: 'var(--h4)' }}>s6</div></Box>
-    <Box borderWidth="0"> <div style={{ height: 'var(--h5)' }}>s7</div></Box>
-  </Cluster>
+  <div class="flex flex-col gap-4 text-white">
+    <div
+      class="from-regal-blue grow bg-linear-to-t to-indigo-500"
+      style={{ width: 'var(--h1)' }}
+    >
+      s0
+    </div>
+    <div
+      class="from-regal-blue grow bg-linear-to-t to-indigo-500"
+      style={{ width: 'var(--h2)' }}
+    >
+      s1
+    </div>
+    <div
+      class="from-regal-blue grow bg-linear-to-t to-indigo-500"
+      style={{ width: 'var(--h3)' }}
+    >
+      s4
+    </div>
+    <div
+      class="from-regal-blue grow bg-linear-to-t to-indigo-500"
+      style={{ width: 'var(--h4)' }}
+    >
+      s6
+    </div>
+    <div
+      class="from-regal-blue grow bg-linear-to-t to-indigo-500"
+      style={{ width: 'var(--h5)' }}
+    >
+      s7
+    </div>
+  </div>
 </Layout>
 
-<style>
+<!-- <style>
   div {
     background: var(--gradient-13);
     width: 10vw;
@@ -37,4 +61,4 @@ import Layout from '#layouts/Layout.astro';
     padding-inline: 50%;
     padding-top: var(--s1);
   }
-</style>
+</style> -->

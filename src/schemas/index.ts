@@ -1,6 +1,6 @@
 // import { file } from 'astro/loaders';
 // import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { AstroInstance } from 'astro';
+// import type { AstroInstance } from 'astro';
 // import type { MarkdownInstance } from 'astro';
 import { reference, z } from 'astro:content';
 
@@ -10,7 +10,7 @@ const strSC = z.string();
 const strSCOptional = strSC.optional();
 const emailSchema = z.string().email();
 const emailSchemaOptional = emailSchema.optional();
-const astroInstanceSchema = z.ZodType<AstroInstance>;
+// const astroInstanceSchema = z.ZodType<AstroInstance>;
 
 const imageSrcSchema = z.object({ src: urlSchema, alt: strSC });
 

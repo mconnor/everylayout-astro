@@ -1,20 +1,38 @@
-:root {
-  --theme-secondary: var(--surface-4);
-  --theme-primary: var(--text-2);
+@import 'open-props/style';
+@import './modular-scale.css';
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@layer theme, base, components, utilities;
+
+@theme {
+  --font-display: 'Oswald', 'sans-serif';
+  --color-mint-500: oklch(0.72 0.11 178);
+  --color-light: oklch(0.984 0.003 247.858);
+  --color-dark: oklch(0.21 0.006 285.885);
+  --color-regal-blue: #243c5a;
+}
+
+/* Now you can use utility classes like bg-mint-500, text-mint-500, or fill-mint-500 in your HTML: */
+
+/* :root {
+  --theme-secondary: var(--gray-9);
+  --theme-primary: var(--gray-7);
   --theme-warning: red;
   --theme-font-family: var(--font-slab-serif);
 }
 .warning {
   --my-element-text-color: var(--theme-warning);
-}
+} */
 
-body {
+/* body {
   color: var(--theme-primary);
   background-color: var(--theme-secondary);
-}
+} */
 
 /* overwrite anything in typography */
-
+/*
 :where(html) {
   font-family: var(--theme-font-family);
-}
+} */

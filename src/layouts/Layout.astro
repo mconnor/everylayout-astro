@@ -1,5 +1,6 @@
 ---
-import { Center, Cover } from '#astro-custom-layout-components/index.ts';
+import Center from '#astro-custom-layout-components/Center/index.astro';
+import Cover from '#astro-custom-layout-components/Cover/index.astro';
 import type { RmUnitType } from '#astro-custom-layout-components/Types.js';
 import BaseHead from '#components/BaseHead.astro';
 import Footer from '#components/Footer.astro';
@@ -8,12 +9,13 @@ import Header from '#components/Header.astro';
 interface Props {
   title?: string;
   description?: string;
-  centerWidth?: RmUnitType;
+
   children: unknown;
+  maxW?: RmUnitType;
 }
 
 const {
-  centerWidth = 'var(--measure)',
+  maxW = 'var(--measure, 60ch)',
   title = 'I NEED A TITLE',
   description = 'no description provided',
 } = Astro.props;
@@ -21,20 +23,20 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en" transition:animate="none" color-scheme="dark">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={title} description={description} />
     <link rel="canonical" href={canonicalURL} />
   </head>
 
   <body>
-    <Cover centeredElement="center-l" noPad={true} space="0">
+    <Cover centeredElement="center-l" minHeight="100vh">
       <Header />
 
-      <Center max={centerWidth}>
+      <Center max={maxW}>
         <slot />
       </Center>
-      <Footer />
+      <!-- <Footer /> -->
     </Cover>
   </body>
 </html>

@@ -14,10 +14,19 @@ const { href } = Astro.props;
 <!-- <Box padding='--sizes'><a href={href} class:list={[{ active: isActive }]}>
     <slot />
 </a></Box> -->
-<Cluster>
-  <div class="btn" :active="{ active: isActive }">
-    <a href={href}>
-      <slot />
-    </a>
-  </div>
-</Cluster>
+<div class="btn" :active="{ active: isActive }">
+  <a href={href}>
+    <slot />
+  </a>
+</div>
+
+<style>
+  a {
+    color: var(--orange-11);
+    text-decoration: none;
+    padding: var(--sizes);
+    :hover {
+      color: var(--orange-6);
+    }
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import { Box, Switcher } from '#astro-custom-layout-components/index.ts';
+
+interface Props {
+  dt: string;
+  dtColor?: string;
+  dd: string;
+  ddColor?: string;
+}
+
+const {
+  dtColor = 'text-gray-900',
+  ddColor = 'text-gray-700',
+  ...rest
+} = Astro.props;
+---
+
+<div class="box">
+  <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+    <dt>{rest.dt}</dt>
+    <dd class="mt-1 sm:col-span-2 sm:mt-0">
+      {rest.dd}
+    </dd>
+  </div>
+</div>

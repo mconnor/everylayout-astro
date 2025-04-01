@@ -48,7 +48,13 @@ const authObj = await getEntry('authors', author.id);
       <a slot="left" href={`/posts/${slug}`}
         ><h3 class="truncate">{title}</h3></a
       >
-  {  authObj &&   <a slot="right" href={`/writer/${authObj.id}`}>{authObj.data.name}</a>}
+      {
+        authObj && (
+          <a slot="right" href={`/writer/${authObj.id}`}>
+            {authObj.data.name}
+          </a>
+        )
+      }
     </CardTop>
 
     <div class="myMask">
@@ -82,9 +88,9 @@ const authObj = await getEntry('authors', author.id);
 
     /* box-shadow: var(--shadow-2); */
 
-    @media (--motionOK) {
+    /* @media (--motionOK) {
       animation: var(--animation-fade-in);
-    }
+    } */
   }
 
   a {

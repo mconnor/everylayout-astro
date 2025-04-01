@@ -1,66 +1,45 @@
 ---
 import { Code } from 'astro:components';
 
-import { Box, Imposter } from '#astro-custom-layout-components/index.ts';
+import { Box, Grid,Imposter } from '#astro-custom-layout-components/index.ts';
+import SkeletonCard from '#components/SkeletonCard.astro';
 import Layout from '#layouts/Layout.astro';
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
-<Layout title="test Me" description="Lorem ipsum dolor sit amet">
-  <Box>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
-      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
-      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
-      corrupti!
-    </p>
+<Layout title="test Me" description="Lorem ipsum dolor sit amet" maxW="100%">
+  <Grid min="800px">
+    <SkeletonCard />
+    <SkeletonCard />
+    <SkeletonCard />
+    <SkeletonCard /></Grid
+  >
 
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
-      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
-      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
-      corrupti!
-    </p>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat magnam
-      architecto voluptas natus modi nulla sint aspernatur ex? Unde modi,
-      blanditiis iste sed asperiores consequatur nulla ducimus neque enim
-      corrupti!
-    </p>
-  </Box>
-  <Imposter>
-    <Box invert>
-      <h4>Importer web-component</h4>
-      <div class="details-group-example">
-        <wa-details summary="breakout" open>
-          Whether the element is allowed to break out of the container over
-          which it is positioned
-        </wa-details>
-
-        <wa-details summary="margin">
-          The minimum space between the element and the inside edges of the
-          positioning container over which it is placed (where breakout is not
-          applied)
-        </wa-details>
-
-        <wa-details summary="fixed">
-          Whether to position the element relative to the viewport
-        </wa-details>
-      </div>
-    </Box>
-  </Imposter>
+  <!-- <Imposter>
+    <div class="bg-mint-500">
+      <Box borderWidth="var(--s2)">
+        <p class="h4">
+          <strong>You can’t see all the content, because of this box.</strong>
+        </p>
+      </Box>
+    </div>
+  </Imposter> -->
 </Layout>
 
 <style>
-  .details-group-example wa-details:not(:last-of-type) {
-    margin-bottom: var(--wa-space-2xs);
+  .skeleton-paragraphs wa-skeleton {
+    margin-bottom: 1rem;
+  }
+
+  .skeleton-paragraphs wa-skeleton:nth-child(2) {
+    width: 95%;
+  }
+
+  .skeleton-paragraphs wa-skeleton:nth-child(4) {
+    width: 90%;
+  }
+
+  .skeleton-paragraphs wa-skeleton:last-child {
+    width: 50%;
   }
 </style>
-
-<script>
-  await Promise.allSettled([customElements.whenDefined('wa-details')]);
-
-  // Button, card, and rating are registered now! Add
-  // the `ready` class so the UI fades in.
-  document.body.classList.add('ready');
-</script>

@@ -1,5 +1,4 @@
 ---
-import { Box, Cluster } from '#astro-custom-layout-components/index.ts';
 //  import NavDropDown from '#ui/react/Select.tsx'
 import DemoMenu from '#components/DemoMenu.astro';
 
@@ -8,25 +7,29 @@ import DemoMenu from '#components/DemoMenu.astro';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<Box padding="var(--s1)" borderWidth="0">
-  <!-- <Cluster justify="space-between"> -->
+<!-- <div class="bg-light dark:bg-gray-800"> -->
+<div class="bg-mint-500 flex flex-row justify-end">
+  <div class="justify-self-center-1 grow border">
+    <DemoMenu />
+  </div>
 
-  <!-- <Box padding="0" borderWidth="2px">
-    <NavDropDown />
-  </Box> -->
-  <!-- <Box padding="0" borderWidth="1px">
-      <HeadlessUI client:only="react" transition:persist /></Box
-    > -->
+  <nav class="justify-self-center-1 flex grow flex-row justify-around border-2">
+    <a
+      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
+      href="/">Home</a
+    >
+    <a
+      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
+      href="/blog">Blog</a
+    >
 
-  <Box padding="0" borderWidth="2px">
-    <Cluster align="baseline" justify="flex-start">
-      <DemoMenu />
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <!-- <HeaderLink href="/about">About</HeaderLink> -->
-      <HeaderLink href="/ui">Ui</HeaderLink>
-      <HeaderLink href="/tags">tags</HeaderLink>
-    </Cluster>
-  </Box>
-  <!-- </Cluster> -->
-</Box>
+    <a
+      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
+      href="/ui">Ui</a
+    >
+    <a
+      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
+      href="/tags">tags</a
+    >
+  </nav>
+</div>

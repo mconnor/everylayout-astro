@@ -1,5 +1,6 @@
 ---
 import { Box } from '#astro-custom-layout-components/index.ts';
+import Prose from '#components/Prose.astro';
 
 interface Props {
   headline?: string;
@@ -13,26 +14,24 @@ const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
 
 const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props;
 
-function truncateString(str: string) {
-  if (str.length <= 100) {
+function truncateString(str: string, limit = 100) {
+  if (str.length <= limit) {
     return str;
   }
-  return str.slice(0, 100) + '...';
+  return str.slice(0, limit) + '...';
 }
 ---
 
 <Box padding="0" borderWidth="var(--border-size-2)">
-  <Box borderWidth="0" invert>
-    <h4>{headline}</h4>
+  <Box padding="1rem">
+    <h6 class="">{headline}</h6>
   </Box>
-  <Box padding="0" borderWidth="0"><slot name="image-slot" /></Box>
-  <Box padding="var(--s00)"><p>{truncateString(description)}</p></Box>
+  <Box padding="0"><slot name="image-slot" /></Box>
+  <Box padding="var(--s00)"
+    ><p class="overflow-hidden text-ellipsis">
+      {description.slice(0, 100)}
+    </p></Box
+  >
+
+  <!-- </Prose> -->
 </Box>
-<style>
-  p {
-    font-size: var(--font-size-fluid-0);
-  }
-  h4 {
-    font-size: var(--font-size-fluid-1);
-  }
-</style>

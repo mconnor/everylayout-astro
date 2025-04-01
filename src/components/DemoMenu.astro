@@ -1,16 +1,32 @@
 ---
 import { layoutDemoPages } from '#lib/getPages.ts';
+
+// const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+// const subpath = pathname.match(/[^/]+/g);
 ---
 
 <wa-dropdown>
-  <wa-button slot="trigger" caret>Layout Demos</wa-button>
-  {
-    layoutDemoPages.map((page) => (
-      <wa-menu-item>
-        <a href={page.url}>{page.url?.slice(1)}</a>
-      </wa-menu-item>
-    ))
-  }
+  <wa-button class="pink" slot="trigger" caret>Layout Demos</wa-button>
+  <wa-menu>
+    {
+      layoutDemoPages.map(
+        ({ url }) =>
+          url && (
+            <wa-menu-item variant="solid">
+              {/* {url.split('/').pop()} */}
+              <wa-button
+                size="small"
+                appearance="plain"
+                variant="brand"
+                href={url}
+              >
+                {url.split('/').pop()}
+              </wa-button>
+            </wa-menu-item>
+          ),
+      )
+    }
+  </wa-menu>
 </wa-dropdown>
 <!-- <wa-dropdown>
   <wa-button slot="trigger" caret>Dropdown</wa-button>
@@ -44,3 +60,36 @@ import { layoutDemoPages } from '#lib/getPages.ts';
   // the `ready` class so the UI fades in.
   document.body.classList.add('ready');
 </script>
+
+<style>
+  wa-button.pink::part(base) {
+    border-radius: 6px;
+    border: solid 2px;
+    background: #ff1493;
+    border-top-color: #ff7ac1;
+    border-left-color: #ff7ac1;
+    border-bottom-color: #ad005c;
+    border-right-color: #ad005c;
+    color: white;
+    font-size: 1.125rem;
+    box-shadow: 0 2px 10px #0002;
+    transition: all var(--wa-transition-slow) var(--wa-transition-easing);
+  }
+
+  wa-button.pink::part(base):hover {
+    transform: scale(1.05);
+  }
+
+  wa-button.pink::part(base):active {
+    border-top-color: #ad005c;
+    border-right-color: #ff7ac1;
+    border-bottom-color: #ff7ac1;
+    border-left-color: #ad005c;
+    transform: translateY(1px);
+  }
+
+  wa-button.pink::part(base):focus-visible {
+    outline: dashed 2px deeppink;
+    outline-offset: 4px;
+  }
+</style>

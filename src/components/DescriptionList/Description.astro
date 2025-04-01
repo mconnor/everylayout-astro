@@ -1,0 +1,15 @@
+---
+interface Props {
+  class;
+}
+
+const {
+  dtColor = 'text-gray-900',
+  ddColor = 'text-gray-700',
+  ...rest
+} = Astro.props;
+---
+
+<dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+  <slot />
+</dd>

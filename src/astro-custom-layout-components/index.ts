@@ -1,6 +1,7 @@
 import Box from './Box/index.astro';
 import Center from './Center/index.astro';
 import Cluster from './Cluster/index.astro';
+import Container from './Container/index.astro';
 import Cover from './Cover/index.astro';
 import Frame from './Frame/index.astro';
 import Grid from './Grid/index.astro';
@@ -15,6 +16,7 @@ export {
   Box,
   Center,
   Cluster,
+  Container,
   Cover,
   Frame,
   Grid,

@@ -8,7 +8,7 @@ import prettier from 'eslint-config-prettier';
 import astro from 'eslint-plugin-astro';
 // import regexp from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import wc from 'eslint-plugin-wc';
+import { configs as wc } from 'eslint-plugin-wc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -95,7 +95,7 @@ const tsConfig = tseslint.config(
   },
   {
     files: ['**/*js'],
-    extends: [tseslint.configs.disableTypeChecked],
+    ...tseslint.configs.disableTypeChecked,
   },
   // {
   //   files: ['src/content/blog/*.md'],
@@ -103,11 +103,12 @@ const tsConfig = tseslint.config(
   // },
   { files: ['src/**/*.jsx', 'src/**/*.tsx'], extends: [reactConfig] },
   {
+    ...wc['flat/recommended'],
     files: [
       'src/astro-custom-layout-components/**/*js',
       'src/astro-web-component/**/*js',
     ],
-    extends: [wc.configs['flat/recommended']],
+
     // extends: [tseslint.configs.disableTypeChecked],
     rules: {
       'no-unused-expressions': 'off',
@@ -143,8 +144,8 @@ const tsConfig = tseslint.config(
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn',
     },
   },
 

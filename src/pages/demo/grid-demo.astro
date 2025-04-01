@@ -6,6 +6,7 @@ import Card from '#components/Card.astro';
 import Layout from '#layouts/Layout.astro';
 
 const W = '240';
+const GRID_W = '120';
 const H = '120';
 const getRandomSrc = () => {
   const random = Math.floor(Math.random() * 1000).toString();
@@ -17,21 +18,20 @@ const pic = getRandomSrc();
 ---
 
 <!-- heroImage="/blog-placeholder-about.jpg" -->
-<Layout
-  centerWidth="100vw"
-  title="test Me"
-  description="Lorem ipsum dolor sit amet"
->
+<Layout maxW="100vw" title="test Me" description="Lorem ipsum dolor sit amet">
   <!-- space set the gap on the grid -->
-  <Grid space="1rem" min=`${W}px`>
-    <Card headline="xxx">
+  <Grid space="1rem" min=`${GRID_W}px`>
+    <Card
+      headline="Dolore occaecat in pariatur sit in velit commodo."
+      description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    >
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={pic} alt="Image alt text" />
       </Frame>
     </Card>
 
     <Card
-      headline="BIG NEWS"
+      headline="Proident minim commodo ex in aute deserunt amet amet ullamco consequat consectetur do ut."
       description="At the forefront of industry innovation, our paradigm-shifting ecosystem leverages synergistic partnerships to drive holistic growth. By harnessing the power of big data analytics and machine learning algorithms, we're redefining the boundaries of operational excellence. Our commitment to disruptive technologies ensures we stay ahead of the curve, delivering unparalleled value to our stakeholders."
     >
       <Frame ratio="16:9" slot="image-slot">
@@ -40,27 +40,25 @@ const pic = getRandomSrc();
     >
 
     <Card
-      description=`In today's fast-paced digital landscape, our mission is to empower clients through transformative solutions that integrate seamlessly with their core business processes. Our agile methodologies and customer-centric approach enable us to deliver bespoke innovations that are both scalable and sustainable. We're not just about the technology; we're about building lasting relationships that foster mutual success.`
+      headline="Proident ullamco officia voluptate velit amet in deserunt."
+      description=`In today's fast-paced digital landscape, our mission is to success.`
     >
-      <Frame ratio="16:9" slot="image-slot">
-        <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />
-      </Frame></Card
-    >
-
-    <Card>
-      <Frame ratio="16:9" slot="image-slot">
-        <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />
-      </Frame></Card
-    >
-
-    <Card>
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />
       </Frame></Card
     >
 
     <Card
-      headline="BIG NEWS"
+      headline="Dolore occaecat in pariatur sit in velit commodo."
+      description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    >
+      <Frame ratio="16:9" slot="image-slot">
+        <Image width={W} height={H} src={pic} alt="Image alt text" />
+      </Frame>
+    </Card>
+
+    <Card
+      headline="Proident minim commodo ex in aute deserunt amet amet ullamco consequat consectetur do ut."
       description="At the forefront of industry innovation, our paradigm-shifting ecosystem leverages synergistic partnerships to drive holistic growth. By harnessing the power of big data analytics and machine learning algorithms, we're redefining the boundaries of operational excellence. Our commitment to disruptive technologies ensures we stay ahead of the curve, delivering unparalleled value to our stakeholders."
     >
       <Frame ratio="16:9" slot="image-slot">
@@ -69,7 +67,8 @@ const pic = getRandomSrc();
     >
 
     <Card
-      description=`In today's fast-paced digital landscape, our mission is to empower clients through transformative solutions that integrate seamlessly with their core business processes. Our agile methodologies and customer-centric approach enable us to deliver bespoke innovations that are both scalable and sustainable. We're not just about the technology; we're about building lasting relationships that foster mutual success.`
+      headline="xoluptate velit amet in deserunt."
+      description=`In today's fast-paced digital landscape, our mission is to success.`
     >
       <Frame ratio="16:9" slot="image-slot">
         <Image width={W} height={H} src={getRandomSrc()} alt="Image alt text" />

@@ -2,7 +2,7 @@
   "editor.inlayHints.enabled": "on",
   // Do not ignore node_modules css files, which is ignored by default
   "cssvar.enable": true,
-  "cssvar.themes": ["dark", "light", "dim", "choco"],
+  "cssvar.themes": ["dark", "light"],
   // Since we want to scan css files inside `node_modules as well
   // we need to set cssvar.ignore property to empty array
   "cssvar.ignore": [],
