@@ -7,13 +7,8 @@
   // we need to set cssvar.ignore property to empty array
   "cssvar.ignore": [],
   "cssvar.excludeThemedVariables": false,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "astro",
-    "typescript",
-    "typescriptreact"
-  ],
+  "editor.defaultFormatter": "biomejs.biome",
+
   // add support for autocomplete in JS or JS like files
   /**
    * This setting controls whether inlay hints are enabled in the editor.

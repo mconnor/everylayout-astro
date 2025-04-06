@@ -27,13 +27,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint .",
-    "fix": "eslint . --fix",
     "lint:biome": "biome lint --write .",
     "format:biome": "biome format --write .",
     "check:biome": "biome check --write .",
-    "format": "prettier  --write   --ignore-unknown .",
-    "format-check": "prettier --check .",
     "stylelint": "stylelint \"src/**/*.{css,astro}\"",
     "sfix": "stylelint \"src/**/*.{css,astro}\" --fix",
     "inspect": "eslint . --inspect-config"

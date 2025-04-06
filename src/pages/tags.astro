@@ -47,7 +47,7 @@ const tagCountsObject = slugTags.reduce(
   {} as Record<string, number>,
 );
 
-const uniqueTagArray = [...new Set(slugTags.map((post) => post.tags).flat())];
+const uniqueTagArray = [...new Set(slugTags.flatMap((post) => post.tags))];
 
 const zUniqueTagArray = zTags.safeParse(uniqueTagArray);
 

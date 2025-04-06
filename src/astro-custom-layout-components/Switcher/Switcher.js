@@ -26,8 +26,8 @@ export default class Switcher extends HTMLElement {
             flex-basis: calc((${this.threshold} - 100%) * 999);
           }
 
-          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}),
-          [data-i="${this.i}"] > :nth-last-child(n+${parseInt(this.limit) + 1}) ~ * {
+          [data-i="${this.i}"] > :nth-last-child(n+${Number.parseInt(this.limit) + 1}),
+          [data-i="${this.i}"] > :nth-last-child(n+${Number.parseInt(this.limit) + 1}) ~ * {
             flex-basis: 100%;
           }
         `
