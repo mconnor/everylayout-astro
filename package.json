@@ -60,6 +60,7 @@
   "devDependencies": {
     "@astrojs/mdx": "~4.2.3",
     "@astrojs/react": "~4.2.3",
+    "@biomejs/biome": "1.9.4",
     "@eslint/compat": "^1.2.7",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.23.0",
