@@ -12,13 +12,13 @@ const allBlogDataObjs = allBlogPost.map((post) => post);
 
 /// we only need a list of unique tags and their counts
 const slugTags = allBlogDataObjs
-  .filter((post) => post.data.draft !== true)
-  .map((post) => {
-    return {
-      slug: post.id,
-      tags: post.data.tags,
-    };
-  });
+	.filter((post) => post.data.draft !== true)
+	.map((post) => {
+		return {
+			slug: post.id,
+			tags: post.data.tags,
+		};
+	});
 
 // const { success, data: zslugTagsDataArray } = z
 //   .array(blogSchema)
@@ -31,20 +31,20 @@ const slugTags = allBlogDataObjs
 const zString = z.string();
 
 const tagCountsObject = slugTags.reduce(
-  (tagCountAcc, post) => {
-    (post.tags || []).forEach((tag) => {
-      const { success, data: _tag } = zString.safeParse(tag);
-      if (success) {
-        // Ensure tag is a string
-        const count = tagCountAcc[_tag] || 0;
-        tagCountAcc[_tag] = count + 1;
-      } else {
-        throw new Error('tag is not a string');
-      }
-    });
-    return tagCountAcc;
-  },
-  {} as Record<string, number>,
+	(tagCountAcc, post) => {
+		for (const tag of post.tags || []) {
+			const { success, data: _tag } = zString.safeParse(tag);
+			if (success) {
+				// Ensure tag is a string
+				const count = tagCountAcc[_tag] || 0;
+				tagCountAcc[_tag] = count + 1;
+			} else {
+				throw new Error('tag is not a string');
+			}
+		}
+		return tagCountAcc;
+	},
+	{} as Record<string, number>,
 );
 
 const uniqueTagArray = [...new Set(slugTags.flatMap((post) => post.tags))];
@@ -52,18 +52,18 @@ const uniqueTagArray = [...new Set(slugTags.flatMap((post) => post.tags))];
 const zUniqueTagArray = zTags.safeParse(uniqueTagArray);
 
 const {
-  success: tagCountSuccess,
-  data: tagCountData,
-  error,
+	success: tagCountSuccess,
+	data: tagCountData,
+	error,
 } = tagCountTypeSchema.safeParse(tagCountsObject);
 
 if (!tagCountSuccess) {
-  throw new Error(error.message);
+	throw new Error(error.message);
 }
 const { success, error: error2, data: tagArray } = zUniqueTagArray;
 
 if (!success) {
-  throw new Error(error2.message);
+	throw new Error(error2.message);
 }
 ---
 
