@@ -9,9 +9,9 @@ const W = '240';
 const GRID_W = '120';
 const H = '120';
 const getRandomSrc = () => {
-  const random = Math.floor(Math.random() * 1000).toString();
+	const random = Math.floor(Math.random() * 1000).toString();
 
-  return `https://picsum.photos/${W}/${H}?random=${random}`;
+	return `https://picsum.photos/${W}/${H}?random=${random}`;
 };
 
 const pic = getRandomSrc();

@@ -6,12 +6,12 @@ import Layout from '#layouts/BlogPost.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  //const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { pid: post.id },
-    props: { post },
-  }));
+	//const posts = await getCollection('blog', ({ data }) => data.draft !== true);
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { pid: post.id },
+		props: { post },
+	}));
 }
 
 const { pid } = Astro.params;

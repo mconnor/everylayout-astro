@@ -5,48 +5,48 @@
  * @property {string} name The name of the container, used as the CSS `container-name` value (optional)
  */
 class Container extends HTMLElement {
-  constructor() {
-    super();
-    this.render = this.render.bind(this);
-  }
+	constructor() {
+		super();
+		this.render = this.render.bind(this);
+	}
 
-  render = () => {
-    this.i = `Container-${[this.name]}`;
-    this.dataset.i = this.i;
-    if (!document.getElementById(this.i)) {
-      const styleEl = document.createElement('style');
-      styleEl.id = this.i;
-      styleEl.innerHTML = `
+	render = () => {
+		this.i = `Container-${[this.name]}`;
+		this.dataset.i = this.i;
+		if (!document.getElementById(this.i)) {
+			const styleEl = document.createElement('style');
+			styleEl.id = this.i;
+			styleEl.innerHTML = `
           [data-i="${this.i}"] {
             display: block;
             container-type: inline-size;
             ${this.name ? `container-name: ${this.name};` : ''}
           }
         `
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      document.head.appendChild(styleEl);
-    }
-  };
-  get name() {
-    return this.getAttribute('name') || null;
-  }
+				.replace(/\s{2,}/g, ' ')
+				.trim();
+			document.head.appendChild(styleEl);
+		}
+	};
+	get name() {
+		return this.getAttribute('name') || null;
+	}
 
-  set name(val) {
-    val ? this.setAttribute('name', val) : this.removeAttribute('name');
-  }
+	set name(val) {
+		val ? this.setAttribute('name', val) : this.removeAttribute('name');
+	}
 
-  static get observedAttributes() {
-    return ['name'];
-  }
+	static get observedAttributes() {
+		return ['name'];
+	}
 
-  connectedCallback() {
-    this.render();
-  }
+	connectedCallback() {
+		this.render();
+	}
 
-  attributeChangedCallback() {
-    this.render();
-  }
+	attributeChangedCallback() {
+		this.render();
+	}
 }
 
 customElements.define('container-l', Container);

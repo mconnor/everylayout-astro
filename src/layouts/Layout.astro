@@ -3,21 +3,21 @@ import Center from '#astro-custom-layout-components/Center/index.astro';
 import Cover from '#astro-custom-layout-components/Cover/index.astro';
 import type { RmUnitType } from '#astro-custom-layout-components/Types.js';
 import BaseHead from '#components/BaseHead.astro';
-import Footer from '#components/Footer.astro';
+// import Footer from '#components/Footer.astro';
 import Header from '#components/Header.astro';
 
 interface Props {
-  title?: string;
-  description?: string;
+	title?: string;
+	description?: string;
 
-  children: unknown;
-  maxW?: RmUnitType;
+	children: unknown;
+	maxW?: RmUnitType;
 }
 
 const {
-  maxW = 'var(--measure, 60ch)',
-  title = 'I NEED A TITLE',
-  description = 'no description provided',
+	maxW = 'var(--measure, 60ch)',
+	title = 'I NEED A TITLE',
+	description = 'no description provided',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

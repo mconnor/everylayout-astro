@@ -11,7 +11,7 @@
     "allowJs": true // required, and included with all Astro templates
   },
   "files": [".astro/types.d.ts"],
-  "include": ["**/*"],
+  "include": ["src/**/*.ts", "src/**/*.astro", "src/**/*.js", "src/**/*.tsx"],
   "exclude": [
     ".vercel",
     ".astro",

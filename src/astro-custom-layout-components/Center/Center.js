@@ -9,95 +9,95 @@
  * @property {boolean} intrinsic=false Center child elements based on their content width
  */
 export default class Center extends HTMLElement {
-  constructor() {
-    super();
-    this.render = this.render.bind(this);
-  }
+	constructor() {
+		super();
+		this.render = this.render.bind(this);
+	}
 
-  render() {
-    this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`;
-    this.dataset.i = this.i;
-    if (!document.getElementById(this.i)) {
-      const styleEl = document.createElement('style');
-      styleEl.id = this.i;
-      styleEl.innerHTML = `
+	render() {
+		this.i = `Center-${[this.max, this.andText, this.gutters, this.intrinsic].join('')}`;
+		this.dataset.i = this.i;
+		if (!document.getElementById(this.i)) {
+			const styleEl = document.createElement('style');
+			styleEl.id = this.i;
+			styleEl.innerHTML = `
         [data-i="${this.i}"] {
           max-width: ${this.max};
           ${
-            this.gutters
-              ? `
+						this.gutters
+							? `
           padding-inline-start: ${this.gutters};
           padding-inline-end: ${this.gutters};`
-              : ''
-          }
-          ${this.andText ? `text-align: center;` : ''}
+							: ''
+					}
+          ${this.andText ? 'text-align: center;' : ''}
           ${
-            this.intrinsic
-              ? `
+						this.intrinsic
+							? `
           display: flex;
           flex-direction: column;
           align-items: center;`
-              : ''
-          }
+							: ''
+					}
         }
       `
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      document.head.appendChild(styleEl);
-    }
-  }
+				.replace(/\s{2,}/g, ' ')
+				.trim();
+			document.head.appendChild(styleEl);
+		}
+	}
 
-  get max() {
-    return this.getAttribute('max') || 'var(--measure)';
-  }
+	get max() {
+		return this.getAttribute('max') || 'var(--measure)';
+	}
 
-  set max(val) {
-    this.setAttribute('max', val);
-  }
+	set max(val) {
+		this.setAttribute('max', val);
+	}
 
-  get andText() {
-    return this.hasAttribute('andText');
-  }
+	get andText() {
+		return this.hasAttribute('andText');
+	}
 
-  set andText(val) {
-    if (val) {
-      this.setAttribute('andText', '');
-    } else {
-      this.removeAttribute('andText');
-    }
-  }
+	set andText(val) {
+		if (val) {
+			this.setAttribute('andText', '');
+		} else {
+			this.removeAttribute('andText');
+		}
+	}
 
-  get gutters() {
-    return this.getAttribute('gutters') || null;
-  }
+	get gutters() {
+		return this.getAttribute('gutters') || null;
+	}
 
-  set gutters(val) {
-    this.setAttribute('gutters', val);
-  }
+	set gutters(val) {
+		this.setAttribute('gutters', val);
+	}
 
-  get intrinsic() {
-    return this.hasAttribute('intrinsic');
-  }
+	get intrinsic() {
+		return this.hasAttribute('intrinsic');
+	}
 
-  set intrinsic(val) {
-    if (val) {
-      this.setAttribute('intrinsic', '');
-    } else {
-      this.removeAttribute('intrinsic');
-    }
-  }
+	set intrinsic(val) {
+		if (val) {
+			this.setAttribute('intrinsic', '');
+		} else {
+			this.removeAttribute('intrinsic');
+		}
+	}
 
-  static get observedAttributes() {
-    return ['max', 'andText', 'gutters', 'intrinsic'];
-  }
+	static get observedAttributes() {
+		return ['max', 'andText', 'gutters', 'intrinsic'];
+	}
 
-  connectedCallback() {
-    this.render();
-  }
+	connectedCallback() {
+		this.render();
+	}
 
-  attributeChangedCallback() {
-    this.render();
-  }
+	attributeChangedCallback() {
+		this.render();
+	}
 }
 
 customElements.define('center-l', Center);

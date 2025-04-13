@@ -3,8 +3,8 @@ import { Box } from '#astro-custom-layout-components/index.ts';
 import Prose from '#components/Prose.astro';
 
 interface Props {
-  headline?: string;
-  description?: string;
+	headline?: string;
+	description?: string;
 }
 
 const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
@@ -15,10 +15,10 @@ const DUMMY = `Dolor sit amet consectetur adipisicing elit. Officiis iste,
 const { headline = 'LOREM IPSUM', description = DUMMY } = Astro.props;
 
 function truncateString(str: string, limit = 100) {
-  if (str.length <= limit) {
-    return str;
-  }
-  return str.slice(0, limit) + '...';
+	if (str.length <= limit) {
+		return str;
+	}
+	return `${str.slice(0, limit)}...`;
 }
 ---
 

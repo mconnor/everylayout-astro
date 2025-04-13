@@ -15,11 +15,11 @@ import type { Percentage, RmUnitType } from '../Types.ts';
  */
 
 interface Props {
-  side?: 'left' | 'right';
-  sideWidth?: RmUnitType;
-  contentMin?: Percentage;
-  space?: RmUnitType;
-  noStretch?: boolean;
+	side?: 'left' | 'right';
+	sideWidth?: RmUnitType;
+	contentMin?: Percentage;
+	space?: RmUnitType;
+	noStretch?: boolean;
 }
 const { side = 'left', ...rest } = Astro.props;
 ---

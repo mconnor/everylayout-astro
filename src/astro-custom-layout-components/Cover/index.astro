@@ -4,11 +4,11 @@ import './Cover.css';
 import type { RmUnitType } from '../Types.ts';
 
 interface Props {
-  centeredElement?: string; // h1
-  space?: RmUnitType; //"var(--s1)"
-  minHeight?: RmUnitType; //"100vh"
-  noPad?: boolean; // false
-  children: unknown;
+	centeredElement?: string; // h1
+	space?: RmUnitType; //"var(--s1)"
+	minHeight?: RmUnitType; //"100vh"
+	noPad?: boolean; // false
+	children: unknown;
 }
 
 const { centeredElement: centered, ...rest } = Astro.props;

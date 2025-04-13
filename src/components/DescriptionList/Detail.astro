@@ -2,16 +2,16 @@
 import { Box, Switcher } from '#astro-custom-layout-components/index.ts';
 
 interface Props {
-  dt: string;
-  dtColor?: string;
-  dd: string;
-  ddColor?: string;
+	dt: string;
+	dtColor?: string;
+	dd: string;
+	ddColor?: string;
 }
 
 const {
-  dtColor = 'text-gray-900',
-  ddColor = 'text-gray-700',
-  ...rest
+	dtColor = 'text-gray-900',
+	ddColor = 'text-gray-700',
+	...rest
 } = Astro.props;
 ---
 

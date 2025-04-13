@@ -1,11 +1,11 @@
 stack-l {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--s1);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: var(--s1);
 }
 
 .stack-exception,
 .stack-exception + * {
-  --space: 3rem;
+	--space: 3rem;
 }

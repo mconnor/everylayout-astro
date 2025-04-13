@@ -6,17 +6,17 @@
  * @property {string} space=var(--s1) The space between grid cells
  */
 export default class Grid extends HTMLElement {
-  constructor() {
-    super();
-    this.render = this.render.bind(this);
-  }
-  render = () => {
-    this.i = `Grid-${[this.min, this.space].join('')}`;
-    this.dataset.i = this.i;
-    if (!document.getElementById(this.i)) {
-      const styleEl = document.createElement('style');
-      styleEl.id = this.i;
-      styleEl.innerHTML = `
+	constructor() {
+		super();
+		this.render = this.render.bind(this);
+	}
+	render = () => {
+		this.i = `Grid-${[this.min, this.space].join('')}`;
+		this.dataset.i = this.i;
+		if (!document.getElementById(this.i)) {
+			const styleEl = document.createElement('style');
+			styleEl.id = this.i;
+			styleEl.innerHTML = `
         [data-i="${this.i}"] {
           grid-gap: ${this.space};
         }
@@ -27,39 +27,39 @@ export default class Grid extends HTMLElement {
           }
         }
       `
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-      document.head.appendChild(styleEl);
-    }
-  };
+				.replace(/\s{2,}/g, ' ')
+				.trim();
+			document.head.appendChild(styleEl);
+		}
+	};
 
-  get min() {
-    return this.getAttribute('min') || '250px';
-  }
+	get min() {
+		return this.getAttribute('min') || '250px';
+	}
 
-  set min(val) {
-    this.setAttribute('min', val);
-  }
+	set min(val) {
+		this.setAttribute('min', val);
+	}
 
-  get space() {
-    return this.getAttribute('space') || 'var(--s1)';
-  }
+	get space() {
+		return this.getAttribute('space') || 'var(--s1)';
+	}
 
-  set space(val) {
-    this.setAttribute('space', val);
-  }
+	set space(val) {
+		this.setAttribute('space', val);
+	}
 
-  static get observedAttributes() {
-    return ['min', 'space'];
-  }
+	static get observedAttributes() {
+		return ['min', 'space'];
+	}
 
-  connectedCallback() {
-    this.render();
-  }
+	connectedCallback() {
+		this.render();
+	}
 
-  attributeChangedCallback() {
-    this.render();
-  }
+	attributeChangedCallback() {
+		this.render();
+	}
 }
 
 customElements.define('grid-l', Grid);

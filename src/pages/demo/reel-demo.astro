@@ -8,13 +8,13 @@ import Layout from '#layouts/Layout.astro';
 const W = '100';
 const H = '50';
 const getRandomSrc = () => {
-  const random = Math.floor(Math.random() * 1000).toString();
+	const random = Math.floor(Math.random() * 1000).toString();
 
-  return `https://picsum.photos/100/50?random=${random}`;
+	return `https://picsum.photos/100/50?random=${random}`;
 };
 ---
 
-<Layout centerWidth="100vw">
+<Layout maxW="100vw">
   <Reel itemWidth="10rem" noBar={false} space="var(--s3)">
     <Card>
       <Frame ratio="16:9" slot="image-slot">

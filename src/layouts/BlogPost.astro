@@ -5,10 +5,10 @@ import { Image } from 'astro:assets';
 import { type CollectionEntry, getEntry } from 'astro:content';
 
 import {
-  Box,
-  Center,
-  Frame,
-  Stack,
+	Box,
+	Center,
+	Frame,
+	Stack,
 } from '#astro-custom-layout-components/index.ts';
 import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
@@ -18,16 +18,16 @@ import Layout from '#layouts/Layout.astro';
 //   children: AstroComponentFactory;
 // }
 interface Props {
-  blogData: CollectionEntry<'blog'>['data'];
-  id: string;
+	blogData: CollectionEntry<'blog'>['data'];
+	id: string;
 }
 
 const { blogData } = Astro.props;
 
 const { title, description, pubDate, cover, author } = blogData;
 
-const results = await getEntry('authors', author.id);
-const { name } = results!.data;
+const { data } = await getEntry('authors', author.id);
+const { name } = data;
 ---
 
 <Layout title="blog post" description="Lorem ipsum dolor sit amet">

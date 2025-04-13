@@ -8,20 +8,20 @@ import Layout from '#layouts/Layout.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const publishsedPosts = await getCollection('blog');
+	const publishsedPosts = await getCollection('blog');
 
-  const uniqueTags = [
-    ...new Set(publishsedPosts.flatMap(({ data }) => data.tags ?? [])),
-  ];
+	const uniqueTags = [
+		...new Set(publishsedPosts.flatMap(({ data }) => data.tags ?? [])),
+	];
 
-  return uniqueTags.map((tag) => ({
-    params: { tag: tag },
-    props: {
-      postsWithThisTag: publishsedPosts.filter(({ data }) =>
-        data.tags.includes(tag),
-      ),
-    },
-  }));
+	return uniqueTags.map((tag) => ({
+		params: { tag: tag },
+		props: {
+			postsWithThisTag: publishsedPosts.filter(({ data }) =>
+				data.tags.includes(tag),
+			),
+		},
+	}));
 }
 
 const { tag } = Astro.params;

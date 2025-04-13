@@ -2,7 +2,7 @@
 // const regexAstro = /\.astro$/;
 
 export const getRandomPicRemote = (w = '300', h = '300') => {
-  return `https://picsum.photos/${w}/${h}?random=${Math.floor(Math.random() * 100)}`;
+	return `https://picsum.photos/${w}/${h}?random=${Math.floor(Math.random() * 100)}`;
 };
 
 // export const getPathLinks = (

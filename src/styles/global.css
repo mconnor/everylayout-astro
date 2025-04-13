@@ -1,45 +1,45 @@
-@import 'open-props/style';
+@import "open-props/style";
 
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @layer theme, base, components, utilities;
 
 @theme {
-  --font-display: 'Oswald', 'sans-serif';
-  --color-mint-500: oklch(0.72 0.11 178);
-  --color-light: oklch(0.984 0.003 247.858);
-  --color-dark: oklch(0.21 0.006 285.885);
-  --color-regal-blue: #243c5a;
-  --measure: 60ch;
-  --ratio: 1.61803398875;
-  --font-size-base: 1rem;
+	--font-display: "Oswald", "sans-serif";
+	--color-mint-500: oklch(0.72 0.11 178);
+	--color-light: oklch(0.984 0.003 247.858);
+	--color-dark: oklch(0.21 0.006 285.885);
+	--color-regal-blue: #243c5a;
+	--measure: 60ch;
+	--ratio: 1.61803398875;
+	--font-size-base: 1rem;
 
-  --s0: var(--font-size-base);
-  --s000: calc(var(--s0) * pow(var(--ratio), -3));
-  --s00: calc(var(--s0) * pow(var(--ratio), -2));
-  --s1: calc(var(--s0) * pow(var(--ratio), 1));
-  --s2: calc(var(--s0) * pow(var(--ratio), 2));
+	--s0: var(--font-size-base);
+	--s000: calc(var(--s0) * pow(var(--ratio), -3));
+	--s00: calc(var(--s0) * pow(var(--ratio), -2));
+	--s1: calc(var(--s0) * pow(var(--ratio), 1));
+	--s2: calc(var(--s0) * pow(var(--ratio), 2));
 
-  --s3: calc(var(--s0) * pow(var(--ratio), 3));
-  --s4: calc(var(--s0) * pow(var(--ratio), 4));
-  --s5: calc(var(--s0) * pow(var(--ratio), 5));
-  --s6: calc(var(--s0) * pow(var(--ratio), 6));
-  --s7: calc(var(--s0) * pow(var(--ratio), 7));
-  --s8: calc(var(--s0) * pow(var(--ratio), 8));
+	--s3: calc(var(--s0) * pow(var(--ratio), 3));
+	--s4: calc(var(--s0) * pow(var(--ratio), 4));
+	--s5: calc(var(--s0) * pow(var(--ratio), 5));
+	--s6: calc(var(--s0) * pow(var(--ratio), 6));
+	--s7: calc(var(--s0) * pow(var(--ratio), 7));
+	--s8: calc(var(--s0) * pow(var(--ratio), 8));
 
-  --h0: 10;
-  --h1: calc(50vh / var(--h0) * pow(var(--ratio), 1));
-  --h2: calc(50vh / var(--h0) * pow(var(--ratio), 2));
-  --h3: calc(50vh / var(--h0) * pow(var(--ratio), 3));
-  --h4: calc(50vh / var(--h0) * pow(var(--ratio), 4));
-  --h5: calc(50vh / var(--h0) * pow(var(--ratio), 5));
+	--h0: 10;
+	--h1: calc(50vh / var(--h0) * pow(var(--ratio), 1));
+	--h2: calc(50vh / var(--h0) * pow(var(--ratio), 2));
+	--h3: calc(50vh / var(--h0) * pow(var(--ratio), 3));
+	--h4: calc(50vh / var(--h0) * pow(var(--ratio), 4));
+	--h5: calc(50vh / var(--h0) * pow(var(--ratio), 5));
 
-  --line-height: var(--ratio);
-  --border-thin: var(--border-size-1);
+	--line-height: var(--ratio);
+	--border-thin: var(--border-size-1);
 
-  --font-size-biggish: var(--s1);
-  --font-size-big: var(--s2);
+	--font-size-biggish: var(--s1);
+	--font-size-big: var(--s2);
 }
 
 /* Now you can use utility classes like bg-mint-500, text-mint-500, or fill-mint-500 in your HTML: */

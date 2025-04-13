@@ -13,9 +13,9 @@ import type { AstroInstance } from 'astro';
 // );
 
 const allAstroPages = Object.values(
-  import.meta.glob<AstroInstance>('../pages/**/*.astro', {
-    eager: true,
-  }),
+	import.meta.glob<AstroInstance>('../pages/**/*.astro', {
+		eager: true,
+	}),
 ).filter((astroInst) => astroInst?.url && !/\[.*\]/.test(astroInst.url)); // Exclude paths with brackets
 
 // const pages = stringArraySchema.parse(pagesValues);

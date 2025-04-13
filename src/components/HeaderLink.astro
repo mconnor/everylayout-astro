@@ -3,8 +3,8 @@ import type { HTMLAttributes } from 'astro/types';
 
 import { Cluster } from '#astro-custom-layout-components/index.ts';
 type Props = HTMLAttributes<'a'> & {
-  slug?: string;
-  children: unknown;
+	slug?: string;
+	children: unknown;
 };
 
 const { href } = Astro.props;

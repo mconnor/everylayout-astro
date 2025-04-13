@@ -7,13 +7,13 @@ import BaseHead from '#components/BaseHead.astro';
 import Andy from '../assets/Andy.jpg';
 
 interface Props {
-  title?: string;
-  description?: string;
-  children: unknown;
+	title?: string;
+	description?: string;
+	children: unknown;
 }
 
 const { title = 'I NEED A TITLE', description = 'no description provided' } =
-  Astro.props;
+	Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---

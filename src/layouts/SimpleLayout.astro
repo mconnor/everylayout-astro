@@ -9,21 +9,21 @@ import BaseHead from '#components/BaseHead.astro';
 // import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  // maxW?: RmUnitType;
-  children: unknown;
+	title?: string;
+	description?: string;
+	image?: string;
+	// maxW?: RmUnitType;
+	children: unknown;
 }
 
 // const isProd = import.meta.env.PROD
 // const isDev = import.meta.env.DEV
 
 const {
-  title = 'Mike Connor',
-  description = 'my description',
-  image = '/placeholder-social.jpg',
-  // maxW = 'var(--measure)',
+	title = 'Mike Connor',
+	description = 'my description',
+	image = '/placeholder-social.jpg',
+	// maxW = 'var(--measure)',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

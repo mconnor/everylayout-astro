@@ -17,21 +17,21 @@ import CardTop from './top-bottom.astro';
 // type EntryType = CollectionEntry<'blog'>;
 
 interface Props extends HTMLAttributes<'article'> {
-  slug: string;
-  foregroundColor?: string;
-  backgroundColor?: string;
+	slug: string;
+	foregroundColor?: string;
+	backgroundColor?: string;
 }
 
 const {
-  slug,
-  foregroundColor = 'var(--text-2)',
-  backgroundColor = 'var(--surface-4)',
+	slug,
+	foregroundColor = 'var(--text-2)',
+	backgroundColor = 'var(--surface-4)',
 } = Astro.props;
 
 const blogdata = await getEntry('blog', slug);
 
 if (blogdata === undefined) {
-  throw new Error(`No blog entry found for slug: ${slug}`);
+	throw new Error(`No blog entry found for slug: ${slug}`);
 }
 
 const { title, pubDate, description, author, cover } = blogdata.data;

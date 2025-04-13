@@ -1,6 +1,0 @@
-   <img
-                                width={720}
-                                height={360}
-                                src={post.data.heroImage}
-                                alt=""
-                            />
