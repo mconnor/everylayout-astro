@@ -1,12 +1,5 @@
 ---
 import { layoutDemoPages, topLevelPages } from '#lib/getPages.ts';
-
-// const regexHasSubPages = /^\/[^/]*\/./;
-
-// const fileNameRegex = /([^/]+)$/;
-// const pagesRegExp = /pages\/(.+)/;
-// const afterComponentssRegex = /components\/(.+)/;
-// const regexAstro = /\.astro$/;
 ---
 
 <h4>Main Pages</h4>
@@ -16,9 +9,11 @@ import { layoutDemoPages, topLevelPages } from '#lib/getPages.ts';
     <ul>
       {topLevelPages
         // .filter((page) => !regexHasSubPages.test(page))
-        .map((page) => (
+        .map(({ url }) => (
           <li>
-            <a href={page.url}>{page.url?.slice(1)}</a>
+            <a href={url === '' ? './' : url}>
+              {url === '' ? 'home' : url?.slice(1)}
+            </a>
           </li>
         ))}
     </ul>
@@ -33,9 +28,9 @@ import { layoutDemoPages, topLevelPages } from '#lib/getPages.ts';
     <ul>
       {layoutDemoPages
         // .filter((page) => !regexHasSubPages.test(page))
-        .map((page) => (
+        .map(({ url }) => (
           <li>
-            <a href={page.url}>{page.url?.slice(1)}</a>
+            <a href={url}>{url?.slice(1)}</a>
           </li>
         ))}
     </ul>

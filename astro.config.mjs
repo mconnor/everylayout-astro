@@ -35,7 +35,6 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), react()],
   cacheDir: './my-custom-cache-directory',
   experimental: {
-    svg: true,
     responsiveImages: true,
   },
 });
