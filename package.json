@@ -102,5 +102,5 @@
     "node": "^22.2.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@10.9.0"
+  "packageManager": "pnpm@10.11.0"
 }
