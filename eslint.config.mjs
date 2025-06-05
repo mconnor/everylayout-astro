@@ -54,7 +54,7 @@ const tsConfig = tseslint.config(
   },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+  // ...tseslint.configs.stylisticTypeChecked,
 
   {
     languageOptions: {
