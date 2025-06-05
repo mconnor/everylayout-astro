@@ -30,7 +30,7 @@ export default defineConfig({
 
   image: {
     domains: ['astro.build', 'picsum.photos', 'tailwindcss.com'],
-    experimentalLayout: 'responsive',
+    experimentalLayout: 'constrained',
   },
   integrations: [mdx(), sitemap(), react()],
   cacheDir: './my-custom-cache-directory',
