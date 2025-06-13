@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 
-import Layout from '#layouts/BlogPost.astro';
+import MarkdownPostLayout from '#layouts/BlogPost.astro';
 
 export const prerender = true;
 
@@ -9,17 +9,17 @@ export async function getStaticPaths() {
   //const posts = await getCollection('blog', ({ data }) => data.draft !== true);
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { pid: post.id },
+    params: { pid: decodeURI(post.id) },
     props: { post },
   }));
 }
 
-const { pid } = Astro.params;
+// const { pid } = Astro.params;
 const { post } = Astro.props;
 
 const { Content } = await render(post);
 ---
 
-<Layout id={pid} blogData={post.data}>
+<MarkdownPostLayout blogData={post.data}>
   <Content />
-</Layout>
+</MarkdownPostLayout>

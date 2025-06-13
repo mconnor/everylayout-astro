@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "rootDir": ".",
     "experimentalDecorators": true, // default is false for TypeScript 5.0 and up

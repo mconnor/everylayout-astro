@@ -3,16 +3,22 @@ import { Box, Sidebar, Stack } from '#astro-custom-layout-components/index.ts';
 import Layout from '#layouts/Layout.astro';
 ---
 
-<!-- heroImage="/blog-placeholder-about.jpg" -->
-<Layout title="test Me" description="sidebar test" centerWidth="100ch">
-  <Sidebar side="left" contentMin="20%" sideWidth="30ch">
+<Layout title="test Me" description="sidebar test">
+  <Sidebar side="left" contentMin="20%" sideWidth='20rem'>
     <Stack splitAfter={2}>
-      <Box><p>xxx</p></Box>
-      <Box><p>xxx</p></Box>
-      <Box invert><p>xxx</p></Box>
+      <button class="">Click Me</button>
+     <button class="">Click Me</button>
+      <button class="">Click Me</button>
     </Stack>
 
     <Box>
+      <p>
+        <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
+        20rem as an ideal or “target” width. It is then free to calculate just how
+        closely the 20rem target can be resembled given the content and available
+        space. You empower the browser to make the right decision for the content,
+        and the user, reading that content, given their circumstances.
+      </p>
       <p>
         <em>flex-basis:</em> 20rem is more nuanced. It tells the browser to consider
         20rem as an ideal or “target” width. It is then free to calculate just how

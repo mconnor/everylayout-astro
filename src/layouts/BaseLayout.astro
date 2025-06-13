@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+
+// import type { RmUnitType } from '#astro-custom-layout-components/Types.ts';
+import BaseHead from '#components/BaseHead.astro';
+
+interface Props {
+  image?: string;
+
+  title?: string;
+  children: unknown;
+  description?: string;
+}
+
+const { title = 'xxx', description = 'sss' } = Astro.props;
+// const mode = import.meta.env.NODE_ENV?.toString().substring(0, 3);
+---
+
+<html lang="en" id="blog-app">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

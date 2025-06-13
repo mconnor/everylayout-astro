@@ -1,8 +1,8 @@
 ---
 // import Author from '@cc/Author.astro'
-
 import { Image } from 'astro:assets';
-import { type CollectionEntry, getEntry } from 'astro:content';
+import type { z } from 'astro:content';
+import { getEntry } from 'astro:content';
 
 import {
   Box,
@@ -12,14 +12,16 @@ import {
 } from '#astro-custom-layout-components/index.ts';
 import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
+import { blogSchema } from '#schemas/index.ts';
 
 // interface Props {
 //   data: BlogSchemaType;
 //   children: AstroComponentFactory;
 // }
 interface Props {
-  blogData: CollectionEntry<'blog'>['data'];
-  id: string;
+  blogData: z.infer<typeof blogSchema>;
+  // id: string;
+  children: unknown;
 }
 
 const { blogData } = Astro.props;
@@ -30,7 +32,7 @@ const results = await getEntry('authors', author.id);
 const { name } = results!.data;
 ---
 
-<Layout title="blog post" description="Lorem ipsum dolor sit amet">
+<Layout title={title} description="Lorem ipsum dolor sit amet">
   <Center>
     <Stack space="var(--s00)">
       <Frame ratio="16:9">

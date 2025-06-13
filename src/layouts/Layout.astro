@@ -1,42 +1,38 @@
 ---
-import Center from '#astro-custom-layout-components/Center/index.astro';
-import Cover from '#astro-custom-layout-components/Cover/index.astro';
-import type { RmUnitType } from '#astro-custom-layout-components/Types.js';
-import BaseHead from '#components/BaseHead.astro';
-// import Footer from '#components/Footer.astro';
+// import Center from '@repo/layout-webcomponents/Center';
+// import Cover from '@repo/layout-webcomponents/Cover';
+// import Header from '#components/DaisyHeader/index.astro';
+import type { RmUnitType } from '#astro-custom-layout-components/Types.ts';
+import Footer from '#components/Footer.astro';
 import Header from '#components/Header.astro';
 
+import BaseLayout from './BaseLayout.astro';
+// import Nav from '@repo/astro-ui/NavBarRes';
+// import { slide } from 'astro:transitions';
 interface Props {
+  maxW?: RmUnitType;
+  children: unknown;
   title?: string;
   description?: string;
-
-  children: unknown;
-  maxW?: RmUnitType;
 }
 
-const {
-  maxW = 'var(--measure, 60ch)',
-  title = 'I NEED A TITLE',
-  description = 'no description provided',
-} = Astro.props;
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { ...rest } = Astro.props;
 ---
 
-<html lang="en" transition:animate="none">
-  <head>
-    <BaseHead title={title} description={description} />
-    <link rel="canonical" href={canonicalURL} />
-  </head>
-
-  <body>
-    <Cover centeredElement="center-l" minHeight="100vh">
-      <Header />
-
-      <Center max={maxW}>
-        <slot />
-      </Center>
-      <!-- <Footer /> -->
-    </Cover>
-  </body>
-</html>
+<BaseLayout {...rest}>
+  <div class="flex min-h-screen flex-col">
+    <Header />
+    <main
+      class="m-auto flex max-w-6/10 flex-col items-center justify-center p-4 border-1"
+    >
+      <slot name="headline" />
+      <slot />
+    </main>
+    <Footer />
+    <!-- <footer class="mt-auto flex items-center justify-center p-4">
+      <p class="text-sm text-gray-500">
+        © {new Date().getFullYear()} Mike Connor. All rights reserved.
+      </p>
+    </footer> -->
+  </div>
+</BaseLayout>

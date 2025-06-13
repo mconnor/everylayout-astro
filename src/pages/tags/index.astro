@@ -28,7 +28,7 @@ const slugTags = allBlogDataObjs
 //   throw new Error('Invalid blog post data');
 // }
 
-const zString = z.string();
+const zString = z.string().regex(/^[a-z](?:[a-z-]*[a-z])?$/);
 
 const tagCountsObject = slugTags.reduce(
   (tagCountAcc, post) => {

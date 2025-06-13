@@ -1,4 +1,6 @@
 ---
+import Sidebar from '#astro-custom-layout-components/Sidebar/index.astro';
+
 import Detail from './Detail.astro';
 
 interface Props {
@@ -13,8 +15,8 @@ const COPY =
   'Consectetur elit eu aute officia consequat eiusmod aliquip fugiat exercitation veniam consequat anim. In quis laborum aute et non nulla proident commodo amet reprehenderit velit Lorem. Minim velit voluptate incididunt esse fugiat deserunt consectetur consectetur nulla et fugiat laborum ex officia. Est in elit nulla consectetur. Mollit eu esse cillum quis sint non sit aute veniam id voluptate. Deserunt dolore qui officia consequat amet tempor ex elit.';
 ---
 
-<div class="box">
-  <div class="px-4 sm:px-0">
+<Sidebar>
+  <div class="border-2 px-4 sm:px-0">
     <h3 class="text-base/7 font-semibold text-gray-900">
       {heading}
     </h3>
@@ -109,4 +111,4 @@ const COPY =
       </div>
     </dl>
   </div>
-</div>
+</Sidebar>

@@ -2,7 +2,6 @@
 @import './modular-scale.css';
 
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
 
 @layer theme, base, components, utilities;
 
@@ -13,6 +12,8 @@
   --color-dark: oklch(0.21 0.006 285.885);
   --color-regal-blue: #243c5a;
 }
+
+@plugin '@tailwindcss/typography';
 
 /* Now you can use utility classes like bg-mint-500, text-mint-500, or fill-mint-500 in your HTML: */
 

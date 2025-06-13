@@ -3,8 +3,6 @@
 // all pages through the use of the <BaseHead /> component.
 import { ClientRouter } from 'astro:transitions';
 
-import GlobalStyles from '#styles/GlobalStyles.astro';
-
 interface Props {
   title: string;
   description: string;
@@ -74,4 +72,3 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ></script>
 
 <ClientRouter />
-<GlobalStyles />

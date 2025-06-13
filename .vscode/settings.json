@@ -1,12 +1,49 @@
 {
   "editor.inlayHints.enabled": "on",
   // Do not ignore node_modules css files, which is ignored by default
-  "cssvar.enable": true,
-  "cssvar.themes": ["dark", "light"],
-  // Since we want to scan css files inside `node_modules as well
-  // we need to set cssvar.ignore property to empty array
-  "cssvar.ignore": [],
-  "cssvar.excludeThemedVariables": false,
+
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.json": "jsonc"
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "tailwindcss",
+    "astro": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.files.exclude": ["**/node_modules/**", "**/dist/**"],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "class:list",
+    "tw",
+    "twx"
+  ],
+  "emmet.includeLanguages": {
+    "plaintext": "tailwindcss",
+    "astro": "html",
+    "postcss": "css",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "vue-html": "html",
+    "svelte": "html",
+    "preact": "html",
+    "lit": "html",
+    "css": "css"
+  },
+  "tailwindCSS.lint.invalidApply": "error",
+  "tailwindCSS.lint.invalidScreen": "warning",
+  "tailwindCSS.lint.cssConflict": "warning",
+  "tailwindCSS.validate": true,
+  "tailwindCSS.showPixelEquivalents": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.classFunctions": ["tw", "clsx"],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -24,18 +61,27 @@
    * - "off": Inlay hints are disabled.
    * - "on": Inlay hints are enabled.
    */
-  "cssvar.files": [
-    "./src/styles/**/*css",
-    "./node_modules/open-props/open-props.min.css"
-    // if you have an alternative path to where your styles are located
-    // you can add it in this array of files
-    // "assets/styles/variables.css"
-  ],
-  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
+
   "terminal.integrated.fastScrollSensitivity": 2,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.cursorBlinking": true,
+  "search.exclude": {
+    "**/dist/**": true,
+    "**/.next/**": true,
+    "**/.astro/**": true,
+    "**/.turbo/**": true,
+    "**/.vercel/**": true,
+    "**/coverage/**": true,
+    "./pnpm-lock.yaml": true,
+    "**/.svelte-kit/**": true
+  },
+  "[css]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false
+  },
+
   "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "$HOME/.local/share/mise/shims/node"
+    "pwa-node": "/Users/mikeconnor/.local/share/mise/shims/node"
   }
 }

@@ -5,7 +5,7 @@ import js from '@eslint/js';
 import markdown from '@eslint/markdown';
 import astroParser from 'astro-eslint-parser';
 import prettier from 'eslint-config-prettier';
-import astro from 'eslint-plugin-astro';
+import eslintPluginAstro from 'eslint-plugin-astro';
 // import regexp from 'eslint-plugin-regexp';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { configs as wc } from 'eslint-plugin-wc';
@@ -53,11 +53,12 @@ const tsConfig = tseslint.config(
     ],
   },
   js.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.recommendedTypeChecked,
   // ...tseslint.configs.stylisticTypeChecked,
 
   {
     languageOptions: {
+      parser: tseslint.parser,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -78,8 +79,8 @@ const tsConfig = tseslint.config(
   {
     files: ['**/*.astro'],
     extends: [
+      eslintPluginAstro.configs.recommended,
       tseslint.configs.disableTypeChecked,
-      ...astro.configs.recommended,
     ],
     languageOptions: {
       parser: astroParser,
@@ -95,7 +96,7 @@ const tsConfig = tseslint.config(
   },
   {
     files: ['**/*js'],
-    ...tseslint.configs.disableTypeChecked,
+    extends: [tseslint.configs.disableTypeChecked],
   },
   // {
   //   files: ['src/content/blog/*.md'],
