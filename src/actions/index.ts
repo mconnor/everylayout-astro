@@ -9,18 +9,16 @@ export const server = {
       terms: z.boolean(),
     }),
     handler: async ({ token }) => {
-      fetch('/recaptcha', {
+      const response = await fetch('/recaptcha', {
         method: 'POST',
         body: JSON.stringify({ recaptcha: token }),
-      })
-        .then((response) => response.json())
-        .then((gResponse) => {
-          if (gResponse.success) {
-            // Captcha verification was a success
-          } else {
-            // Captcha verification failed
-          }
-        });
+      });
+      const gResponse = await response.json();
+      if (gResponse.success) {
+        // Captcha verification was a success
+      } else {
+        // Captcha verification failed
+      }
     },
   }),
 };

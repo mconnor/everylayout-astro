@@ -1,4 +1,5 @@
 import mdx from '@astrojs/mdx';
+import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -49,7 +50,9 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap(), react()],
   cacheDir: './my-custom-cache-directory',
-  experimental: {
-    responsiveImages: true,
-  },
+  experimental: {},
+    adapter: vercel({
+    imageService: true,
+    devImageService: 'sharp',
+  }),
 });

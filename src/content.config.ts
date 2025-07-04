@@ -5,9 +5,9 @@ import {
   // astroComponentSchema,
   authorSchema,
   blogSchema,
-} from '#schemas/index.js';
+} from '#schemas/index.ts';
 
-const blog = defineCollection({
+const blogCollection = defineCollection({
   loader: glob({
     pattern: ['**/*.md', '**/*.mdx'],
     base: './src/blog',
@@ -23,15 +23,15 @@ const blog = defineCollection({
 //   schema: astroComponentSchema,
 // });
 
-const authors = defineCollection({
+const authorsCollection = defineCollection({
   // type: 'data',
- loader: glob({ pattern: '**/[^_]*.toml', base: "./src/content/authors" }),
+  loader: glob({ pattern: '**/[^_]*.json', base: './src/content/authors' }),
   schema: authorSchema,
 });
 
 // 3. Export multiple collections to register them
 export const collections = {
   // astroComponents,
-  blog,
-  authors,
+  blogCollection,
+  authorsCollection,
 };

@@ -1,0 +1,20 @@
+---
+import {
+  getEntry,
+  // type CollectionEntry,
+  // type InferEntrySchema,
+  type ReferenceDataEntry,
+} from 'astro:content';
+
+interface Props {
+  authorReference: ReferenceDataEntry<'authorsCollection', string>;
+}
+
+const { authorReference } = Astro.props;
+
+const authorEntry = await getEntry('authorsCollection', authorReference.id);
+---
+
+<a class="mx-auto link link-hover" href={`../authors/${authorEntry!.data.id}`}>
+  {authorEntry!.data.name}
+</a>

@@ -2,7 +2,7 @@
 // import Author from '@cc/Author.astro'
 import { Image } from 'astro:assets';
 import type { z } from 'astro:content';
-import { getEntry } from 'astro:content';
+import { type CollectionEntry,getEntry  } from 'astro:content';
 
 import {
   Box,
@@ -10,26 +10,20 @@ import {
   Frame,
   Stack,
 } from '#astro-custom-layout-components/index.js';
+import Author from '#components/Author/index.astro';
 import FormattedDate from '#components/FormattedDate.astro';
 import Layout from '#layouts/Layout.astro';
-import { blogSchema } from '#schemas/index.js';
+import { blogSchema } from '#schemas/index.ts';
 
 // interface Props {
 //   data: BlogSchemaType;
 //   children: AstroComponentFactory;
 // }
-interface Props {
-  blogData: z.infer<typeof blogSchema>;
-  // id: string;
-  children: unknown;
-}
 
-const { blogData } = Astro.props;
+const { data } = Astro.props as CollectionEntry<'blogCollection'>;
 
-const { title, description, pubDate, cover, author } = blogData;
+const { title, description, pubDate, cover, author: authorRef } = data;
 
-const results = await getEntry('authors', author.id);
-const { name } = results!.data;
 ---
 
 <Layout title={title} description="Lorem ipsum dolor sit amet">
@@ -52,7 +46,7 @@ const { name } = results!.data;
       <Box invert>
         <details>
           <summary>About the author</summary>
-          <h2>written by {name}</h2>
+          <p>    {authorRef && <Author authorReference={authorRef} />}</p>
         </details>
       </Box>
 

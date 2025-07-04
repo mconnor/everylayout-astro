@@ -1,0 +1,20 @@
+---
+// import { authorSchema } from '#schemas/idex.js';
+
+import { getCollection } from 'astro:content';
+import Layout from '#layouts/Layout.astro';
+const authors = await getCollection('authorsCollection');
+---
+
+<Layout title="authors">
+  <!-- <Debug {tag} />
+    <Debug {posts} /> -->
+
+  {
+    authors.map(({ data }) => (
+      <div class="flex items-center gap-2">
+        <a href={`/authors/${data.id}`}>{data.name}</a>
+      </div>
+    ))
+  }
+</Layout>

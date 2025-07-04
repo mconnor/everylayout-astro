@@ -8,7 +8,7 @@ import Layout from '#layouts/Layout.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const publishsedPosts = await getCollection('blog');
+  const publishsedPosts = await getCollection('blogCollection');
 
   const uniqueTags = [
     ...new Set(publishsedPosts.map(({ data }) => data.tags ?? []).flat()),

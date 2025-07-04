@@ -4,9 +4,9 @@ import { z } from 'astro:content';
 
 import TagContainer from '#components/TagContainer.astro';
 import Layout from '#layouts/Layout.astro';
-import { tagCountTypeSchema, zTags } from '#schemas/index.js';
+import { tagCountTypeSchema, zTags } from '#schemas/index.ts';
 
-const allBlogPost = await getCollection('blog');
+const allBlogPost = await getCollection('blogCollection');
 
 const allBlogDataObjs = allBlogPost.map((post) => post);
 

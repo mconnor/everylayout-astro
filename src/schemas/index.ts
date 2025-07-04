@@ -4,6 +4,11 @@
 // import type { MarkdownInstance } from 'astro';
 import { reference, z } from 'astro:content';
 
+const zWebSite = z.object({
+  platform: z.string(),
+  url: z.string().url(),
+});
+
 const urlSchema = z.string().url();
 const urlSchemaOptional = urlSchema.optional();
 const strSC = z.string();
@@ -34,7 +39,7 @@ export const authorSchema = z.object({
   id: strSC,
   name: strSC.default('Anonymous'),
   email: emailSchemaOptional,
-  portfolio: urlSchemaOptional,
+  // portfolio: urlSchemaOptional,
   bio: strSCOptional,
 });
 
