@@ -1,33 +1,47 @@
-<html>
-  <head>
-    <script is:inline src="https://www.google.com/recaptcha/api.js"></script>
-  </head>
+---
+import Layout from '#layouts/Layout.astro';
+---
 
-  <body>
+<Layout>
+  <form>
     <button
       class="g-recaptcha"
       data-sitekey="PUBLIC_SITE_KEY"
       data-callback="onSubmit"
       data-action="submit"
+      name="captcha"
     >
       Click me to verify the captcha challenge!
     </button>
+  </form>
 
-    <script is:inline>
-      function onSubmit(token) {
-        fetch('/recaptcha', {
-          method: 'POST',
-          body: JSON.stringify({ recaptcha: token }),
-        })
-          .then((response) => response.json())
-          .then((gResponse) => {
-            if (gResponse.success) {
-              // Captcha verification was a success
-            } else {
-              // Captcha verification failed
-            }
-          });
-      }
-    </script>
-  </body>
-</html>
+  <script>
+    import { actions } from 'astro:actions';
+    import { navigate } from 'astro:transitions/client';
+
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const { error } = await actions.captcha(formData);
+      if (!error) navigate('/confirmation');
+    });
+  </script>
+
+  <script is:inline>
+    function onSubmit(token) {
+      fetch('/recaptcha', {
+        method: 'POST',
+        body: JSON.stringify({ recaptcha: token }),
+      })
+        .then((response) => response.json())
+        .then((gResponse) => {
+          if (gResponse.success) {
+            // Captcha verification was a success
+          } else {
+            // Captcha verification failed
+          }
+        });
+    }
+  </script>
+</Layout>

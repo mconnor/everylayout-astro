@@ -1,7 +1,8 @@
 ---
 // import Box from '#astro-custom-layout-components/Box/index.astro';
+// import { PUBLIC_EMAIL } from 'astro:env/client';
 
-import DescriptionList from '#components/DescriptionList/index.astro';
+// import DescriptionList from '#components/DescriptionList/index.astro';
 import Layout from '#layouts/Layout.astro';
 
 // import FeaturedPost from '#components/FeaturedPost.astro';
@@ -9,9 +10,9 @@ import Layout from '#layouts/Layout.astro';
 ---
 
 <Layout title="About Me" description="Lorem ipsum dolor sit amet" maxW="60ch">
-  <DescriptionList
+  <!-- <DescriptionList
     heading="Applicant Information"
     subheading="Personal details and application."
-  />
-  <!-- </Stack> -->
+  /> -->
+  <p>{import.meta.env.PUBLIC_EMAIL}</p>
 </Layout>

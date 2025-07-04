@@ -5,7 +5,7 @@ import {
   // astroComponentSchema,
   authorSchema,
   blogSchema,
-} from '#schemas/index.ts';
+} from '#schemas/index.js';
 
 const blog = defineCollection({
   loader: glob({
@@ -24,7 +24,8 @@ const blog = defineCollection({
 // });
 
 const authors = defineCollection({
-  type: 'data',
+  // type: 'data',
+ loader: glob({ pattern: '**/[^_]*.toml', base: "./src/content/authors" }),
   schema: authorSchema,
 });
 

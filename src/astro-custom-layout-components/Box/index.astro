@@ -1,7 +1,7 @@
 ---
 import './Box.css';
 
-import type { RmUnitType } from '../Types.ts';
+import type { RmUnitType } from '../Types';
 
 interface Props {
   padding?: RmUnitType; //"var(--s1)"
@@ -14,4 +14,4 @@ const { padding = 'var(--s1)', borderWidth, invert } = Astro.props;
 <box-l padding={padding} borderWidth={borderWidth} invert={invert}>
   <slot />
 </box-l>
-<script src="./Box.js"></script>
+<script src="./Box"></script>

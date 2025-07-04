@@ -1,13 +1,13 @@
 ---
-import { Box, Sidebar, Stack } from '#astro-custom-layout-components/index.ts';
+import { Box, Sidebar, Stack } from '#astro-custom-layout-components/index.js';
 import Layout from '#layouts/Layout.astro';
 ---
 
 <Layout title="test Me" description="sidebar test">
-  <Sidebar side="left" contentMin="20%" sideWidth='20rem'>
+  <Sidebar side="left" contentMin="20%" sideWidth="20rem">
     <Stack splitAfter={2}>
       <button class="">Click Me</button>
-     <button class="">Click Me</button>
+      <button class="">Click Me</button>
       <button class="">Click Me</button>
     </Stack>
 

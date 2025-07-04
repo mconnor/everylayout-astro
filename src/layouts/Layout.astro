@@ -2,7 +2,7 @@
 // import Center from '@repo/layout-webcomponents/Center';
 // import Cover from '@repo/layout-webcomponents/Cover';
 // import Header from '#components/DaisyHeader/index.astro';
-import type { RmUnitType } from '#astro-custom-layout-components/Types.ts';
+import type { RmUnitType } from '#astro-custom-layout-components/Types.js';
 import Footer from '#components/Footer.astro';
 import Header from '#components/Header.astro';
 
@@ -23,7 +23,7 @@ const { ...rest } = Astro.props;
   <div class="flex min-h-screen flex-col">
     <Header />
     <main
-      class="m-auto flex max-w-6/10 flex-col items-center justify-center p-4 border-1"
+      class="m-auto flex max-w-6/10 flex-col items-center justify-center border-1 p-4"
     >
       <slot name="headline" />
       <slot />

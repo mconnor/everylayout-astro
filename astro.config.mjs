@@ -2,7 +2,7 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
 // https://astro.build/config
@@ -10,6 +10,21 @@ export default defineConfig({
   // redirects: {
   //   '/index': '/about',
   // },
+  evn: {
+    schema: {
+      PUBLIC_EMAIL: envField.string({
+        context: 'client',
+        access: 'public',
+        optional: true,
+      }),
+      PORT: envField.number({
+        context: 'server',
+        access: 'public',
+        default: 4321,
+      }),
+      API_SECRET: envField.string({ context: 'server', access: 'secret' }),
+    },
+  },
   site: 'https://example.com',
 
   vite: {
