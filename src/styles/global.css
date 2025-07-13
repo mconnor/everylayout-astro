@@ -3,7 +3,7 @@
 
 @import 'tailwindcss';
 
-@layer theme, base, components, utilities;
+
 
 @theme {
   --font-display: 'Oswald', 'sans-serif';

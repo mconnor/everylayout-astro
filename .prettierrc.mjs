@@ -10,7 +10,10 @@ export default {
       },
     },
   ],
+  tailwindStylesheet: './src/styles/global.css',
   singleQuote: true,
   trailingComma: 'all',
   tabWidth: 2,
 };
+
+
