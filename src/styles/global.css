@@ -3,8 +3,6 @@
 
 @import 'tailwindcss';
 
-
-
 @theme {
   --font-display: 'Oswald', 'sans-serif';
   --color-mint-500: oklch(0.72 0.11 178);

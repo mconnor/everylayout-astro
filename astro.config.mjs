@@ -51,7 +51,7 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), react()],
   cacheDir: './my-custom-cache-directory',
   experimental: {},
-    adapter: vercel({
+  adapter: vercel({
     imageService: true,
     devImageService: 'sharp',
   }),

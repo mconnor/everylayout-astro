@@ -13,6 +13,7 @@ interface Props {
   justify?: JustifyContentTypes; //"flex-start"
   align?: AlignItemsTypes; // "flex-start"
   space?: RmUnitType;
+  role?: 'list' | undefined;
   // role?: typeof LIST
 }
 
@@ -20,10 +21,11 @@ const {
   justify = 'flex-start',
   align = 'flex-start',
   space = 'var(--s1)',
+  role,
 } = Astro.props;
 ---
 
-<cluster-l justify={justify} align={align} space={space}>
+<cluster-l role={role} justify={justify} align={align} space={space}>
   <slot />
 </cluster-l>
 

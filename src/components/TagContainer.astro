@@ -9,27 +9,26 @@ import TagBtn from './TagBtn.astro';
 const { tags, tagCounts } = Astro.props;
 ---
 
-<Cluster>
+<Cluster role="list">
   {
     tags.map((tag) => (
-      <TagBtn>
+      <div role="listitem" class="button dark relative hover:bg-gray-50">
         <a href={`/tags/${tag}`}>
-          <div>
-            <Icon space="var(--size-3)">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="16"
-                width="14"
-                viewBox="0 0 448 512"
-              >
-                <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-              </svg>
+          <span class="absolute inset-0" />
+          <Icon space="var(--size-3)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="16"
+              width="14"
+              viewBox="0 0 448 512"
+            >
+              <path d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+            </svg>
 
-              {tagCounts ? `${tag}, ${tagCounts[tag]}` : `${tag}`}
-            </Icon>
-          </div>
+            {tagCounts ? `${tag}, ${tagCounts[tag]}` : `${tag}`}
+          </Icon>
         </a>
-      </TagBtn>
+      </div>
     ))
   }
 </Cluster>
@@ -49,6 +48,47 @@ const { tags, tagCounts } = Astro.props;
       background-color: var(
         --surface-1
       ); /* replace with your desired hover styles */
+    }
+  }
+
+  .button {
+    display: inline-flex;
+    white-space: nowrap;
+
+    font-size: var(--font-size-fluid-1);
+    font-weight: var(--font-weight-7);
+
+    padding-inline: var(--size-6);
+    padding-block: var(--size-3);
+
+    color: var(--blue-9);
+    border: var(--border-size-2) solid var(--blue-5);
+    background-color: transparent;
+    border-radius: var(--radius-2);
+
+    &:is(:hover, :focus) {
+      cursor: pointer;
+      color: var(--blue-0);
+      background-color: var(--blue-5);
+
+      > .light & {
+        text-shadow: 0 1px 0 var(--blue-8);
+      }
+    }
+
+    &:active:not(:focus-visible) {
+      position: relative;
+      /*     inset-block-start: 2px; */
+    }
+
+    .dark & {
+      border-color: var(--blue-3);
+      color: var(--blue-1);
+
+      &:hover {
+        background-color: var(--blue-3);
+        color: black;
+      }
     }
   }
 </style>

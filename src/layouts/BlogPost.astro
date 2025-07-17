@@ -1,7 +1,7 @@
 ---
 // import Author from '@cc/Author.astro'
 import { Image } from 'astro:assets';
-import { type CollectionEntry  } from 'astro:content';
+import { type CollectionEntry } from 'astro:content';
 
 import {
   Box,
@@ -22,7 +22,6 @@ import Layout from '#layouts/Layout.astro';
 const { data } = Astro.props as CollectionEntry<'blogCollection'>;
 
 const { title, description, pubDate, cover, author: authorRef } = data;
-
 ---
 
 <Layout title={title} description="Lorem ipsum dolor sit amet">
@@ -45,7 +44,7 @@ const { title, description, pubDate, cover, author: authorRef } = data;
       <Box invert>
         <details>
           <summary>About the author</summary>
-          <p>    {authorRef && <Author authorReference={authorRef} />}</p>
+          <p>{authorRef && <Author authorReference={authorRef} />}</p>
         </details>
       </Box>
 

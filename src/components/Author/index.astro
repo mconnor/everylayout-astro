@@ -15,6 +15,6 @@ const { authorReference } = Astro.props;
 const authorEntry = await getEntry('authorsCollection', authorReference.id);
 ---
 
-<a class="mx-auto link link-hover" href={`../authors/${authorEntry!.data.id}`}>
+<a class="link link-hover mx-auto" href={`../authors/${authorEntry!.data.id}`}>
   {authorEntry!.data.name}
 </a>

@@ -18,7 +18,7 @@ const { name, bio } = data;
 ---
 
 <Layout title={name} maxW="60ch">
-  <div class="card card-side bg-base-100 shadow-sm card-lg">
+  <div class="card card-side bg-base-100 card-lg shadow-sm">
     <figure>
       <img
         src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
@@ -27,7 +27,7 @@ const { name, bio } = data;
     </figure>
     <div class="card-body">
       <h2 class="card-title">{name}</h2>
-    { bio && <p>{bio}</p>}
+      {bio && <p>{bio}</p>}
       <!-- <div class="card-actions justify-end">
         {
           links &&
@@ -40,5 +40,4 @@ const { name, bio } = data;
       </div> -->
     </div>
   </div>
-
 </Layout>
