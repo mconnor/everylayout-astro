@@ -1,4 +1,4 @@
-import { file, glob } from 'astro/loaders';
+import {  glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 
 import {
@@ -7,7 +7,7 @@ import {
   blogSchema,
 } from '#schemas/index.ts';
 
-import { categorySchema } from '#schemas/store.ts';
+// import { categorySchema } from '#schemas/store.ts';
 
 const blog = defineCollection({
   loader: glob({
