@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import Layout from '#layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const authors = await getCollection('authorsCollection');
+  const authors = await getCollection('authors');
 
   return authors.map((author) => ({
     params: { id: author.id },
@@ -18,7 +18,7 @@ const { name, bio } = data;
 ---
 
 <Layout title={name} maxW="60ch">
-  <div class="card card-side bg-base-100 card-lg shadow-sm">
+  <div class="card card-side bg-base-100 shadow-sm card-lg">
     <figure>
       <img
         src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"

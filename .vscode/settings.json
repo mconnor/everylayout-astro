@@ -1,6 +1,9 @@
 {
   "editor.inlayHints.enabled": "on",
-  // Do not ignore node_modules css files, which is ignored by default
+  "editor.formatOnSave": false,
+  // "editor.rulers": [80],
+  // "editor.wordWrap": "bounded",
+  // "editor.wordWrapColumn": 80,
 
   "css.validate": false,
   "less.validate": false,
@@ -31,9 +34,6 @@
     "postcss": "css",
     "javascript": "javascriptreact",
     "typescript": "typescriptreact",
-    "vue-html": "html",
-    "svelte": "html",
-    "preact": "html",
     "lit": "html",
     "css": "css"
   },
@@ -72,16 +72,29 @@
     "**/.turbo/**": true,
     "**/.vercel/**": true,
     "**/coverage/**": true,
-    "./pnpm-lock.yaml": true,
-    "**/.svelte-kit/**": true
+    "./pnpm-lock.yaml": true
   },
   "[css]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": false,
     "editor.formatOnType": false
   },
+  "github.copilot.enable": {
+    "markdown": true,
+    "plaintext": false,
+    "zod": true,
+    "astro": true,
+    "react": true,
+    "javascript": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "json": true,
+    "jsonc": true,
+    "yaml": true
+  },
 
   "debug.javascript.defaultRuntimeExecutable": {
     "pwa-node": "/Users/mikeconnor/.local/share/mise/shims/node"
-  }
+  },
+  "deno.path": "/Users/mikeconnor/.local/share/mise/shims/deno"
 }

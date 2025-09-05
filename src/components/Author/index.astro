@@ -7,14 +7,14 @@ import {
 } from 'astro:content';
 
 interface Props {
-  authorReference: ReferenceDataEntry<'authorsCollection', string>;
+  authorReference: ReferenceDataEntry<'authors', string>;
 }
 
 const { authorReference } = Astro.props;
 
-const authorEntry = await getEntry('authorsCollection', authorReference.id);
+const authorEntry = await getEntry('authors', authorReference.id);
 ---
 
-<a class="link link-hover mx-auto" href={`../authors/${authorEntry!.data.id}`}>
+<a class="mx-auto link link-hover" href={`../authors/${authorEntry!.data.id}`}>
   {authorEntry!.data.name}
 </a>

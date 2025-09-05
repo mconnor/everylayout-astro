@@ -6,8 +6,7 @@ import MarkdownPostLayout from '#layouts/BlogPost.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  //const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-  const posts = await getCollection('blogCollection');
+  const posts = await getCollection('blog');
   return posts.map((post) => ({
     params: { pid: decodeURI(post.id) },
     props: { post },

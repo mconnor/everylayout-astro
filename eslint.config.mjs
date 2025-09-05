@@ -7,7 +7,7 @@ import astroParser from 'astro-eslint-parser';
 import prettier from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 // import regexp from 'eslint-plugin-regexp';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
+// import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { configs as wc } from 'eslint-plugin-wc';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -140,15 +140,15 @@ const tsConfig = tseslint.config(
       reportUnusedDisableDirectives: 'warn',
     },
   },
-  {
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-    },
-    rules: {
-      'simple-import-sort/imports': 'warn',
-      'simple-import-sort/exports': 'warn',
-    },
-  },
+  // {
+  //   plugins: {
+  //     'simple-import-sort': simpleImportSort,
+  //   },
+  //   rules: {
+  //     'simple-import-sort/imports': 'warn',
+  //     'simple-import-sort/exports': 'warn',
+  //   },
+  // },
 
   prettier,
 );

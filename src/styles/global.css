@@ -11,6 +11,12 @@
   --color-regal-blue: #243c5a;
 }
 
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+
 @plugin '@tailwindcss/typography';
 
 /* Now you can use utility classes like bg-mint-500, text-mint-500, or fill-mint-500 in your HTML: */

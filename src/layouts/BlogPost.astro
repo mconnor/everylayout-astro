@@ -19,7 +19,7 @@ import Layout from '#layouts/Layout.astro';
 //   children: AstroComponentFactory;
 // }
 
-const { data } = Astro.props as CollectionEntry<'blogCollection'>;
+const { data } = Astro.props as CollectionEntry<'blog'>;
 
 const { title, description, pubDate, cover, author: authorRef } = data;
 ---

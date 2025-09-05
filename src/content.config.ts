@@ -1,4 +1,4 @@
-import { glob } from 'astro/loaders';
+import { file, glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 
 import {
@@ -7,10 +7,12 @@ import {
   blogSchema,
 } from '#schemas/index.ts';
 
-const blogCollection = defineCollection({
+import { categorySchema } from '#schemas/store.ts';
+
+const blog = defineCollection({
   loader: glob({
     pattern: ['**/*.md', '**/*.mdx'],
-    base: './src/blog',
+    base: './src/data/blog',
   }),
   schema: blogSchema,
 });
@@ -23,15 +25,21 @@ const blogCollection = defineCollection({
 //   schema: astroComponentSchema,
 // });
 
-const authorsCollection = defineCollection({
+const authors = defineCollection({
   // type: 'data',
-  loader: glob({ pattern: '**/[^_]*.json', base: './src/content/authors' }),
+  loader: glob({ pattern: '**/[^_]*.json', base: './src/data/authors' }),
   schema: authorSchema,
 });
+
+// const categoriesCollection = defineCollection({
+//   loader: file('./src/data/store/categories.toml'),
+//   schema: categorySchema,
+// });
 
 // 3. Export multiple collections to register them
 export const collections = {
   // astroComponents,
-  blogCollection,
-  authorsCollection,
+  // categoriesCollection,
+  blog,
+  authors,
 };

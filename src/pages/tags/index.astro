@@ -6,7 +6,7 @@ import TagContainer from '#components/TagContainer.astro';
 import Layout from '#layouts/Layout.astro';
 import { tagCountTypeSchema, zTags } from '#schemas/index.ts';
 
-const allBlogPost = await getCollection('blogCollection');
+const allBlogPost = await getCollection('blog');
 
 const allBlogDataObjs = allBlogPost.map((post) => post);
 

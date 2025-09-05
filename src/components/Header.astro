@@ -4,28 +4,17 @@ import DemoMenu from '#components/DemoMenu.astro';
 ---
 
 <!-- <div class="bg-light dark:bg-gray-800"> -->
-<div class="flex flex-row justify-end bg-mint-500">
-  <div class="justify-self-center-1 grow border">
-    <DemoMenu />
+<div class="flex justify-between bg-mint-500">
+  <div class="border">
+    <!-- <DemoMenu /> -->
+    <p>hello</p>
   </div>
 
-  <nav class="justify-self-center-1 flex grow flex-row justify-around border-2">
-    <a
-      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
-      href="/">Home</a
-    >
-    <a
-      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
-      href="/blog">Blog</a
-    >
+  <nav class="inline-flex flex-col justify-around border-2 lg:flex-row">
+    <a class="rounded-md border bg-amber-600 px-1 py-2" href="/">Home</a>
+    <a class="rounded-md border bg-amber-600 px-1 py-2" href="/blog">Blog</a>
 
-    <a
-      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
-      href="/ui">Ui</a
-    >
-    <a
-      class="grow justify-self-center rounded-md border bg-amber-600 px-1 py-2"
-      href="/tags">tags</a
-    >
+    <a class="rounded-md border bg-amber-600 px-1 py-2" href="/ui">Ui</a>
+    <a class="rounded-md border bg-amber-600 px-1 py-2" href="/tags">tags</a>
   </nav>
 </div>

@@ -4,13 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
-import browserslist from 'browserslist';
-import { browserslistToTargets } from 'lightningcss';
+
 // https://astro.build/config
 export default defineConfig({
-  // redirects: {
-  //   '/index': '/about',
-  // },
   env: {
     schema: {
       PUBLIC_EMAIL: envField.string({
@@ -21,7 +17,7 @@ export default defineConfig({
       PORT: envField.number({
         context: 'server',
         access: 'public',
-        default: 4321,
+        default: 4325,
       }),
       API_SECRET: envField.string({ context: 'server', access: 'secret' }),
     },
@@ -32,15 +28,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
     ssr: {
       noExternal: ['open-props'],
-    },
-    css: {
-      transformer: 'lightningcss',
-      lightningcss: {
-        targets: browserslistToTargets(browserslist('>= 0.25%')),
-        drafts: {
-          customMedia: true,
-        },
-      },
     },
   },
 
